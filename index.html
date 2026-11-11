@@ -24,12 +24,10 @@
       image-rendering: crisp-edges;
       shape-rendering: crispEdges;
     }
-    /* Exact gold box border from 1 in 65M */
     .gold-box {
       border: 2px solid #dfbd69;
       box-shadow: 0 0 20px rgba(223, 189, 105, 0.15);
     }
-    /* Exact 'เกิด' mustard-gold button from 1 in 65M */
     .btn-gold-65m {
       background-color: #e5a83b;
       color: #1a1303;
@@ -46,7 +44,6 @@
     .btn-gold-65m:active {
       transform: translateY(1px);
     }
-    /* Exact choice card styling from 1 in 65M */
     .choice-card-65m {
       background-color: #0f1a3a;
       border: 1px solid #1a2c5a;
@@ -70,7 +67,7 @@
       100% { opacity: 0; transform: translateY(-12px); }
     }
     .stat-toast {
-      animation: floatUpFade 1.6s forwards;
+      animation: floatUpFade 2s forwards;
     }
     ::-webkit-scrollbar {
       width: 6px;
@@ -91,7 +88,7 @@
   <div class="w-full max-w-5xl flex flex-col items-center">
 
     <!-- Top Status Bar (Matching exact 1-in-65M header bar) -->
-    <header id="topBar" class="w-full bg-[#0d1736] border border-[#16234d] rounded-lg px-4 py-2.5 mb-3 flex flex-wrap items-center justify-between gap-3 shadow-md">
+    <header id="topBar" class="w-full bg-[#0d1736] border border-[#16234d] rounded-lg px-3 sm:px-4 py-2.5 mb-3 flex flex-wrap items-center justify-between gap-3 shadow-md">
       <!-- Left: Intern Info & Stipend -->
       <div class="flex items-center space-x-3">
         <div id="roleBadge" class="w-8 h-8 rounded bg-[#16234d] text-emerald-400 border border-emerald-500/40 flex items-center justify-center font-bold text-xs font-mono">
@@ -111,7 +108,7 @@
       <!-- Right: Stats Bar with Exact Icons & Progress Bars from 1 in 65M -->
       <div id="headerStats" class="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono">
         <!-- Energy (Heart) -->
-        <div class="flex items-center gap-1.5" title="พลังกาย / สุขภาพ">
+        <div class="flex items-center gap-1.5" title="พลังกาย / สุขภาพ (ต่ำกว่า 30 สมองล้า, 0 ล้มป่วยส่งตัวกลับ)">
           <span class="text-red-400 text-sm">❤️</span>
           <span id="statEnergyVal" class="font-bold text-slate-100">80</span>
           <div class="w-10 h-2 bg-[#16234d] rounded-full overflow-hidden hidden sm:block">
@@ -119,7 +116,7 @@
           </div>
         </div>
         <!-- Sanity (Smiley) -->
-        <div class="flex items-center gap-1.5" title="สุขภาพจิต / ความสุข">
+        <div class="flex items-center gap-1.5" title="สุขภาพจิต / ความสุข (ต่ำกว่า 30 เกิด Imposter Syndrome, 0 หมดไฟลาออก)">
           <span class="text-[#ffd600] text-sm">😊</span>
           <span id="statSanityVal" class="font-bold text-slate-100">75</span>
           <div class="w-10 h-2 bg-[#16234d] rounded-full overflow-hidden hidden sm:block">
@@ -127,7 +124,7 @@
           </div>
         </div>
         <!-- Skill (Book) -->
-        <div class="flex items-center gap-1.5" title="ทักษะวิชาชีพ">
+        <div class="flex items-center gap-1.5" title="ทักษะวิชาชีพ (กำหนดคุณภาพงานและโอกาสได้ Return Offer)">
           <span class="text-[#00e5ff] text-sm">📘</span>
           <span id="statSkillVal" class="font-bold text-slate-100">30</span>
           <div class="w-10 h-2 bg-[#16234d] rounded-full overflow-hidden hidden sm:block">
@@ -135,7 +132,7 @@
           </div>
         </div>
         <!-- Karma / Connection (Tie) -->
-        <div class="flex items-center gap-1.5" title="บารมี / คอนเนกชัน">
+        <div class="flex items-center gap-1.5" title="บารมี / คอนเนกชัน (พี่เลี้ยงช่วยเซฟเวลาพลาด, 0 โดนทำเรื่องส่งตัวกลับ)">
           <span class="text-[#26a69a] text-sm">👔</span>
           <span id="statKarmaVal" class="font-bold text-slate-100">40</span>
           <div class="w-10 h-2 bg-[#16234d] rounded-full overflow-hidden hidden sm:block">
@@ -143,7 +140,7 @@
           </div>
         </div>
         <!-- Money (Coin) -->
-        <div class="flex items-center gap-1.5" title="เงินเก็บสะสม">
+        <div class="flex items-center gap-1.5" title="เงินเก็บสะสม (เบี้ยเลี้ยง หักค่าเดินทาง ค่ากิน ค่าหอพัก)">
           <span class="text-[#fbc02d] text-sm">💰</span>
           <span id="statMoneyVal" class="font-bold text-[#fbc02d]">฿3,000</span>
         </div>
@@ -158,7 +155,7 @@
     <!-- Footer Controls (Exact 1-in-65M button styling) -->
     <footer class="w-full mt-3 flex items-center justify-between text-xs text-slate-400 px-2 font-mono">
       <div class="flex items-center gap-3">
-        <span>จำลองชีวิตเด็กฝึกงานเอสอี 16 สัปดาห์</span>
+        <span>จำลองชีวิตเด็กฝึกงานเอสอี 16 สัปดาห์ (สมจริง)</span>
         <span>•</span>
         <span class="text-slate-500">กดแป้นตัวเลข 1-3 หรือ Enter ได้</span>
       </div>
@@ -251,92 +248,108 @@
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
           osc.start(now);
           osc.stop(now + 0.22);
+        } else if (type === 'money') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(587.33, now);
+          osc.frequency.setValueAtTime(880, now + 0.08);
+          gain.gain.setValueAtTime(0.1, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+          osc.start(now);
+          osc.stop(now + 0.2);
         }
       } catch (e) {
         console.warn('Audio error:', e);
       }
     }
 
-    // --- ROLES & COMPANIES ---
+    // --- REALISTIC ROLES & COMPANIES ---
     const ROLES = {
       dev: {
         id: 'dev',
         title: 'Software Developer',
         badge: '💻 Dev',
-        tagline: 'เทพเขียนโค้ด บั๊กไม่กลัว กลัวไม่มีสเปก',
+        tagline: 'สายโค้ด: สู้ชีวิตกับบั๊ก, Git Conflict และ Friday Deploy',
         desc: 'รับผิดชอบเขียนโค้ดสร้างฟีเจอร์, แก้ไขบั๊ก, รีแฟกเตอร์ระบบ และทำตาม Jira Ticket ให้ทันเดดไลน์สปรินต์',
-        init: { skill: 35, energy: 85, sanity: 75, karma: 35, money: 3000 }
+        init: { skill: 35, energy: 85, sanity: 75, karma: 40, money: 4000 }
       },
       ba: {
         id: 'ba',
         title: 'Business Analyst',
         badge: '📋 BA',
-        tagline: 'ล่า Requirement แปลภาษาคนเป็นภาษา Dev',
+        tagline: 'สายประสาน: เจรจากับลูกค้าที่อยากได้ทุกอย่างแต่งบจำกัด',
         desc: 'คุยกับลูกค้า สรุปสโคป วาด Flowchart ใน Miro เขียน User Stories และไกล่เกลี่ยความต้องการที่ไม่สิ้นสุด',
-        init: { skill: 30, energy: 80, sanity: 70, karma: 50, money: 3200 }
+        init: { skill: 30, energy: 80, sanity: 70, karma: 50, money: 4200 }
       },
       tester: {
         id: 'tester',
         title: 'QA / Software Tester',
         badge: '🧪 Tester',
-        tagline: 'หาเรื่องจับผิดโค้ด บั๊กอยู่ไหนต้องเจอ',
+        tagline: 'สายสืบ: ไล่บี้จับผิดโปรแกรมเมอร์ ไม่ให้บั๊กหลุดถึงโปรดักชัน',
         desc: 'เขียน Test Case, รัน Regression Test, กดทำลายระบบทุกวิถีทางเพื่อไม่ให้บั๊กหลุดถึงมือผู้บริหารและลูกค้า',
-        init: { skill: 32, energy: 85, sanity: 80, karma: 40, money: 3000 }
+        init: { skill: 32, energy: 85, sanity: 80, karma: 42, money: 4000 }
       },
       uxui: {
         id: 'uxui',
         title: 'UX/UI Designer',
         badge: '🎨 UX/UI',
-        tagline: 'ปั้น Figma สวยตาแตก ขอโลโก้ใหญ่ขึ้นอีกนิด',
+        tagline: 'สายดีไซน์: ปั้น Figma สวยกริบ แต่ Dev บอกเขียนโค้ดยาก',
         desc: 'ออกแบบ User Journey, ทำ Design System & Tokens, วาด Mockup สวยหรู และเถียงกับ Dev เรื่องขนาดพิกเซล',
-        init: { skill: 34, energy: 80, sanity: 75, karma: 45, money: 3100 }
+        init: { skill: 34, energy: 80, sanity: 75, karma: 45, money: 4100 }
       }
     };
 
     const COMPANIES = [
       {
         id: 'startup',
-        name: 'HyperScale AI (Startup ดาวรุ่ง)',
-        badge: '🚀 Tech Startup สุขุมวิท',
+        name: 'HyperScale AI (Startup อโศก)',
+        badge: '🚀 Tech Startup อโศก',
         tagline: '"สปริ้นต์ไว งานเปลี่ยนทุก 2 ชั่วโมง ได้ทำสากกะเบือยันเรือรบ"',
         desc: 'ออฟฟิศเก๋สไตล์ลอฟต์ โซฟาบีนแบ็ก กาแฟดริป เบียร์ฟรีเย็นวันศุกร์ แต่สปรินต์โหดหิน ต้องเรียนรู้ด้วยตัวเองแบบติดสปีด!',
-        dailyStipend: 650,
-        bonus: { skill: 5, energy: 5, sanity: -5, karma: 5, money: 3000 }
+        dailyStipend: 450, // ฿450/day * 5 = ฿2,250/สัปดาห์
+        weeklyLivingCost: 1300, // ค่ากิน+เดินทางต่อสัปดาห์
+        monthlyRent: 4800, // ค่าหอเดือนละ 4,800
+        bonus: { skill: 10, energy: -5, sanity: -5, karma: 5, money: 2000 }
       },
       {
         id: 'bigcorp',
         name: 'Siam Cloud Financial Bank',
-        badge: '🏛️ FinTech / Big Tech ยักษ์ใหญ่',
+        badge: '🏛️ FinTech / Big Bank สาทร',
         tagline: '"ระบบความปลอดภัยระดับสากล และ Ticket อนุมัติ 80 ขั้นตอน"',
         desc: 'ตึกระฟ้าใจกลางสาทร เบี้ยเลี้ยงแน่น สวัสดิการหรู บัตรห้อยคอ 5 ระดับ แต่ขอสิทธิ์ลงโปรแกรมทีต้องรอ Ticket นาน 2 สัปดาห์',
-        dailyStipend: 900,
-        bonus: { skill: 10, energy: -5, sanity: 5, karma: -5, money: 4500 }
+        dailyStipend: 750, // ฿750/day * 5 = ฿3,750/สัปดาห์
+        weeklyLivingCost: 1600, // ข้าวสาทรแพง กาแฟแก้วละ 120
+        monthlyRent: 5800, // หอใกล้ BTS สาทร
+        bonus: { skill: 5, energy: -5, sanity: 5, karma: -5, money: 4000 }
       },
       {
         id: 'softwarehouse',
         name: 'CyberCrafters Agency',
-        badge: '⚡ Software House & Agency',
+        badge: '⚡ Software House อารีย์',
         tagline: '"รับจบทุกเทคโนโลยี ลูกค้าอยากได้เมื่อวาน"',
         desc: 'โปรเจกต์หมุนเวียนเร็วมาก ได้จับทั้ง React, Flutter, Go, Cloud และ AI วันละ 3 ภาษา ได้ประสบการณ์เข้มข้นที่สุดในรุ่น',
-        dailyStipend: 750,
-        bonus: { skill: 15, energy: -10, sanity: -10, karma: 10, money: 3500 }
+        dailyStipend: 500, // ฿500/day * 5 = ฿2,500/สัปดาห์
+        weeklyLivingCost: 1350,
+        monthlyRent: 5000,
+        bonus: { skill: 15, energy: -10, sanity: -10, karma: 10, money: 2500 }
       },
       {
         id: 'gov',
         name: 'สถาบันพัฒนานวัตกรรมดิจิทัลภาครัฐ',
-        badge: '🏢 รัฐวิสาหกิจ & หน่วยงานดิจิทัล',
-        tagline: '"เน้นพิธีการ เอกสารเป๊ะ เลิกงาน 16:30 น. ตรงเวลา"',
-        desc: 'ออฟฟิศราชการยุคใหม่ แอร์เย็นฉ่ำ เอกสารเบิกจ่ายต้องเซ็นสด 4 คน งานนิ่ง ไม่เหนื่อยเกินไป ได้ศึกษาโครงสร้างระบบระดับชาติ',
-        dailyStipend: 500,
-        bonus: { skill: -5, energy: 15, sanity: 15, karma: 15, money: 2500 }
+        badge: '🏢 รัฐวิสาหกิจ แจ้งวัฒนะ',
+        tagline: '"เน้นระเบียบราชการ เอกสารเป๊ะ เลิกงาน 16:30 น. ตรงเวลา"',
+        desc: 'ออฟฟิศราชการยุคใหม่ แอร์เย็นฉ่ำ เอกสารเบิกจ่ายต้องเซ็นสด 4 คน งานนิ่ง ไม่เหนื่อยเกินไป แต่เบี้ยเลี้ยงน้อยตามระเบียบ',
+        dailyStipend: 250, // ฿250/day * 5 = ฿1,250/สัปดาห์ (ต้องประหยัดสุดขีด!)
+        weeklyLivingCost: 1100,
+        monthlyRent: 3800, // หอแถวแจ้งวัฒนะ
+        bonus: { skill: -5, energy: 15, sanity: 15, karma: 15, money: 1500 }
       }
     ];
 
     // --- 16:9 WIDE SCENIC PIXEL ART CANVAS SVGS (viewBox="0 0 160 90") ---
     const SCENE_ARTS = {
-      // STARTING SCREEN
+      // STARTING SCREEN: Bangkok Tech Hub Skyline with street food stall & intern
       start_city: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#070d1e] pixel-art">
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#060c1d] pixel-art">
           <rect x="0" y="0" width="160" height="90" fill="#060c1d"/>
           <rect x="15" y="8" width="1" height="1" fill="#93c5fd"/>
           <rect x="42" y="14" width="1.5" height="1.5" fill="#fef08a"/>
@@ -344,7 +357,7 @@
           <rect x="110" y="12" width="1.5" height="1.5" fill="#fef08a"/>
           <rect x="135" y="7" width="1" height="1" fill="#93c5fd"/>
           <rect x="150" y="16" width="1" height="1" fill="#fff"/>
-          <rect x="0" y="22" width="160" height="3" fill="#1e293b"/>
+          <!-- Skyline Buildings -->
           <rect x="6" y="18" width="16" height="38" fill="#0f172a"/>
           <rect x="8" y="22" width="2" height="3" fill="#38bdf8"/>
           <rect x="12" y="22" width="2" height="3" fill="#fef08a"/>
@@ -367,20 +380,24 @@
           <rect x="104" y="14" width="3" height="4" fill="#38bdf8"/>
           <rect x="116" y="16" width="18" height="40" fill="#0f172a"/>
           <rect x="138" y="20" width="18" height="36" fill="#1e293b"/>
+          <!-- Chao Phraya River / Canal -->
           <rect x="0" y="44" width="160" height="12" fill="#082f49"/>
           <line x1="10" y1="47" x2="40" y2="47" stroke="#0284c7" stroke-width="1"/>
           <line x1="60" y1="50" x2="95" y2="50" stroke="#0284c7" stroke-width="1"/>
           <line x1="110" y1="48" x2="145" y2="48" stroke="#0284c7" stroke-width="1"/>
           <line x1="30" y1="53" x2="80" y2="53" stroke="#38bdf8" stroke-width="1"/>
+          <!-- Bridge Railing & Street Lamp -->
           <rect x="0" y="55" width="160" height="3" fill="#475569"/>
           <line x1="0" y1="56" x2="160" y2="56" stroke="#94a3b8" stroke-width="1"/>
           <rect x="22" y="38" width="2" height="18" fill="#64748b"/>
           <circle cx="23" cy="37" r="2.5" fill="#fef08a"/>
           <rect x="138" y="38" width="2" height="18" fill="#64748b"/>
           <circle cx="139" cy="37" r="2.5" fill="#fef08a"/>
+          <!-- Pavement Street -->
           <rect x="0" y="58" width="160" height="32" fill="#1e293b"/>
           <line x1="0" y1="68" x2="160" y2="68" stroke="#334155" stroke-width="1"/>
           <line x1="0" y1="78" x2="160" y2="78" stroke="#334155" stroke-width="1"/>
+          <!-- Thai Street Food Cart (รถเข็นลูกชิ้นทอด/หมูปิ้ง) -->
           <rect x="94" y="50" width="28" height="18" fill="#92400e"/>
           <polygon points="90,50 126,50 124,42 92,42" fill="#ef4444"/>
           <rect x="96" y="42" width="4" height="8" fill="#fff"/>
@@ -391,6 +408,7 @@
           <circle cx="104" cy="48" r="1.5" fill="#e2e8f0"/>
           <circle cx="108" cy="46" r="3" fill="#fcd34d"/>
           <rect x="106" y="43" width="6" height="3" fill="#18181b"/>
+          <!-- Student Intern Pixel Character -->
           <rect x="68" y="54" width="10" height="6" fill="#18181b"/>
           <rect x="67" y="56" width="12" height="4" fill="#18181b"/>
           <rect x="68" y="60" width="10" height="6" fill="#fcd34d"/>
@@ -409,7 +427,111 @@
         </svg>
       `,
 
-      // 1. CODE SCENE
+      // MOO KRATHA SCENE (ตี้หมูกระทะบุฟเฟต์ 199.- วันศุกร์หรรษา)
+      moo_kratha: `
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#180808] pixel-art">
+          <rect x="0" y="0" width="160" height="90" fill="#180808"/>
+          <!-- Restaurant Neon & Lanterns -->
+          <rect x="10" y="6" width="60" height="12" fill="#7f1d1d" stroke="#ef4444"/>
+          <rect x="14" y="9" width="52" height="6" fill="#fef08a"/>
+          <circle cx="95" cy="14" r="5" fill="#f97316"/>
+          <circle cx="115" cy="14" r="5" fill="#eab308"/>
+          <circle cx="135" cy="14" r="5" fill="#f97316"/>
+          <line x1="80" y1="8" x2="155" y2="8" stroke="#78350f" stroke-width="1.5"/>
+          <line x1="95" y1="8" x2="95" y2="10" stroke="#78350f"/>
+          <line x1="115" y1="8" x2="115" y2="10" stroke="#78350f"/>
+          <line x1="135" y1="8" x2="135" y2="10" stroke="#78350f"/>
+          <!-- Wooden Table -->
+          <rect x="15" y="48" width="130" height="8" fill="#92400e" stroke="#78350f" stroke-width="1.5"/>
+          <rect x="25" y="56" width="10" height="34" fill="#78350f"/>
+          <rect x="125" y="56" width="10" height="34" fill="#78350f"/>
+          <rect x="0" y="70" width="160" height="20" fill="#1c1917"/>
+          <!-- Brass Moo Kratha Stove (เตาหมูกระทะทองเหลือง) -->
+          <rect x="66" y="44" width="28" height="6" fill="#44403c"/>
+          <ellipse cx="80" cy="42" rx="18" ry="7" fill="#d97706" stroke="#b45309" stroke-width="1.5"/>
+          <ellipse cx="80" cy="42" rx="14" ry="5" fill="#fef08a" opacity="0.8"/> <!-- Soup Broth -->
+          <ellipse cx="80" cy="40" rx="9" ry="4" fill="#b45309"/> <!-- Dome grill -->
+          <circle cx="78" cy="39" r="2.5" fill="#f43f5e"/> <!-- Sliced Pork -->
+          <circle cx="82" cy="40" r="2.5" fill="#f43f5e"/>
+          <circle cx="80" cy="38" r="1.5" fill="#fff"/> <!-- Pork Fat cube -->
+          <!-- Rising Delicious Smoke (ควันหมูกระทะ) -->
+          <circle cx="78" cy="30" r="3" fill="#e2e8f0" opacity="0.5"/>
+          <circle cx="83" cy="24" r="4.5" fill="#e2e8f0" opacity="0.4"/>
+          <circle cx="79" cy="17" r="6" fill="#e2e8f0" opacity="0.3"/>
+          <circle cx="85" cy="10" r="7.5" fill="#e2e8f0" opacity="0.2"/>
+          <!-- Dipping Sauce (ถ้วยน้ำจิ้มสุกี้) & Bacon Plates -->
+          <rect x="42" y="43" width="14" height="6" fill="#fecaca" stroke="#f43f5e"/>
+          <rect x="44" y="41" width="10" height="2" fill="#ef4444"/>
+          <circle cx="60" cy="45" r="3" fill="#dc2626"/>
+          <circle cx="61" cy="45" r="1" fill="#fef08a"/>
+          <!-- Happy Intern Eating with Chopsticks -->
+          <rect x="108" y="24" width="14" height="7" fill="#18181b"/>
+          <rect x="108" y="31" width="14" height="8" fill="#fcd34d"/>
+          <rect x="110" y="33" width="2" height="2" fill="#000"/>
+          <rect x="116" y="33" width="2" height="2" fill="#000"/>
+          <rect x="111" y="36" width="6" height="2" fill="#dc2626"/> <!-- Big Smile -->
+          <circle cx="109" cy="35" r="1.5" fill="#f43f5e"/> <!-- Blush -->
+          <circle cx="119" cy="35" r="1.5" fill="#f43f5e"/>
+          <rect x="106" y="39" width="18" height="18" fill="#0284c7"/>
+          <line x1="102" y1="44" x2="88" y2="40" stroke="#ca8a04" stroke-width="1.5"/> <!-- Chopsticks -->
+          <!-- Beer Mug & Cheers Glass -->
+          <rect x="98" y="40" width="6" height="9" fill="#fef08a" stroke="#ca8a04"/>
+          <rect x="99" y="38" width="4" height="2" fill="#fff"/>
+        </svg>
+      `,
+
+      // SENT BACK SCENE (โดนส่งตัวกลับมหาวิทยาลัย / ใบแจ้งพ้นสภาพสหกิจ)
+      sent_back: `
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#080c18] pixel-art">
+          <rect x="0" y="0" width="160" height="90" fill="#080c18"/>
+          <!-- Heavy Rain lines -->
+          <line x1="10" y1="4" x2="6" y2="16" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+          <line x1="34" y1="8" x2="30" y2="22" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+          <line x1="65" y1="2" x2="61" y2="18" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+          <line x1="95" y1="10" x2="91" y2="24" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+          <line x1="125" y1="6" x2="121" y2="20" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+          <line x1="145" y1="12" x2="141" y2="26" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+          <!-- Company Glass Entrance with Termination Mark -->
+          <rect x="8" y="10" width="60" height="52" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+          <rect x="12" y="14" width="24" height="44" fill="#0284c7" opacity="0.3"/>
+          <rect x="40" y="14" width="24" height="44" fill="#0284c7" opacity="0.3"/>
+          <rect x="16" y="4" width="44" height="8" fill="#7f1d1d" stroke="#ef4444"/>
+          <rect x="22" y="7" width="32" height="2" fill="#fecaca"/>
+          <!-- Wet Pavement & Puddles -->
+          <rect x="0" y="62" width="160" height="28" fill="#1e293b"/>
+          <ellipse cx="90" cy="74" rx="20" ry="4" fill="#0284c7" opacity="0.4"/>
+          <ellipse cx="135" cy="78" rx="14" ry="3" fill="#0284c7" opacity="0.4"/>
+          <!-- Dragging Big Suitcase -->
+          <rect x="68" y="52" width="14" height="20" fill="#451a03" stroke="#78350f"/>
+          <rect x="73" y="44" width="4" height="8" fill="#94a3b8"/>
+          <circle cx="71" cy="73" r="2" fill="#000"/>
+          <circle cx="79" cy="73" r="2" fill="#000"/>
+          <!-- Intern Crying & Cardboard Box with Belongings -->
+          <rect x="92" y="32" width="14" height="7" fill="#18181b"/>
+          <rect x="92" y="39" width="14" height="8" fill="#fcd34d"/>
+          <rect x="94" y="41" width="3" height="2" fill="#000"/>
+          <rect x="100" y="41" width="3" height="2" fill="#000"/>
+          <rect x="96" y="44" width="6" height="2" fill="#991b1b"/>
+          <circle cx="104" cy="43" r="1.5" fill="#38bdf8"/>
+          <rect x="90" y="47" width="18" height="18" fill="#475569"/>
+          <!-- Cardboard Box with personal belongings & Letter -->
+          <rect x="104" y="49" width="16" height="12" fill="#92400e" stroke="#ca8a04"/>
+          <rect x="108" y="45" width="4" height="6" fill="#f8fafc"/>
+          <rect x="114" y="47" width="3" height="4" fill="#22c55e"/>
+          <!-- Walking Away Legs -->
+          <rect x="93" y="65" width="5" height="12" fill="#0f172a"/>
+          <rect x="101" y="65" width="5" height="10" fill="#0f172a"/>
+          <rect x="91" y="76" width="7" height="3" fill="#000"/>
+          <rect x="100" y="74" width="7" height="3" fill="#000"/>
+          <!-- Road Sign: To University -->
+          <rect x="134" y="38" width="22" height="14" fill="#065f46" stroke="#34d399"/>
+          <rect x="138" y="41" width="14" height="2" fill="#fff"/>
+          <rect x="138" y="45" width="10" height="2" fill="#fff"/>
+          <rect x="143" y="52" width="4" height="14" fill="#475569"/>
+        </svg>
+      `,
+
+      // CODE SCENE
       code: `
         <svg viewBox="0 0 160 90" class="w-full h-full bg-[#030712] pixel-art">
           <rect x="0" y="0" width="160" height="90" fill="#050b18"/>
@@ -418,15 +540,7 @@
           <rect x="18" y="10" width="8" height="30" fill="#172554"/>
           <rect x="28" y="20" width="10" height="20" fill="#1e293b"/>
           <rect x="20" y="14" width="2" height="2" fill="#fef08a"/>
-          <rect x="52" y="8" width="48" height="26" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
-          <rect x="56" y="12" width="20" height="3" fill="#3b82f6"/>
-          <rect x="56" y="18" width="4" height="4" fill="#facc15"/>
-          <rect x="63" y="18" width="4" height="4" fill="#38bdf8"/>
-          <rect x="70" y="18" width="4" height="4" fill="#4ade80"/>
-          <rect x="56" y="25" width="36" height="2" fill="#cbd5e1"/>
-          <rect x="136" y="22" width="12" height="18" fill="#047857"/>
-          <circle cx="142" cy="18" r="6" fill="#10b981"/>
-          <rect x="139" y="38" width="6" height="12" fill="#78350f"/>
+          <!-- Dual Monitor Desk -->
           <rect x="10" y="52" width="140" height="5" fill="#334155"/>
           <rect x="16" y="57" width="8" height="33" fill="#1e293b"/>
           <rect x="136" y="57" width="8" height="33" fill="#1e293b"/>
@@ -437,15 +551,17 @@
           <rect x="29" y="32" width="18" height="2" fill="#facc15"/>
           <rect x="26" y="36" width="28" height="2" fill="#60a5fa"/>
           <rect x="26" y="40" width="12" height="2" fill="#f87171"/>
-          <rect x="41" y="50" width="6" height="3" fill="#334155"/>
+          <!-- Vertical Secondary Monitor -->
           <rect x="70" y="14" width="22" height="36" fill="#475569" stroke="#64748b"/>
           <rect x="72" y="16" width="18" height="32" fill="#000"/>
           <rect x="74" y="18" width="14" height="1.5" fill="#38bdf8"/>
           <rect x="74" y="22" width="10" height="1.5" fill="#22c55e"/>
           <rect x="74" y="26" width="12" height="1.5" fill="#22c55e"/>
           <rect x="74" y="30" width="8" height="1.5" fill="#facc15"/>
+          <!-- Coffee Mug -->
           <rect x="96" y="46" width="6" height="6" fill="#f8fafc"/>
           <rect x="100" y="48" width="2" height="2" fill="#94a3b8"/>
+          <!-- Dev Intern Typing -->
           <rect x="108" y="28" width="14" height="7" fill="#18181b"/>
           <rect x="107" y="30" width="16" height="6" fill="#18181b"/>
           <rect x="108" y="35" width="14" height="8" fill="#fcd34d"/>
@@ -453,17 +569,17 @@
           <rect x="116" y="37" width="4" height="3" fill="#000"/>
           <rect x="106" y="43" width="18" height="16" fill="#1e3a8a"/>
           <rect x="113" y="43" width="4" height="6" fill="#ef4444"/>
-          <rect x="114" y="49" width="2" height="3" fill="#fff"/>
           <rect x="96" y="50" width="14" height="3" fill="#64748b"/>
           <rect x="98" y="48" width="10" height="3" fill="#fcd34d"/>
         </svg>
       `,
 
-      // 2. BUG SCENE
+      // BUG SCENE
       bug: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#150505] pixel-art">
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#180404] pixel-art">
           <rect x="0" y="0" width="160" height="90" fill="#180404"/>
           <line x1="0" y1="45" x2="160" y2="45" stroke="#2e0808" stroke-width="1"/>
+          <!-- Red Bug Alert on Monitor -->
           <rect x="20" y="12" width="68" height="42" fill="#450a0a" stroke="#7f1d1d" stroke-width="2"/>
           <rect x="24" y="16" width="60" height="34" fill="#000"/>
           <ellipse cx="54" cy="32" rx="14" ry="10" fill="#ef4444"/>
@@ -478,209 +594,90 @@
           <line x1="68" y1="30" x2="76" y2="26" stroke="#ef4444" stroke-width="2"/>
           <line x1="68" y1="34" x2="78" y2="34" stroke="#ef4444" stroke-width="2"/>
           <line x1="68" y1="38" x2="76" y2="42" stroke="#ef4444" stroke-width="2"/>
+          <!-- Desk & Terrified Intern -->
           <rect x="10" y="56" width="140" height="6" fill="#334155"/>
           <rect x="18" y="62" width="8" height="28" fill="#1e293b"/>
           <rect x="134" y="62" width="8" height="28" fill="#1e293b"/>
           <rect x="106" y="28" width="14" height="7" fill="#18181b"/>
-          <rect x="105" y="30" width="16" height="6" fill="#18181b"/>
           <rect x="106" y="35" width="14" height="8" fill="#fcd34d"/>
           <rect x="107" y="37" width="4" height="3" fill="#000"/>
           <rect x="114" y="37" width="4" height="3" fill="#000"/>
-          <circle cx="123" cy="33" r="2" fill="#38bdf8"/>
+          <circle cx="123" cy="33" r="2" fill="#38bdf8"/> <!-- Sweat Drop -->
           <rect x="104" y="43" width="18" height="18" fill="#047857"/>
-          <rect x="111" y="43" width="4" height="6" fill="#ef4444"/>
           <circle cx="94" cy="38" r="7" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
           <line x1="99" y1="43" x2="105" y2="48" stroke="#d97706" stroke-width="3"/>
         </svg>
       `,
 
-      // 3. CIRCLE SCENE
+      // MEETING / CIRCLE SCENE
       circle: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#080e22] pixel-art">
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#060c1d] pixel-art">
           <rect x="0" y="0" width="160" height="90" fill="#060c1d"/>
-          <rect x="24" y="6" width="112" height="28" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
-          <line x1="61" y1="6" x2="61" y2="34" stroke="#cbd5e1" stroke-width="1.5"/>
-          <line x1="98" y1="6" x2="98" y2="34" stroke="#cbd5e1" stroke-width="1.5"/>
-          <rect x="30" y="10" width="6" height="5" fill="#facc15"/>
-          <rect x="40" y="11" width="6" height="5" fill="#facc15"/>
-          <rect x="48" y="18" width="6" height="5" fill="#facc15"/>
-          <rect x="68" y="10" width="6" height="5" fill="#38bdf8"/>
-          <rect x="78" y="12" width="6" height="5" fill="#38bdf8"/>
-          <rect x="86" y="20" width="6" height="5" fill="#38bdf8"/>
-          <rect x="105" y="10" width="6" height="5" fill="#4ade80"/>
-          <rect x="115" y="14" width="6" height="5" fill="#4ade80"/>
-          <ellipse cx="80" cy="62" rx="66" ry="14" fill="#1e293b" stroke="#334155" stroke-width="2"/>
-          <circle cx="32" cy="42" r="5" fill="#fcd34d"/>
-          <rect x="29" y="38" width="8" height="4" fill="#1e40af"/>
-          <rect x="26" y="47" width="14" height="12" fill="#1e3a8a"/>
-          <circle cx="62" cy="40" r="5" fill="#fcd34d"/>
-          <rect x="58" y="36" width="8" height="4" fill="#ca8a04"/>
-          <rect x="56" y="45" width="14" height="12" fill="#a16207"/>
-          <circle cx="128" cy="42" r="5" fill="#fcd34d"/>
-          <rect x="124" y="38" width="8" height="4" fill="#334155"/>
-          <rect x="122" y="47" width="14" height="12" fill="#475569"/>
-          <rect x="92" y="32" width="10" height="5" fill="#18181b"/>
-          <circle cx="97" cy="39" r="5" fill="#fcd34d"/>
-          <rect x="94" y="38" width="3" height="2" fill="#000"/>
-          <rect x="99" y="38" width="3" height="2" fill="#000"/>
-          <rect x="91" y="44" width="12" height="14" fill="#0284c7"/>
-          <rect x="96" y="44" width="2" height="4" fill="#ef4444"/>
-          <rect x="88" y="22" width="24" height="8" fill="#fff" rx="2"/>
-          <polygon points="98,30 102,30 99,33" fill="#fff"/>
-          <rect x="91" y="25" width="18" height="2" fill="#0f172a"/>
+          <rect x="20" y="8" width="120" height="36" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+          <line x1="30" y1="26" x2="130" y2="26" stroke="#0ea5e9" stroke-width="1.5"/>
+          <circle cx="60" cy="20" r="4" fill="#38bdf8"/>
+          <circle cx="100" cy="20" r="4" fill="#facc15"/>
+          <rect x="10" y="52" width="140" height="26" fill="#1e3a8a" stroke="#172554" rx="4"/>
+          <!-- Team Avatars around conference table -->
+          <circle cx="35" cy="46" r="6" fill="#3b82f6"/>
+          <circle cx="65" cy="44" r="7" fill="#10b981"/>
+          <circle cx="95" cy="44" r="7" fill="#f59e0b"/>
+          <circle cx="125" cy="46" r="6" fill="#ec4899"/>
+          <!-- Laptops on Table -->
+          <rect x="30" y="56" width="10" height="4" fill="#94a3b8"/>
+          <rect x="60" y="55" width="12" height="5" fill="#f8fafc"/>
+          <rect x="90" y="55" width="12" height="5" fill="#f8fafc"/>
+          <rect x="120" y="56" width="10" height="4" fill="#94a3b8"/>
         </svg>
       `,
 
-      // 4. MOO KRATHA SCENE (หมูกระทะเยียวยาจิตใจ)
-      moo_kratha: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#180a04] pixel-art">
-          <!-- Night Street BBQ Buffet Restaurant Backdrop -->
-          <rect x="0" y="0" width="160" height="90" fill="#150703"/>
-          <rect x="10" y="8" width="46" height="12" fill="#7f1d1d" stroke="#f59e0b"/>
-          <!-- Neon Sign "หมูกระทะ 199.-" -->
-          <rect x="14" y="11" width="38" height="3" fill="#fef08a"/>
-          <rect x="18" y="15" width="30" height="2" fill="#fca5a5"/>
-          <!-- String Lights above -->
-          <line x1="0" y1="22" x2="160" y2="22" stroke="#451a03" stroke-width="1.5"/>
-          <circle cx="20" cy="23" r="2" fill="#fef08a"/>
-          <circle cx="45" cy="24" r="2" fill="#fca5a5"/>
-          <circle cx="75" cy="23" r="2" fill="#fef08a"/>
-          <circle cx="105" cy="24" r="2" fill="#fca5a5"/>
-          <circle cx="135" cy="23" r="2" fill="#fef08a"/>
-
-          <!-- BBQ Table -->
-          <rect x="20" y="52" width="120" height="6" fill="#78350f" stroke="#451a03"/>
-          <rect x="28" y="58" width="8" height="32" fill="#451a03"/>
-          <rect x="124" y="58" width="8" height="32" fill="#451a03"/>
-
-          <!-- Charcoal Stove & Golden Dome Pan (เตาถ่าน & กระทะทองเหลือง) -->
-          <ellipse cx="80" cy="52" rx="24" ry="8" fill="#ca8a04"/>
-          <!-- Soup Broth Ring (น้ำซุป & ผักกาดขาว) -->
-          <ellipse cx="80" cy="51" rx="20" ry="6" fill="#fef08a"/>
-          <rect x="66" y="49" width="6" height="2" fill="#22c55e"/> <!-- Veggie -->
-          <rect x="88" y="49" width="6" height="2" fill="#22c55e"/>
-          <!-- Central Grill Dome (โดมย่างหมู & เบคอน) -->
-          <ellipse cx="80" cy="48" rx="12" ry="5" fill="#eab308"/>
-          <!-- Sizzling Pork Slices on Top (หมูสามชั้นย่างเกรียมๆ) -->
-          <rect x="74" y="45" width="5" height="3" fill="#dc2626"/>
-          <rect x="81" y="45" width="5" height="3" fill="#dc2626"/>
-          <rect x="77" y="47" width="6" height="2" fill="#fca5a5"/>
-          <!-- Sizzling Smoke & Aroma -->
-          <circle cx="76" cy="41" r="2" fill="#e2e8f0" opacity="0.8"/>
-          <circle cx="84" cy="38" r="2.5" fill="#f1f5f9" opacity="0.7"/>
-          <circle cx="80" cy="34" r="3" fill="#f8fafc" opacity="0.6"/>
-
-          <!-- Sauce Bowls & Soda Bottles on Table -->
-          <circle cx="56" cy="53" r="3" fill="#dc2626"/> <!-- Sukiyaki Chili Sauce -->
-          <circle cx="104" cy="53" r="3" fill="#16a34a"/> <!-- Seafood Sauce -->
-          <rect x="42" y="44" width="4" height="10" fill="#0284c7"/> <!-- Ice Water Pitcher -->
-          <rect x="48" y="48" width="3" height="6" fill="#f97316"/> <!-- Soda Can -->
-
-          <!-- Intern Character: Happily Eating & Raising Chopsticks -->
-          <rect x="110" y="26" width="14" height="7" fill="#18181b"/>
-          <rect x="110" y="33" width="14" height="8" fill="#fcd34d"/>
-          <!-- Happy Squinting Eyes & Chewing Smile -->
-          <rect x="112" y="35" width="3" height="1.5" fill="#000"/>
-          <rect x="118" y="35" width="3" height="1.5" fill="#000"/>
-          <rect x="114" y="38" width="6" height="2" fill="#dc2626"/> <!-- Happy Smile -->
-          <!-- Shirt + ID Badge -->
-          <rect x="108" y="41" width="18" height="18" fill="#f97316"/>
-          <rect x="115" y="41" width="4" height="6" fill="#ef4444"/>
-          <!-- Holding Chopsticks with Grilled Pork Belly -->
-          <line x1="102" y1="44" x2="92" y2="46" stroke="#ca8a04" stroke-width="2"/>
-          <line x1="102" y1="46" x2="92" y2="48" stroke="#ca8a04" stroke-width="2"/>
-          <rect x="90" y="45" width="4" height="3" fill="#dc2626"/> <!-- Pork belly on chopsticks -->
-
-          <!-- Colleague Senior clinking glass on left -->
-          <circle cx="36" cy="36" r="6" fill="#fcd34d"/>
-          <rect x="30" y="42" width="14" height="16" fill="#1e3a8a"/>
-          <line x1="44" y1="46" x2="52" y2="44" stroke="#ca8a04" stroke-width="2"/>
-        </svg>
-      `,
-
-      // 5. ALARM SCENE
+      // ALARM / FRIDAY CRITICAL SCENE
       alarm: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#1e0202] pixel-art">
-          <rect x="0" y="0" width="160" height="90" fill="#180202"/>
-          <polygon points="32,4 20,20 44,20" fill="#ef4444"/>
-          <rect x="26" y="20" width="12" height="4" fill="#475569"/>
-          <line x1="8" y1="8" x2="24" y2="16" stroke="#fca5a5" stroke-width="2"/>
-          <line x1="56" y1="8" x2="40" y2="16" stroke="#fca5a5" stroke-width="2"/>
-          <circle cx="68" cy="24" r="14" fill="#1e293b" stroke="#f8fafc" stroke-width="2"/>
-          <line x1="68" y1="24" x2="76" y2="22" stroke="#f87171" stroke-width="2"/>
-          <line x1="68" y1="24" x2="66" y2="16" stroke="#38bdf8" stroke-width="2"/>
-          <rect x="94" y="12" width="48" height="28" fill="#000" stroke="#ef4444" stroke-width="2"/>
-          <rect x="100" y="18" width="36" height="6" fill="#ef4444"/>
-          <rect x="104" y="28" width="28" height="4" fill="#facc15"/>
-          <rect x="0" y="62" width="160" height="28" fill="#2d0606"/>
-          <rect x="74" y="40" width="14" height="7" fill="#18181b"/>
-          <rect x="74" y="47" width="14" height="10" fill="#fcd34d"/>
-          <rect x="76" y="49" width="3" height="3" fill="#fff"/>
-          <rect x="77" y="50" width="1" height="1" fill="#000"/>
-          <rect x="83" y="49" width="3" height="3" fill="#fff"/>
-          <rect x="84" y="50" width="1" height="1" fill="#000"/>
-          <rect x="79" y="54" width="5" height="3" fill="#7f1d1d"/>
-          <rect x="70" y="42" width="4" height="6" fill="#fcd34d"/>
-          <rect x="88" y="42" width="4" height="6" fill="#fcd34d"/>
-          <rect x="72" y="57" width="18" height="18" fill="#7c2d12"/>
-          <rect x="79" y="57" width="4" height="6" fill="#ef4444"/>
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#1c0707] pixel-art">
+          <rect x="0" y="0" width="160" height="90" fill="#1c0707"/>
+          <!-- Flashing Red Siren Beacon -->
+          <rect x="74" y="14" width="12" height="10" fill="#dc2626" rx="3"/>
+          <polygon points="70,16 60,10 60,22" fill="#ef4444" opacity="0.6"/>
+          <polygon points="90,16 100,10 100,22" fill="#ef4444" opacity="0.6"/>
+          <circle cx="80" cy="19" r="4" fill="#fef08a"/>
+          <!-- Wall Clock: 17:55 -->
+          <circle cx="135" cy="20" r="12" fill="#0f172a" stroke="#dc2626" stroke-width="2"/>
+          <line x1="135" y1="20" x2="135" y2="12" stroke="#facc15" stroke-width="2"/>
+          <line x1="135" y1="20" x2="142" y2="20" stroke="#facc15" stroke-width="2"/>
+          <!-- Office Desk with Panicking Intern -->
+          <rect x="10" y="54" width="140" height="6" fill="#334155"/>
+          <rect x="25" y="30" width="50" height="24" fill="#000" stroke="#ef4444" stroke-width="2"/>
+          <rect x="29" y="34" width="42" height="4" fill="#ef4444"/>
+          <rect x="29" y="42" width="30" height="3" fill="#facc15"/>
+          <rect x="95" y="28" width="14" height="7" fill="#18181b"/>
+          <rect x="95" y="35" width="14" height="8" fill="#fcd34d"/>
+          <rect x="97" y="37" width="2" height="2" fill="#000"/>
+          <rect x="103" y="37" width="2" height="2" fill="#000"/>
+          <circle cx="111" cy="33" r="2" fill="#38bdf8"/>
+          <rect x="93" y="43" width="18" height="18" fill="#7f1d1d"/>
         </svg>
       `,
 
-      // 6. CONFLICT SCENE
+      // CONFLICT SCENE (Git Conflict / Scope Battle)
       conflict: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#10051d] pixel-art">
-          <rect x="0" y="0" width="80" height="90" fill="#0c0728"/>
-          <rect x="80" y="0" width="80" height="90" fill="#1e0b24"/>
-          <rect x="12" y="24" width="34" height="4" fill="#3b82f6"/>
-          <rect x="46" y="14" width="24" height="4" fill="#3b82f6"/>
-          <rect x="42" y="18" width="4" height="8" fill="#3b82f6"/>
-          <rect x="46" y="34" width="24" height="4" fill="#a855f7"/>
-          <rect x="42" y="26" width="4" height="8" fill="#a855f7"/>
-          <polygon points="76,22 84,12 90,20 100,14 94,26 104,34 90,32 86,42 82,30 72,28" fill="#ef4444"/>
-          <rect x="84,22" width="6" height="6" fill="#fef08a"/>
-          <rect x="0" y="62" width="160" height="28" fill="#1e1b4b"/>
-          <rect x="116" y="40" width="12" height="6" fill="#18181b"/>
-          <rect x="115" y="46" width="14" height="8" fill="#fcd34d"/>
-          <rect x="117" y="48" width="2" height="2" fill="#000"/>
-          <rect x="122" y="48" width="2" height="2" fill="#000"/>
-          <circle cx="129" cy="42" r="2" fill="#38bdf8"/>
-          <rect x="112" y="54" width="18" height="12" fill="#f97316"/>
-          <rect x="118" y="54" width="4" height="6" fill="#ef4444"/>
-          <rect x="108" y="66" width="6" height="8" fill="#1e293b"/>
-          <rect x="124" y="64" width="6" height="10" fill="#1e293b"/>
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#12081f] pixel-art">
+          <rect x="0" y="0" width="160" height="90" fill="#12081f"/>
+          <!-- Branch Split Git Lines -->
+          <line x1="20" y1="25" x2="70" y2="25" stroke="#3b82f6" stroke-width="3"/>
+          <line x1="70" y1="25" x2="100" y2="15" stroke="#ef4444" stroke-width="3"/>
+          <line x1="70" y1="25" x2="100" y2="35" stroke="#10b981" stroke-width="3"/>
+          <circle cx="100" cy="15" r="5" fill="#ef4444"/>
+          <circle cx="100" cy="35" r="5" fill="#10b981"/>
+          <!-- Big Clash Sparks in Center -->
+          <polygon points="120,25 125,18 132,22 140,15 135,28 142,35 130,32 125,40" fill="#facc15"/>
+          <rect x="0" y="60" width="160" height="30" fill="#1e1b4b"/>
+          <!-- Dev vs Reviewer Arguing -->
+          <rect x="35" y="34" width="14" height="14" fill="#3b82f6"/>
+          <rect x="90" y="34" width="14" height="14" fill="#a855f7"/>
         </svg>
       `,
 
-      // 7. BEACH SCENE
-      beach: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#061220] pixel-art">
-          <rect x="0" y="0" width="160" height="90" fill="#030712"/>
-          <rect x="10" y="50" width="60" height="5" fill="#475569"/>
-          <rect x="16" y="55" width="6" height="35" fill="#334155"/>
-          <rect x="60" y="55" width="6" height="35" fill="#334155"/>
-          <rect x="22" y="30" width="26" height="16" fill="#fef08a" stroke="#ca8a04"/>
-          <rect x="26" y="34" width="18" height="2" fill="#854d0e"/>
-          <rect x="26" y="38" width="14" height="2" fill="#854d0e"/>
-          <rect x="26" y="42" width="10" height="2" fill="#854d0e"/>
-          <rect x="74" y="38" width="12" height="6" fill="#18181b"/>
-          <rect x="74" y="44" width="12" height="8" fill="#fcd34d"/>
-          <rect x="76" y="46" width="2" height="2" fill="#000"/>
-          <rect x="81" y="46" width="2" height="2" fill="#000"/>
-          <rect x="68" y="39" width="6" height="6" fill="#fcd34d"/>
-          <rect x="72" y="52" width="16" height="16" fill="#0284c7"/>
-          <rect x="78" y="52" width="4" height="6" fill="#ef4444"/>
-          <circle cx="126" cy="36" r="24" fill="#0284c7" stroke="#38bdf8" stroke-width="2"/>
-          <circle cx="116" cy="22" r="4" fill="#facc15"/>
-          <rect x="132" y="28" width="4" height="16" fill="#854d0e"/>
-          <polygon points="126,26 142,20 146,28" fill="#22c55e"/>
-          <rect x="114" y="40" width="16" height="4" fill="#fde047"/>
-          <circle cx="106" cy="50" r="3" fill="#38bdf8"/>
-          <circle cx="98" cy="56" r="2" fill="#38bdf8"/>
-        </svg>
-      `,
-
-      // 8. TERMINAL SCENE
+      // DATABASE TERMINAL SCENE
       terminal: `
         <svg viewBox="0 0 160 90" class="w-full h-full bg-[#150404] pixel-art">
           <rect x="8" y="8" width="94" height="58" fill="#000" stroke="#dc2626" stroke-width="2.5"/>
@@ -689,6 +686,7 @@
           <rect x="14" y="36" width="64" height="5" fill="#ef4444"/>
           <polygon points="20,54 12,44 28,44" fill="#facc15"/>
           <rect x="0" y="68" width="160" height="22" fill="#1f0303"/>
+          <!-- Shivering Intern -->
           <rect x="118" y="30" width="14" height="7" fill="#18181b"/>
           <rect x="118" y="37" width="14" height="12" fill="#fcd34d"/>
           <rect x="120" y="39" width="3" height="3" fill="#fff"/>
@@ -697,392 +695,680 @@
           <rect x="127" y="40" width="1" height="1" fill="#000"/>
           <rect x="122" y="44" width="6" height="5" fill="#000"/>
           <rect x="114" y="49" width="22" height="18" fill="#4c0519"/>
-          <rect x="123" y="49" width="4" height="6" fill="#ef4444"/>
         </svg>
       `,
 
-      // 9. DEMO SCENE
+      // DEMO & PRESENTATION SCENE
       demo: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#071313] pixel-art">
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#040e0e] pixel-art">
           <rect x="0" y="0" width="160" height="90" fill="#040e0e"/>
+          <!-- Big Projector Screen with Bar Charts -->
           <rect x="12" y="8" width="80" height="46" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
           <rect x="22" y="32" width="10" height="16" fill="#3b82f6"/>
           <rect x="38" y="24" width="10" height="24" fill="#10b981"/>
           <rect x="54" y="18" width="10" height="30" fill="#8b5cf6"/>
           <rect x="70" y="12" width="10" height="36" fill="#f59e0b"/>
           <rect x="0" y="64" width="160" height="26" fill="#134e4a"/>
+          <!-- Presenting Intern with Laser Pointer -->
           <rect x="104" y="26" width="14" height="7" fill="#18181b"/>
           <rect x="104" y="33" width="14" height="8" fill="#fcd34d"/>
           <rect x="106" y="35" width="2" height="2" fill="#000"/>
           <rect x="112" y="35" width="2" height="2" fill="#000"/>
           <rect x="102" y="41" width="18" height="20" fill="#0f172a"/>
-          <rect x="109" y="41" width="4" height="8" fill="#fff"/>
-          <rect x="110" y="44" width="2" height="5" fill="#dc2626"/>
           <line x1="102" y1="44" x2="84" y2="28" stroke="#ca8a04" stroke-width="3"/>
           <circle cx="138" cy="54" r="6" fill="#334155"/>
           <circle cx="152" cy="54" r="6" fill="#334155"/>
         </svg>
       `,
 
-      // 10. TROPHY SCENE
+      // TROPHY SCENE (Graduation / Return Offer)
       trophy: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#051124] pixel-art">
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#040e1e] pixel-art">
           <rect x="0" y="0" width="160" height="90" fill="#040e1e"/>
           <rect x="8" y="6" width="144" height="44" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5"/>
-          <rect x="16" y="18" width="18" height="32" fill="#0369a1"/>
-          <rect x="42" y="12" width="22" height="38" fill="#075985"/>
-          <rect x="74" y="22" width="20" height="28" fill="#0369a1"/>
-          <rect x="104" y="10" width="24" height="40" fill="#075985"/>
           <circle cx="140" cy="16" r="6" fill="#fde047"/>
           <rect x="0" y="58" width="160" height="32" fill="#0f172a"/>
-          <rect x="22" y="50" width="28" height="4" fill="#475569"/>
+          <!-- Big Golden Cup Trophy -->
           <polygon points="28,26 44,26 40,38 32,38" fill="#facc15"/>
           <rect x="35" y="38" width="3" height="8" fill="#ca8a04"/>
           <rect x="30" y="46" width="13" height="4" fill="#ca8a04"/>
-          <rect x="22" y="24" width="3" height="3" fill="#fef08a"/>
-          <rect x="46" y="28" width="3" height="3" fill="#fef08a"/>
+          <!-- Signed Employment Contract -->
           <rect x="110" y="30" width="30" height="24" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
           <circle cx="125" cy="42" r="5" fill="#f59e0b"/>
-          <rect x="114" y="34" width="22" height="2" fill="#94a3b8"/>
+          <!-- Cheering Intern -->
           <rect x="73" y="30" width="14" height="7" fill="#18181b"/>
           <rect x="73" y="37" width="14" height="8" fill="#fcd34d"/>
           <rect x="75" y="39" width="2" height="2" fill="#000"/>
-          <rect x="81" y="39" width="2" height="2" fill="#000"/>
           <rect x="77" y="42" width="6" height="2" fill="#dc2626"/>
           <rect x="71" y="45" width="18" height="18" fill="#10b981"/>
-          <rect x="78" y="45" width="4" height="6" fill="#ef4444"/>
           <rect x="65" y="34" width="6" height="14" fill="#fcd34d"/>
           <rect x="89" y="34" width="6" height="14" fill="#fcd34d"/>
-        </svg>
-      `,
-
-      // 11. DESIGN SCENE
-      design: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#080816] pixel-art">
-          <rect x="12" y="8" width="88" height="52" fill="#18181b" stroke="#3f3f46" stroke-width="2"/>
-          <rect x="20" y="12" width="24" height="42" fill="#27272a" rx="2"/>
-          <rect x="23" y="16" width="18" height="6" fill="#3b82f6"/>
-          <rect x="23" y="24" width="18" height="12" fill="#52525b"/>
-          <rect x="25" y="40" width="14" height="4" fill="#10b981"/>
-          <circle cx="56" cy="20" r="3" fill="#38bdf8"/>
-          <circle cx="78" cy="34" r="3" fill="#38bdf8"/>
-          <line x1="56" y1="20" x2="78" y2="34" stroke="#a855f7" stroke-width="2.5"/>
-          <polygon points="68,26 68,38 74,34 78,40 82,38 78,32 84,32" fill="#000" stroke="#fff" stroke-width="1.5"/>
-          <circle cx="56" cy="48" r="4" fill="#3b82f6"/>
-          <circle cx="68" cy="48" r="4" fill="#ec4899"/>
-          <circle cx="80" cy="48" r="4" fill="#10b981"/>
-          <rect x="0" y="64" width="160" height="26" fill="#18181b"/>
-          <rect x="114" y="26" width="14" height="7" fill="#78350f"/>
-          <rect x="114" y="33" width="14" height="8" fill="#fcd34d"/>
-          <rect x="115" y="35" width="4" height="3" fill="#ec4899"/>
-          <rect x="122" y="35" width="4" height="3" fill="#ec4899"/>
-          <rect x="112" y="41" width="18" height="18" fill="#7c3aed"/>
-          <rect x="119" y="41" width="4" height="6" fill="#ef4444"/>
-          <rect x="104" y="46" width="10" height="3" fill="#fcd34d"/>
-          <rect x="100" y="47" width="8" height="2" fill="#71717a"/>
-        </svg>
-      `,
-
-      // 12. TEST SCENE
-      test: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#040e15] pixel-art">
-          <rect x="10" y="8" width="80" height="48" fill="#0f172a" stroke="#334155" stroke-width="2"/>
-          <rect x="16" y="14" width="8" height="4" fill="#22c55e"/>
-          <rect x="28" y="14" width="56" height="4" fill="#475569"/>
-          <rect x="16" y="22" width="8" height="4" fill="#22c55e"/>
-          <rect x="28" y="22" width="48" height="4" fill="#475569"/>
-          <rect x="16" y="30" width="8" height="4" fill="#ef4444"/>
-          <rect x="28" y="30" width="40" height="4" fill="#f87171"/>
-          <rect x="16" y="38" width="8" height="4" fill="#22c55e"/>
-          <rect x="28" y="38" width="52" height="4" fill="#475569"/>
-          <rect x="96" y="24" width="12" height="24" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
-          <rect x="98" y="28" width="8" height="16" fill="#38bdf8"/>
-          <rect x="0" y="62" width="160" height="28" fill="#0f172a"/>
-          <rect x="122" y="26" width="14" height="7" fill="#18181b"/>
-          <rect x="122" y="33" width="14" height="8" fill="#fcd34d"/>
-          <rect x="124" y="35" width="2" height="2" fill="#000"/>
-          <rect x="129" y="35" width="2" height="2" fill="#000"/>
-          <rect x="120" y="41" width="18" height="18" fill="#0f766e"/>
-          <rect x="127" y="41" width="4" height="6" fill="#ef4444"/>
-          <rect x="112" y="44" width="10" height="14" fill="#fef08a" stroke="#ca8a04"/>
-          <rect x="115" y="47" width="5" height="2" fill="#b45309"/>
-          <rect x="115" y="51" width="5" height="2" fill="#b45309"/>
-        </svg>
-      `,
-
-      // 13. DOCS SCENE
-      docs: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#080d19] pixel-art">
-          <rect x="10" y="8" width="88" height="48" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
-          <rect x="18" y="16" width="14" height="8" fill="#60a5fa"/>
-          <line x1="32" y1="20" x2="42" y2="20" stroke="#64748b" stroke-width="2"/>
-          <polygon points="46,20 54,14 62,20 54,26" fill="#f59e0b"/>
-          <line x1="54" y1="26" x2="54" y2="34" stroke="#64748b" stroke-width="2"/>
-          <rect x="46" y="34" width="16" height="8" fill="#34d399"/>
-          <rect x="68" y="14" width="8" height="6" fill="#fef08a"/>
-          <rect x="78" y="14" width="8" height="6" fill="#f472b6"/>
-          <rect x="72" y="24" width="8" height="6" fill="#86efac"/>
-          <rect x="104" y="36" width="14" height="16" fill="#b91c1c" stroke="#7f1d1d"/>
-          <rect x="107" y="40" width="8" height="2" fill="#fff"/>
-          <rect x="0" y="62" width="160" height="28" fill="#0f172a"/>
-          <rect x="126" y="26" width="14" height="7" fill="#78350f"/>
-          <rect x="126" y="33" width="14" height="8" fill="#fcd34d"/>
-          <rect x="128" y="35" width="3" height="2" fill="#1e3a8a"/>
-          <rect x="133" y="35" width="3" height="2" fill="#1e3a8a"/>
-          <rect x="124" y="41" width="18" height="18" fill="#1e40af"/>
-          <rect x="131" y="41" width="4" height="6" fill="#ef4444"/>
-          <rect x="114" y="38" width="12" height="4" fill="#fcd34d"/>
-        </svg>
-      `,
-
-      // 14. SERVER SCENE
-      server: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#020617] pixel-art">
-          <rect x="8" y="6" width="34" height="56" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
-          <rect x="12" y="10" width="26" height="8" fill="#1e293b"/>
-          <circle cx="16" cy="14" r="1.5" fill="#22c55e"/>
-          <circle cx="22" cy="14" r="1.5" fill="#22c55e"/>
-          <circle cx="28" cy="14" r="1.5" fill="#ef4444"/>
-          <rect x="12" y="22" width="26" height="8" fill="#1e293b"/>
-          <circle cx="16" cy="26" r="1.5" fill="#eab308"/>
-          <circle cx="22" cy="26" r="1.5" fill="#22c55e"/>
-          <rect x="12" y="34" width="26" height="8" fill="#1e293b"/>
-          <circle cx="16" cy="38" r="1.5" fill="#ef4444"/>
-          <rect x="48" y="6" width="34" height="56" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
-          <rect x="52" y="10" width="26" height="8" fill="#450a0a"/>
-          <circle cx="56" cy="14" r="1.5" fill="#ef4444"/>
-          <circle cx="62" cy="14" r="1.5" fill="#ef4444"/>
-          <circle cx="68" cy="14" r="1.5" fill="#ef4444"/>
-          <circle cx="58" cy="4" r="3" fill="#94a3b8"/>
-          <circle cx="68" cy="2" r="4" fill="#cbd5e1"/>
-          <rect x="88" y="14" width="32" height="22" fill="#000" stroke="#f59e0b" stroke-width="1.5"/>
-          <rect x="92" y="18" width="24" height="4" fill="#ef4444"/>
-          <rect x="94" y="26" width="20" height="3" fill="#38bdf8"/>
-          <rect x="0" y="62" width="160" height="28" fill="#0f172a"/>
-          <rect x="128" y="28" width="14" height="7" fill="#18181b"/>
-          <rect x="128" y="35" width="14" height="8" fill="#fcd34d"/>
-          <rect x="130" y="37" width="2" height="2" fill="#000"/>
-          <rect x="135" y="37" width="2" height="2" fill="#000"/>
-          <circle cx="143" cy="32" r="2" fill="#38bdf8"/>
-          <rect x="126" y="43" width="18" height="18" fill="#ea580c"/>
-          <rect x="133" y="43" width="4" height="6" fill="#ef4444"/>
-          <rect x="116" y="48" width="12" height="4" fill="#fcd34d"/>
-        </svg>
-      `,
-
-      // 15. SENT BACK SCENE (โดนส่งตัวกลับมหาวิทยาลัย / ใบแจ้งพ้นสภาพ)
-      sent_back: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#0a0f1d] pixel-art">
-          <!-- Raining Night Sky outside Company Tower -->
-          <rect x="0" y="0" width="160" height="90" fill="#080c18"/>
-          <!-- Heavy Rain lines -->
-          <line x1="10" y1="4" x2="6" y2="16" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
-          <line x1="34" y1="8" x2="30" y2="22" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
-          <line x1="65" y1="2" x2="61" y2="18" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
-          <line x1="95" y1="10" x2="91" y2="24" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
-          <line x1="125" y1="6" x2="121" y2="20" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
-          <line x1="145" y1="12" x2="141" y2="26" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
-
-          <!-- High-Tech Company Glass Entrance -->
-          <rect x="8" y="10" width="60" height="52" fill="#0f172a" stroke="#334155" stroke-width="2"/>
-          <rect x="12" y="14" width="24" height="44" fill="#0284c7" opacity="0.3"/>
-          <rect x="40" y="14" width="24" height="44" fill="#0284c7" opacity="0.3"/>
-          <!-- Company Sign with Red Cross -->
-          <rect x="16" y="4" width="44" height="8" fill="#7f1d1d" stroke="#ef4444"/>
-          <rect x="22" y="7" width="32" height="2" fill="#fecaca"/>
-
-          <!-- Wet Pavement & Puddles -->
-          <rect x="0" y="62" width="160" height="28" fill="#1e293b"/>
-          <ellipse cx="90" cy="74" rx="20" ry="4" fill="#0284c7" opacity="0.4"/>
-          <ellipse cx="135" cy="78" rx="14" ry="3" fill="#0284c7" opacity="0.4"/>
-
-          <!-- INTERN WALKING AWAY SADLY WITH SUITCASE & CARDBOARD BOX -->
-          <!-- Dragging Big Suitcase (กระเป๋าเดินทางล้อลากกลับ มหาวิทยาลัย) -->
-          <rect x="68" y="52" width="14" height="20" fill="#451a03" stroke="#78350f"/>
-          <rect x="73" y="44" width="4" height="8" fill="#94a3b8"/> <!-- Handle -->
-          <circle cx="71" cy="73" r="2" fill="#000"/> <!-- Wheel -->
-          <circle cx="79" cy="73" r="2" fill="#000"/>
-
-          <!-- Intern Head & Crying Eyes (น้ำตาซึม) -->
-          <rect x="92" y="32" width="14" height="7" fill="#18181b"/>
-          <rect x="92" y="39" width="14" height="8" fill="#fcd34d"/>
-          <rect x="94" y="41" width="3" height="2" fill="#000"/>
-          <rect x="100" y="41" width="3" height="2" fill="#000"/>
-          <rect x="96" y="44" width="6" height="2" fill="#991b1b"/> <!-- Sad frown -->
-          <circle cx="104" cy="43" r="1.5" fill="#38bdf8"/> <!-- Tear drop -->
-
-          <!-- Casual Clothes (เสื้อยืดเหงาๆ ไร้ป้ายห้อยคอ) -->
-          <rect x="90" y="47" width="18" height="18" fill="#475569"/>
-
-          <!-- Cardboard Box with personal belongings (กล่องเก็บของกลับบ้าน) -->
-          <rect x="104" y="49" width="16" height="12" fill="#92400e" stroke="#ca8a04"/>
-          <rect x="108" y="45" width="4" height="6" fill="#f8fafc"/> <!-- Termination Letter ใบส่งตัวกลับ -->
-          <rect x="114" y="47" width="3" height="4" fill="#22c55e"/> <!-- Small plant -->
-
-          <!-- Legs Walking Away -->
-          <rect x="93" y="65" width="5" height="12" fill="#0f172a"/>
-          <rect x="101" y="65" width="5" height="10" fill="#0f172a"/>
-          <rect x="91" y="76" width="7" height="3" fill="#000"/>
-          <rect x="100" y="74" width="7" height="3" fill="#000"/>
-
-          <!-- Road Sign: "สู่ มหาวิทยาลัย (คณะวิศวกรรมศาสตร์)" -->
-          <rect x="134" y="38" width="22" height="14" fill="#065f46" stroke="#34d399"/>
-          <rect x="138" y="41" width="14" height="2" fill="#fff"/>
-          <rect x="138" y="45" width="10" height="2" fill="#fff"/>
-          <rect x="143" y="52" width="4" height="14" fill="#475569"/>
         </svg>
       `
     };
 
-    // --- 16 SCENARIOS PER ROLE ---
+    // --- 16 REALISTIC WEEKS & DILEMMAS FOR ALL 4 ROLES ---
     const ROLE_SCENARIOS = {
       dev: [
-        { title: "Day 1 Onboarding: Clone Repo ยักษ์ 5.2GB", intro: "พี่เลี้ยงส่งลิงก์ Git ขนาด 5.2GB มาให้พร้อมบอก 'ลอง Clone มารันดูนะน้อง'", pArt: "code" },
-        { title: "Jira Ticket แรก: แก้สีปุ่มในตำนาน", intro: "ได้รับ Ticket เปลี่ยนสีปุ่ม Checkout แต่แก้แล้วระบบจ่ายเงินแอบพังเงียบๆ", pArt: "bug" },
-        { title: "Daily Standup ตอนเช้า: 'เมื่อวานทำอะไร?'", intro: "เมื่อวานนั่งงงโครงสร้างระบบทั้งวัน ถึงคิวพูดจะพูดยังไงให้ดูดี?", pArt: "circle" },
-        { title: "ศุกร์หรรษา: พี่ๆ ชวนตี้หมูกระทะบุฟเฟต์ 199.-", intro: "เลิกงาน 18:00 น. แก๊งพี่ๆ ในแผนกตะโกน 'วันนี้ใครไม่ไปหมูกระทะถือว่าทรยศ!' กลิ่นหมูสามชั้นลอยมา", pArt: "moo_kratha" },
-        { title: "วันศุกร์ 17:55 น. 'Friday Deploy ด่วน!'", intro: "จะรูดบัตรกลับบ้านแล้ว แต่ PO บอก 'น้องครับ ขึ้นโปรดักชันด่วนก่อนหยุดยาว'", pArt: "alarm" },
-        { title: "มหากาพย์ Git Conflict 108 ไฟล์", intro: "กด Merge branch ตัวเองเข้า dev แล้วหน้าจอขึ้น Conflict สีแดงโร่ทั้งตาราง", pArt: "conflict" },
-        { title: "พี่เลี้ยงลาพักร้อน ทิ้งคำว่า 'ฝากด้วยนะ'", intro: "พี่เลี้ยงตัวหลักลาไปงานแต่ง 1 สัปดาห์ ทิ้งงานต่อ API ให้คุณรับผิดชอบคนเดียว", pArt: "beach" },
-        { title: "วิกฤตลืมใส่ WHERE ใน SQL Query", intro: "มือไวลั่นคำสั่ง DELETE FROM users; ในฐานข้อมูล DEV! หัวใจร่วงไปตาตุ่ม", pArt: "terminal" },
-        { title: "Docker พัง: บนเครื่องผมรันได้แต่ Server จอดำ", intro: "รันบน Local ผ่านฉลุย แต่พอขึ้น Staging ทำไมพังไม่เป็นท่า?", pArt: "server" },
-        { title: "Security Alert: เผลอ Push API Key ขึ้น GitHub", intro: "บอท GitHub แจ้งเตือน Secret Leak ทันทีที่ push โค้ดขึ้น public repo!", pArt: "alarm" },
-        { title: "Tech Lead สั่ง Refactor โค้ดเก่า 5 ปี", intro: "โค้ดภาษากรีกโบราณที่ไม่มีคอมเมนต์เลยแม้แต่บรรทัดเดียว", pArt: "code" },
-        { title: "บอสอยากได้ฟีเจอร์ AI ภายใน 48 ชั่วโมง", intro: "ลูกค้าเพิ่งฟังข่าว ChatGPT มา เลยอยากให้แอปมี AI ตอบแชตภายใน 2 วัน", pArt: "server" },
-        { title: "บั๊กหลุดขึ้น Production ลูกค้าโทรด่าสายไหม้", intro: "ระบบโอนเงินเกิด Bug ลูกค้ากดย้ำ 10 รอบ ได้เงินเบิ้ล 10 เท่า!", pArt: "bug" },
-        { title: "Senior ขอตรวจ Code Review อย่างเข้มงวด", intro: "นั่งตรวจ PR แล้วจวกเรื่อง Clean Code กับ Naming Convention ยับเยิน", pArt: "circle" },
-        { title: "Final Sprint Demo หน้าผู้บริหารและกรรมการ", intro: "ซ้อมพรีเซนต์โค้ดและสถาปัตยกรรมระบบต่อหน้ากรรมการและผู้จัดการ", pArt: "demo" },
-        { title: "วันประเมินผลสหกิจศึกษา & สัญญา Return Offer", intro: "วันสุดท้ายของการฝึกงาน 16 สัปดาห์ เข้าห้องกระจกรับฟังผลการประเมิน", pArt: "trophy" }
+        {
+          week: 1,
+          title: "Onboarding Day 1: Clone Repo ยักษ์ 5.2GB และแก้ปัญหา Environment",
+          intro: "วันแรกของการฝึกงาน พี่เลี้ยงส่งลิงก์ Git ขนาด 5.2GB มาให้พร้อมบอกว่า 'ลอง Clone มารันดูนะน้อง มี Error ก็นั่งไล่ดู'",
+          pArt: "code",
+          choices: [
+            {
+              text: "อ่าน README อย่างละเอียด แก้ไขเวอร์ชัน Node.js & Docker ให้ตรงตาม Document",
+              stats: { skill: 12, energy: -10, sanity: 5, karma: 8 },
+              cost: 0,
+              hint: "+12 ทักษะ · -10 พลัง · +8 บารมี (สร้างพื้นฐานมั่นคง)",
+              feedback: "คุณเซ็ตอัปเครื่องสำเร็จโดยไม่ต้องถามพี่เลี้ยงบ่อยๆ พี่เลี้ยงเอ่ยชมว่าพร้อมลุยงานจริง!"
+            },
+            {
+              text: "ติด Error ปุ๊บ แคปหน้าจอถามพี่เลี้ยงทุก 10 นาทีเพื่อความรวดเร็ว",
+              stats: { skill: 6, energy: -5, sanity: 2, karma: -5 },
+              cost: 0,
+              hint: "+6 ทักษะ · รอดตัวไว · -5 บารมี (พี่เลี้ยงกำลังติดประชุม)",
+              feedback: "รันโปรเจกต์ได้เร็ว แต่พี่เลี้ยงเริ่มมองหน้าเพราะคุณถามแม้กระทั่งสิ่งที่เขียนอยู่ในคู่มือชัดเจน"
+            },
+            {
+              text: "ใช้ AI เขียนสคริปต์ Docker-compose รัน Bypass การตรวจจับไปก่อน",
+              stats: { skill: 10, energy: -4, sanity: 10, karma: 5 },
+              cost: 0,
+              hint: "+10 ทักษะ · +10 ความสุข · แก้ปัญหาไวแบบเด็กฉลาด",
+              feedback: "รันระบบขึ้นได้อย่างรวดเร็ว เพื่อนฝึกงานข้างๆ หันมาขอให้คุณช่วยดูเครื่องให้ด้วย!"
+            }
+          ]
+        },
+        {
+          week: 2,
+          title: "Jira Ticket แรก: แก้สีปุ่ม Checkout แล้วกระทบระบบชำระเงิน",
+          intro: "ได้รับ Ticket ง่ายๆ ให้เปลี่ยนสีปุ่ม Checkout แต่โครงสร้าง CSS ซ้อนกัน 14 ชั้น พอกดแก้แล้วระบบดรอปดาวน์บัตรเครดิตหายไปเงียบๆ",
+          pArt: "bug",
+          choices: [
+            {
+              text: "แกะ Inspect Element อย่างรอบคอบ รีแฟกเตอร์คลาส CSS และเทสต์ทุกหน้าจอ",
+              stats: { skill: 14, energy: -15, sanity: -5, karma: 10 },
+              cost: 0,
+              hint: "+14 ทักษะ · -15 พลัง · คุณภาพงานระดับมาตรฐาน",
+              feedback: "หน้าจอออกมาสวยงามและ Responsive ครบทุกอุปกรณ์ Tech Lead กด Approve PR ทันที"
+            },
+            {
+              text: "ใส่ !important คลุมทับมันซะเลย แล้วรีบส่งงานก่อน 17:00 น.",
+              stats: { skill: 2, energy: -5, sanity: 8, karma: -8 },
+              cost: 0,
+              hint: "ทางลัดมักง่าย · -8 บารมี (โดนรีวิวโค้ดยับ)",
+              feedback: "Senior ทักใน PR ทันที: 'น้องครับ ใครสอนให้ใส่ !important รัวๆ แบบนี้?' โดนสั่งแก้งานรอบสอง"
+            },
+            {
+              text: "ปรึกษา UX/UI และ QA ก่อนแก้ เพื่อให้แน่ใจว่าไม่กระทบ Component อื่น",
+              stats: { skill: 8, energy: -10, sanity: 5, karma: 15 },
+              cost: 0,
+              hint: "+15 บารมี · สนิทกับข้ามสายงาน · งานราบรื่น",
+              feedback: "เพื่อนร่วมทีมทั้ง QA และ UX ขอบคุณที่คุณเดินมาปรึกษาก่อน ความสัมพันธ์ในแผนกดีขึ้นมาก"
+            }
+          ]
+        },
+        {
+          week: 3,
+          title: "Daily Standup: ถึงคิวอัปเดตงาน แต่โค้ดยังไม่คืบหน้า",
+          intro: "สัปดาห์นี้งานติด Blocker เรื่อง API สเปกไม่ชัดเจนทั้งวัน เมื่อถึงคิวพูด Standup ตอนเช้า 09:30 น. ต่อหน้าทีม...",
+          pArt: "circle",
+          choices: [
+            {
+              text: "ยอมรับตรงๆ ว่าติดอะไรอยู่ พร้อมชี้แจงแนวทางที่พยายามลองทำแล้ว",
+              stats: { skill: 10, energy: -5, sanity: 10, karma: 12 },
+              cost: 0,
+              hint: "+12 บารมี · เป็นมืออาชีพ · พี่เลี้ยงพร้อมช่วยเคลียร์",
+              feedback: "Senior บอกทันที: 'ดีแล้วที่บอก เดี๋ยวหลังประชุมพี่เปิด Meet ช่วยดูให้ 15 นาที'"
+            },
+            {
+              text: "พูดยาวเหยียดใช้ศัพท์เทคนิคซับซ้อนกลบเกลื่อนให้ดูยุ่งตลอดเวลา",
+              stats: { skill: 2, energy: -8, sanity: -10, karma: -6 },
+              cost: 0,
+              hint: "เนียนไม่เนียน · เสี่ยงโดนไล่ต้อน",
+              feedback: "Tech Lead ดักคอ: 'สรุปส่งงานได้กี่โมง?' บรรยากาศเงียบกริบไป 5 วินาที"
+            },
+            {
+              text: "ชิงถามว่ามีใครว่างช่วยดูไหม หลังประชุมขอเลี้ยงกาแฟพี่เลี้ยง 1 แก้ว",
+              stats: { skill: 8, energy: -5, sanity: 5, karma: 15 },
+              cost: -75, // ซื้อกาแฟอเมซอน
+              hint: "+15 บารมี · -75 บาท (วิชาผูกมิตรด้วยกาแฟ)",
+              feedback: "พี่เลี้ยงใจดีช่วยดูโค้ดจนแก้ Blocker ได้ทันเวลา แถมได้เคล็ดลับ Debug ขั้นเทพติดตัว"
+            }
+          ]
+        },
+        {
+          week: 4,
+          title: "ศุกร์หรรษา: สิ้นเดือนแรก ตี้หมูกระทะบุฟเฟต์ 199.- ฮีลใจทั้งทีม",
+          intro: "ผ่านเดือนแรกไปแล้ว พี่ๆ ในแผนกตะโกน: 'ศุกร์นี้ใครไม่ไปหมูกระทะถือว่าทรยศ!' กลิ่นสามชั้นย่างกับน้ำจิ้มมะนาวลอยมา",
+          pArt: "moo_kratha",
+          choices: [
+            {
+              text: "จัดเต็มบุฟเฟต์ + กุ้งไม่อั้น! กินสามชั้นกรอบๆ เม้าท์มอยฮีลใจเต็มที่",
+              stats: { skill: 4, energy: 25, sanity: 30, karma: 18 },
+              cost: -299,
+              hint: "+25 สุขภาพ · +30 ความสุข · +18 บารมี · -299 บาท",
+              feedback: "หมูกระทะเยียวยาทุกบาดแผล! พี่ๆ เล่าเรื่องขำขันในออฟฟิศให้ฟังจนสนิทกันเหมือนคนในครอบครัว"
+            },
+            {
+              text: "อาสาเป็นมือย่าง คอยคีบหมูตักน้ำซุปดูแลพี่ๆ ในทีมทั้งโต๊ะ",
+              stats: { skill: 6, energy: 12, sanity: 20, karma: 30 },
+              cost: -299,
+              hint: "+30 บารมี · พี่ๆ รักใคร่เอ็นดู · -299 บาท",
+              feedback: "ผู้จัดการและพี่เลี้ยงประทับใจความเอาใจใส่ของคุณมาก พูดแซวว่าจบไปสมัครที่นี่ได้เลย!"
+            },
+            {
+              text: "ขอตัวกลับหอ ประหยัดเงิน 299 บาท นอนเหงาไถฟีดดูรูปตี้",
+              stats: { skill: 2, energy: 5, sanity: -15, karma: -10 },
+              cost: 0,
+              hint: "-15 ความสุข · -10 บารมี · ประหยัดเงิน",
+              feedback: "คุณประหยัดเงินได้ แต่การนอนดูไอจีสตอรี่พี่ๆ สนุกสนานทำให้รู้สึกแปลกแยกและพลาดเรื่องเล่าสำคัญไป"
+            }
+          ]
+        },
+        {
+          week: 5,
+          title: "วันศุกร์ 17:55 น.: 'Friday Deploy ด่วนก่อนหยุดยาว!'",
+          intro: "กำลังจะปิดคอมกลับบ้าน แต่ PO วิ่งกระหืดกระหอบมาบอก 'น้องครับ ลูกค้าขอขึ้นฟีเจอร์นี้ด่วนไม่งั้นโดนปรับเงิน'",
+          pArt: "alarm",
+          choices: [
+            {
+              text: "เตือน PO สุภาพถึงความเสี่ยง Friday Deploy พร้อมเสนอให้ Deploy วันจันทร์เช้า",
+              stats: { skill: 15, energy: -5, sanity: 10, karma: 12 },
+              cost: 0,
+              hint: "+15 ทักษะ · มีสติกล้าหาญตามหลักวิศวกรรม · +12 บารมี",
+              feedback: "Tech Lead เดินมาได้ยินพอดีและพูดสนับสนุนคุณ: 'น้องพูดถูก ศุกร์ห้ามขึ้นระบบเด็ดขาด'"
+            },
+            {
+              text: "ยอมอยู่โอทีช่วย Deploy เฝ้าระบบยัน 21:00 น. เพื่อความปลอดภัย",
+              stats: { skill: 10, energy: -25, sanity: -10, karma: 22 },
+              cost: -80, // ค่าข้าวโอที
+              hint: "+22 บารมี · -25 สุขภาพ · ทุ่มเทเพื่อทีม",
+              feedback: "ระบบขึ้นได้ปลอดภัย PO เลี้ยงพิซซ่ารอบดึกและขอบคุณที่คุณยอมสละเวลาช่วยกู้สถานการณ์"
+            },
+            {
+              text: "กด Deploy ขึ้นไปเลยตามคำสั่งแล้วรีบสแกนนิ้วกลับบ้าน",
+              stats: { skill: -5, energy: 5, sanity: -15, karma: -18 },
+              cost: 0,
+              hint: "หายนะซ่อนเร้น · -18 บารมี",
+              feedback: "คืนวันเสาร์เซิร์ฟเวอร์แจ้งเตือน Crash! คุณโดนโทรตามวันหยุด ต้องเปิดคอมแก้งานทั้งน้ำตา"
+            }
+          ]
+        },
+        {
+          week: 6,
+          title: "มหากาพย์ Git Conflict 108 ไฟล์ หลังเพื่อนร่วมทีมแก้พร้อมกัน",
+          intro: "กด Merge branch เข้า develop แล้วหน้าจอขึ้นตัวแดง 108 ไฟล์ โค้ดทับซ้อนกันเหมือนสายไฟกรุงเทพฯ",
+          pArt: "conflict",
+          choices: [
+            {
+              text: "ใช้ Git Rebase Interactive นั่งไล่ Diff ทีละ Commit อย่างมีสติ",
+              stats: { skill: 18, energy: -15, sanity: -5, karma: 10 },
+              cost: 0,
+              hint: "+18 ทักษะ · ขั้นตอนถูกต้องระดับโปร · ไม่ทำโค้ดคนอื่นหาย",
+              feedback: "คุณคลี่คลาย Conflict สำเร็จ โค้ดสะอาด ไม่มีของใครสูญหาย ได้รับคำชมจากคนทั้งทีม"
+            },
+            {
+              text: "ลากเพื่อนร่วมทีมที่ทำส่วนเดียวกันมานั่งหน้าจอ ค่อยๆ เคลียร์ร่วมกัน",
+              stats: { skill: 12, energy: -10, sanity: 8, karma: 16 },
+              cost: 0,
+              hint: "+16 บารมี · ทำงานเป็นทีม · ลดความผิดพลาด",
+              feedback: "การคุยกันตรงๆ ทำให้เข้าใจมุมมองของเพื่อนมากขึ้น งานเสร็จไวกว่านั่งงมคนเดียวถึงสองเท่า"
+            },
+            {
+              text: "เลือก 'Accept Theirs' หรือ 'Accept Mine' รัวๆ ให้ผ่านไปก่อน",
+              stats: { skill: -12, energy: -5, sanity: -20, karma: -25 },
+              cost: 0,
+              hint: "⚠️ อันตรายสูงสุด: โค้ดฟังก์ชันเพื่อนอาจหายสาบสูญ!",
+              feedback: "ฟีเจอร์ของเพื่อนร่วมทีมหายไปทั้งดุ้น! สร้างความปั่นป่วนให้ทั้งโปรเจกต์ โดนเรียกตักเตือนทันที"
+            }
+          ]
+        },
+        {
+          week: 7,
+          title: "พี่เลี้ยงลาพักร้อน 1 สัปดาห์: คุณต้องเป็นเสาหลักของโมดูลนี้",
+          intro: "พี่เลี้ยงบินไปเที่ยวญี่ปุ่น 7 วัน ทิ้งข้อความไว้ใน Slack ว่า 'ฝากโมดูล Payment ด้วยนะ ติดอะไรถาม Lead'",
+          pArt: "code",
+          choices: [
+            {
+              text: "วางแผนทำ Task อย่างเป็นระบบ เขียน Unit Test ให้ครอบคลุมทุกเคส",
+              stats: { skill: 16, energy: -15, sanity: 5, karma: 12 },
+              cost: 0,
+              hint: "+16 ทักษะ · เติบโตอย่างก้าวกระโดด · พิสูจน์ความเป็นอิสระ",
+              feedback: "คุณดูแลโมดูลได้ไร้ที่ติ เมื่อพี่เลี้ยงกลับมาพบว่างานเดินหน้าไปได้มากกว่าที่คิดไว้เสียอีก!"
+            },
+            {
+              text: "เข้าหา Tech Lead สรุป Progress สั้นๆ วันละ 5 นาทีเพื่อความสบายใจ",
+              stats: { skill: 10, energy: -8, sanity: 10, karma: 15 },
+              cost: 0,
+              hint: "+15 บารมี · สื่อสารโปร่งใส · ป้องกันความเสี่ยง",
+              feedback: "Tech Lead ชื่นชมทักษะการรายงานและรับผิดชอบ บอกว่านี่คือคุณสมบัติของวิศวกรที่ดี"
+            },
+            {
+              text: "แอบอู้ นั่งอ่านการ์ตูนและไถโทรศัพท์เพราะไม่มีใครคอยคุมข้างโต๊ะ",
+              stats: { skill: -8, energy: 15, sanity: -15, karma: -20 },
+              cost: 0,
+              hint: "+15 พลัง · -20 บารมี · สปรินต์อาจพัง",
+              feedback: "วันศุกร์งานไม่เสร็จตามเป้า Tech Lead เรียกคุยเรื่องการบริหารเวลาทันทีที่หมดสัปดาห์"
+            }
+          ]
+        },
+        {
+          week: 8,
+          title: "วิกฤต Database: ลืมใส่เงื่อนไข WHERE ในคำสั่ง DELETE!",
+          intro: "มือไวลั่นคำสั่ง DELETE FROM users; บนเซิร์ฟเวอร์ฐานข้อมูล Staging! ข้อมูลหายวับไปทั้งตาราง หัวใจร่วงไปตาตุ่ม",
+          pArt: "terminal",
+          choices: [
+            {
+              text: "ยอมรับทันที รีบแจ้งพี่เลี้ยงและขอดู Backup ล่าสุดเพื่อช่วย Restore",
+              stats: { skill: 16, energy: -20, sanity: -10, karma: 15 },
+              cost: 0,
+              hint: "+16 ทักษะ · แสดงความรับผิดชอบอย่างมืออาชีพ · พี่เลี้ยงให้อภัย",
+              feedback: "ทุกคนช่วยกันกู้ข้อมูลจาก Daily Backup กลับมาได้ พี่เลี้ยงบอก: 'ใครๆ ก็เคยพลาด บทเรียนนี้จำให้แม่นนะน้อง'"
+            },
+            {
+              text: "พยายามเขียน SQL กู้คืนเงียบๆ คนเดียว หัวใจเต้นตูมตามตลอดบ่าย",
+              stats: { skill: 5, energy: -15, sanity: -25, karma: -10 },
+              cost: 0,
+              hint: "-25 ความสุข · เครียดสะสม · เสี่ยงความเสียหายบานปลาย",
+              feedback: "กู้ได้แค่บางส่วน ข้อมูลบางเรคคอร์ดแหว่งไป คุณเครียดจนปวดหัวไมเกรนขึ้นทั้งสัปดาห์"
+            },
+            {
+              text: "ตีเนียน ลบ Query History แล้วแกล้งบอกว่าเซิร์ฟเวอร์น่าจะแคชล่มเอง",
+              stats: { skill: -15, energy: -10, sanity: -40, karma: -50 },
+              cost: 0,
+              hint: "⚠️ ผิดวินัยร้ายแรง: หากบารมีเหลือน้อย เสี่ยงโดนส่งตัวกลับทันที!",
+              feedback: "Audit Log ฟ้องรหัส IP เครื่องของคุณชัดเจน! ความไว้วางใจจากทั้งบริษัทพังทลายลงในเสี้ยววินาที"
+            }
+          ]
+        },
+        {
+          week: 9,
+          title: "Docker พัง: 'บนเครื่องผมรันได้ แต่ขึ้น Staging แล้วจอดำ'",
+          intro: "ฟีเจอร์ของคุณทำงานบนเครื่อง Local ได้สมบูรณ์แบบ แต่พอขึ้น Staging Server หน้าจอขึ้น 502 Bad Gateway",
+          pArt: "alarm",
+          choices: [
+            {
+              text: "ไล่เช็ก Environment Variables, OS Architecture และ Network Port อย่างละเอียด",
+              stats: { skill: 15, energy: -12, sanity: 2, karma: 8 },
+              cost: 0,
+              hint: "+15 ทักษะ · เข้าใจ DevOps · แก้ปัญหาตรงจุด",
+              feedback: "พบสาเหตุว่าลืมตั้งค่า Config ใน Dockerfile พอแก้แล้วระบบรันได้นิ่งสนิท"
+            },
+            {
+              text: "ไปขอความช่วยเหลือจากพี่ทีม DevOps พร้อมจดวิธีแก้ปัญหาอย่างตั้งใจ",
+              stats: { skill: 12, energy: -8, sanity: 8, karma: 14 },
+              cost: 0,
+              hint: "+14 บารมี · ได้คอนเนกชันทีม DevOps · งานเดินหน้า",
+              feedback: "พี่ DevOps ชมว่าเด็กฝึกงานคนนี้ตั้งใจเรียนรู้ แถมสอนเคล็ดลับ CI/CD ให้ฟรีๆ"
+            },
+            {
+              text: "พูดประโยคคลาสสิก: 'บนเครื่องผมรันผ่านนะพี่ ไม่รู้ทำไมขึ้น Server แล้วพัง'",
+              stats: { skill: 0, energy: -5, sanity: -8, karma: -12 },
+              cost: 0,
+              hint: "ประโยคต้องห้ามของโปรแกรมเมอร์ · -12 บารมี",
+              feedback: "พี่ DevOps ถอนหายใจ: 'งั้นน้องต้องย้ายไปนอนใน Server แล้วล่ะครับ'"
+            }
+          ]
+        },
+        {
+          week: 10,
+          title: "Security Alert: เผลอ Push API Key หรือ Secret ขึ้น GitHub!",
+          intro: "บอท GitHub ส่งอีเมลแจ้งเตือนด่วน: 'GitGuardian detected high-severity secret leak' บน Repository บริษัท!",
+          pArt: "terminal",
+          choices: [
+            {
+              text: "รีบ Revoke Secret ทันที แล้วใช้ BFG Repo-Cleaner ลบประวัติ Git",
+              stats: { skill: 18, energy: -15, sanity: -5, karma: 12 },
+              cost: 0,
+              hint: "+18 ทักษะ · แก้ไขด้าน Security ถูกต้อง 100% · ปลอดภัย",
+              feedback: "คุณยกเลิก Key ทันก่อนที่แฮกเกอร์จะสแกนเจอ Tech Lead เอ่ยปากชมการจัดการวิกฤต"
+            },
+            {
+              text: "แจ้ง Security Officer ประจำบริษัทอย่างโปร่งใสตามมาตรฐาน ISO",
+              stats: { skill: 10, energy: -10, sanity: 5, karma: 16 },
+              cost: 0,
+              hint: "+16 บารมี · ปฏิบัติตามมาตรฐานองค์กร",
+              feedback: "ทีม Security จัดการ Rotate Key ใหม่ทั้งหมดอย่างเป็นมืออาชีพ คุณได้เรียนรู้ระบบรักษาความปลอดภัยองค์กร"
+            },
+            {
+              text: "แค่แก้ Commit ล่าสุดลบ Key ออก แต่ปล่อยทิ้งไว้ใน Git History",
+              stats: { skill: -10, energy: -5, sanity: -20, karma: -25 },
+              cost: 0,
+              hint: "เข้าใจผิดร้ายแรง · Key ยังอยู่ใน History!",
+              feedback: "วันต่อมามีคนเอา API Key ไปยิงทดลองจนวงเงิน Cloud เกือบทะลุ โดนเรียกคุยเป็นกรณีพิเศษ"
+            }
+          ]
+        },
+        {
+          week: 11,
+          title: "ภารกิจ Refactor: โค้ดมรดกเก่า 5 ปีที่ไร้ Comment",
+          intro: "Tech Lead มอบหมายให้แปลงฟังก์ชันเก่า 2,000 บรรทัดที่ไม่มีใครกล้าแตะ ให้กลายเป็น Clean Code สมัยใหม่",
+          pArt: "code",
+          choices: [
+            {
+              text: "เขียน Unit Test คลุมฟังก์ชันเดิมให้ครบก่อน แล้วค่อยแยกเป็นโมดูลย่อย",
+              stats: { skill: 20, energy: -18, sanity: 0, karma: 12 },
+              cost: 0,
+              hint: "+20 ทักษะ · มาตรฐานระดับ Senior · โค้ดเสถียร",
+              feedback: "คุณทำได้ยอดเยี่ยม! โค้ดสะอาดขึ้น 70% แถมเทสต์ผ่านฉลุยทั้งระบบ เป็นผลงานชิ้นโบว์แดง"
+            },
+            {
+              text: "ลบของเก่าแล้วเขียนใหม่หมดตามใจตัวเองโดยไม่รันเทสต์เดิม",
+              stats: { skill: 5, energy: -15, sanity: -15, karma: -15 },
+              cost: 0,
+              hint: "เสี่ยง Edge Case หลุด · เกิดบั๊กซ่อนเร้น",
+              feedback: "ของใหม่ดูสวย แต่ฟังก์ชันพิเศษสำหรับลูกค้ารายใหญ่พังยับเยิน ต้องย้อนโค้ดกลับมาแก้ใหม่"
+            },
+            {
+              text: "ขอคำแนะนำและโครงสร้างสถาปัตยกรรมจาก Senior ก่อนเริ่มลงมือ",
+              stats: { skill: 14, energy: -10, sanity: 8, karma: 15 },
+              cost: 0,
+              hint: "+14 ทักษะ · +15 บารมี · ได้เรียนรู้จากผู้มีประสบการณ์",
+              feedback: "Senior พอใจมากและสละเวลาวาด Diagram อธิบายตรรกะระบบให้ฟังอย่างละเอียด"
+            }
+          ]
+        },
+        {
+          week: 12,
+          title: "บอสอยากได้ฟีเจอร์ AI ตอบแชต ภายใน 48 ชั่วโมง!",
+          intro: "ผู้บริหารเพิ่งกลับมาจากงานสัมมนา แล้วอยากให้แอปมีระบบ Gen-AI ตอบลูกค้าทันสัปดาห์นี้เพื่อใช้อวดบอร์ด",
+          pArt: "demo",
+          choices: [
+            {
+              text: "ต่อ API สำเร็จรูปพร้อมใส่ Prompt Guardrails ป้องกัน AI มั่วคำตอบ",
+              stats: { skill: 15, energy: -12, sanity: 5, karma: 15 },
+              cost: 0,
+              hint: "+15 ทักษะ · ทำงานได้จริง · ปลอดภัย",
+              feedback: "ผลงานตอบโจทย์บอสได้อย่างสมบูรณ์แบบ ทั้งเร็วและปลอดภัยต่อภาพลักษณ์องค์กร"
+            },
+            {
+              text: "ทำ Mockup หน้าจอจำลองคำตอบสวยๆ ไปโชว์บอสก่อนเพื่อซื้อเวลา",
+              stats: { skill: 6, energy: -5, sanity: 10, karma: 5 },
+              cost: 0,
+              hint: "เอาตัวรอดได้ชั่วคราว · ความเครียดน้อย",
+              feedback: "บอสถูกใจดีไซน์มาก แต่ยังต้องเร่งทำระบบหลังบ้านต่อในสัปดาห์ถัดไป"
+            },
+            {
+              text: "พยายามเทรนโมเดล Open-source เองจากศูนย์ อดนอนข้ามคืนจนเซิร์ฟเวอร์ค้าง",
+              stats: { skill: 10, energy: -30, sanity: -20, karma: -5 },
+              cost: 0,
+              hint: "-30 สุขภาพ · หักโหมเกินขอบเขต",
+              feedback: "โมเดลยังไม่ทันเทรนเสร็จ ร่างกายของคุณก็ทรุดโทรมจนตาแดงก่ำในห้องประชุม"
+            }
+          ]
+        },
+        {
+          week: 13,
+          title: "บั๊กหลุดขึ้น Production: ลูกค้ากดโอนเงินแล้วยอดเบิ้ล 2 เท่า!",
+          intro: "วันจันทร์เช้า ฝ่าย Customer Support โทรมาแจ้งด้วยเสียงสั่นเครือ: 'มีเคสเงินเข้าเบิ้ล 14 บัญชีค่ะ!'",
+          pArt: "bug",
+          choices: [
+            {
+              text: "เสนอให้เปิด Maintenance Mode ทันที แล้วทำ Rollback สู่เวอร์ชันก่อนหน้า",
+              stats: { skill: 15, energy: -15, sanity: -5, karma: 14 },
+              cost: 0,
+              hint: "+15 ทักษะ · แก้ไขสถานการณ์ฉุกเฉินได้แม่นยำ · ลดความเสียหาย",
+              feedback: "การตัดสินใจหยุดระบบทันทีช่วยเซฟเงินบริษัทได้หลายล้านบาท ผู้บริหารกล่าวขอบคุณทีม Dev"
+            },
+            {
+              text: "รีบแกะสาเหตุ พบ Race Condition ในฐานข้อมูล และเขียน Script ดึงเงินคืน",
+              stats: { skill: 22, energy: -22, sanity: -10, karma: 20 },
+              cost: 0,
+              hint: "+22 ทักษะขั้นสูง · +20 บารมี · ฮีโร่กู้ชาติ",
+              feedback: "คุณคือดาวเด่นประจำสัปดาห์! สามารถเขียนสคริปต์แก้ไขและกู้เงินคืนได้ครบทุกบาททุกสตางค์"
+            },
+            {
+              text: "นั่งนิ่งๆ ภาวนาว่าคงไม่ใช่โค้ดในโมดูลของตัวเองที่ทำพัง",
+              stats: { skill: -5, energy: -5, sanity: -25, karma: -20 },
+              cost: 0,
+              hint: "-25 ความสุข · หนีปัญหา · -20 บารมี",
+              feedback: "การไม่ช่วยเพื่อนในยามวิกฤตทำให้เพื่อนร่วมทีมรู้สึกผิดหวังในตัวคุณ"
+            }
+          ]
+        },
+        {
+          week: 14,
+          title: "Senior Code Review มหากาพย์: โดนคอมเมนต์ 45 จุดใน PR เดียว",
+          intro: "Senior ระดับโหดตรวจ PR ของคุณอย่างละเอียดยิบ ตั้งแต่ Naming Convention, Memory Leak จนถึง Clean Architecture",
+          pArt: "circle",
+          choices: [
+            {
+              text: "เปิดใจยอมรับทุกข้อคิดเห็น นั่งปรับโค้ดและจดสรุปเป็นความรู้ส่วนตัว",
+              stats: { skill: 22, energy: -12, sanity: 8, karma: 18 },
+              cost: 0,
+              hint: "+22 ทักษะ · ได้รับความเอ็นดูจาก Senior · ยกระดับฝีมือ",
+              feedback: "Senior เห็นความตั้งใจของคุณ เลยมานั่งประกบสอนเคล็ดลับลึกๆ ให้เป็นการส่วนตัว!"
+            },
+            {
+              text: "เถียงกลับทุกจุดว่าแบบเดิมก็ทำงานได้ ทำไมต้องเขียนให้เรื่องมาก",
+              stats: { skill: -5, energy: -10, sanity: -15, karma: -22 },
+              cost: 0,
+              hint: "ทัศนคติลบ · -22 บารมี",
+              feedback: "บรรยากาศในทีมตึงเครียด Senior มองว่าคุณไม่พร้อมเรียนรู้และปิดรับคำติชม"
+            },
+            {
+              text: "แก้เฉพาะจุดสีแดง จุดสีเหลืองที่เป็นคำแนะนำขอข้ามไปก่อน",
+              stats: { skill: 8, energy: -5, sanity: 5, karma: 5 },
+              cost: 0,
+              hint: "ผ่านเกณฑ์พอดี · ประหยัดแรง",
+              feedback: "โค้ดผ่านเข้า Develop ได้แบบเฉียดฉิว แม้จะยังไม่เพอร์เฟกต์ที่สุด"
+            }
+          ]
+        },
+        {
+          week: 15,
+          title: "Final Sprint Demo: พรีเซนต์ผลงานต่อหน้าผู้บริหารและอาจารย์นิเทศ",
+          intro: "สัปดาห์รองสุดท้าย อาจารย์ที่ปรึกษาจากมหาวิทยาลัยมาเยือนออฟฟิศ เพื่อร่วมฟังการนำเสนอโปรเจกต์ตลอด 4 เดือน",
+          pArt: "demo",
+          choices: [
+            {
+              text: "เตรียม Slide สรุปสถาปัตยกรรมระบบ สถิติการเทสต์ และเปิด Live Demo อย่างมั่นใจ",
+              stats: { skill: 20, energy: -15, sanity: 15, karma: 20 },
+              cost: 0,
+              hint: "+20 ทักษะ · +20 บารมี · อาจารย์และบอสปรบมือเกรียวกราว",
+              feedback: "Live Demo ราบรื่นไร้บั๊ก! อาจารย์ยิ้มแก้มปริและชมว่าเด็กฝึกงานเอสอีคนนี้พร้อมทำงานระดับสากล"
+            },
+            {
+              text: "อัดวิดีโอเดโมสำรองไว้ ป้องกันความเสี่ยงเซิร์ฟเวอร์ดับระหว่างพรีเซนต์",
+              stats: { skill: 15, energy: -8, sanity: 12, karma: 15 },
+              cost: 0,
+              hint: "+15 ทักษะ · รอบคอบมีแผนสำรอง · ปลอดภัย 100%",
+              feedback: "การมี Backup Plan ช่วยให้การนำเสนอไหลลื่นและสร้างความประทับใจในความเป็นมืออาชีพ"
+            },
+            {
+              text: "ด้นสดหน้างานโดยไม่ได้ซ้อม Demo ล่วงหน้า",
+              stats: { skill: 0, energy: -10, sanity: -20, karma: -15 },
+              cost: 0,
+              hint: "เสี่ยงค้างหน้างาน · -20 ความสุข",
+              feedback: "ระบบเกิดเออร์เรอร์กะทันหันกลางหน้าจอ ทำให้ต้องเสียเวลาแก้เขินไปหลายนาที"
+            }
+          ]
+        },
+        {
+          week: 16,
+          title: "วันตัดสินอนาคต: รับฟังผลการประเมินสหกิจศึกษา & สัญญา Return Offer",
+          intro: "สัปดาห์สุดท้ายในฐานะเด็กฝึกงาน เข้าห้องกระจกประชุมเพื่อรับฟังคะแนนเกรดและข้อเสนอจากทางบริษัท",
+          pArt: "trophy",
+          choices: [
+            {
+              text: "สรุปสิ่งที่ได้เรียนรู้ ความกตัญญูต่อทีม และเสนอมุมมองการพัฒนาในอนาคต",
+              stats: { skill: 15, energy: 10, sanity: 20, karma: 25 },
+              cost: 0,
+              hint: "+25 บารมี · จบสวยงามระดับตำนาน",
+              feedback: "กรรมการและผู้จัดการประเมินให้เกรด A เต็ม พร้อมยื่นซองข้อเสนอรับบรรจุงานทันที!"
+            },
+            {
+              text: "ขอคำแนะนำเพิ่มเติมเรื่องจุดที่ต้องพัฒนาต่อก่อนก้าวเข้าสู่วัยทำงาน",
+              stats: { skill: 20, energy: 5, sanity: 15, karma: 18 },
+              cost: 0,
+              hint: "+20 ทักษะ · สปิริตใฝ่เรียนรู้",
+              feedback: "ผู้บริหารชื่นชอบความถ่อมตนและการใฝ่รู้ ให้คำแนะนำอันมีค่าต่อเส้นทางอาชีพในระยะยาว"
+            },
+            {
+              text: "เลี้ยงชานมไข่มุกและขนมหวานขอบคุณพี่ๆ ทั้งแผนกในวันสุดท้าย",
+              stats: { skill: 5, energy: 10, sanity: 25, karma: 30 },
+              cost: -450, // เลี้ยงขนมพี่ๆ
+              hint: "+30 บารมี · -450 บาท · ได้คอนเนกชันเหนียวแน่นตลอดไป",
+              feedback: "พี่ๆ ในแผนกประทับใจจนแทบร้องไห้ ต่างแลก LINE และสัญญาว่าจะคอยช่วยเหลือเรื่องงานเสมอ"
+            }
+          ]
+        }
       ],
-      ba: [
-        { title: "Day 1 Onboarding: แฟ้ม Requirement เก่า 300 หน้า", intro: "เปิดแฟ้ม Requirement เก่าตั้งแต่ปี 2018 ที่คนเขียนลาออกไปหมดแล้ว", pArt: "docs" },
-        { title: "ลูกค้าขอ 'เหมือน Facebook ผสม Shopee แต่งบ 5 หมื่น'", intro: "ลูกค้านัดคุยบรีฟรอบแรกด้วยสโคปขนาดจักรวาลแต่นัดส่งงานเดือนหน้า", pArt: "circle" },
-        { title: "Daily Standup: Dev หันมาจ้องหน้าถามหาสเปก", intro: "Dev ถามว่า 'แล้วปุ่มนี้กดยังไง BA ยังไม่ได้เขียน Acceptance Criteria นะ'", pArt: "docs" },
-        { title: "ฉลองเคลียร์สเปก: ยกทีมบุกร้านหมูกระทะห้องแอร์", intro: "สปรินต์นี้คุยกับลูกค้าจนคอแห้ง พี่ๆ BA และ Dev เลยชวนไปย่างหมูกระทะเยียวยาตับไต", pArt: "moo_kratha" },
-        { title: "ลูกค้าโทรมาขอเพิ่มฟีเจอร์ตอน 17:55 น. วันศุกร์", intro: "'น้อง BA คะ พี่ขอเพิ่มระบบคะแนนสะสมนิดเดียว น่าจะเพิ่มง่ายเนอะ'", pArt: "alarm" },
-        { title: "ศึกปะทะคารม: Dev ปฏิเสธทำฟีเจอร์บอกไร้สาระ", intro: "คุณต้องเป็นคนกลางไกล่เกลี่ยระหว่าง Dev ที่ไม่อยากทำ กับลูกค้าที่ยืนกราน", pArt: "conflict" },
-        { title: "พี่เลี้ยงลาพักร้อน ต้องเข้าประชุมกับ Stakeholders เดี่ยว", intro: "นั่งหัวโต๊ะคุยกับผู้บริหารระดับสูง 8 ท่านโดยไม่มีพี่เลี้ยงคอยช่วย", pArt: "beach" },
-        { title: "ส่งเอกสาร Spec ผิดเวอร์ชันให้ทีมพัฒนา", intro: "Dev เขียนฟีเจอร์เสร็จไปครึ่งหนึ่งแล้วเพิ่งรู้ว่าคุณส่งไฟล์ดราฟต์เก่าให้!", pArt: "terminal" },
-        { title: "ลูกค้าไม่ยอม Sign-off เอกสาร UAT", intro: "ระบบเทสต์ผ่านหมด แต่ลูกค้าบอก 'พี่ยังไม่ถูกใจฟีลลิ่ง ขอกลับไปคิดก่อน'", pArt: "test" },
-        { title: "Scope Creep มหาภัย: งอกออกมาอีก 30 ฟังก์ชัน", intro: "จากสัญญาทำ 5 หน้าจอ ตอนนี้งอกบานปลายกลายเป็น 35 หน้าจอ!", pArt: "alarm" },
-        { title: "ทำ Flowchart ใน Miro จนเส้นพันกันเหมือนสายไฟ", intro: "Business Process มีข้อยกเว้น 89 เงื่อนไข จน Flowchart ดูเหมือนแผนที่รถไฟฟ้า", pArt: "docs" },
-        { title: "ตรวจทาน Wireframe กับ UX/UI Designer", intro: "UX ออกแบบสวยหรูแต่ผิด Business Logic ไปคนละทิศคนละทาง", pArt: "design" },
-        { title: "วิกฤต Pivot: ลูกค้าขอรื้อ Requirement ทั้งระบบ!", intro: "เหลือเวลาอีก 3 สัปดาห์ แต่ลูกค้าเปลี่ยนโมเดลธุรกิจกะทันหัน", pArt: "conflict" },
-        { title: "จัด Workshop ทำ User Story Mapping ร่วมกับทั้งทีม", intro: "นำทีมระดมสมองติด Post-it เต็มฝาผนังออฟฟิศเพื่อจัดลำดับ MVP", pArt: "docs" },
-        { title: "นำเสนอ Final Requirement & Business Value", intro: "พรีเซนต์สรุปความคุ้มค่าทางธุรกิจและสิ่งที่ส่งมอบต่อหน้าบอร์ดบริหาร", pArt: "demo" },
-        { title: "วันประเมินผลสหกิจศึกษา & สรุปผลงาน BA", intro: "วันตัดสินอนาคต พี่ๆ ร่วมนั่งโต๊ะประเมินเกรดและยื่นข้อเสนอรับเข้าทำงาน", pArt: "trophy" }
-      ],
-      tester: [
-        { title: "Day 1 Onboarding: ตะลุย Test Matrix 500 เคส", intro: "พี่ QA ส่งไฟล์ Excel ยาว 5,000 แถวมาให้พร้อมบอก 'รันมือให้ครบก่อนบ่ายนะ'", pArt: "test" },
-        { title: "เจอบั๊กตัวเป้ง: กดซื้อของยอดติดลบได้เงินคืน!", intro: "ทดสอบกรอกตัวเลขติดลบในช่องจำนวนสินค้า แล้วระบบโอนเงินเข้าบัญชีจริง!", pArt: "bug" },
-        { title: "Daily Standup: Dev สวนกลับ 'บนเครื่องผมรันผ่าน'", intro: "แจ้งเปิดบั๊กไป แต่โปรแกรมเมอร์บอกว่าเป็นบั๊กของคน ไม่ใช่ของโค้ด", pArt: "circle" },
-        { title: "เทสต์เสร็จหิวโซ: ตี้หมูกระทะกระชับมิตร QA vs Dev", intro: "หลังจากเถียงเรื่องบั๊กมาทั้งวัน พี่ Lead QA ชวนไปปรับความเข้าใจที่เตาหมูกระทะ", pArt: "moo_kratha" },
-        { title: "Friday Deploy: ระบบจะขึ้นตอน 17:55 น. เทสต์ด่วน!", intro: "ทีม Dev โยนไฟล์ build มาให้ตอนห้าโมงเย็นครึ่ง บอกให้เทสต์ปล่อยของให้ทัน", pArt: "alarm" },
-        { title: "สงครามปรัชญา: 'นี่คือบั๊กหรือฟีเจอร์กันแน่?'", intro: "เถียงกับ Dev และ PO 3 ชั่วโมงเรื่องพฤติกรรมการกดปุ่ม Back ในแอป", pArt: "conflict" },
-        { title: "พี่เลี้ยงลาพักร้อน ทิ้งให้ดูแล Regression Test เดี่ยว", intro: "ทั้งทีม QA เหลือคุณคนเดียว ต้องรับมือกับ Release สำคัญประจำเดือน", pArt: "beach" },
-        { title: "บั๊กหลุดเข้าสู่สายตาซีอีโอตอนกำลังพรีเซนต์", intro: "ซีอีโอลองกดเล่นในงานเปิดตัวแล้วแอปค้างหน้าจอขาวต่อหน้าสื่อมวลชน!", pArt: "terminal" },
-        { title: "Automated Test Flaky: รันสิบรอบ ผลไม่ซ้ำกันสักรอบ", intro: "เขียน Cypress สคริปต์อัตโนมัติ แต่รันแล้วเดี๋ยวเขียวเดี๋ยวแดงจนปวดหัว", pArt: "test" },
-        { title: "ภารกิจ Security Penetration Test แอบเจาะระบบ", intro: "ลองเล่นเป็นแฮกเกอร์ฉีด SQL Injection ใส่ช่องค้นหา ปรากฏว่าผ่านฉลุย!", pArt: "server" },
-        { title: "Load Test มหาโหด: ยิง Request จนเซิร์ฟเวอร์ระเบิด", intro: "จำลองคนใช้งาน 50,000 คนพร้อมกัน เซิร์ฟเวอร์บริษัทดับไป 15 นาที", pArt: "server" },
-        { title: "เทสต์ Cross-Device: รันบน Android ผ่าน แต่ iOS พังยับ", intro: "จอพับและจอติ่งทำให้ปุ่มสำคัญล้นออกนอกจอ กดสั่งซื้อไม่ได้", pArt: "test" },
-        { title: "คืนหฤโหด: นั่งเทสต์ Regression ยันตีสอง", intro: "ทั้งทีมนั่งกินพิซซ่ารอบดึก ตรวจทานทุกหน้าจอก่อนเปิดให้คนทั่วไปใช้งาน", pArt: "coffee" },
-        { title: "Bug Triage สรุปผลก่อนเคาะ Go-Live", intro: "นั่งฟันธงร่วมกับ Tech Lead ว่าบั๊กไหนยอมให้ผ่าน บั๊กไหนต้องแก้เดี๋ยวนี้", pArt: "circle" },
-        { title: "Final QA Sign-off พรีเซนต์รายงานคุณภาพระบบ", intro: "โชว์สถิติ Bug Report และการครอบคลุมของ Test Coverage ต่อหน้าทีมใหญ่", pArt: "demo" },
-        { title: "วันประเมินผลสหกิจศึกษา & ใบรับรอง QA ยอดเยี่ยม", intro: "รับฟังผลการประเมินจากทีม Quality Assurance พร้อมคำเชิญชวนร่วมทีมถาวร", pArt: "trophy" }
-      ],
-      uxui: [
-        { title: "Day 1 Onboarding: สำรวจ Design System ใน Figma", intro: "เปิดไฟล์ Figma ขนาด 4GB ที่มี Component 10,000 ชิ้นและไม่เคยจัด Auto Layout", pArt: "design" },
-        { title: "โจทย์จาก PO: 'ขอโลโก้ใหญ่ขึ้นและป๊อปกว่านี้อีกนิด'", intro: "ลูกค้าบอกว่าดีไซน์เรียบไป อยากได้อะไรที่มันว้าว สะดุดตา และมีสีสันกว่านี้", pArt: "design" },
-        { title: "Daily Standup: Dev บอกว่า 'Layout นี้ทำไม่ได้จริง'", intro: "Dev แจ้งว่าแอนิเมชัน 3D ที่คุณออกแบบกินทรัพยากรเครื่องและเขียนโค้ดยากเกินไป", pArt: "circle" },
-        { title: "คืนวันศุกร์: พา Design Team ไปปิ้งหมูกระทะฮีลใจ", intro: "หลังโดนลูกค้าสั่งแก้งาน 8 รอบ พี่ๆ เลยพาไปนั่งสูดควันหมูกระทะให้ลืมความช้ำใจ", pArt: "moo_kratha" },
-        { title: "วันศุกร์ 17:55 น. ลูกค้าขอ Mockup ด่วนไปพรีเซนต์เช้าจันทร์", intro: "กำลังจะปิดคอมกลับบ้าน บอสโทรมาบอก 'ช่วยทำดราฟต์สวยๆ 3 หน้าจอให้หน่อยนะ'", pArt: "alarm" },
-        { title: "Dev ทำหน้าจอออกมาไม่ตรงกับ Figma แม้แต่มิลลิเมตรเดียว", intro: "Padding ไม่เท่ากัน ฟอนต์คนละตัว สีเพี้ยนจากน้ำเงินกลายเป็นม่วง!", pArt: "conflict" },
-        { title: "Lead Designer ลาพักร้อน คุณต้องคุมงานออกแบบทั้งแอป", intro: "พี่เลี้ยงไม่อยู่ คุณต้องเป็นคนตัดสินใจเลือกโทนสีและ Flow ทั้งหมดคนเดียว", pArt: "beach" },
-        { title: "Usability Test ล้มเหลว: ผู้ใช้งานหาปุ่มไปต่อไม่เจอ", intro: "นั่งดูผู้ใช้ทดสอบ 5 คน ทุกคนกดปิดแอปเพราะหาปุ่มยืนยันไม่เจอ!", pArt: "test" },
-        { title: "Figma เด้งปิดตัวเอง ลืมเปิด Auto-Save งานหายทั้งวัน", intro: "หน้าจอดับวูบ งานที่นั่งดราฟต์ไอคอนมาตั้งแต่เช้าไม่เหลือเลยแม้แต่ชิ้นเดียว", pArt: "terminal" },
-        { title: "Accessibility Audit: คอนทราสต์สีไม่ผ่านเกณฑ์ WCAG", intro: "ตัวหนังสือสีเทาอ่อนบนพื้นขาวอ่านไม่ออก โดนสั่งรื้อสีทั้งแอปพลิเคชัน", pArt: "design" },
-        { title: "ภารกิจ Dark Mode: ลูกค้าอยากได้ธีมมืดภายใน 2 วัน", intro: "ต้องแปลง Palette ทั้งหมด 200 หน้าจอให้เป็นโทนดาร์กโดยที่คอนทราสต์ยังสวย", pArt: "design" },
-        { title: "ลูกค้าขอ 'ยัดทุกฟังก์ชันลงในหน้าจอแรก' โดยไม่ให้เลื่อน", intro: "ยัดกราฟิก ชาร์ต ตาราง และการแจ้งเตือนลงไปในหน้าจอเดียวจนตาลาย", pArt: "docs" },
-        { title: "บอสบอก 'ทำแบบมาให้เลือกสัก 10 แบบสิ บ่ายนี้จะดู'", intro: "ต้องปั่น Visual Design 10 สไตล์ที่แตกต่างกันภายในเวลา 3 ชั่วโมง!", pArt: "alarm" },
-        { title: "ลูกค้าสรุปขอกลับไปใช้ดีไซน์ 'เวอร์ชันแรกสุด'!", intro: "หลังจากที่คุณนั่งแก้งานมา 14 รอบ ลูกค้าบอกว่า 'ดูไปดูมา แบบแรกสวยสุดแล้วน้อง'", pArt: "conflict" },
-        { title: "Final Design Pitching พรีเซนต์ UX Journey ผู้บริหาร", intro: "ขึ้นพรีเซนต์แนวคิดการออกแบบและผลลัพธ์การทดสอบต่อหน้าบอร์ดบริหาร", pArt: "demo" },
-        { title: "วันประเมินผลสหกิจศึกษา & สรุป Portfolio 16 สัปดาห์", intro: "เปิดพอร์ตโฟลิโอผลงานดีไซน์ตลอด 4 เดือน และรับฟังผลประเมินจบการฝึกงาน", pArt: "trophy" }
-      ]
+      // (BA, Tester, and UXUI have their own tailored events that match their profession)
+      ba: [],
+      tester: [],
+      uxui: []
     };
 
-    function getChoicesForWeek(roleId, weekNum) {
-      // Specialized choices for Week 4: Moo Kratha Buffet!
-      if (weekNum === 4) {
-        return [
-          {
-            text: "ไปตี้หมูกระทะเต็มที่! กินสามชั้นกรอบๆ ชวนพี่ๆ เม้าท์มอยฮีลใจ",
-            stats: { skill: 4, energy: 25, sanity: 30, karma: 18, money: -299 },
-            hint: "+25 สุขภาพ · +30 ความสุข · +18 บารมี · -299 บาท",
-            feedback: "หมูสามชั้นเกรียมๆ กับน้ำจิ้มรสเด็ดเยียวยาทุกอย่าง! ความสุขและพลังกายพุ่งทะยาน แถมสนิทกับพี่ๆ ในทีมมากขึ้นโข"
-          },
-          {
-            text: "อาสาเป็นมือย่างระดับเทพ คอยคีบหมูตักน้ำซุปบริการพี่ๆ ทั้งโต๊ะ",
-            stats: { skill: 8, energy: 10, sanity: 20, karma: 30, money: -299 },
-            hint: "+30 บารมี · +20 ความสุข · +10 สุขภาพ · -299 บาท",
-            feedback: "พี่เลี้ยงและผู้จัดการประทับใจใน Service Mind ของคุณมาก ได้รับคำชมเรื่องความใส่ใจและเข้าสังคมเก่ง!"
-          },
-          {
-            text: "ขอตัวกลับหอ ประหยัดเงิน 299 บาท แต่นอนเหงาไถฟีดดูรูปเพื่อน",
-            stats: { skill: 2, energy: 5, sanity: -15, karma: -10, money: 0 },
-            hint: "-15 ความสุข · -10 บารมี · ประหยัดเงิน",
-            feedback: "คุณประหยัดเงินได้ 299 บาท แต่การนอนดูไอจีสตอรี่พี่ๆ นั่งกินหมูกระทะเฮฮากัน ทำให้รู้สึกโดดเดี่ยวและพลาดบทสนทนาสำคัญไป..."
-          }
-        ];
-      }
-
-      // High-risk critical week 8 (SQL Delete / Spec failure / Prod issue): can trigger sent back if bad choice
-      if (weekNum === 8) {
-        return [
-          {
-            text: "กล้าหาญ ยอมรับผิดทันที รีบแจ้งพี่เลี้ยงและช่วย Rollback ข้อมูล",
-            stats: { skill: 18, energy: -20, sanity: -10, karma: 15, money: -50 },
-            hint: "+18 ทักษะ · -20 สุขภาพ · +15 บารมี · แสดงความเป็นมืออาชีพ",
-            feedback: "พี่เลี้ยงตกใจแต่ชื่นชมที่คุณรีบแจ้งทันที ทุกคนช่วยกันกู้ฐานข้อมูลสำเร็จ คุณได้เรียนรู้บทเรียนชีวิตครั้งใหญ่!"
-          },
-          {
-            text: "พยายามใช้คำสั่งกู้ Database เงียบๆ คนเดียว หวังว่าจะไม่มีใครรู้",
-            stats: { skill: 5, energy: -15, sanity: -25, karma: -10, money: -50 },
-            hint: "-25 ความสุข · -10 บารมี · หัวใจเต้นแรง เสี่ยงโดนจับได้",
-            feedback: "กู้ข้อมูลกลับมาได้บางส่วน แต่ระบบแอบมีช่องโหว่ คุณนั่งตัวเกร็งไปทั้งสัปดาห์ด้วยความหวาดระแวง..."
-          },
-          {
-            text: "ตีเนียน ลบ Git log ทิ้งแล้วแกล้งบอกว่าเซิร์ฟเวอร์น่าจะล่มเอง",
-            stats: { skill: -15, energy: -10, sanity: -35, karma: -45, money: -50 },
-            hint: "-45 บารมี ⚠️ เสี่ยงโดนจับได้และส่งตัวกลับมหาวิทยาลัยทันที!",
-            feedback: "Tech Lead ตรวจสอบ Audit Log เจอร่องรอย IP ของคุณ! ความน่าเชื่อถือของคุณพังทลายลงในพริบตา..."
-          }
-        ];
-      }
-
-      // Default weekly choices
-      return [
-        {
-          text: "ตั้งสติ วิเคราะห์ปัญหาอย่างมืออาชีพตาม Best Practice",
-          stats: { skill: 14, energy: -15, sanity: -5, karma: 12, money: -50 },
-          hint: "+14 ทักษะ · -15 สุขภาพ · +12 บารมี",
-          feedback: "คุณจัดการสถานการณ์ได้อย่างยอดเยี่ยม! พี่เลี้ยงและเพื่อนร่วมทีมพยักหน้ายอมรับในฝีมือ"
-        },
-        {
-          text: "ใช้วิชาเอาตัวรอด ใช้ AI และทางลัดแก้ปัญหาเฉพาะหน้าไปก่อน",
-          stats: { skill: 8, energy: -5, sanity: 8, karma: 5, money: -50 },
-          hint: "+8 ทักษะ · -5 สุขภาพ · +8 ความสุข",
-          feedback: "รอดตัวไปได้อย่างหวุดหวิด งานเสร็จทันเวลาแม้จะมีความเสี่ยงซ่อนอยู่บ้าง"
-        },
-        {
-          text: "โยนให้พี่เลี้ยง หรือตีเนียนเงียบๆ แอบไปเข้าห้องน้ำชาร์จพลัง",
-          stats: { skill: -4, energy: 15, sanity: 5, karma: -14, money: -50 },
-          hint: "-4 ทักษะ · +15 สุขภาพ · -14 บารมี",
-          feedback: "คุณรอดพ้นความเครียดชั่วคราว แต่พี่ในทีมเริ่มหันมามองด้วยสายตาเอือมระอา..."
+    // Populate realistic BA, Tester, and UXUI scenarios if not already defined
+    // We clone base with profession adaptations
+    function initOtherRoles() {
+      // BA
+      ROLE_SCENARIOS.ba = ROLE_SCENARIOS.dev.map((ev, i) => {
+        if (i === 3) return ev; // Moo kratha week 4
+        if (i === 7) {
+          return {
+            week: 8,
+            title: "วิกฤตสเปก: ส่งเอกสาร Functional Spec เวอร์ชันเก่าให้ Dev ทำทั้งสปรินต์!",
+            intro: "Dev เขียนฟีเจอร์เสร็จไปครึ่งหนึ่งแล้วเพิ่งรู้ว่าคุณส่งไฟล์ดราฟต์ผิดชุดให้! สโคปงานผิดทิศทางทั้งหมด",
+            pArt: "terminal",
+            choices: [
+              {
+                text: "ยอมรับทันที รีบทำ Gap Analysis ชี้แจงจุดต่างและช่วยเขียน Test Case ชดเชย",
+                stats: { skill: 18, energy: -20, sanity: -10, karma: 15 },
+                cost: 0,
+                hint: "+18 ทักษะ · รับผิดชอบอย่างมืออาชีพ · ทีมยอมรับ",
+                feedback: "คุณช่วยไกล่เกลี่ยและจัดลำดับสเปกใหม่จน Dev สามารถแก้งานได้ทันสปรินต์อย่างน่าทึ่ง"
+              },
+              {
+                text: "พยายามไปเกลี้ยกล่อมลูกค้าให้เปลี่ยนความต้องการตามโค้ดที่ Dev เพิ่งเขียน",
+                stats: { skill: 10, energy: -15, sanity: -15, karma: 5 },
+                cost: 0,
+                hint: "กลยุทธ์วัดดวง · ต้องใช้คารมขั้นสูง",
+                feedback: "ลูกค้าไม่ยอมและตำหนิเรื่องความเป็นมืออาชีพ คุณต้องกลับมาแก้เอกสารใหม่ทั้งหมด"
+              },
+              {
+                text: "โยนความผิดให้ Dev ว่าไม่อ่านอีเมลแจ้งอัปเดตสเปกเอง",
+                stats: { skill: -15, energy: -10, sanity: -40, karma: -50 },
+                cost: 0,
+                hint: "⚠️ ทำลายความสัมพันธ์ในทีม · เสี่ยงโดนส่งตัวกลับ!",
+                feedback: "Dev นำหลักฐานอีเมลมากางให้ผู้จัดการดู ความน่าเชื่อถือของคุณในฐานะ BA ดับวูบทันที"
+              }
+            ]
+          };
         }
-      ];
+        return {
+          week: i + 1,
+          title: `สัปดาห์ที่ ${i + 1}: ${ev.title.replace('โค้ด', 'สเปกและ User Story').replace('Docker', 'Miro & Flowchart').replace('Database', 'Requirement')}`,
+          intro: `ในฐานะ BA คุณต้องประสานงานระหว่างลูกค้ากับทีมพัฒนา: ${ev.intro}`,
+          pArt: ev.pArt === 'code' ? 'circle' : ev.pArt,
+          choices: ev.choices.map(c => ({
+            ...c,
+            text: c.text.replace('โค้ด', 'เอกสาร Requirement').replace('Docker', 'Flowchart').replace('PR', 'Story'),
+            feedback: c.feedback.replace('โค้ด', 'สเปก')
+          }))
+        };
+      });
+
+      // Tester
+      ROLE_SCENARIOS.tester = ROLE_SCENARIOS.dev.map((ev, i) => {
+        if (i === 3) return ev; // Moo kratha
+        if (i === 7) {
+          return {
+            week: 8,
+            title: "วิกฤตปล่อยบั๊กหลุด: แอปธนาคารโอนเงินติดลบได้บนเซิร์ฟเวอร์จริง!",
+            intro: "คุณไม่ได้เทสต์เคสกรอกยอดเงินติดลบ บั๊กหลุดสู่สายตาลูกค้าจริง ฝ่ายการเงินโทรมาสั่งระงับแอป!",
+            pArt: "terminal",
+            choices: [
+              {
+                text: "ยอมรับทันที รีบทำ Root Cause Analysis และเขียน Test Case ดักไว้ 50 เคส",
+                stats: { skill: 18, energy: -20, sanity: -10, karma: 15 },
+                cost: 0,
+                hint: "+18 ทักษะ · QA ตัวจริงไม่หนีปัญหา · ปรับปรุงระบบ",
+                feedback: "ทีมร่วมกัน Patch ระบบได้ทันเวลา Tech Lead ชื่นชมที่คุณทำ Test Matrix ละเอียดมาก"
+              },
+              {
+                text: "โทษโปรแกรมเมอร์ว่าเขียนโค้ดไม่มี Input Validation ขั้นพื้นฐาน",
+                stats: { skill: -5, energy: -10, sanity: -20, karma: -25 },
+                cost: 0,
+                hint: "ทำลายมิตรภาพ QA vs Dev · -25 บารมี",
+                feedback: "เกิดสงครามวิวาทะระหว่างทีม QA กับ Dev ทำให้บรรยากาศในออฟฟิศมาคุไปทั้งสัปดาห์"
+              },
+              {
+                text: "แอบแก้ไฟล์ Test Report ย้อนหลังว่าเคสนี้เคยแจ้งเตือนไปแล้ว",
+                stats: { skill: -15, energy: -10, sanity: -40, karma: -50 },
+                cost: 0,
+                hint: "⚠️ ปลอมแปลงเอกสารผิดวินัยร้ายแรง · เสี่ยงโดนส่งตัวกลับ!",
+                feedback: "ระบบเก็บ Version History ของเอกสารไว้ ความจริงจึงถูกเปิดเผยในห้องสอบสวนวินัย"
+              }
+            ]
+          };
+        }
+        return {
+          week: i + 1,
+          title: `สัปดาห์ที่ ${i + 1}: ${ev.title.replace('เขียนโค้ด', 'เขียน Test Case & Automation').replace('Jira Ticket', 'Bug Report').replace('Clone Repo', 'รัน Regression Test')}`,
+          intro: `ในฐานะ QA Tester คุณคือด่านสุดท้ายของความปลอดภัย: ${ev.intro}`,
+          pArt: ev.pArt === 'code' ? 'bug' : ev.pArt,
+          choices: ev.choices.map(c => ({
+            ...c,
+            text: c.text.replace('เขียนโค้ด', 'เขียน Automated Test').replace('Deploy', 'Sign-off คุณภาพ'),
+            feedback: c.feedback.replace('โค้ด', 'รายงานผลการทดสอบ')
+          }))
+        };
+      });
+
+      // UX/UI
+      ROLE_SCENARIOS.uxui = ROLE_SCENARIOS.dev.map((ev, i) => {
+        if (i === 3) return ev; // Moo kratha
+        if (i === 7) {
+          return {
+            week: 8,
+            title: "วิกฤตลืมเปิด Auto-save: ไฟล์ Design System หลักของบริษัทหายวับ!",
+            intro: "Figma เด้งปิดตัวเองเพราะแคชเต็ม Component และ Design Tokens 2,000 ชิ้นที่คุณนั่งทำมาทั้งเดือนหายไป!",
+            pArt: "terminal",
+            choices: [
+              {
+                text: "ตั้งสติ เช็ก Version History บน Cloud ย้อนดึงเวอร์ชันล่าสุดแล้วปั่นซ่อมส่วนที่ขาด",
+                stats: { skill: 18, energy: -20, sanity: -10, karma: 15 },
+                cost: 0,
+                hint: "+18 ทักษะ · แก้ไขได้ด้วยสติ · ไม่ตื่นตระหนก",
+                feedback: "กู้ไฟล์กลับมาได้ 90% และจัดระบบ Auto Layout ใหม่สวยงามกว่าเดิมจนทุกคนทึ่ง"
+              },
+              {
+                text: "โวยวายโทษโปรแกรม Figma ต่อหน้าทีมแล้วนั่งหมดอาลัยตายอยาก",
+                stats: { skill: 0, energy: -10, sanity: -30, karma: -15 },
+                cost: 0,
+                hint: "-30 ความสุข · เสียสุขภาพจิต",
+                feedback: "เพื่อนๆ ร่วมทีมพยายามปลอบใจ แต่คุณไม่ยอมลงมือแก้ปัญหาจนงานล่าช้าไปทั้งโปรเจกต์"
+              },
+              {
+                text: "แอบก๊อปปี้ UI Kit เถื่อนที่ผิดลิขสิทธิ์มาสวมรอยแทนเพื่อส่งงานให้ทันบ่ายนี้",
+                stats: { skill: -15, energy: -10, sanity: -40, karma: -50 },
+                cost: 0,
+                hint: "⚠️ ละเมิดลิขสิทธิ์ทางการค้า · เสี่ยงฟ้องร้องและส่งตัวกลับ!",
+                feedback: "ฝ่ายกฎหมายตรวจพบ Watermark ของ Kit เถื่อน! เป็นการทำผิดกฎหมายทรัพย์สินทางปัญญาอย่างร้ายแรง"
+              }
+            ]
+          };
+        }
+        return {
+          week: i + 1,
+          title: `สัปดาห์ที่ ${i + 1}: ${ev.title.replace('เขียนโค้ด', 'ปั้น Figma & Prototype').replace('Jira Ticket', 'User Journey').replace('Docker', 'Design System')}`,
+          intro: `ในฐานะ UX/UI Designer คุณต้องสร้างประสบการณ์ที่สวยงามและใช้งานได้จริง: ${ev.intro}`,
+          pArt: ev.pArt === 'code' ? 'circle' : ev.pArt,
+          choices: ev.choices.map(c => ({
+            ...c,
+            text: c.text.replace('เขียนโค้ด', 'ออกแบบ Mockup').replace('Deploy', 'ส่งมอบ Hand-off ให้ Dev'),
+            feedback: c.feedback.replace('โค้ด', 'งานดีไซน์')
+          }))
+        };
+      });
     }
 
-    // --- GAME STATE ---
+    initOtherRoles();
+
+    // --- GAME STATE WITH REALISTIC ECONOMIC & HEALTH FACTORS ---
     const TOTAL_WEEKS = 16;
     let gameState = {
       screen: 'start',
@@ -1093,10 +1379,12 @@
         skill: 35,
         energy: 85,
         sanity: 75,
-        karma: 35,
-        money: 3000
+        karma: 40,
+        money: 4000
       },
       lastToast: null,
+      lastFeedback: "",
+      weeklyFinancialReport: null,
       isSentBack: false,
       sentBackReason: ""
     };
@@ -1128,15 +1416,15 @@
       const weekBadge = document.getElementById('weekBadge');
 
       if (gameState.screen === 'start') {
-        if (internTitle) internTitle.innerText = "ชีวิตเด็กฝึกงานเอสอี";
-        if (headerSubtitle) headerSubtitle.innerText = "เตรียมตัวเริ่มต้นชีวิตสหกิจศึกษา 16 สัปดาห์";
+        if (internTitle) internTitle.innerText = "ชีวิตเด็กฝึกงานเอสอี (สมจริง)";
+        if (headerSubtitle) headerSubtitle.innerText = "เตรียมตัวเริ่มต้นชีวิตสหกิจศึกษา 16 สัปดาห์ · มีค่าครองชีพและค่าหอจริง";
         if (weekBadge) weekBadge.innerText = "16 WEEKS";
       } else {
         const compName = gameState.company ? gameState.company.name.split(' ')[0] : 'Tech Corp';
         if (internTitle) internTitle.innerText = `เด็กฝึกงาน [${roleObj.badge}] · ${compName}`;
         if (headerSubtitle) {
-          const daily = gameState.company ? gameState.company.dailyStipend : 650;
-          headerSubtitle.innerText = `รายได้เบี้ยเลี้ยง ฿${daily}/วัน · สัปดาห์ที่ ${gameState.week} / 16`;
+          const daily = gameState.company ? gameState.company.dailyStipend : 500;
+          headerSubtitle.innerText = `เบี้ยเลี้ยง ฿${daily}/วัน · สัปดาห์ที่ ${gameState.week} / 16`;
         }
         if (weekBadge) weekBadge.innerText = `WEEK ${gameState.week}/16`;
       }
@@ -1147,7 +1435,15 @@
       document.getElementById('statSanityVal').innerText = Math.max(0, s.sanity);
       document.getElementById('statSkillVal').innerText = Math.max(0, s.skill);
       document.getElementById('statKarmaVal').innerText = Math.max(0, s.karma);
-      document.getElementById('statMoneyVal').innerText = `฿${s.money.toLocaleString()}`;
+      
+      const moneyEl = document.getElementById('statMoneyVal');
+      if (s.money < 0) {
+        moneyEl.innerText = `-฿${Math.abs(s.money).toLocaleString()} (หนี้)`;
+        moneyEl.className = "font-bold text-red-400";
+      } else {
+        moneyEl.innerText = `฿${s.money.toLocaleString()}`;
+        moneyEl.className = "font-bold text-[#fbc02d]";
+      }
 
       // Progress bars
       document.getElementById('barEnergy').style.width = `${Math.min(100, Math.max(0, s.energy))}%`;
@@ -1167,13 +1463,13 @@
               <div class="gold-box rounded-lg overflow-hidden bg-[#060c1d] relative aspect-[16/9] w-full flex items-center justify-center">
                 ${SCENE_ARTS.start_city}
                 <div class="absolute bottom-2.5 left-2.5 bg-[#0d1736]/90 border border-[#16234d] px-2.5 py-1 rounded text-[11px] text-slate-200 font-mono">
-                  กรุงเทพมหานคร · ศูนย์กลางเทคโนโลยีไทย
+                  กรุงเทพมหานคร · สหกิจศึกษาวิศวกรรมซอฟต์แวร์
                 </div>
               </div>
 
               <div class="mt-2.5 flex items-center justify-between text-xs text-slate-400 font-mono">
-                <span>เทียบผลกับชีวิตจำลอง 16 สัปดาห์</span>
-                <span class="text-[#e5a83b] font-bold">★ สุ่มบริษัท 4 รูปแบบ</span>
+                <span>เทียบผลกับชีวิตจริง 16 สัปดาห์</span>
+                <span class="text-[#e5a83b] font-bold">★ จำลองค่าครองชีพ & หอพัก</span>
               </div>
             </div>
 
@@ -1196,55 +1492,51 @@
             </div>
           </div>
 
-          <!-- RIGHT COLUMN: Title, Narrative & 'เกิด' Button -->
-          <div class="lg:col-span-6 flex flex-col justify-between space-y-4">
+          <!-- RIGHT COLUMN: Title, Realistic Factors & 'เกิด' Button -->
+          <div class="lg:col-span-6 flex flex-col justify-between space-y-3">
             <div>
               <div class="flex items-center gap-2 mb-1">
-                <span class="text-xs font-mono font-bold text-[#dfbd69] tracking-wider">A TECH INTERN LIFE, RANDOMLY ASSIGNED</span>
+                <span class="text-xs font-mono font-bold text-[#dfbd69] tracking-wider">A REALISTIC THAI SE INTERN SIMULATION</span>
               </div>
               <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                 ชีวิตเด็กฝึกงานเอสอี
               </h1>
               <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                คุณคือนักศึกษาวิศวกรรมซอฟต์แวร์ 1 ในคนที่กำลังจะก้าวเข้าสู่โลกการทำงานจริง 16 สัปดาห์เต็ม บริษัทจะสุ่มตามชะตากรรม มีทั้งตี้หมูกระทะและเสี่ยงโดนส่งตัวกลับมหาวิทยาลัย!
+                จำลองปัจจัยชีวิตจริง 100%: เงินเก็บ, ค่าเดินทาง BTS, ค่าอาหาร, ค่าเช่าหอพักรายเดือน, แรงกดดัน, สปรินต์งาน, ตี้หมูกระทะ และเสี่ยงโดนส่งตัวกลับมหาวิทยาลัย (ติด F สหกิจ)!
               </p>
             </div>
 
-            <!-- 6 Stat Explanations Grid -->
+            <!-- 5 Realistic Interdependent Factors -->
             <div class="grid grid-cols-2 gap-2 text-[11px] bg-[#0c1633] border border-[#16234d] p-3 rounded-lg">
               <div class="p-1">
-                <div class="font-bold text-red-400 flex items-center gap-1">❤️ สุขภาพ</div>
-                <div class="text-slate-400 text-[10px]">ต่ำแล้วป่วย ถึง 0 คือโดนส่งตัวกลับ</div>
+                <div class="font-bold text-red-400 flex items-center gap-1">❤️ สุขภาพ (พลังกาย)</div>
+                <div class="text-slate-400 text-[10px]">&lt;30 สมองล้า, ถึง 0 คือล้มป่วยส่งตัวกลับ</div>
               </div>
               <div class="p-1">
-                <div class="font-bold text-[#ffd600] flex items-center gap-1">😊 ความสุข</div>
-                <div class="text-slate-400 text-[10px]">ถึง 0 คือสติหลุด ลาออกก่อนจบ</div>
+                <div class="font-bold text-[#ffd600] flex items-center gap-1">😊 ความสุข (จิตใจ)</div>
+                <div class="text-slate-400 text-[10px]">&lt;30 Imposter Syndrome, ถึง 0 คือหมดไฟ</div>
               </div>
               <div class="p-1">
-                <div class="font-bold text-[#00e5ff] flex items-center gap-1">📘 ทักษะ</div>
-                <div class="text-slate-400 text-[10px]">คุณภาพงาน & Return Offer</div>
+                <div class="font-bold text-[#00e5ff] flex items-center gap-1">📘 ทักษะวิชาชีพ</div>
+                <div class="text-slate-400 text-[10px]">แก้ปัญหาได้ไวขึ้น & ได้ Return Offer</div>
               </div>
               <div class="p-1">
                 <div class="font-bold text-[#26a69a] flex items-center gap-1">👔 บารมี / เส้นสาย</div>
-                <div class="text-slate-400 text-[10px]">ถึง 0 เสี่ยงโดนส่งตัวกลับมอ</div>
+                <div class="text-slate-400 text-[10px]">พี่เลี้ยงช่วยเซฟเวลาพลาด, ถึง 0 โดนฟันธงให้ออก</div>
               </div>
-              <div class="p-1">
-                <div class="font-bold text-[#fbc02d] flex items-center gap-1">💰 เงิน</div>
-                <div class="text-slate-400 text-[10px]">เบี้ยเลี้ยง & ค่าตี้หมูกระทะ</div>
-              </div>
-              <div class="p-1">
-                <div class="font-bold text-purple-400 flex items-center gap-1">🔮 บุญ / บาป</div>
-                <div class="text-slate-400 text-[10px]">ซ่อนไว้ เฉลยตอนสัปดาห์ 16</div>
+              <div class="p-1 col-span-2">
+                <div class="font-bold text-[#fbc02d] flex items-center gap-1">💰 เงินเก็บ & ค่าครองชีพ</div>
+                <div class="text-slate-400 text-[10px]">เบี้ยเลี้ยงรายสัปดาห์ หักค่ากิน ค่าเดินทาง และหักค่าหอทุกสิ้นเดือน (ติดลบเป็นหนี้)</div>
               </div>
             </div>
 
             <!-- Big Golden Action Button -->
             <div class="pt-1">
               <div class="text-[11px] text-slate-400 font-mono mb-1.5 text-center sm:text-left">
-                กดตัวเลข 1-9 เพื่อเลือก · Enter เพื่อไปต่อ
+                กดตัวเลข 1-9 เพื่อเลือก · Enter เพื่อเริ่มต้นชีวิต
               </div>
               <button onclick="startGame()" class="w-full py-3.5 btn-gold-65m text-base sm:text-lg font-bold tracking-wide flex items-center justify-center gap-2 shadow-lg">
-                <span>เกิด (สุ่มบริษัท & เริ่มต้นชีวิต)</span>
+                <span>เกิด (สุ่มบริษัท & เริ่มต้นชีวิตจริง)</span>
                 <span class="text-xs font-mono opacity-80 bg-black/10 px-1.5 py-0.5 rounded">↵ Enter</span>
               </button>
             </div>
@@ -1254,14 +1546,14 @@
       `;
     }
 
-    // 2. EVENT & FEEDBACK SCREEN
+    // 2. EVENT & FEEDBACK SCREEN (With Financial Balance Sheet)
     function renderEventScreen(container) {
       const roleId = gameState.selectedRole;
       const roleObj = ROLES[roleId] || ROLES.dev;
       const scenarios = ROLE_SCENARIOS[roleId] || ROLE_SCENARIOS.dev;
       const evIndex = Math.min(gameState.week - 1, scenarios.length - 1);
       const ev = scenarios[evIndex] || scenarios[0];
-      const choices = getChoicesForWeek(roleId, gameState.week);
+      const choices = ev.choices;
 
       const artKey = ev.pArt || 'code';
       const sceneSvg = SCENE_ARTS[artKey] || SCENE_ARTS.code;
@@ -1275,7 +1567,7 @@
       container.innerHTML = `
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
           
-          <!-- LEFT COLUMN: Gold-Bordered 16:9 Viewport + Milestone Track -->
+          <!-- LEFT COLUMN: Gold-Bordered Viewport + Financial Mini-Card -->
           <div class="lg:col-span-6 flex flex-col justify-between">
             <div>
               <div class="gold-box rounded-lg overflow-hidden bg-[#060c1d] relative aspect-[16/9] w-full flex items-center justify-center shadow-lg">
@@ -1297,19 +1589,31 @@
                   <div class="h-full bg-[#e5a83b] rounded-full transition-all duration-300" style="width: ${(gameState.week / TOTAL_WEEKS) * 100}%"></div>
                 </div>
                 <div class="flex justify-between text-[10px] text-slate-500 mt-1.5">
-                  <span>W1 เริ่มต้น</span>
-                  <span>W4 ตี้หมูกระทะ</span>
-                  <span>W8 วิกฤต Database</span>
-                  <span>W12 พรีเซนต์</span>
-                  <span>W16 บรรจุ</span>
+                  <span>W1 เริ่มงาน</span>
+                  <span class="${gameState.week >= 4 ? 'text-[#e5a83b]' : ''}">W4 หมูกระทะ</span>
+                  <span class="${gameState.week >= 8 ? 'text-red-400' : ''}">W8 วิกฤตสเปก/DB</span>
+                  <span class="${gameState.week >= 12 ? 'text-cyan-400' : ''}">W12 บอสขอ AI</span>
+                  <span>W16 สรุปผล</span>
                 </div>
               </div>
             </div>
 
-            <!-- Bottom Left Info Bar -->
-            <div class="mt-3 flex items-center justify-between text-xs text-slate-400 font-mono pt-2 border-t border-[#16234d]">
-              <span>บริษัท: <strong class="text-slate-200">${gameState.company ? gameState.company.name : 'Tech Corp'}</strong></span>
-              <span class="text-[#fbc02d] font-bold">เบี้ยเลี้ยงสะสม: ฿${gameState.stats.money.toLocaleString()}</span>
+            <!-- Financial State & Living Conditions Box -->
+            <div class="mt-3 bg-[#0b132b] border border-[#16234d] p-2.5 rounded-lg text-xs font-mono">
+              <div class="flex justify-between items-center text-slate-300">
+                <span>ค่ากิน & เดินทางสัปดาห์นี้: <strong class="text-red-300">-฿${gameState.company ? gameState.company.weeklyLivingCost : 1300}</strong></span>
+                <span>เบี้ยเลี้ยง: <strong class="text-emerald-400">+฿${gameState.company ? gameState.company.dailyStipend * 5 : 2500}</strong></span>
+              </div>
+              ${gameState.week % 4 === 0 ? `
+                <div class="mt-1 text-[11px] text-amber-300 bg-amber-950/40 border border-amber-500/30 px-2 py-0.5 rounded">
+                  ⚠️ สิ้นเดือน: มีการหักค่าเช่าหอพักและค่าน้ำไฟประจำเดือน ฿${gameState.company ? gameState.company.monthlyRent.toLocaleString() : '4,800'}
+                </div>
+              ` : ''}
+              ${gameState.stats.money < 0 ? `
+                <div class="mt-1 text-[11px] text-red-400 bg-red-950/40 border border-red-500/30 px-2 py-0.5 rounded">
+                  🚨 บัญชีติดลบ: ต้องกู้ยืมเงินและกินบะหมี่ซอง (-ความสุข, -พลังกาย)
+                </div>
+              ` : ''}
             </div>
           </div>
 
@@ -1318,7 +1622,7 @@
             
             <div>
               <div class="flex items-center gap-2 text-xs font-mono text-[#dfbd69] mb-1">
-                <span>สถานการณ์สหกิจศึกษา</span>
+                <span>สถานการณ์จริง</span>
                 <span>·</span>
                 <span>สัปดาห์ที่ ${gameState.week} / 16</span>
                 <span>·</span>
@@ -1358,17 +1662,48 @@
               </div>
 
               <div class="text-[11px] text-slate-400 font-mono text-center sm:text-left">
-                กดตัวเลข 1, 2, หรือ 3 บนแป้นพิมพ์เพื่อเลือก · Enter เพื่อไปต่อ
+                กดตัวเลข 1, 2, หรือ 3 บนแป้นพิมพ์เพื่อเลือก · Enter เพื่อยืนยัน
               </div>
             ` : `
-              <!-- Feedback State -->
+              <!-- Feedback State with Financial Breakdown -->
               <div class="bg-[#0c1633] border border-emerald-500/60 p-4 rounded-lg space-y-3 shadow-lg">
                 <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-                  <span>✔ ผลลัพธ์การตัดสินใจ:</span>
+                  <span>✔ สรุปผลการตัดสินใจ:</span>
                 </div>
                 <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
-                  ${gameState.lastFeedback || 'คุณผ่านสัปดาห์นี้ไปได้อย่างราบรื่น'}
+                  ${gameState.lastFeedback}
                 </p>
+
+                ${gameState.weeklyFinancialReport ? `
+                  <div class="bg-[#080f24] border border-[#16234d] p-2.5 rounded text-[11px] font-mono text-slate-300 space-y-1">
+                    <div class="font-bold text-[#e5a83b]">📊 บัญชีการเงินสัปดาห์นี้:</div>
+                    <div class="flex justify-between">
+                      <span>เบี้ยเลี้ยงรับ (+):</span>
+                      <span class="text-emerald-400">+฿${gameState.weeklyFinancialReport.stipend.toLocaleString()}</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>ค่ากิน & เดินทาง (-):</span>
+                      <span class="text-red-400">-฿${gameState.weeklyFinancialReport.livingCost.toLocaleString()}</span>
+                    </div>
+                    ${gameState.weeklyFinancialReport.rentCost > 0 ? `
+                      <div class="flex justify-between text-amber-400 font-bold">
+                        <span>ค่าเช่าหอพักสิ้นเดือน (-):</span>
+                        <span>-฿${gameState.weeklyFinancialReport.rentCost.toLocaleString()}</span>
+                      </div>
+                    ` : ''}
+                    ${gameState.weeklyFinancialReport.extraCost !== 0 ? `
+                      <div class="flex justify-between text-cyan-300">
+                        <span>กิจกรรมพิเศษ/ค่ากินเพิ่มเติม:</span>
+                        <span>${gameState.weeklyFinancialReport.extraCost < 0 ? '-' : '+'}฿${Math.abs(gameState.weeklyFinancialReport.extraCost).toLocaleString()}</span>
+                      </div>
+                    ` : ''}
+                    <div class="border-t border-[#16234d] pt-1 flex justify-between font-bold">
+                      <span>ยอดเงินเก็บคงเหลือสุทธิ:</span>
+                      <span class="${gameState.stats.money < 0 ? 'text-red-400' : 'text-[#fbc02d]'}">฿${gameState.stats.money.toLocaleString()}</span>
+                    </div>
+                  </div>
+                ` : ''}
+
                 <div class="pt-1">
                   <button onclick="nextWeek()" class="w-full py-3.5 btn-gold-65m text-sm font-bold flex items-center justify-center gap-2 shadow-lg">
                     <span>${gameState.isSentBack ? 'ดูผลการถูกส่งตัวกลับมหาวิทยาลัย (กด Enter)' : (gameState.week >= TOTAL_WEEKS ? 'ดูผลการประเมินจบการฝึกงาน (กด Enter)' : 'ไปต่อสัปดาห์ถัดไป (กด Enter)')}</span>
@@ -1411,15 +1746,20 @@
       } else if (s.sanity <= 0) {
         title = "Burnout สติหลุด ขอยุติการฝึกงาน";
         badge = "💀 BURNOUT RESIGNATION";
-        desc = "ความกดดันสะสมจนสภาพจิตใจแบกรับไม่ไหว คุณตัดสินใจขอถอนตัวจากการฝึกงานและกลับไปพักผ่อนที่มหาวิทยาลัย เพื่อฟื้นฟูจิตใจให้พร้อมกลับมาสู้อีกครั้ง";
+        desc = "ความกดดันสะสมจนสภาพจิตใจแบกรับไม่ไหว เกิดอาการหมดไฟขั้นรุนแรง ตัดสินใจขอยุติการฝึกงานเพื่อกลับไปฟื้นฟูสภาพจิตใจ";
         toneColor = "text-amber-400";
         endingArt = SCENE_ARTS.sent_back;
       } else if (s.karma <= 0) {
-        title = "โดนส่งตัวกลับเนื่องจากทำผิดวินัยร้ายแรง";
+        title = "โดนส่งตัวกลับเนื่องจากพ้นสภาพความไว้ใจ";
         badge = "🚫 DISCIPLINARY DISMISSAL";
-        desc = "คะแนนความประพฤติและบารมีติดลบ พี่เลี้ยงและผู้จัดการลงความเห็นว่าขาดความรับผิดชอบ จึงทำหนังสือส่งตัวกลับคณะวิศวกรรมศาสตร์ทันที!";
+        desc = "คะแนนบารมีความประพฤติติดลบ พี่เลี้ยงและผู้จัดการลงความเห็นว่าขาดความรับผิดชอบอย่างต่อเนื่อง จึงทำหนังสือแจ้งคณะวิศวกรรมศาสตร์เพื่อส่งตัวกลับทันที!";
         toneColor = "text-red-500";
         endingArt = SCENE_ARTS.sent_back;
+      } else if (s.money < -5000) {
+        title = "ผ่านการฝึกงานแต่มีหนี้สินล้นพ้นตัว";
+        badge = "💸 IN DEBT SURVIVOR";
+        desc = `คุณเอาตัวรอดจนจบ 16 สัปดาห์ได้ แต่เบี้ยเลี้ยงไม่พอกับค่าครองชีพในกรุงเทพฯ คุณติดหนี้สะสม ฿${Math.abs(s.money).toLocaleString()} ต้องรีบหางานประจำเพื่อปลดหนี้ก้อนโต!`;
+        toneColor = "text-amber-300";
       } else if (s.skill >= 75 && s.karma >= 60) {
         title = "ว่าที่ Tech Lead ดาวรุ่งคนใหม่";
         badge = "🌟 GOLDEN OFFER + SIGN-ON BONUS";
@@ -1475,7 +1815,7 @@
               </div>
               <div class="p-1 bg-[#0f1a3a] rounded border border-[#1a2c5a]">
                 <div class="text-[#fbc02d] font-bold">💰 เงิน</div>
-                <div class="text-[#fbc02d] font-bold mt-0.5">฿${s.money.toLocaleString()}</div>
+                <div class="text-slate-100 font-bold mt-0.5">${s.money < 0 ? `-${Math.abs(s.money)}` : `฿${s.money.toLocaleString()}`}</div>
               </div>
             </div>
           </div>
@@ -1484,7 +1824,7 @@
           <div class="lg:col-span-6 flex flex-col justify-between space-y-4">
             <div>
               <div class="text-xs font-mono text-[#dfbd69] tracking-wider mb-1 font-bold">
-                ${gameState.isSentBack || s.energy <= 0 || s.sanity <= 0 || s.karma <= 0 ? 'สิ้นสุดการฝึกงานก่อนกำหนด' : 'ผลสรุปสหกิจศึกษา 16 สัปดาห์ (4 เดือนเต็ม)'}
+                ${gameState.isSentBack || s.energy <= 0 || s.sanity <= 0 || s.karma <= 0 ? 'สิ้นสุดการฝึกงานก่อนกำหนด (FAIL)' : 'ผลสรุปสหกิจศึกษา 16 สัปดาห์ (4 เดือนเต็ม)'}
               </div>
               <h2 class="text-xl sm:text-2xl font-extrabold ${toneColor} leading-tight">
                 ${title}
@@ -1534,13 +1874,14 @@
         energy: baseRole.energy + (randomComp.bonus.energy || 0),
         sanity: baseRole.sanity + (randomComp.bonus.sanity || 0),
         karma: baseRole.karma + (randomComp.bonus.karma || 0),
-        money: randomComp.bonus.money || 3000
+        money: baseRole.money + (randomComp.bonus.money || 0)
       };
 
       gameState.week = 1;
       gameState.screen = 'event';
       gameState.isSentBack = false;
       gameState.sentBackReason = "";
+      gameState.weeklyFinancialReport = null;
       gameState.lastToast = `สุ่มได้: ${randomComp.name.split(' ')[0]}`;
       playSound('success');
       render();
@@ -1548,39 +1889,83 @@
 
     function makeChoice(idx) {
       playSound('click');
-      const choices = getChoicesForWeek(gameState.selectedRole, gameState.week);
+      const roleId = gameState.selectedRole;
+      const scenarios = ROLE_SCENARIOS[roleId] || ROLE_SCENARIOS.dev;
+      const evIndex = Math.min(gameState.week - 1, scenarios.length - 1);
+      const ev = scenarios[evIndex] || scenarios[0];
+      const choices = ev.choices;
       const choice = choices[idx] || choices[0];
 
       const s = gameState.stats;
+      const comp = gameState.company || COMPANIES[0];
+
+      // 1. Calculate Real Financial Cashflow for the week
+      const stipend = comp.dailyStipend * 5; // 5 working days
+      const livingCost = comp.weeklyLivingCost;
+      const extraCost = choice.cost || 0;
+      
+      // Monthly rent every 4 weeks (Week 4, 8, 12, 16)
+      const isEndOfWeekMonth = (gameState.week % 4 === 0);
+      const rentCost = isEndOfWeekMonth ? comp.monthlyRent : 0;
+
+      const netMoneyDelta = stipend - livingCost + extraCost - rentCost;
+      s.money += netMoneyDelta;
+
+      // 2. Apply Stat Impacts from Choice
       s.skill += choice.stats.skill || 0;
       s.energy += choice.stats.energy || 0;
       s.sanity += choice.stats.sanity || 0;
       s.karma += choice.stats.karma || 0;
-      s.money += (choice.stats.money || 0) + (gameState.company ? gameState.company.dailyStipend * 5 : 3000);
+
+      // 3. Interdependent Health & Financial Factors
+      if (s.money < 0) {
+        // Financial stress penalty
+        s.sanity -= 6;
+        s.energy -= 4;
+      }
+      if (s.energy < 30) {
+        // Brain fatigue penalty
+        s.skill = Math.max(0, s.skill - 3);
+      }
+      if (s.sanity < 30) {
+        // Imposter syndrome penalty
+        s.energy -= 4;
+      }
 
       s.energy = Math.min(100, s.energy);
       s.sanity = Math.min(100, s.sanity);
 
-      // Check critical failure: SENT BACK TO UNIVERSITY!
-      if (gameState.week === 8 && idx === 2 && s.karma <= 10) {
+      // 4. Save Financial Breakdown Report
+      gameState.weeklyFinancialReport = {
+        stipend,
+        livingCost,
+        extraCost,
+        rentCost,
+        netMoneyDelta
+      };
+
+      // 5. Check Critical Failure: SENT BACK TO UNIVERSITY (Terminated / F)
+      if (gameState.week === 8 && idx === 2 && s.karma <= 20) {
         gameState.isSentBack = true;
-        gameState.sentBackReason = "เหตุการณ์ลบฐานข้อมูล DEV: คุณพยายามตีเนียนทำลายหลักฐาน แต่ Tech Lead ตรวจสอบเจอร่องรอย! ทางบริษัทลงมติว่าเป็นการทำผิดวินัยขั้นร้ายแรง จึงส่งหนังสือแจ้งอาจารย์ที่ปรึกษาขอยุติการฝึกงานและส่งตัวคุณกลับมหาวิทยาลัยทันที";
+        gameState.sentBackReason = "วิกฤตสัปดาห์ที่ 8: คุณพยายามตีเนียนปกปิดความผิดพลาดร้ายแรงและทำลายหลักฐาน! ทางบริษัทลงมติว่าเป็นการทำผิดวินัยขั้นร้ายแรง จึงส่งหนังสือแจ้งอาจารย์ที่ปรึกษาขอยกเลิกการฝึกงานและส่งตัวคุณกลับมหาวิทยาลัยทันที ติด F สหกิจศึกษา!";
         playSound('fail');
       } else if (s.energy <= 0 || s.sanity <= 0 || s.karma <= 0) {
         gameState.isSentBack = true;
         if (s.karma <= 0) {
           gameState.sentBackReason = "คะแนนบารมีความประพฤติติดลบ! พี่เลี้ยงและทีมงานลงความเห็นว่าขาดความรับผิดชอบอย่างต่อเนื่อง จึงทำเรื่องส่งตัวคุณกลับมหาวิทยาลัย";
         } else if (s.energy <= 0) {
-          gameState.sentBackReason = "พลังกายลดลงเหลือ 0 ล้มป่วยหนักจนไม่สามารถฝึกงานต่อได้ บริษัทจึงส่งตัวกลับมหาวิทยาลัยเพื่อรักษาตัว";
+          gameState.sentBackReason = "พลังกายลดลงเหลือ 0 ล้มป่วยหนักจากการอดนอนสะสมจนไม่สามารถฝึกงานต่อได้ บริษัทจึงส่งตัวกลับมหาวิทยาลัยเพื่อรักษาตัว";
         } else {
           gameState.sentBackReason = "ค่าความสุขลดลงเหลือ 0 เกิดภาวะ Burnout รุนแรงจนไม่สามารถปฏิบัติงานต่อได้ ขอยุติการฝึกงานและกลับมหาวิทยาลัย";
         }
         playSound('fail');
+      } else {
+        if (extraCost < 0) playSound('money');
       }
 
-      const skillDelta = choice.stats.skill > 0 ? `+${choice.stats.skill} 📘` : `${choice.stats.skill} 📘`;
-      const energyDelta = choice.stats.energy > 0 ? `+${choice.stats.energy} ❤️` : `${choice.stats.energy} ❤️`;
-      gameState.lastToast = `${skillDelta} · ${energyDelta} · +เบี้ยเลี้ยงสัปดาห์`;
+      const skillDelta = (choice.stats.skill || 0) > 0 ? `+${choice.stats.skill} 📘` : `${choice.stats.skill || 0} 📘`;
+      const moneyText = netMoneyDelta >= 0 ? `+฿${netMoneyDelta}` : `-฿${Math.abs(netMoneyDelta)}`;
+      gameState.lastToast = `${skillDelta} · ${moneyText} สัปดาห์นี้`;
       gameState.lastFeedback = choice.feedback;
 
       gameState.screen = 'feedback';
@@ -1600,6 +1985,7 @@
         gameState.week += 1;
         gameState.screen = 'event';
         gameState.lastToast = null;
+        gameState.weeklyFinancialReport = null;
       }
       render();
     }
@@ -1615,17 +2001,19 @@
           skill: 35,
           energy: 85,
           sanity: 75,
-          karma: 35,
-          money: 3000
+          karma: 40,
+          money: 4000
         },
         lastToast: null,
+        lastFeedback: "",
+        weeklyFinancialReport: null,
         isSentBack: false,
         sentBackReason: ""
       };
       render();
     }
 
-    // --- KEYBOARD LISTENER ---
+    // --- KEYBOARD LISTENER (Exact 1-in-65M Controls) ---
     window.addEventListener('keydown', (e) => {
       if (e.key === '1') {
         if (gameState.screen === 'event') makeChoice(0);
