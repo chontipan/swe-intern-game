@@ -1,35 +1,19 @@
 <!DOCTYPE html>
-<html lang="th" class="light">
+<html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ชีวิตเด็กฝึกงานเอสอี (SE Intern Sim - 16 สัปดาห์)</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            gold: {
-              400: '#fbbf24',
-              500: '#f59e0b',
-              600: '#d97706',
-              700: '#b45309'
-            }
-          }
-        }
-      }
-    }
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Kanit:wght@300;400;500;600;700;800&family=Silkscreen&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Kanit', sans-serif;
+      background-color: #080f24;
+      color: #e2e8f0;
       image-rendering: pixelated;
-      transition: background-color 0.2s ease, color 0.2s ease;
     }
     .pixel-font {
       font-family: 'Press Start 2P', monospace;
@@ -40,25 +24,44 @@
       image-rendering: crisp-edges;
       shape-rendering: crispEdges;
     }
-    /* Gold frame */
+    /* Exact gold box border from 1 in 65M */
     .gold-box {
-      border: 2px solid #bfa054;
-      box-shadow: 0 4px 16px rgba(191, 160, 84, 0.2);
+      border: 2px solid #dfbd69;
+      box-shadow: 0 0 20px rgba(223, 189, 105, 0.15);
     }
-    .gold-btn {
-      background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
-      color: #0b1120;
-      border: 1px solid #fbbf24;
+    /* Exact 'เกิด' mustard-gold button from 1 in 65M */
+    .btn-gold-65m {
+      background-color: #e5a83b;
+      color: #1a1303;
       font-weight: 700;
+      border: 1px solid #d49a2e;
+      border-radius: 6px;
       transition: all 0.1s ease;
     }
-    .gold-btn:hover {
-      background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
+    .btn-gold-65m:hover {
+      background-color: #f2b84b;
       transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+      box-shadow: 0 4px 12px rgba(229, 168, 59, 0.35);
     }
-    .gold-btn:active {
+    .btn-gold-65m:active {
       transform: translateY(1px);
+    }
+    /* Exact choice card styling from 1 in 65M */
+    .choice-card-65m {
+      background-color: #0f1a3a;
+      border: 1px solid #1a2c5a;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+    }
+    .choice-card-65m:hover {
+      background-color: #152652;
+      border-color: #dfbd69;
+      transform: translateX(2px);
+    }
+    .choice-card-65m.selected {
+      border-color: #dfbd69;
+      border-width: 2px;
+      background-color: #192a5c;
     }
     @keyframes floatUpFade {
       0% { opacity: 0; transform: translateY(8px); }
@@ -74,110 +77,96 @@
       height: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: #f1f5f9;
+      background: #080f24;
     }
     ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
+      background: #1a2c5a;
       border-radius: 3px;
-    }
-    .dark ::-webkit-scrollbar-track {
-      background: #080d1a;
-    }
-    .dark ::-webkit-scrollbar-thumb {
-      background: #1e293b;
     }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-800 dark:bg-[#080d1a] dark:text-slate-100 min-h-screen flex flex-col items-center justify-start p-2 sm:p-4 selection:bg-amber-400 selection:text-black">
+<body class="min-h-screen flex flex-col items-center justify-start p-2 sm:p-4 selection:bg-[#e5a83b] selection:text-black">
 
-  <!-- Compact Center-Focused Layout Container (max-w-5xl prevents excessive horizontal eye strain) -->
+  <!-- Compact Center-Focused Layout Container (max-w-5xl prevents horizontal eye fatigue) -->
   <div class="w-full max-w-5xl flex flex-col items-center">
 
-    <!-- Top Status Bar (Clean Light Card) -->
-    <header id="topBar" class="w-full bg-white dark:bg-[#0a1124] border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 mb-3 flex flex-wrap items-center justify-between gap-3 shadow-sm">
+    <!-- Top Status Bar (Matching exact 1-in-65M header bar) -->
+    <header id="topBar" class="w-full bg-[#0d1736] border border-[#16234d] rounded-lg px-4 py-2.5 mb-3 flex flex-wrap items-center justify-between gap-3 shadow-md">
       <!-- Left: Intern Info & Stipend -->
       <div class="flex items-center space-x-3">
-        <div id="roleBadge" class="w-9 h-9 rounded-lg bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-500/50 flex items-center justify-center font-bold text-xs font-mono shadow-inner">
+        <div id="roleBadge" class="w-8 h-8 rounded bg-[#16234d] text-emerald-400 border border-emerald-500/40 flex items-center justify-center font-bold text-xs font-mono">
           SE
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <span id="internTitle" class="font-bold text-slate-900 dark:text-slate-100 text-sm sm:text-base">ชีวิตเด็กฝึกงานเอสอี</span>
-            <span id="weekBadge" class="text-[10px] bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-500/40 px-2 py-0.5 rounded font-mono font-bold">16 WEEKS</span>
+            <span id="internTitle" class="font-bold text-slate-100 text-sm sm:text-base">ชีวิตเด็กฝึกงานเอสอี</span>
+            <span id="weekBadge" class="text-[10px] bg-[#e5a83b]/20 text-[#e5a83b] border border-[#e5a83b]/40 px-2 py-0.5 rounded font-mono font-bold">16 WEEKS</span>
           </div>
-          <div id="headerSubtitle" class="text-xs text-slate-500 dark:text-slate-400 font-medium">
+          <div id="headerSubtitle" class="text-xs text-slate-400 font-medium">
             รายได้เบี้ยเลี้ยง ฿0/วัน · สหกิจศึกษา 4 เดือนเต็ม
           </div>
         </div>
       </div>
 
-      <!-- Right: Stats Bar with Exact Icons & Progress Bars -->
-      <div class="flex items-center gap-2 sm:gap-4 flex-wrap">
-        <div id="headerStats" class="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs font-mono">
-          <!-- Energy -->
-          <div class="flex items-center gap-1.5 px-2 py-1 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/60 rounded-md" title="พลังกาย / สุขภาพ">
-            <span class="text-red-500 text-sm">❤️</span>
-            <span id="statEnergyVal" class="font-bold text-slate-800 dark:text-slate-200">80</span>
-            <div class="w-10 h-2 bg-red-200 dark:bg-slate-800 rounded-full overflow-hidden hidden sm:block">
-              <div id="barEnergy" class="h-full bg-red-500 rounded-full" style="width: 80%"></div>
-            </div>
-          </div>
-          <!-- Sanity -->
-          <div class="flex items-center gap-1.5 px-2 py-1 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 rounded-md" title="สุขภาพจิต / ความสุข">
-            <span class="text-amber-500 text-sm">😊</span>
-            <span id="statSanityVal" class="font-bold text-slate-800 dark:text-slate-200">75</span>
-            <div class="w-10 h-2 bg-amber-200 dark:bg-slate-800 rounded-full overflow-hidden hidden sm:block">
-              <div id="barSanity" class="h-full bg-amber-500 rounded-full" style="width: 75%"></div>
-            </div>
-          </div>
-          <!-- Skill -->
-          <div class="flex items-center gap-1.5 px-2 py-1 bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-900/60 rounded-md" title="ทักษะวิชาชีพ">
-            <span class="text-sky-500 text-sm">📘</span>
-            <span id="statSkillVal" class="font-bold text-slate-800 dark:text-slate-200">30</span>
-            <div class="w-10 h-2 bg-sky-200 dark:bg-slate-800 rounded-full overflow-hidden hidden sm:block">
-              <div id="barSkill" class="h-full bg-sky-500 rounded-full" style="width: 30%"></div>
-            </div>
-          </div>
-          <!-- Karma / Connection -->
-          <div class="flex items-center gap-1.5 px-2 py-1 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/60 rounded-md" title="บารมี / คอนเนกชัน">
-            <span class="text-emerald-600 text-sm">👔</span>
-            <span id="statKarmaVal" class="font-bold text-slate-800 dark:text-slate-200">40</span>
-            <div class="w-10 h-2 bg-emerald-200 dark:bg-slate-800 rounded-full overflow-hidden hidden sm:block">
-              <div id="barKarma" class="h-full bg-emerald-500 rounded-full" style="width: 40%"></div>
-            </div>
-          </div>
-          <!-- Money -->
-          <div class="flex items-center gap-1.5 px-2 py-1 bg-yellow-50 dark:bg-yellow-950/40 border border-yellow-200 dark:border-yellow-900/60 rounded-md" title="เงินเก็บสะสม">
-            <span class="text-yellow-600 text-sm">💰</span>
-            <span id="statMoneyVal" class="font-bold text-yellow-800 dark:text-yellow-300">฿3,000</span>
+      <!-- Right: Stats Bar with Exact Icons & Progress Bars from 1 in 65M -->
+      <div id="headerStats" class="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono">
+        <!-- Energy (Heart) -->
+        <div class="flex items-center gap-1.5" title="พลังกาย / สุขภาพ">
+          <span class="text-red-400 text-sm">❤️</span>
+          <span id="statEnergyVal" class="font-bold text-slate-100">80</span>
+          <div class="w-10 h-2 bg-[#16234d] rounded-full overflow-hidden hidden sm:block">
+            <div id="barEnergy" class="h-full bg-red-500 rounded-full" style="width: 80%"></div>
           </div>
         </div>
-
-        <!-- Theme Toggle Button -->
-        <button onclick="toggleTheme()" id="btnThemeToggle" class="p-1.5 px-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-md text-xs font-mono flex items-center gap-1 transition">
-          <span id="themeIcon">☀️</span>
-          <span id="themeLabel" class="hidden sm:inline">สว่าง</span>
-        </button>
+        <!-- Sanity (Smiley) -->
+        <div class="flex items-center gap-1.5" title="สุขภาพจิต / ความสุข">
+          <span class="text-[#ffd600] text-sm">😊</span>
+          <span id="statSanityVal" class="font-bold text-slate-100">75</span>
+          <div class="w-10 h-2 bg-[#16234d] rounded-full overflow-hidden hidden sm:block">
+            <div id="barSanity" class="h-full bg-[#ffd600] rounded-full" style="width: 75%"></div>
+          </div>
+        </div>
+        <!-- Skill (Book) -->
+        <div class="flex items-center gap-1.5" title="ทักษะวิชาชีพ">
+          <span class="text-[#00e5ff] text-sm">📘</span>
+          <span id="statSkillVal" class="font-bold text-slate-100">30</span>
+          <div class="w-10 h-2 bg-[#16234d] rounded-full overflow-hidden hidden sm:block">
+            <div id="barSkill" class="h-full bg-[#00e5ff] rounded-full" style="width: 30%"></div>
+          </div>
+        </div>
+        <!-- Karma / Connection (Tie) -->
+        <div class="flex items-center gap-1.5" title="บารมี / คอนเนกชัน">
+          <span class="text-[#26a69a] text-sm">👔</span>
+          <span id="statKarmaVal" class="font-bold text-slate-100">40</span>
+          <div class="w-10 h-2 bg-[#16234d] rounded-full overflow-hidden hidden sm:block">
+            <div id="barKarma" class="h-full bg-[#26a69a] rounded-full" style="width: 40%"></div>
+          </div>
+        </div>
+        <!-- Money (Coin) -->
+        <div class="flex items-center gap-1.5" title="เงินเก็บสะสม">
+          <span class="text-[#fbc02d] text-sm">💰</span>
+          <span id="statMoneyVal" class="font-bold text-[#fbc02d]">฿3,000</span>
+        </div>
       </div>
     </header>
 
-    <!-- Main Container (Refined Light/Dark Card Layout) -->
-    <main id="mainApp" class="w-full bg-white dark:bg-[#090f1e] border border-slate-200 dark:border-slate-800/80 rounded-xl p-3 sm:p-5 shadow-sm">
+    <!-- Main Container: Deep Navy with subtle border -->
+    <main id="mainApp" class="w-full bg-[#0a132e] border border-[#16234d] rounded-xl p-3 sm:p-5 shadow-2xl relative">
       <!-- Dynamic Content Injected Here -->
     </main>
 
-    <!-- Footer Controls -->
-    <footer class="w-full mt-3 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-2 font-mono">
+    <!-- Footer Controls (Exact 1-in-65M button styling) -->
+    <footer class="w-full mt-3 flex items-center justify-between text-xs text-slate-400 px-2 font-mono">
       <div class="flex items-center gap-3">
         <span>จำลองชีวิตเด็กฝึกงานเอสอี 16 สัปดาห์</span>
         <span>•</span>
-        <span class="text-slate-400 dark:text-slate-500">กดแป้นตัวเลข 1-3 หรือ Enter ได้</span>
+        <span class="text-slate-500">กดแป้นตัวเลข 1-3 หรือ Enter ได้</span>
       </div>
       <div class="flex items-center gap-2">
-        <button onclick="toggleAudio()" id="btnAudioToggle" class="hover:text-slate-800 dark:hover:text-slate-200 transition px-2 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded shadow-xs">
-          🔊 เสียง: เปิด
+        <button onclick="toggleAudio()" id="btnAudioToggle" class="hover:text-slate-200 transition px-2.5 py-1 bg-[#0d1736] border border-[#16234d] rounded text-slate-300">
+          ♪ ปิดเพลง
         </button>
-        <button onclick="restartGame()" class="hover:text-red-500 transition px-2 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded shadow-xs">
+        <button onclick="restartGame()" class="hover:text-red-400 transition px-2.5 py-1 bg-[#0d1736] border border-[#16234d] rounded text-slate-300">
           🔄 เริ่มใหม่
         </button>
       </div>
@@ -186,39 +175,6 @@
   </div>
 
   <script>
-    // --- THEME TOGGLE (LIGHT / DARK) ---
-    let currentTheme = 'light';
-
-    function initTheme() {
-      const isDark = document.documentElement.classList.contains('dark');
-      currentTheme = isDark ? 'dark' : 'light';
-      updateThemeUI();
-    }
-
-    function toggleTheme() {
-      if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.remove('dark');
-        currentTheme = 'light';
-      } else {
-        document.documentElement.classList.add('dark');
-        currentTheme = 'dark';
-      }
-      updateThemeUI();
-      playSound('click');
-    }
-
-    function updateThemeUI() {
-      const icon = document.getElementById('themeIcon');
-      const label = document.getElementById('themeLabel');
-      if (currentTheme === 'light') {
-        if (icon) icon.innerText = '☀️';
-        if (label) label.innerText = 'สว่าง';
-      } else {
-        if (icon) icon.innerText = '🌙';
-        if (label) label.innerText = 'มืด';
-      }
-    }
-
     // --- AUDIO SYNTH ENGINE ---
     let audioCtx = null;
     let isMuted = false;
@@ -237,7 +193,7 @@
     function toggleAudio() {
       isMuted = !isMuted;
       const btn = document.getElementById('btnAudioToggle');
-      if (btn) btn.innerText = isMuted ? '🔇 เสียง: ปิด' : '🔊 เสียง: เปิด';
+      if (btn) btn.innerText = isMuted ? '♪ เปิดเพลง' : '♪ ปิดเพลง';
       if (!isMuted) playSound('click');
     }
 
@@ -951,21 +907,21 @@
         {
           text: "ตั้งสติ วิเคราะห์ปัญหาอย่างมืออาชีพตาม Best Practice",
           stats: { skill: 14, energy: -15, sanity: -5, karma: 12, money: -50 },
-          hint: "+14 ทักษะ · -15 พลังกาย · +12 บารมี",
+          hint: "+14 ทักษะ · -15 สุขภาพ · +12 บารมี",
           desc: "เน้นคุณภาพและความถูกต้องตามระเบียบวิศวกรรม",
           feedback: "คุณจัดการสถานการณ์ได้อย่างยอดเยี่ยม! พี่เลี้ยงและเพื่อนร่วมทีมพยักหน้ายอมรับในฝีมือ"
         },
         {
           text: "ใช้วิชาเอาตัวรอด ใช้ AI และทางลัดแก้ปัญหาเฉพาะหน้าไปก่อน",
           stats: { skill: 8, energy: -5, sanity: 8, karma: 5, money: -50 },
-          hint: "+8 ทักษะ · -5 พลังกาย · +8 สุขภาพจิต",
+          hint: "+8 ทักษะ · -5 สุขภาพ · +8 ความสุข",
           desc: "ส่งงานทันเวลา ใช้เครื่องมือทุ่นแรงเพื่อความคล่องตัว",
           feedback: "รอดตัวไปได้อย่างหวุดหวิด งานเสร็จทันเวลาแม้จะมีความเสี่ยงซ่อนอยู่บ้าง"
         },
         {
           text: "โยนให้พี่เลี้ยง หรือตีเนียนเงียบๆ แอบไปเข้าห้องน้ำชาร์จพลัง",
           stats: { skill: -4, energy: 15, sanity: 5, karma: -12, money: -50 },
-          hint: "-4 ทักษะ · +15 พลังกาย · -12 บารมี",
+          hint: "-4 ทักษะ · +15 สุขภาพ · -12 บารมี",
           desc: "รักษาสุขภาพตนเองเป็นหลัก แต่ความเชื่อมั่นอาจลดลง",
           feedback: "คุณรอดพ้นความเครียดชั่วคราว แต่พี่ในทีมเริ่มหันมามองด้วยสายตาเอือมระอา..."
         }
@@ -1045,7 +1001,7 @@
       document.getElementById('barKarma').style.width = `${Math.min(100, Math.max(0, s.karma))}%`;
     }
 
-    // 1. START SCREEN
+    // 1. START SCREEN (Exact 1-in-65M Layout & "เกิด" Button)
     function renderStartScreen(container) {
       container.innerHTML = `
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
@@ -1055,85 +1011,85 @@
             <div>
               <div class="gold-box rounded-lg overflow-hidden bg-[#060c1d] relative aspect-[16/9] w-full flex items-center justify-center">
                 ${SCENE_ARTS.start_city}
-                <div class="absolute bottom-2.5 left-2.5 bg-slate-900/90 border border-slate-700/80 px-2.5 py-1 rounded text-[11px] text-slate-200 font-mono">
+                <div class="absolute bottom-2.5 left-2.5 bg-[#0d1736]/90 border border-[#16234d] px-2.5 py-1 rounded text-[11px] text-slate-200 font-mono">
                   กรุงเทพมหานคร · ศูนย์กลางเทคโนโลยีไทย
                 </div>
               </div>
 
-              <div class="mt-2.5 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-mono">
-                <span>สหกิจศึกษา 16 สัปดาห์ (4 เดือนเต็ม)</span>
-                <span class="text-amber-600 dark:text-amber-400 font-bold">★ สุ่มบริษัท 4 รูปแบบ</span>
+              <div class="mt-2.5 flex items-center justify-between text-xs text-slate-400 font-mono">
+                <span>เทียบผลกับชีวิตจำลอง 16 สัปดาห์</span>
+                <span class="text-[#e5a83b] font-bold">★ สุ่มบริษัท 4 รูปแบบ</span>
               </div>
             </div>
 
-            <!-- Role Selector (Now located in Left Column for balanced eye scan!) -->
-            <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800">
-              <label class="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-2 font-mono">
+            <!-- Role Selector (Left Column for Balanced Eye Span) -->
+            <div class="mt-4 pt-3 border-t border-[#16234d]">
+              <label class="text-xs font-bold text-slate-300 block mb-2 font-mono">
                 1. เลือกตำแหน่งงานที่ต้องการฝึก:
               </label>
               <div class="grid grid-cols-2 gap-2">
                 ${Object.values(ROLES).map(r => `
-                  <button onclick="selectRole('${r.id}')" class="p-2 text-left rounded-lg border transition ${gameState.selectedRole === r.id ? 'border-amber-500 bg-amber-50 dark:bg-amber-500/10 text-amber-900 dark:text-amber-200 shadow-sm' : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 hover:border-slate-400 text-slate-700 dark:text-slate-300'}">
+                  <button onclick="selectRole('${r.id}')" class="p-2.5 text-left rounded-md border transition ${gameState.selectedRole === r.id ? 'border-[#dfbd69] bg-[#1a2c5a] text-[#dfbd69] font-bold' : 'border-[#1a2c5a] bg-[#0f1a3a] hover:border-slate-500 text-slate-300'}">
                     <div class="font-bold text-xs flex items-center justify-between">
                       <span>${r.badge}</span>
-                      ${gameState.selectedRole === r.id ? '<span class="text-amber-600 dark:text-amber-400 text-[10px]">✔ เลือก</span>' : ''}
+                      ${gameState.selectedRole === r.id ? '<span class="text-[#e5a83b] text-[10px]">✔ เลือก</span>' : ''}
                     </div>
-                    <div class="text-[10px] text-slate-500 dark:text-slate-400 truncate mt-0.5">${r.tagline}</div>
+                    <div class="text-[10px] text-slate-400 truncate mt-0.5">${r.tagline}</div>
                   </button>
                 `).join('')}
               </div>
             </div>
           </div>
 
-          <!-- RIGHT COLUMN: Title, Narrative & Actions -->
+          <!-- RIGHT COLUMN: Title, Narrative & Exact 'เกิด' Button -->
           <div class="lg:col-span-6 flex flex-col justify-between space-y-4">
             <div>
               <div class="flex items-center gap-2 mb-1">
-                <span class="text-xs font-mono font-bold text-amber-600 dark:text-amber-400 tracking-wider">A TECH INTERN LIFE, RANDOMLY ASSIGNED</span>
+                <span class="text-xs font-mono font-bold text-[#dfbd69] tracking-wider">A TECH INTERN LIFE, RANDOMLY ASSIGNED</span>
               </div>
-              <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+              <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                 ชีวิตเด็กฝึกงานเอสอี
               </h1>
-              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-                คุณคือนักศึกษาวิศวกรรมซอฟต์แวร์ที่กำลังจะก้าวเข้าสู่โลกการทำงานจริง 16 สัปดาห์ บริษัทจะสุ่มตามชะตากรรม และการตัดสินใจของคุณจะกำหนดอนาคตการได้งาน!
+              <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                คุณคือนักศึกษาวิศวกรรมซอฟต์แวร์ 1 ในคนที่กำลังจะก้าวเข้าสู่โลกการทำงานจริง 16 สัปดาห์เต็ม บริษัทจะสุ่มตามชะตากรรม และการตัดสินใจของคุณจะกำหนดอนาคตการได้งาน!
               </p>
             </div>
 
-            <!-- 6 Stat Explanations Grid -->
-            <div class="grid grid-cols-2 gap-2 text-[11px] bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/80 p-3 rounded-lg">
+            <!-- 6 Stat Explanations Grid (Exact 1-in-65M look) -->
+            <div class="grid grid-cols-2 gap-2 text-[11px] bg-[#0c1633] border border-[#16234d] p-3 rounded-lg">
               <div class="p-1">
-                <div class="font-bold text-red-600 dark:text-red-400 flex items-center gap-1">❤️ พลังกาย / สุขภาพ</div>
-                <div class="text-slate-500 dark:text-slate-400 text-[10px]">ต่ำแล้วป่วย ถึง 0 คือ Burnout</div>
+                <div class="font-bold text-red-400 flex items-center gap-1">❤️ สุขภาพ</div>
+                <div class="text-slate-400 text-[10px]">ต่ำแล้วป่วย ถึง 0 คือ Burnout</div>
               </div>
               <div class="p-1">
-                <div class="font-bold text-amber-600 dark:text-amber-300 flex items-center gap-1">😊 ความสุข / สติ</div>
-                <div class="text-slate-500 dark:text-slate-400 text-[10px]">ต่ำเสี่ยงซึมเศร้า ลาออกก่อนจบ</div>
+                <div class="font-bold text-[#ffd600] flex items-center gap-1">😊 ความสุข</div>
+                <div class="text-slate-400 text-[10px]">ต่ำเสี่ยงซึมเศร้า ลาออกก่อนจบ</div>
               </div>
               <div class="p-1">
-                <div class="font-bold text-sky-600 dark:text-sky-400 flex items-center gap-1">📘 ทักษะวิชาชีพ</div>
-                <div class="text-slate-500 dark:text-slate-400 text-[10px]">คุณภาพงาน & Return Offer</div>
+                <div class="font-bold text-[#00e5ff] flex items-center gap-1">📘 ทักษะ</div>
+                <div class="text-slate-400 text-[10px]">คุณภาพงาน & Return Offer</div>
               </div>
               <div class="p-1">
-                <div class="font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1">👔 บารมี / เส้นสาย</div>
-                <div class="text-slate-500 dark:text-slate-400 text-[10px]">คอนเนกชันกับพี่เลี้ยงและบอส</div>
+                <div class="font-bold text-[#26a69a] flex items-center gap-1">👔 เส้นสาย / บารมี</div>
+                <div class="text-slate-400 text-[10px]">คอนเนกชันกับพี่เลี้ยงและบอส</div>
               </div>
               <div class="p-1">
-                <div class="font-bold text-yellow-700 dark:text-yellow-300 flex items-center gap-1">💰 เงินเก็บสะสม</div>
-                <div class="text-slate-500 dark:text-slate-400 text-[10px]">เบี้ยเลี้ยงและค่าครองชีพ</div>
+                <div class="font-bold text-[#fbc02d] flex items-center gap-1">💰 เงิน</div>
+                <div class="text-slate-400 text-[10px]">เบี้ยเลี้ยงและค่าครองชีพ</div>
               </div>
               <div class="p-1">
-                <div class="font-bold text-purple-700 dark:text-purple-400 flex items-center gap-1">🔮 บุญ / บาป</div>
-                <div class="text-slate-500 dark:text-slate-400 text-[10px]">ซ่อนไว้ เฉลยตอนสัปดาห์ 16</div>
+                <div class="font-bold text-purple-400 flex items-center gap-1">🔮 บุญ / บาป</div>
+                <div class="text-slate-400 text-[10px]">ซ่อนไว้ เฉลยตอนสัปดาห์ 16</div>
               </div>
             </div>
 
-            <!-- Big Golden Action Button -->
+            <!-- Big Golden Action Button (Exact 'เกิด' Button) -->
             <div class="pt-1">
-              <div class="text-[11px] text-slate-500 dark:text-slate-400 font-mono mb-1.5 text-center sm:text-left">
-                กด Enter หรือคลิกปุ่มด้านล่างเพื่อเริ่มชีวิต
+              <div class="text-[11px] text-slate-400 font-mono mb-1.5 text-center sm:text-left">
+                กดตัวเลข 1-9 เพื่อเลือก · Enter เพื่อไปต่อ
               </div>
-              <button onclick="startGame()" class="w-full py-3.5 gold-btn rounded-xl text-base font-bold tracking-wide flex items-center justify-center gap-2 shadow-md">
-                <span>สุ่มบริษัท & เริ่มต้นชีวิตฝึกงาน (เกิด)</span>
+              <button onclick="startGame()" class="w-full py-3.5 btn-gold-65m text-base sm:text-lg font-bold tracking-wide flex items-center justify-center gap-2 shadow-lg">
+                <span>เกิด (สุ่มบริษัท & เริ่มต้นชีวิต)</span>
                 <span class="text-xs font-mono opacity-80 bg-black/10 px-1.5 py-0.5 rounded">↵ Enter</span>
               </button>
             </div>
@@ -1143,7 +1099,7 @@
       `;
     }
 
-    // 2. EVENT & FEEDBACK SCREEN (Refined for Easy Reading / No Eye Strain)
+    // 2. EVENT & FEEDBACK SCREEN (Exact 1-in-65M Choice Cards & Colors)
     function renderEventScreen(container) {
       const roleId = gameState.selectedRole;
       const roleObj = ROLES[roleId] || ROLES.dev;
@@ -1156,7 +1112,7 @@
       const sceneSvg = SCENE_ARTS[artKey] || SCENE_ARTS.code;
 
       const toastHtml = gameState.lastToast ? `
-        <div class="stat-toast absolute top-3 left-3 bg-white/95 dark:bg-slate-900/90 border-2 border-amber-500 px-3 py-1.5 rounded-lg text-xs text-amber-900 dark:text-amber-300 font-bold font-mono shadow-xl flex items-center gap-1.5 z-20">
+        <div class="stat-toast absolute top-3 left-3 bg-[#0d1736]/95 border-2 border-[#dfbd69] px-3 py-1.5 rounded-md text-xs text-[#dfbd69] font-bold font-mono shadow-2xl flex items-center gap-1.5 z-20">
           <span>${gameState.lastToast}</span>
         </div>
       ` : '';
@@ -1167,25 +1123,25 @@
           <!-- LEFT COLUMN: Gold-Bordered 16:9 Viewport + Milestone Track -->
           <div class="lg:col-span-6 flex flex-col justify-between">
             <div>
-              <div class="gold-box rounded-lg overflow-hidden bg-[#060c1d] relative aspect-[16/9] w-full flex items-center justify-center shadow-md">
+              <div class="gold-box rounded-lg overflow-hidden bg-[#060c1d] relative aspect-[16/9] w-full flex items-center justify-center shadow-lg">
                 ${sceneSvg}
                 ${toastHtml}
 
-                <div class="absolute bottom-2.5 right-2.5 bg-slate-950/80 border border-slate-800 px-2 py-0.5 rounded text-[10px] text-slate-300 font-mono">
+                <div class="absolute bottom-2.5 right-2.5 bg-[#0d1736]/90 border border-[#16234d] px-2 py-0.5 rounded text-[10px] text-slate-300 font-mono">
                   ${gameState.company ? gameState.company.badge : 'Tech Company'}
                 </div>
               </div>
 
-              <!-- 16-Week Milestone Track -->
-              <div class="mt-3 bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800/80 rounded-lg p-3 font-mono">
-                <div class="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 mb-1.5">
-                  <span class="font-bold">ความคืบหน้าสหกิจศึกษา</span>
-                  <span class="text-amber-600 dark:text-amber-400 font-bold">สัปดาห์ที่ ${gameState.week} / 16</span>
+              <!-- 16-Week Milestone Track (Matching 1-in-65M scrubber) -->
+              <div class="mt-3 bg-[#0c1633] border border-[#16234d] rounded-lg p-3 font-mono">
+                <div class="flex items-center justify-between text-xs text-slate-400 mb-1.5">
+                  <span>ความคืบหน้าสหกิจศึกษา</span>
+                  <span class="text-[#dfbd69] font-bold">สัปดาห์ที่ ${gameState.week} / 16</span>
                 </div>
-                <div class="relative w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-amber-500 to-emerald-500 rounded-full transition-all duration-300" style="width: ${(gameState.week / TOTAL_WEEKS) * 100}%"></div>
+                <div class="relative w-full h-2 bg-[#16234d] rounded-full overflow-hidden">
+                  <div class="h-full bg-[#e5a83b] rounded-full transition-all duration-300" style="width: ${(gameState.week / TOTAL_WEEKS) * 100}%"></div>
                 </div>
-                <div class="flex justify-between text-[10px] text-slate-400 dark:text-slate-500 mt-1.5">
+                <div class="flex justify-between text-[10px] text-slate-500 mt-1.5">
                   <span>W1 เริ่มต้น</span>
                   <span>W4 มิดเทอม</span>
                   <span>W8 สรุปงาน</span>
@@ -1196,49 +1152,49 @@
             </div>
 
             <!-- Bottom Left Info Bar -->
-            <div class="mt-3 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-mono pt-2 border-t border-slate-200 dark:border-slate-800">
-              <span>บริษัท: <strong class="text-slate-800 dark:text-slate-200">${gameState.company ? gameState.company.name : 'Tech Corp'}</strong></span>
-              <span class="text-emerald-700 dark:text-emerald-400 font-bold">เบี้ยเลี้ยงสะสม: ฿${gameState.stats.money.toLocaleString()}</span>
+            <div class="mt-3 flex items-center justify-between text-xs text-slate-400 font-mono pt-2 border-t border-[#16234d]">
+              <span>บริษัท: <strong class="text-slate-200">${gameState.company ? gameState.company.name : 'Tech Corp'}</strong></span>
+              <span class="text-[#fbc02d] font-bold">เบี้ยเลี้ยงสะสม: ฿${gameState.stats.money.toLocaleString()}</span>
             </div>
           </div>
 
-          <!-- RIGHT COLUMN: Story Narrative & 3 Compact Choice Cards -->
+          <!-- RIGHT COLUMN: Story Narrative & Exact 1-in-65M Choice Cards -->
           <div class="lg:col-span-6 flex flex-col justify-between space-y-3">
             
             <div>
-              <div class="flex items-center gap-2 text-xs font-mono text-amber-700 dark:text-amber-400 mb-1">
+              <div class="flex items-center gap-2 text-xs font-mono text-[#dfbd69] mb-1">
                 <span>สถานการณ์สหกิจศึกษา</span>
                 <span>·</span>
                 <span>สัปดาห์ที่ ${gameState.week} / 16</span>
                 <span>·</span>
-                <span class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-1.5 py-0.2 rounded font-bold">${roleObj.badge}</span>
+                <span class="bg-[#16234d] text-slate-200 px-1.5 py-0.2 rounded font-bold">${roleObj.badge}</span>
               </div>
 
-              <!-- Context Box (High Contrast Warm Cream in Light Mode) -->
-              <div class="border-l-4 border-amber-500 bg-amber-50/70 dark:bg-slate-900/80 p-3 rounded-r text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
+              <!-- Context Box (Left Gold Accent Border from 1 in 65M) -->
+              <div class="border-l-4 border-[#e5a83b] bg-[#0c1633] p-3 rounded-r text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
                 ${ev.intro}
               </div>
 
-              <!-- Question Title -->
-              <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mt-2.5 leading-snug">
+              <!-- Question Title (Big Bold White Text) -->
+              <h2 class="text-lg sm:text-xl font-bold text-white mt-2.5 leading-snug">
                 ${ev.title}
               </h2>
             </div>
 
             <!-- Choice Cards vs Feedback State -->
             ${gameState.screen === 'event' ? `
-              <!-- 3 Interactive Choice Cards (Crisp Light Cards with High Contrast) -->
+              <!-- 3 Interactive Choice Cards (Exact 1-in-65M Styling) -->
               <div class="space-y-2">
                 ${choices.map((c, idx) => `
-                  <button onclick="makeChoice(${idx})" class="w-full text-left p-3 rounded-xl border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/90 hover:border-amber-500 hover:bg-amber-50/60 dark:hover:bg-slate-800 transition flex items-start gap-3 shadow-xs group">
-                    <span class="w-6 h-6 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-amber-500 group-hover:text-black font-mono font-bold text-xs flex items-center justify-center shrink-0 border border-slate-300 dark:border-slate-700 transition">
+                  <button onclick="makeChoice(${idx})" class="choice-card-65m w-full text-left p-3.5 flex items-start gap-3 group">
+                    <span class="w-5 h-5 text-xs font-mono font-bold text-[#00e5ff] shrink-0 mt-0.5">
                       ${idx + 1}
                     </span>
                     <div class="flex-1">
-                      <div class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-amber-900 dark:group-hover:text-amber-200 transition">
+                      <div class="text-xs sm:text-sm font-semibold text-slate-100 group-hover:text-white transition">
                         ${c.text}
                       </div>
-                      <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-mono">
+                      <div class="text-[11px] text-[#38bdf8] mt-1 font-mono">
                         ${c.hint}
                       </div>
                     </div>
@@ -1246,22 +1202,22 @@
                 `).join('')}
               </div>
 
-              <div class="text-[11px] text-slate-500 dark:text-slate-400 font-mono text-center sm:text-left">
-                กดตัวเลข 1, 2, หรือ 3 บนแป้นพิมพ์เพื่อเลือก
+              <div class="text-[11px] text-slate-400 font-mono text-center sm:text-left">
+                กดตัวเลข 1, 2, หรือ 3 บนแป้นพิมพ์เพื่อเลือก · Enter เพื่อไปต่อ
               </div>
             ` : `
               <!-- Feedback State -->
-              <div class="bg-emerald-50 dark:bg-slate-900/90 border-2 border-emerald-500/60 p-4 rounded-xl space-y-3 shadow-sm">
-                <div class="flex items-center gap-2 text-emerald-800 dark:text-emerald-400 font-bold text-sm">
+              <div class="bg-[#0c1633] border border-emerald-500/60 p-4 rounded-lg space-y-3 shadow-lg">
+                <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
                   <span>✔ ผลลัพธ์การตัดสินใจ:</span>
                 </div>
-                <p class="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
+                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
                   ${gameState.lastFeedback || 'คุณผ่านสัปดาห์นี้ไปได้อย่างราบรื่น'}
                 </p>
                 <div class="pt-1">
-                  <button onclick="nextWeek()" class="w-full py-3 gold-btn rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-md">
+                  <button onclick="nextWeek()" class="w-full py-3.5 btn-gold-65m text-sm font-bold flex items-center justify-center gap-2 shadow-lg">
                     <span>${gameState.week >= TOTAL_WEEKS ? 'ดูผลการประเมินจบการฝึกงาน (กด Enter)' : 'ไปต่อสัปดาห์ถัดไป (กด Enter)'}</span>
-                    <span class="font-mono text-xs opacity-80">↵</span>
+                    <span class="font-mono text-xs opacity-80 bg-black/10 px-1.5 py-0.5 rounded">↵</span>
                   </button>
                 </div>
               </div>
@@ -1272,7 +1228,7 @@
       `;
     }
 
-    // 3. ENDING SCREEN
+    // 3. ENDING SCREEN (Exact 1-in-65M Epilogue Look)
     function renderEndingScreen(container) {
       const s = gameState.stats;
       const roleObj = ROLES[gameState.selectedRole] || ROLES.dev;
@@ -1281,33 +1237,33 @@
       let title = "บัณฑิตจบใหม่เกียรตินิยม Return Offer การันตี!";
       let badge = "🏆 S-TIER RETURN OFFER";
       let desc = "ผลงานตลอด 16 สัปดาห์ของคุณโดดเด่นจนบอร์ดบริหารและ Tech Lead อนุมัติสัญญาจ้างพนักงานประจำทันที พร้อมเงินเดือนเริ่มต้นระดับท็อปของรุ่น!";
-      let toneColor = "text-amber-600 dark:text-amber-400";
+      let toneColor = "text-[#dfbd69]";
 
       if (s.energy <= 0 || s.sanity <= 0) {
         title = "Burnout ล้มป่วยก่อนจบโครงการ";
         badge = "💀 BURNOUT RETREAT";
         desc = "คุณโหมงานหนักและแบกรับความกดดันจนร่างกายประท้วง ต้องพักรักษาตัว แม้จะเก่งแต่สุขภาพต้องมาก่อน ขอให้พักผ่อนเต็มที่เพื่อกลับมาใหม่!";
-        toneColor = "text-red-600 dark:text-red-400";
+        toneColor = "text-red-400";
       } else if (s.skill >= 75 && s.karma >= 60) {
         title = "ว่าที่ Tech Lead ดาวรุ่งคนใหม่";
         badge = "🌟 GOLDEN OFFER + SIGN-ON BONUS";
         desc = "คุณผสมผสานทั้ง Hard Skills ระดับเซียน และ Soft Skills มนุษยสัมพันธ์ยอดเยี่ยม ทุกคนในองค์กรแย่งตัวคุณเข้าทีม!";
-        toneColor = "text-yellow-600 dark:text-yellow-300";
+        toneColor = "text-[#ffd600]";
       } else if (s.karma >= 75) {
         title = "เจ้าพ่อคอนเนกชัน ตัวเชื่อมทุกแผนก";
         badge = "🤝 CULTURE CHAMPION";
         desc = "ใครๆ ก็รักคุณ แม้โค้ดจะมีบั๊กบ้างแต่คุณประสานงานและแก้สถานการณ์ได้เนียนกริบ ได้รับการทาบทามไปเป็น Product Manager หรือ Scrum Master!";
-        toneColor = "text-emerald-700 dark:text-emerald-400";
+        toneColor = "text-[#26a69a]";
       } else if (s.skill >= 60) {
         title = "ผ่านเกณฑ์สหกิจศึกษาตามมาตรฐาน";
         badge = "📜 PASS WITH CERTIFICATE";
         desc = "คุณทำหน้าที่ของตนเองได้ครบถ้วน ส่งมอบงานตรงเวลา ได้เกรด A ในวิชาสหกิจศึกษา และพร้อมสำหรับตลาดแรงงานสากล!";
-        toneColor = "text-sky-700 dark:text-sky-400";
+        toneColor = "text-[#00e5ff]";
       } else {
         title = "เอาตัวรอดมาได้แบบเฉียดฉิว";
         badge = "🛡️ SURVIVOR";
         desc = "16 สัปดาห์แห่งความปั่นป่วน คุณผ่านการประเมินแบบพอดีเกณฑ์ ได้เรียนรู้บทเรียนชีวิตจริงที่มีค่ามากกว่าในตำราเรียน!";
-        toneColor = "text-slate-700 dark:text-slate-300";
+        toneColor = "text-slate-200";
       }
 
       container.innerHTML = `
@@ -1315,35 +1271,35 @@
           
           <!-- LEFT COLUMN: Trophy Viewport -->
           <div class="lg:col-span-6 flex flex-col justify-between">
-            <div class="gold-box rounded-lg overflow-hidden bg-[#051124] relative aspect-[16/9] w-full flex items-center justify-center shadow-md">
+            <div class="gold-box rounded-lg overflow-hidden bg-[#051124] relative aspect-[16/9] w-full flex items-center justify-center shadow-lg">
               ${SCENE_ARTS.trophy}
               
-              <div class="absolute top-3 left-3 bg-slate-900/90 border border-amber-400 px-3 py-1 rounded text-xs font-bold font-mono text-amber-300">
+              <div class="absolute top-3 left-3 bg-[#0d1736]/90 border border-[#dfbd69] px-3 py-1 rounded text-xs font-bold font-mono text-[#dfbd69]">
                 ${badge}
               </div>
             </div>
 
             <!-- Stat Summary Grid -->
-            <div class="mt-3 grid grid-cols-5 gap-1.5 text-center text-xs font-mono bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-2.5 rounded-lg">
-              <div class="p-1 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-800">
-                <div class="text-red-500 font-bold">❤️ สุขภาพ</div>
-                <div class="text-slate-800 dark:text-slate-200 font-bold mt-0.5">${Math.max(0, s.energy)}</div>
+            <div class="mt-3 grid grid-cols-5 gap-1.5 text-center text-xs font-mono bg-[#0c1633] border border-[#16234d] p-2.5 rounded-lg">
+              <div class="p-1 bg-[#0f1a3a] rounded border border-[#1a2c5a]">
+                <div class="text-red-400 font-bold">❤️ สุขภาพ</div>
+                <div class="text-slate-100 font-bold mt-0.5">${Math.max(0, s.energy)}</div>
               </div>
-              <div class="p-1 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-800">
-                <div class="text-amber-500 font-bold">😊 สติ</div>
-                <div class="text-slate-800 dark:text-slate-200 font-bold mt-0.5">${Math.max(0, s.sanity)}</div>
+              <div class="p-1 bg-[#0f1a3a] rounded border border-[#1a2c5a]">
+                <div class="text-[#ffd600] font-bold">😊 ความสุข</div>
+                <div class="text-slate-100 font-bold mt-0.5">${Math.max(0, s.sanity)}</div>
               </div>
-              <div class="p-1 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-800">
-                <div class="text-sky-500 font-bold">📘 ทักษะ</div>
-                <div class="text-slate-800 dark:text-slate-200 font-bold mt-0.5">${Math.max(0, s.skill)}</div>
+              <div class="p-1 bg-[#0f1a3a] rounded border border-[#1a2c5a]">
+                <div class="text-[#00e5ff] font-bold">📘 ทักษะ</div>
+                <div class="text-slate-100 font-bold mt-0.5">${Math.max(0, s.skill)}</div>
               </div>
-              <div class="p-1 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-800">
-                <div class="text-emerald-600 font-bold">👔 บารมี</div>
-                <div class="text-slate-800 dark:text-slate-200 font-bold mt-0.5">${Math.max(0, s.karma)}</div>
+              <div class="p-1 bg-[#0f1a3a] rounded border border-[#1a2c5a]">
+                <div class="text-[#26a69a] font-bold">👔 บารมี</div>
+                <div class="text-slate-100 font-bold mt-0.5">${Math.max(0, s.karma)}</div>
               </div>
-              <div class="p-1 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-800">
-                <div class="text-yellow-600 font-bold">💰 เงินเก็บ</div>
-                <div class="text-yellow-800 dark:text-yellow-300 font-bold mt-0.5">฿${s.money.toLocaleString()}</div>
+              <div class="p-1 bg-[#0f1a3a] rounded border border-[#1a2c5a]">
+                <div class="text-[#fbc02d] font-bold">💰 เงิน</div>
+                <div class="text-[#fbc02d] font-bold mt-0.5">฿${s.money.toLocaleString()}</div>
               </div>
             </div>
           </div>
@@ -1351,27 +1307,27 @@
           <!-- RIGHT COLUMN: Evaluation Narrative & Restart Button -->
           <div class="lg:col-span-6 flex flex-col justify-between space-y-4">
             <div>
-              <div class="text-xs font-mono text-amber-700 dark:text-amber-400 tracking-wider mb-1 font-bold">
+              <div class="text-xs font-mono text-[#dfbd69] tracking-wider mb-1 font-bold">
                 ผลสรุปสหกิจศึกษา 16 สัปดาห์ (4 เดือนเต็ม)
               </div>
               <h2 class="text-xl sm:text-2xl font-extrabold ${toneColor} leading-tight">
                 ${title}
               </h2>
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+              <div class="text-xs text-slate-400 mt-1">
                 ตำแหน่ง: <strong>${roleObj.title}</strong> · บริษัท: <strong>${comp.name}</strong>
               </div>
 
-              <div class="border-l-4 border-amber-500 bg-amber-50/70 dark:bg-slate-900/80 p-3.5 rounded-r text-xs sm:text-sm text-slate-800 dark:text-slate-200 mt-3 leading-relaxed font-medium">
+              <div class="border-l-4 border-[#e5a83b] bg-[#0c1633] p-3.5 rounded-r text-xs sm:text-sm text-slate-200 mt-3 leading-relaxed font-medium">
                 ${desc}
               </div>
             </div>
 
-            <div class="bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400 italic">
+            <div class="bg-[#0c1633] border border-[#16234d] p-3 rounded-lg text-xs text-slate-400 italic">
               "ชีวิตการฝึกงานอาจเต็มไปด้วยความไม่แน่นอนและบั๊กที่คาดไม่ถึง แต่ประสบการณ์ที่คุณสะสมมาคือจุดเริ่มต้นของวิศวกรซอฟต์แวร์ตัวจริง"
             </div>
 
             <div>
-              <button onclick="restartGame()" class="w-full py-3.5 gold-btn rounded-xl text-base font-bold flex items-center justify-center gap-2 shadow-md">
+              <button onclick="restartGame()" class="w-full py-3.5 btn-gold-65m text-base font-bold flex items-center justify-center gap-2 shadow-lg">
                 <span>ลองเกิดใหม่ในสายงานอื่น (กด Enter)</span>
                 <span class="font-mono text-xs opacity-80 bg-black/10 px-1.5 py-0.5 rounded">↵</span>
               </button>
@@ -1489,8 +1445,6 @@
       }
     });
 
-    // Initialize
-    initTheme();
     render();
   </script>
 </body>
