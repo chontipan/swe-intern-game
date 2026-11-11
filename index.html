@@ -177,6 +177,145 @@
 
   </div>
 
+  <!-- ===== RESEARCH MODE (logging) =====
+       เปิดด้วย ?mode=research&pid=P001[&group=G1][&company=startup|bigcorp|softwarehouse|gov]
+       ใส่ URL ของ Google Apps Script Web App ใน RESEARCH_ENDPOINT (หรือส่งผ่าน &endpoint=) -->
+  <script>
+    const RESEARCH_ENDPOINT = ''; // TODO: วาง URL Web App จาก research/apps-script.gs
+
+    const RESEARCH = (() => {
+      const p = new URLSearchParams(location.search);
+      const clean = (v, n) => (v || '').replace(/[^\w\-ก-๙]/g, '').slice(0, n);
+      const cfg = {
+        enabled: p.get('mode') === 'research',
+        pid: clean(p.get('pid'), 40),
+        group: clean(p.get('group'), 20),
+        company: clean(p.get('company'), 20),
+        endpoint: p.get('endpoint') || RESEARCH_ENDPOINT
+      };
+      const sessionId = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+      const state = { runNo: 0, shownWeek: null, shownAt: 0, endingLogged: false, consented: false };
+
+      const store = {
+        get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+        set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+      };
+      const logKey = () => `sim_log_${cfg.pid || 'anon'}`;
+
+      function send(event, data) {
+        if (!cfg.enabled || !state.consented) return;
+        const row = Object.assign({
+          ts: new Date().toISOString(), session_id: sessionId, pid: cfg.pid, group: cfg.group,
+          run_no: state.runNo, role: gameState.selectedRole,
+          company: gameState.company ? gameState.company.id : '', event
+        }, data || {});
+        const backup = store.get(logKey(), []);   // local backup (ดาวน์โหลด CSV ได้)
+        backup.push(row);
+        store.set(logKey(), backup);
+        if (!cfg.endpoint) return;
+        try {
+          fetch(cfg.endpoint, {
+            method: 'POST', mode: 'no-cors', keepalive: true,
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(row)
+          }).catch(() => {});
+        } catch (e) {}
+      }
+
+      const flat = (prefix, s) => ({
+        [`${prefix}_skill`]: s.skill, [`${prefix}_energy`]: s.energy, [`${prefix}_sanity`]: s.sanity,
+        [`${prefix}_karma`]: s.karma, [`${prefix}_money`]: s.money
+      });
+
+      function classifyEnding(s) {
+        if (state.w8Misconduct) return 'sent_back_w8_misconduct';
+        if (s.energy <= 0) return 'medical_withdrawal';
+        if (s.sanity <= 0) return 'burnout';
+        if (s.karma <= 0) return 'dismissal';
+        if (gameState.careerChoice) return 'offer_' + gameState.careerChoice;
+        if (s.money < -5000) return 'in_debt';
+        if (s.skill >= 75 && s.karma >= 60) return 'tech_lead';
+        if (s.karma >= 75) return 'culture_champion';
+        if (s.skill >= 60) return 'pass';
+        return 'survivor';
+      }
+
+      return {
+        cfg,
+        forcedCompany(list) { return cfg.enabled && cfg.company ? list.find(c => c.id === cfg.company) : null; },
+        onStart() {
+          if (!cfg.enabled) return;
+          state.runNo = store.get(`sim_run_${cfg.pid}`, 0) + 1;
+          store.set(`sim_run_${cfg.pid}`, state.runNo);
+          state.shownWeek = null; state.endingLogged = false; state.w8Misconduct = false;
+          send('start', Object.assign({ user_agent: navigator.userAgent.slice(0, 120) }, flat('after', gameState.stats)));
+        },
+        onEventShown() {
+          if (gameState.screen === 'event' && state.shownWeek !== gameState.week) {
+            state.shownWeek = gameState.week; state.shownAt = performance.now();
+          }
+        },
+        onChoice(idx, before, choiceText) {
+          // mirrors the W8 rule in makeChoice(): option 3 at week 8 with karma <= 20
+          if (gameState.week === 8 && idx === 2 && gameState.isSentBack && gameState.stats.karma <= 20) state.w8Misconduct = true;
+          send('choice', Object.assign({
+            week: gameState.week, choice_idx: idx + 1, choice_text: (choiceText || '').slice(0, 80),
+            decision_ms: Math.round(performance.now() - state.shownAt),
+            sent_back: gameState.isSentBack ? 1 : 0
+          }, flat('before', before), flat('after', gameState.stats)));
+        },
+        onEnding() {
+          if (state.endingLogged) return;
+          state.endingLogged = true;
+          send('ending', Object.assign({
+            week: gameState.week, ending_code: classifyEnding(gameState.stats),
+            career_choice: gameState.careerChoice || ''
+          }, flat('after', gameState.stats)));
+        },
+        downloadCsv() {
+          const rows = store.get(logKey(), []);
+          if (!rows.length) return;
+          const cols = [...new Set(rows.flatMap(r => Object.keys(r)))];
+          const esc = v => `"${String(v === undefined ? '' : v).replace(/"/g, '""')}"`;
+          const csv = '﻿' + [cols.join(','), ...rows.map(r => cols.map(c => esc(r[c])).join(','))].join('\n');
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+          a.download = `sim_log_${cfg.pid || 'anon'}.csv`;
+          a.click();
+        },
+        mountConsent() {
+          if (!cfg.enabled) return;
+          const box = document.createElement('div');
+          box.id = 'researchConsent';
+          box.className = 'fixed inset-0 bg-black/85 z-[60] flex items-center justify-center p-4';
+          box.innerHTML = `
+            <div class="bg-[#0c1633] border-2 border-[#dfbd69] rounded-xl max-w-md w-full p-5 text-slate-200 space-y-3 text-sm">
+              <h3 class="text-lg font-bold text-white">โหมดวิจัย: แบบแสดงความยินยอม</h3>
+              <p>เกมจะบันทึกตัวเลือก ค่าสถานะ เวลาที่ใช้ตัดสินใจ และผลลัพธ์ตอนจบ โดยไม่เก็บชื่อหรือข้อมูลระบุตัวตน ข้อมูลใช้เพื่อการวิจัยเท่านั้น คะแนนในเกมไม่มีผลต่อเกรด และถอนตัวได้ทุกเมื่อ</p>
+              <label class="block">รหัสผู้เข้าร่วม (pid)
+                <input id="rcPid" class="mt-1 w-full bg-[#051124] border border-[#16234d] rounded px-2 py-1.5 text-white font-mono" value="${cfg.pid}" ${cfg.pid ? 'readonly' : ''}>
+              </label>
+              <label class="flex items-start gap-2"><input id="rcOk" type="checkbox" class="mt-1"> <span>ข้าพเจ้ายินยอมเข้าร่วมการวิจัย</span></label>
+              <button id="rcGo" class="w-full py-2.5 btn-gold-65m font-bold">เริ่ม</button>
+              <p id="rcErr" class="text-red-400 text-xs hidden">กรุณากรอกรหัสและติ๊กยินยอม</p>
+            </div>`;
+          document.body.appendChild(box);
+          box.querySelector('#rcGo').onclick = () => {
+            const pid = clean(box.querySelector('#rcPid').value, 40);
+            if (!pid || !box.querySelector('#rcOk').checked) { box.querySelector('#rcErr').classList.remove('hidden'); return; }
+            cfg.pid = pid; state.consented = true; box.remove();
+          };
+          box.addEventListener('keydown', e => e.stopPropagation());
+          const tag = document.createElement('button');
+          tag.className = 'fixed bottom-2 right-2 z-[55] text-[10px] font-mono bg-[#0c1633] border border-[#dfbd69] text-[#dfbd69] px-2 py-1 rounded opacity-70 hover:opacity-100';
+          tag.textContent = '● REC · ดาวน์โหลด log';
+          tag.onclick = () => RESEARCH.downloadCsv();
+          document.body.appendChild(tag);
+        },
+        blocking() { return cfg.enabled && !state.consented; }
+      };
+    })();
+  </script>
   <script>
     // --- AUDIO SYNTH ENGINE ---
     let audioCtx = null;
@@ -2599,6 +2738,7 @@
       const evIndex = Math.min(gameState.week - 1, scenarios.length - 1);
       const ev = scenarios[evIndex] || scenarios[0];
       const choices = ev.choices;
+      RESEARCH.onEventShown();
 
       const artKey = ev.pArt || 'code';
       const sceneSvg = SCENE_ARTS[artKey] || SCENE_ARTS.code;
@@ -2921,6 +3061,7 @@
     // 3. ENDING SCREEN (Normal Endings + SENT BACK F ENDING)
     function renderEndingScreen(container) {
       const s = gameState.stats;
+      RESEARCH.onEnding();
       const roleObj = ROLES[gameState.selectedRole] || ROLES.dev;
       const comp = gameState.company || COMPANIES[0];
 
@@ -3099,7 +3240,8 @@
 
     function startGame() {
       playSound('click');
-      const randomComp = COMPANIES[Math.floor(Math.random() * COMPANIES.length)];
+      if (RESEARCH.blocking()) return;
+      const randomComp = RESEARCH.forcedCompany(COMPANIES) || COMPANIES[Math.floor(Math.random() * COMPANIES.length)];
       gameState.company = randomComp;
 
       const baseRole = ROLES[gameState.selectedRole].init;
@@ -3116,8 +3258,11 @@
       gameState.isSentBack = false;
       gameState.sentBackReason = "";
       gameState.weeklyFinancialReport = null;
+      gameState.careerChoice = null;
+      gameState.hasJobOffer = false;
       gameState.lastToast = `สุ่มได้: ${randomComp.name.split(' ')[0]}`;
       playSound('success');
+      RESEARCH.onStart();
       render();
     }
 
@@ -3131,6 +3276,7 @@
       const choice = choices[idx] || choices[0];
 
       const s = gameState.stats;
+      const statsBefore = Object.assign({}, s);
       const comp = gameState.company || COMPANIES[0];
 
       // 1. Calculate Real Dynamic Financial Cashflow for the week
@@ -3243,6 +3389,7 @@
       const moneyText = netMoneyDelta >= 0 ? `+฿${netMoneyDelta}` : `-฿${Math.abs(netMoneyDelta)}`;
       gameState.lastToast = `${skillDelta} · ${moneyText} สัปดาห์นี้`;
       gameState.lastFeedback = choice.feedback;
+      RESEARCH.onChoice(idx, statsBefore, choice.text);
 
       gameState.screen = 'feedback';
       render();
@@ -3293,7 +3440,9 @@
         lastFeedback: "",
         weeklyFinancialReport: null,
         isSentBack: false,
-        sentBackReason: ""
+        sentBackReason: "",
+        careerChoice: null,
+        hasJobOffer: false
       };
       render();
     }
@@ -3325,6 +3474,7 @@
     });
 
     render();
+    RESEARCH.mountConsent();
   </script>
 
   <!-- RESEARCH CITATIONS MODAL -->
