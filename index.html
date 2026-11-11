@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>ชีวิตเด็กฝึกงานเอสอี (SE Intern Sim - 16 สัปดาห์)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -155,7 +158,7 @@
     <!-- Footer Controls (Exact 1-in-65M button styling) -->
     <footer class="w-full mt-3 flex items-center justify-between text-xs text-slate-400 px-2 font-mono">
       <div class="flex items-center gap-3">
-        <span>จำลองชีวิตเด็กฝึกงานเอสอี 16 สัปดาห์ (สมจริง)</span>
+        <span>จำลองชีวิตเด็กฝึกงานเอสอี 16 สัปดาห์</span>
         <span>•</span>
         <span class="text-slate-500">กดแป้นตัวเลข 1-3 หรือ Enter ได้</span>
       </div>
@@ -1684,7 +1687,7 @@
       const weekBadge = document.getElementById('weekBadge');
 
       if (gameState.screen === 'start') {
-        if (internTitle) internTitle.innerText = "ชีวิตเด็กฝึกงานเอสอี (สมจริง)";
+        if (internTitle) internTitle.innerText = "ชีวิตเด็กฝึกงานเอสอี";
         if (headerSubtitle) headerSubtitle.innerText = "เตรียมตัวเริ่มต้นชีวิตสหกิจศึกษา 16 สัปดาห์ · มีค่าครองชีพและค่าหอจริง";
         if (weekBadge) weekBadge.innerText = "16 WEEKS";
       } else {
@@ -1856,12 +1859,12 @@
                 <div class="relative w-full h-2 bg-[#16234d] rounded-full overflow-hidden">
                   <div class="h-full bg-[#e5a83b] rounded-full transition-all duration-300" style="width: ${(gameState.week / TOTAL_WEEKS) * 100}%"></div>
                 </div>
-                <div class="flex justify-between text-[10px] text-slate-500 mt-1.5">
-                  <span>W1 เริ่มงาน</span>
-                  <span class="${gameState.week >= 4 ? 'text-[#e5a83b]' : ''}">W4 หมูกระทะ</span>
-                  <span class="${gameState.week >= 8 ? 'text-red-400' : ''}">W8 วิกฤตสเปก/DB</span>
-                  <span class="${gameState.week >= 12 ? 'text-cyan-400' : ''}">W12 บอสขอ AI</span>
-                  <span>W16 สรุปผล</span>
+                <div class="flex justify-between text-[10px] font-mono font-bold text-slate-500 mt-1.5 px-0.5">
+                  <span class="${gameState.week >= 1 ? 'text-slate-300' : ''}">W1</span>
+                  <span class="${gameState.week >= 4 ? 'text-[#e5a83b]' : ''}">W4</span>
+                  <span class="${gameState.week >= 8 ? 'text-red-400' : ''}">W8</span>
+                  <span class="${gameState.week >= 12 ? 'text-cyan-400' : ''}">W12</span>
+                  <span class="${gameState.week >= 16 ? 'text-[#e5a83b]' : ''}">W16</span>
                 </div>
               </div>
             </div>
@@ -1897,22 +1900,20 @@
                 <span class="bg-[#16234d] text-slate-200 px-1.5 py-0.2 rounded font-bold">${roleObj.badge}</span>
               </div>
 
-              <!-- Context Box -->
-              <div class="border-l-4 border-[#e5a83b] bg-[#0c1633] p-3 rounded-r text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
-                ${ev.intro}
+              <!-- Context Box (With In-Card Research / Pantip Citation directly inside!) -->
+              <div class="border-l-4 border-[#e5a83b] bg-[#0c1633] p-3.5 rounded-r text-xs sm:text-sm text-slate-200 leading-relaxed font-medium space-y-2.5 shadow-md">
+                <div>${ev.intro}</div>
+                <!-- Prominent In-Box Research & Pantip Citation -->
+                <div class="pt-2 border-t border-[#1a2c5a] text-[11px] font-mono flex items-start gap-1.5 text-[#dfbd69]">
+                  <span class="font-bold shrink-0 bg-[#e5a83b]/20 px-1.5 py-0.5 rounded border border-[#dfbd69]/40">📚 ที่มา</span>
+                  <span class="text-slate-300 leading-relaxed mt-0.5">${ev.sourceRef || 'งานวิจัยสหกิจศึกษาวิศวกรรมซอฟต์แวร์ & กระทู้ Pantip'}</span>
+                </div>
               </div>
-
 
               <!-- Question Title -->
-              <h2 class="text-lg sm:text-xl font-bold text-white mt-2.5 leading-snug">
+              <h2 class="text-lg sm:text-xl font-bold text-white mt-2 leading-snug">
                 ${ev.title}
               </h2>
-
-              <!-- In-Game Research & Empirical Citation Badge -->
-              <div class="mt-2 bg-[#080f24] border border-[#dfbd69]/40 px-2.5 py-1.5 rounded text-[11px] text-[#dfbd69] font-mono flex items-start gap-1.5 shadow-inner">
-                <span class="shrink-0 mt-0.5">📚 ที่มา:</span>
-                <span class="text-slate-300 leading-tight">${ev.sourceRef || 'วิจัยสหกิจศึกษาวิศวกรรมซอฟต์แวร์ & ประสบการณ์จริง Pantip'}</span>
-              </div>
 
             </div>
 
