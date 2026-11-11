@@ -531,6 +531,50 @@
       // 18. COMMUTE RAIN SCENE (ฝนตกหนัก น้ำท่วมกรุงเทพฯ BTS ขัดข้อง มาสาย)
       
       // 19. TIMEZONE OFFSHORE CALL SCENE (คอลกับทีมต่างประเทศ ตีสอง นาฬิกา 2 โซนเวลา)
+      
+      // 21. DIFFICULT PERSONALITY SCENE (รับมือกับคนอารมณ์ร้อน / Toxic Stakeholder)
+      difficult_person: `
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#140608] pixel-art">
+          <rect x="0" y="0" width="160" height="90" fill="#140608"/>
+          <!-- Office Cubicle Partition with Red Heat Aura -->
+          <rect x="10" y="8" width="140" height="46" fill="#1e131d" stroke="#831843" stroke-width="1.5"/>
+          <line x1="80" y1="8" x2="80" y2="54" stroke="#4a044e" stroke-width="1.5"/>
+          <!-- Angry Manager / Difficult Person on Left (หน้าแดง ชี้หน้า สับโต๊ะ) -->
+          <rect x="35" y="22" width="16" height="7" fill="#78350f"/>
+          <rect x="35" y="29" width="16" height="10" fill="#f87171"/> <!-- Red angry face -->
+          <rect x="37" y="32" width="4" height="2" fill="#000"/>
+          <rect x="45" y="32" width="4" height="2" fill="#000"/>
+          <rect x="39" y="36" width="8" height="3" fill="#450a0a"/> <!-- Shouting mouth -->
+          <!-- Anger veins / steam marks -->
+          <line x1="32" y1="20" x2="26" y2="15" stroke="#ef4444" stroke-width="2"/>
+          <line x1="54" y1="20" x2="60" y2="15" stroke="#ef4444" stroke-width="2"/>
+          <rect x="30" y="39" width="26" height="18" fill="#7f1d1d"/>
+          <!-- Pointing Arm slamming desk -->
+          <line x1="52" y1="44" x2="72" y2="40" stroke="#f87171" stroke-width="3"/>
+          <circle cx="74" cy="40" r="2.5" fill="#f87171"/>
+          <!-- Exclamation bubble above angry manager -->
+          <polygon points="62,12 74,12 70,20" fill="#dc2626"/>
+          <rect x="66" y="14" width="2" height="3" fill="#fff"/>
+          <!-- Desk with Papers flying -->
+          <rect x="0" y="56" width="160" height="34" fill="#18181b"/>
+          <rect x="65" y="52" width="12" height="6" fill="#f8fafc" transform="rotate(-15 65 52)"/>
+          <rect x="80" y="54" width="10" height="5" fill="#f8fafc" transform="rotate(20 80 54)"/>
+          <!-- Intern on Right: Keeping Calm & Composed (ตั้งสติ สื่อสารอย่างมืออาชีพ) -->
+          <rect x="110" y="24" width="14" height="7" fill="#18181b"/>
+          <rect x="110" y="31" width="14" height="9" fill="#fcd34d"/>
+          <rect x="112" y="34" width="2" height="2" fill="#000"/>
+          <rect x="117" y="34" width="2" height="2" fill="#000"/>
+          <line x1="113" y1="38" x2="117" y2="38" stroke="#15803d" stroke-width="1.5"/> <!-- Calm smile -->
+          <!-- Calm shield / aura around intern -->
+          <circle cx="117" cy="38" r="14" fill="none" stroke="#22c55e" stroke-width="1" stroke-dasharray="2,2"/>
+          <rect x="106" y="40" width="22" height="18" fill="#0284c7"/>
+          <!-- Notebook taking notes (จดบันทึกทุกคำสั่ง ป้องกันการพลิกลิ้น) -->
+          <rect x="94" y="50" width="14" height="10" fill="#fef08a" stroke="#ca8a04"/>
+          <line x1="97" y1="53" x2="105" y2="53" stroke="#78350f"/>
+          <line x1="97" y1="56" x2="103" y2="56" stroke="#78350f"/>
+        </svg>
+      `,
+
       timezone_call: `
         <svg viewBox="0 0 160 90" class="w-full h-full bg-[#050914] pixel-art">
           <rect x="0" y="0" width="160" height="90" fill="#050914"/>
@@ -1101,30 +1145,30 @@
         },
         {
           week: 6,
-          title: "มหากาพย์ Git Conflict 108 ไฟล์ หลังเพื่อนร่วมทีมแก้พร้อมกัน",
-          intro: "กด Merge branch เข้า develop แล้วหน้าจอขึ้นตัวแดง 108 ไฟล์ โค้ดทับซ้อนกันเหมือนสายไฟกรุงเทพฯ",
-          pArt: "conflict",
+          title: "อุปสรรคสัปดาห์ที่ 6: 'รับมือกับคนอารมณ์ร้อน & Dealing with Difficult Personalities' (วิจัย JOTSE)",
+          intro: "งานวิจัย Patacsil & Tablatin (2017) พบว่าทักษะที่เด็กฝึกงานต้องเผชิญหน้าและรับมือยากที่สุดคือ 'Dealing with Difficult Personalities' (p=0.04)! วันนี้หัวหน้าแผนกอื่นเดินมาเหวี่ยงใส่อารมณ์เรื่องระบบช้า พร้อมทุบโต๊ะต่อหน้าคนทั้งทีม...",
+          pArt: "difficult_person",
           choices: [
             {
-              text: "ใช้ Git Rebase Interactive นั่งไล่ Diff ทีละ Commit อย่างมีสติ",
-              stats: { skill: 18, energy: -15, sanity: -5, karma: 10 },
+              text: "รักษาความเยือกเย็น รับฟังอย่างเข้าอกเข้าใจ จดประเด็นปัญหา แล้วชี้แจงด้วยข้อมูลเชิงเทคนิคอย่างสุภาพ",
+              stats: { skill: 14, energy: -10, sanity: 10, karma: 20 },
               cost: 0,
-              hint: "+18 ทักษะ · ขั้นตอนถูกต้องระดับโปร · ไม่ทำโค้ดคนอื่นหาย",
-              feedback: "คุณคลี่คลาย Conflict สำเร็จ โค้ดสะอาด ไม่มีของใครสูญหาย ได้รับคำชมจากคนทั้งทีม"
+              hint: "+20 บารมี · Soft Skills ระดับเซียน · คลี่คลายอารมณ์ร้อนด้วยความนิ่ง",
+              feedback: "อีกฝ่ายเย็นลงเมื่อเห็นคุณรับฟังอย่างมืออาชีพและจดบันทึกชัดเจน Tech Lead เอ่ยปากชมว่าวุฒิภาวะทางอารมณ์ยอดเยี่ยมมาก!"
             },
             {
-              text: "ลากเพื่อนร่วมทีมที่ทำส่วนเดียวกันมานั่งหน้าจอ ค่อยๆ เคลียร์ร่วมกัน",
-              stats: { skill: 12, energy: -10, sanity: 8, karma: 16 },
+              text: "เถียงกลับทันทีด้วยอารมณ์: 'ไม่ใช่หน้าที่ของผม และผมเป็นแค่เด็กฝึกงาน!'",
+              stats: { skill: 0, energy: -15, sanity: -25, karma: -30 },
               cost: 0,
-              hint: "+16 บารมี · ทำงานเป็นทีม · ลดความผิดพลาด",
-              feedback: "การคุยกันตรงๆ ทำให้เข้าใจมุมมองของเพื่อนมากขึ้น งานเสร็จไวกว่านั่งงมคนเดียวถึงสองเท่า"
+              hint: "-30 บารมี · -25 ความสุข · บรรยากาศพังทลาย",
+              feedback: "เกิดการปะทะคารมอย่างดุเดือดกลางออฟฟิศ คุณถูกมองว่าก้าวร้าวและขาดการควบคุมอารมณ์ในที่ทำงาน"
             },
             {
-              text: "เลือก 'Accept Theirs' หรือ 'Accept Mine' รัวๆ ให้ผ่านไปก่อน",
-              stats: { skill: -12, energy: -5, sanity: -20, karma: -25 },
+              text: "ขอตัวไปเรียกพี่เลี้ยงและ Tech Lead เข้ามาช่วยเป็นตัวกลางเจรจาอย่างเป็นระบบ",
+              stats: { skill: 8, energy: -5, sanity: 8, karma: 14 },
               cost: 0,
-              hint: "⚠️ อันตรายสูงสุด: โค้ดฟังก์ชันเพื่อนอาจหายสาบสูญ!",
-              feedback: "ฟีเจอร์ของเพื่อนร่วมทีมหายไปทั้งดุ้น! สร้างความปั่นป่วนให้ทั้งโปรเจกต์ โดนเรียกตักเตือนทันที"
+              hint: "+14 บารมี · รู้จักใช้ช่องทางที่ถูกต้อง · ไม่แบกปัญหาเกินตัว",
+              feedback: "Tech Lead เข้ามาช่วยเคลียร์สถานการณ์และปกป้องคุณ ทำให้สโคปงานชัดเจนและไม่โดนเอาเปรียบ"
             }
           ]
         },
@@ -2463,6 +2507,18 @@
           <p class="mt-1 text-slate-300">
             ตรวจวัดด้วย Clance IP Scale พบวิศวกรซอฟต์แวร์ 52.7% และนักศึกษาไอทีกว่า 70% เผชิญภาวะสงสัยในตัวเอง ส่งผลต่อประสิทธิภาพงานและก่อให้เกิด Human Debt
           </p>
+        </div>
+
+
+        <div class="bg-[#0f1a3a] border border-[#1a2c5a] p-3 rounded-lg">
+          <div class="font-bold text-amber-400 text-sm mb-1">📊 4. Hard Skills vs Soft Skills Gap Analysis (JOTSE 2017):</div>
+          <div class="text-slate-300 font-mono text-[11px]">
+            <strong>Patacsil, F. F., & Tablatin, C. L. S. (2017).</strong> "Exploring the Importance of Soft and Hard Skills as Perceived by IT Internship Students and Industry: A Gap Analysis." <em>Journal of Technology and Science Education, 7(3): 347-368.</em>
+          </div>
+          <ul class="list-disc list-inside mt-2 text-slate-300 space-y-1">
+            <li><strong>Significant Soft Skill Gap (p=0.04):</strong> ทักษะที่เด็กฝึกงานเจอปัญหาและต้องการความช่วยเหลือมากที่สุดคือ <em>"Skills in Dealing with difficult personalities"</em> (การรับมือกับคนที่มีบุคลิกภาพยาก/อารมณ์ร้อน)</li>
+            <li><strong>The Hard Skills Paradox:</strong> นักศึกษาประเมิน Hard Skills สำคัญที่สุด (AWM 4.22) แต่นายจ้างมองว่า <em>"Teamwork (AWM 4.52) และ Communication คือสิ่งที่ชี้ชะตาความก้าวหน้าในอาชีพ ส่วนทักษะเชิงเทคนิคฝึกสอนกันได้"</em></li>
+          </ul>
         </div>
 
         <div class="bg-[#0f1a3a] border border-[#1a2c5a] p-3 rounded-lg">
