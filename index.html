@@ -270,6 +270,14 @@
 
     // --- REALISTIC ROLES & COMPANIES ---
     const ROLES = {
+      devops: {
+        id: 'devops',
+        title: 'DevOps & SRE Engineer',
+        badge: '⚙️ DevOps',
+        tagline: 'สายระบบ: ดูแล Server, CI/CD, K8s และตื่นมาดับไฟตอนตี 2',
+        desc: 'วางระบบ Infrastructure as Code, รัน CI/CD Pipeline, จัดการ Kubernetes & Cloud, คุมงบ AWS และรับมือแจ้งเตือน PagerDuty ฉุกเฉิน',
+        init: { skill: 36, energy: 80, sanity: 70, karma: 42, money: 4000 }
+      },
       dev: {
         id: 'dev',
         title: 'Software Developer',
@@ -997,6 +1005,728 @@
 
     // --- 16 REALISTIC WEEKS & DILEMMAS FOR ALL 4 ROLES ---
     const ROLE_SCENARIOS = {
+      devops: [
+        {
+                "week": 1,
+                "sourceRef": "Cito et al. (IEEE Software 2017) & ACM Research: Environment Drift และความสูญเปล่าในการ Onboard วิศวกรใหม่",
+                "title": "Day 1 Onboarding: 'เครื่องคนอื่นรันได้หมด แต่เครื่องเราพังพินาศ!'",
+                "intro": "คุณเริ่มงานวันแรก ได้รับสิทธิ์เข้า Git Repo ของบริษัท พอสั่งรัน build บนเครื่องตัวเอง Terminal กลับพ่น Error สีแดงเถือก 80 บรรทัด! ทักไปถามพี่ Dev รุ่นพี่ พี่ตอบกลับมาสั้นๆ ว่า: 'อ้าว เครื่องพี่รันผ่านฉลุยเลยนะน้อง...'",
+                "pArt": "terminal",
+                "choices": [
+                        {
+                                "text": "เขียน Dockerfile Multi-stage และทำ Dev Container มาตรฐานกลางให้ทั้งทีมใช้",
+                                "stats": {
+                                        "skill": 12,
+                                        "energy": -12,
+                                        "sanity": 5,
+                                        "karma": 10
+                                },
+                                "cost": 0,
+                                "hint": "+ความเร็วระยะยาว · +บารมีทีม · ลงแรงแก้รากเหง้าปัญหา",
+                                "feedback": "ยอดเยี่ยม! ทีม Dev คนอื่นแอบหยิบ Dev Container ของคุณไปใช้ ทุกคนเซ็ตอัปเครื่องได้ใน 5 นาที Tech Lead เดินมาตบไหล่ชม!"
+                        },
+                        {
+                                "text": "ขอไฟล์ .env ลับและ dependencies ที่พี่เก็บไว้ในเครื่องมาแปะทับ",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -5,
+                                        "karma": -2
+                                },
+                                "cost": 0,
+                                "hint": "รอดตัวไว · แต่ทิ้งหนี้ทางเทคนิค (Technical Debt) ไว้เหมือนเดิม",
+                                "feedback": "รันขึ้นได้ทันที แต่ไม่มีใครรู้ว่าทำไมมันถึงเวิร์ก แถมวันข้างหน้าคนอื่นมาเจอก็ต้องเจอชะตากรรมเดิม"
+                        },
+                        {
+                                "text": "เขียนสคริปต์ Bypass การเช็ค Library เวอร์ชั่นเก่าเพื่อให้ผ่านไปก่อน",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -8,
+                                        "karma": -5
+                                },
+                                "cost": 0,
+                                "hint": "เสี่ยงสูง · อาจระเบิดตอนขึ้น Production",
+                                "feedback": "ผ่านไปได้แบบเฉียดฉิว แต่เริ่มมีสัญญาณอันตรายว่าโค้ดชุดนี้จะไปตีกับเซิร์ฟเวอร์ในอนาคต"
+                        }
+                ]
+        },
+        {
+                "week": 2,
+                "sourceRef": "DORA Research (*Accelerate* โดย Dr. Nicole Forsgren & Jez Humble, 2018): Trunk-Based Development vs Long-Lived Branches",
+                "title": "Sprint แรก: 'Feature Branch ดองมา 3 สัปดาห์ Merge Hell ชนกัน 350 ไฟล์!'",
+                "intro": "มีฟีเจอร์ใหญ่ที่ทีม Dev แตก Branch ออกไปเกือบเดือน พอถึงเวลาจะรวมโค้ดเข้า branch 'main' ปรากฏว่าเกิด Conflict ชนกัน 350 ไฟล์! ฝ่าย Dev บอกให้คุณที่เป็น DevOps ช่วยแก้ Conflict ให้หน่อยเพราะจะรีบปล่อยงาน!",
+                "pArt": "terminal",
+                "choices": [
+                        {
+                                "text": "ผลักดัน Trunk-Based Development แนะนำให้ทีมใช้ Feature Flags แล้ว Merge ทุกวัน",
+                                "stats": {
+                                        "skill": 14,
+                                        "energy": -12,
+                                        "sanity": 5,
+                                        "karma": 8
+                                },
+                                "cost": 0,
+                                "hint": "+ความเสถียร · +ความเร็ว · วัฒนธรรมวิศวกรรมระดับ Elite",
+                                "feedback": "ช่วงแรกทีมบ่นนิดหน่อย แต่พอเห็นว่าไม่ต้องมานั่งปวดหัวแก้ Merge Hell ตอนดึกอีก ทุกคนหันมาขอบคุณคุณ!"
+                        },
+                        {
+                                "text": "รับอาสาเป็นคนนั่งแกะ Merge Conflict ทีละไฟล์คนเดียวจนถึงตี 1",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -18,
+                                        "karma": 5
+                                },
+                                "cost": 0,
+                                "hint": "-สุขภาพจิตพัง · ได้ใจทีมแต่เสี่ยงต่อความผิดพลาดของมนุษย์",
+                                "feedback": "ตาบวม ขอบตาดำ แก้ผ่านไปได้แต่เผลอตัดโค้ดเพื่อนทิ้งไป 2 ฟังก์ชันโดยไม่รู้ตัว"
+                        },
+                        {
+                                "text": "สั่ง Force Push ทับของเก่าไปเลย ใครโค้ดหายค่อยมาตามแก้ทีหลัง",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": -10,
+                                        "karma": -20
+                                },
+                                "cost": 0,
+                                "hint": "หายนะ · โค้ดฟีเจอร์อื่นหาย ระบบระส่ำระสาย",
+                                "feedback": "เกิดมวยถูกคู่ใน Slack! โค้ดของทีมอื่นที่เพิ่งขึ้นไปโดนลบทับ Tech Lead เรียกคุณเข้าห้องคุยด่วน!"
+                        }
+                ]
+        },
+        {
+                "week": 3,
+                "sourceRef": "ACM FSE / IEEE TSE (Luo et al., 2014 & Beller et al.): An Empirical Analysis of Flaky Tests in CI",
+                "title": "CI/CD ในฝัน: 'Pipeline อืดเป็นเต่า 55 นาที แถมมี Flaky Test ตกๆ ผ่านๆ'",
+                "intro": "ทุกครั้งที่ Dev กด Push โค้ด Pipeline ต้องรันนาน 55 นาทีเพราะดาวน์โหลด Docker ทุกรอบ และมี End-to-End Test 4 ตัวที่สุ่มตก 30% ทำให้ Dev ชอบกดยกเลิกแล้วกด Rerun ซ้ำๆ จนคิว Runner ล้น!",
+                "pArt": "terminal",
+                "choices": [
+                        {
+                                "text": "จูน Pipeline: ทำ Docker Layer Caching, รัน Test ขนาน (Parallel) และกักกัน Flaky Test ออกมาซ่อม",
+                                "stats": {
+                                        "skill": 16,
+                                        "energy": -12,
+                                        "sanity": 8,
+                                        "karma": 10
+                                },
+                                "cost": 0,
+                                "hint": "+ลดเวลาเหลือ 8 นาที · เพิ่มความเชื่อมั่นในผล Test 100%",
+                                "feedback": "เวลา Pipeline ลดลงจาก 55 นาทีเหลือ 8 นาที! Dev ปลื้มปริ่ม ไม่ต้องนั่งจิบกาแฟรอเก้ออีกต่อไป"
+                        },
+                        {
+                                "text": "อัดสเปก Runner เครื่องที่แพงที่สุดใน AWS (c6i.32xlarge) เพื่อแก้ปัญหาเฉพาะหน้า",
+                                "stats": {
+                                        "skill": 10,
+                                        "energy": -8,
+                                        "sanity": 0,
+                                        "karma": 2
+                                },
+                                "cost": 0,
+                                "hint": "เร็วขึ้นแต่เปลืองงบ Cloud โดยใช่เหตุ",
+                                "feedback": "เร็วขึ้นจริงเล็กน้อย แต่สิ้นเดือน CFO เดินมาถามว่าทำไมค่า Runner เดือนนี้แพงพอๆ กับเงินเดือนคน"
+                        },
+                        {
+                                "text": "ปิดการรัน E2E Test ทั้งหมดใน Pipeline เหลือแค่ Build โค้ดให้ผ่านพอ",
+                                "stats": {
+                                        "skill": 11,
+                                        "energy": -12,
+                                        "sanity": 2,
+                                        "karma": -10
+                                },
+                                "cost": 0,
+                                "hint": "ไวสุดขีด 2 นาทีเสร็จ · แต่ปล่อยบั๊กหลุดไปรอระเบิดบน Production",
+                                "feedback": "Pipeline เร็วสะใจ แต่บั๊กร้ายแรงเริ่มหลุดรอดไปหาลูกค้าฝ่ายทดสอบเริ่มส่งเสียงเตือน"
+                        }
+                ]
+        },
+        {
+                "week": 4,
+                "sourceRef": "State of DevOps Report & Honeycomb Observability (2022): Friday Deployment Failure Rate and On-Call Fatigue",
+                "title": "ศุกร์หรรษา 16:30 น.: 'PO ขอ Deploy ฟีเจอร์ใหญ่ขึ้น Production ด่วน!'",
+                "intro": "บ่ายวันศุกร์เวลา 16:30 น. Product Owner เดินมาด้วยสีหน้ากระตือรือร้น: 'ลูกค้าคนสำคัญขอฟีเจอร์นี้ก่อนเสาร์อาทิตย์ ขอปล่อยขึ้น Production ตอนนี้เลยได้ไหม แค่แก้โค้ดนิดเดียวเอง!'",
+                "pArt": "war_room",
+                "choices": [
+                        {
+                                "text": "ยึดหลักวิศวกรรมความปลอดภัย: 'No Friday Deploys' นัดปล่อยพร้อมกันเช้าวันจันทร์",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -5,
+                                        "sanity": 15,
+                                        "karma": 4
+                                },
+                                "cost": -299,
+                                "hint": "+รักษาสุขภาพจิตเสาร์อาทิตย์ · ลดความเสี่ยงระบบล่มตอนไม่มีคนเฝ้า",
+                                "feedback": "PO หน้ามุ่ยเล็กน้อย แต่ทีมทั้งทีมได้นอนหลับเต็มอิ่มวันเสาร์-อาทิตย์ เช้าวันจันทร์ปล่อยระบบอย่างราบรื่น"
+                        },
+                        {
+                                "text": "ประนีประนอมด้วย Progressive Delivery: ปล่อย Canary แค่ 2% เฉพาะกลุ่มผู้ใช้ทดสอบ",
+                                "stats": {
+                                        "skill": 10,
+                                        "energy": -8,
+                                        "sanity": 5,
+                                        "karma": 8
+                                },
+                                "cost": 0,
+                                "hint": "+ตอบโจทย์ธุรกิจ · ปลอดภัยด้วยการจำกัด Blast Radius",
+                                "feedback": "ฉลาดมาก! Canary 2% ช่วยให้ลูกค้ารายนั้นได้ลองใช้ก่อน โดยที่ผู้ใช้ทั่วไปอีก 98% ไม่ได้รับความเสี่ยงเลย"
+                        },
+                        {
+                                "text": "ตามใจ PO เต็มที่: กดยิงขึ้น Production 100% แล้วรีบปิดโน้ตบุ๊กกลับบ้านไปกินชาบู",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": -25,
+                                        "karma": -12
+                                },
+                                "cost": 0,
+                                "hint": "หายนะวันหยุดสุดสัปดาห์ · เตรียมตัวรับโทรศัพท์ตอน 2 ทุ่ม",
+                                "feedback": "กินชาบูได้ 3 คำ โทรศัพท์ดังสนั่น! Production พังพินาศ ลูกค้าเข้าไม่ได้ ต้องนั่งแก้โค้ดหน้าร้านชาบู!"
+                        }
+                ]
+        },
+        {
+                "week": 5,
+                "sourceRef": "Google SRE Book (Beyer et al., 2016) - Incident Management & On-Call Fatigue: Human Factors in Production Outages",
+                "title": "เสาร์ 02:34 น.: 'PagerDuty กรีดร้อง Database Connection Pool เต็ม ระบบล่ม!'",
+                "intro": "นาฬิกาบอกเวลา 02:34 น. โทรศัพท์ใต้หมอนสั่นกระหน่ำพร้อมเสียงไซเรน PagerDuty Database Connection เต็ม 100% ระบบรับทราฟฟิกไม่ได้ หน้าเว็บหมุนติ้ว ลูกค้าเริ่มโพสต์ด่าใน Twitter!",
+                "pArt": "server_alert",
+                "choices": [
+                        {
+                                "text": "เปิด War Room, วิเคราะห์ Leak ผ่าน Metric, เพิ่ม Read Replica และปรับ Pool ชั่วคราว",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -10,
+                                        "karma": 10
+                                },
+                                "cost": -150,
+                                "hint": "แก้ตรงจุด · ระบบฟื้นตัวใน 18 นาทีอย่างมีแบบแผน",
+                                "feedback": "ระบบกลับมาออนไลน์ใน 18 นาที คุณสามารถชี้จุด Connection Leak จาก Cronjob ได้อย่างแม่นยำ ทุกคนยกย่องในความเป็นมืออาชีพ"
+                        },
+                        {
+                                "text": "สั่ง Hard Reboot คลัสเตอร์ Database ทันทีเพื่อเคลียร์ทุก Connection ให้เกลี้ยง",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": -12,
+                                        "karma": -2
+                                },
+                                "cost": 0,
+                                "hint": "เสี่ยงข้อมูลค้าง (Data Corruption) แต่ได้ผลไวชั่วคราว",
+                                "feedback": "ระบบฟื้นขึ้นมาได้ แต่มีทรานแซกชันการจ่ายเงินค้างอยู่ 40 รายการที่ข้อมูลไม่ตรง ต้องมานั่งไล่เคลียร์ยอด"
+                        },
+                        {
+                                "text": "แอบกด Snooze แจ้งเตือน 1 ชั่วโมง หวังลึกๆ ว่าเดี๋ยวคนหลับแล้วโหลดจะลดลงเอง",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": 2,
+                                        "karma": -35
+                                },
+                                "cost": 0,
+                                "hint": "ความรับผิดชอบเป็นศูนย์ · เช้าวันรุ่งขึ้นผู้บริหารรอเชือด",
+                                "feedback": "เช้าวันอาทิตย์: ผู้บริหารและทีมผู้ถือหุ้นส่งข้อความด่วน ระบบล่มยาว 5 ชั่วโมงเต็ม ขาดทุนย่อยยับ!"
+                        }
+                ]
+        },
+        {
+                "week": 6,
+                "sourceRef": "John Allspaw (Etsy, ACM Queue 2012) & Dr. Richard Cook (*How Complex Systems Fail*): Blameless Post-Mortems",
+                "title": "เช้าวันจันทร์: 'War Room ล่าแม่มด vs Blameless Post-Mortem'",
+                "intro": "เช้าวันจันทร์ ผู้บริหารระดับสูงเรียกประชุมด่วน มีผู้จัดการบางคนเริ่มชี้นิ้ว: 'ใครเป็นคนเขียนโค้ดบรรทัดนี้ขึ้นไปเมื่อวันศุกร์ ใครเป็นคน Approve PR?!'",
+                "pArt": "war_room",
+                "choices": [
+                        {
+                                "text": "นำกระบวนการ Blameless Post-Mortem: ชี้ว่าระบบขาด Circuit Breaker & Connection Timeout",
+                                "stats": {
+                                        "skill": 10,
+                                        "energy": -5,
+                                        "sanity": 10,
+                                        "karma": 12
+                                },
+                                "cost": 0,
+                                "hint": "+สร้าง Psychological Safety · ยกระดับระบบป้องกันเชิงโครงสร้าง",
+                                "feedback": "บรรยากาศในห้องเปลี่ยนจากความตึงเครียดเป็นการช่วยกันแก้ปัญหา น้อง Dev จบใหม่น้ำตาคลอด้วยความซาบซึ้งที่คุณปกป้องเขา"
+                        },
+                        {
+                                "text": "ชี้เป้าไปที่น้อง Dev จบใหม่ที่เพิ่งแก้ฟังก์ชันนี้ เพื่อให้ตัวเองรอดตัว",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -15,
+                                        "karma": -20
+                                },
+                                "cost": 0,
+                                "hint": "ทำลายวัฒนธรรมทีม · น้อง Dev ลาออกใน 2 สัปดาห์",
+                                "feedback": "คุณรอดตัวในที่ประชุม แต่วัฒนธรรมในทีมพังทลาย ไม่มีใครกล้าแตะโค้ดหรือปล่อยฟีเจอร์ใหม่อีกเลยเพราะกลัวโดนลงโทษ"
+                        },
+                        {
+                                "text": "เสนอให้ตั้งคณะกรรมการ Change Advisory Board (CAB) ให้ทุกการ Deploy ต้องเซ็นกระดาษ 5 ฝ่าย",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -10,
+                                        "karma": -5
+                                },
+                                "cost": 0,
+                                "hint": "ระบบเสถียรขึ้นนิดหน่อย แต่ความเร็ว (Velocity) กลายเป็นเต่าคลาน",
+                                "feedback": "ยินดีด้วย! องค์กรของคุณย้อนเวลากลับไปสู่ยุค 1995 การแก้ตัวสะกด 1 คำต้องใช้เวลาขออนุมัติ 2 สัปดาห์เต็ม"
+                        }
+                ]
+        },
+        {
+                "week": 7,
+                "sourceRef": "CNCF Annual Survey & ThoughtWorks Tech Radar: Resume-Driven Development and Kubernetes Operational Complexity",
+                "title": "กระแสเทคโนโลยี: 'CTO สั่งย้ายทุกอย่างไป Kubernetes & Microservices!'",
+                "intro": "CTO เพิ่งกลับมาจากงานสัมมนาเทคโนโลยีใหญ่ แล้วเดินมาประกาศในออฟฟิศ: 'เพื่อความทันสมัยระดับโลก เราจะแปลงระบบ Monolith เดิมไปเป็น 45 Microservices รันบน Kubernetes ภายใน 30 วัน!' ทั้งที่ระบบเดิมมีผู้ใช้งานหลักพันคน",
+                "pArt": "terminal",
+                "choices": [
+                        {
+                                "text": "เสนอแนวทาง 'Modular Monolith' ก่อน แล้วแยกเฉพาะ Service ที่ต้องการ Scale สูงจริงๆ ขึ้น K8s",
+                                "stats": {
+                                        "skill": 10,
+                                        "energy": -8,
+                                        "sanity": 8,
+                                        "karma": 10
+                                },
+                                "cost": 0,
+                                "hint": "+สมดุลระหว่างความคุ้มค่าและความซับซ้อน · สถาปัตยกรรมที่ยั่งยืน",
+                                "feedback": "CTO ประทับใจในเหตุผลเชิงตัวเลขและต้นทุน ทีมไม่ต้องแบกรับภาระการดูแล K8s cluster มหาศาลเกินตัว"
+                        },
+                        {
+                                "text": "สนองนโยบายเต็มสูบ: เขียน YAML 2,000 บรรทัด ติดตั้ง Helm, Istio Service Mesh, Kafka เต็มรูปแบบ",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": -20,
+                                        "karma": 5
+                                },
+                                "cost": 0,
+                                "hint": "อัปเลเวล Resume ส่วนตัว แต่ทีมต้องเผชิญกับ Complexity นรก",
+                                "feedback": "พอร์ตลง K8s สำเร็จ แต่แทบไม่มีใครในบริษัทเข้าใจว่า Network ภายในมันคุยกันอย่างไร เกิดบั๊กประหลาดทุกวัน"
+                        },
+                        {
+                                "text": "เอา Monolith ทั้งก้อนไปยัดใส่ Docker Container 1 ตัวแล้วบอกทุกคนว่านี่คือ Microservice",
+                                "stats": {
+                                        "skill": 6,
+                                        "energy": -8,
+                                        "sanity": 5,
+                                        "karma": -2
+                                },
+                                "cost": 0,
+                                "hint": "วิธีแก้สไตล์คนขี้เกียจแต่ได้ผล · ทุกคนสบายใจ",
+                                "feedback": "ตลกร้ายแต่เวิร์ก! ทุกคนคิดว่าบริษัทก้าวสู่ยุค Cloud-Native แล้ว ทั้งที่ข้างในยังเป็นโค้ดเดิมเป๊ะ"
+                        }
+                ]
+        },
+        {
+                "week": 8,
+                "sourceRef": "FinOps Foundation & Flexera State of the Cloud Report: 28-32% Cloud Waste จาก Over-provisioning และ Orphaned Disks",
+                "title": "บิลคลาวด์สิ้นเดือน: 'ค่า AWS ทะลุ 750,000 บาท! CFO เรียกเข้าห้องเย็น'",
+                "intro": "CFO เดินถือเอกสารใบเสร็จเข้ามาในห้องด้วยหน้าซีดเผือด: 'ทำไมค่า AWS เดือนนี้พุ่งขึ้น 300% จากสองแสนเป็นเจ็ดแสนห้า?!' พอไปเปิดดูพบว่ามี Dev เปิด GPU Instance ขนาดใหญ่ทิ้งไว้ทดสอบข้ามสัปดาห์ แถมมีดิสก์ร้างอีกเกือบร้อยก้อน!",
+                "pArt": "cloud_finops",
+                "choices": [
+                        {
+                                "text": "สร้างระบบ FinOps: ลบ Disks ร้าง, ตั้ง Cronjob ปิด Dev Env ตอนค่ำ, ใช้ Karpenter + Spot Instances",
+                                "stats": {
+                                        "skill": 9,
+                                        "energy": -8,
+                                        "sanity": 5,
+                                        "karma": 15
+                                },
+                                "cost": -200,
+                                "hint": "+ประหยัดงบทันที ฿50,000/เดือน · CFO ยิ้มแก้มปริ",
+                                "feedback": "บิล Cloud เดือนถัดไปลดลงฮวบฮาบ CFO ถึงกับนำผลงานคุณไปพรีเซนต์ในที่ประชุมผู้ถือหุ้น!"
+                        },
+                        {
+                                "text": "ส่งข้อความใน Slack ขอความร่วมมือให้ทุกคนช่วยกันปิดเครื่องที่ไม่ใช้เอง",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -5,
+                                        "karma": -4
+                                },
+                                "cost": 0,
+                                "hint": "การขอความร่วมมือแบบปากเปล่าไม่เคยได้ผลในโลกความจริง",
+                                "feedback": "ทุกคนกดอิโมจิ 'รับทราบ' ใน Slack แต่ไม่มีใครปิดสักเครื่องเดียว สิ้นเดือนถัดไปบิลยังคงพุ่งสูงเหมือนเดิม"
+                        },
+                        {
+                                "text": "สั่งลดสเปก Production Database ลงครึ่งหนึ่งเพื่อประหยัดเงินทันตาเห็น",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": -15,
+                                        "karma": -10
+                                },
+                                "cost": 0,
+                                "hint": "ลดงบสำเร็จ แต่ระบบกระตุกจนผู้ใช้ก่นด่า",
+                                "feedback": "ประหยัดเงินได้จริง แต่ระบบช้าจนหน้าเว็บ Checkout พัง ลูกค้าทิ้งตะกร้าสินค้า ขาดทุนหนักกว่าเดิม!"
+                        }
+                ]
+        },
+        {
+                "week": 9,
+                "sourceRef": "NIST National Vulnerability Database & Ponemon Institute (Cost of a Data Breach Report): Shift-Left DevSecOps",
+                "title": "วิกฤตความปลอดภัย: 'ช่องโหว่ Zero-Day ระดับโลก (แบบ Log4Shell) กระทบทั้งระบบ!'",
+                "intro": "ข่าวเด่นประเด็นร้อนระดับโลก! พบช่องโหว่ Remote Code Execution (RCE) ความรุนแรง 10.0 ใน Library ที่บริษัทใช้ เซิร์ฟเวอร์บริษัทกำลังโดนบอทจากต่างประเทศสแกนและยิงเจาะระบบไม่หยุด!",
+                "pArt": "server_alert",
+                "choices": [
+                        {
+                                "text": "ใช้ SBOM ตรวจหา Container ที่มีช่องโหว่ทั้งหมด, ปล่อย Hotfix ผ่าน CI/CD และตั้ง WAF Rule กันทันที",
+                                "stats": {
+                                        "skill": 10,
+                                        "energy": -8,
+                                        "sanity": -5,
+                                        "karma": 14
+                                },
+                                "cost": 0,
+                                "hint": "+ป้องกันช่องโหว่ 100% ภายใน 3 ชั่วโมง · ความเป็นมืออาชีพสูงสุด",
+                                "feedback": "สุดยอดมาก! ระบบของคุณได้รับการแพตช์เสร็จสมบูรณ์ก่อนที่แฮกเกอร์จะเจาะเข้ามาได้ ฝ่าย Security ชมเปาะ"
+                        },
+                        {
+                                "text": "บล็อก IP ต่างประเทศทั้งหมดผ่าน Firewall เพื่อตัดปัญหาแบบด่วน",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": 2,
+                                        "karma": -6
+                                },
+                                "cost": 0,
+                                "hint": "กันบอทได้จริง แต่ลูกค้าต่างชาติและ API Partner เข้าไม่ได้",
+                                "feedback": "ปลอดภัยจากบอท แต่ Partner ข้ามชาติโทรมาโวยวายเพราะระบบเชื่อมต่อล่มไปครึ่งค่อนวัน"
+                        },
+                        {
+                                "text": "รอให้ผู้พัฒนา Library ออกเวอร์ชันอัปเดตอย่างเป็นทางการสัปดาห์หน้า ค่อยมาดูทีเดียว",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": -20,
+                                        "karma": -30
+                                },
+                                "cost": 0,
+                                "hint": "เปิดประตูบ้านทิ้งไว้ให้โจรปล้น · หายนะด้านความปลอดภัย",
+                                "feedback": "คืนนั้นเซิร์ฟเวอร์โดนฝังมัลแวร์ขุดบิตคอยน์ ข้อมูลลูกค้ารั่วไหล กลายเป็นข่าวใหญ่หน้าหนึ่งในหนังสือพิมพ์!"
+                        }
+                ]
+        },
+        {
+                "week": 10,
+                "sourceRef": "ACM Symposium on Cloud Computing (SoCC): Container Cold Start and Predictive vs Reactive Auto-scaling",
+                "title": "มหกรรมช้อปปิ้ง 11.11 เที่ยงคืน: 'Traffic พุ่ง 80 เท่า Auto-scaling ทำงานทันไหม?!'",
+                "intro": "คืนวันแคมเปญ 11.11 นาฬิกาบอกเวลา 23:55 น. ผู้ใช้กว่า 300,000 คนกำลังจ้องหน้าจอรอแย่งโค้ดส่วนลด 90% ตอนเที่ยงคืนตรง ทราฟฟิกจะพุ่งสูงกว่าปกติ 80 เท่าในเสี้ยววินาที!",
+                "pArt": "terminal",
+                "choices": [
+                        {
+                                "text": "ทำ Load Test (k6) ล่วงหน้า, สั่ง Pre-warm คลัสเตอร์และเพิ่ม Read Replica ล่วงหน้า 20 นาที",
+                                "stats": {
+                                        "skill": 12,
+                                        "energy": -12,
+                                        "sanity": 8,
+                                        "karma": 12
+                                },
+                                "cost": 0,
+                                "hint": "+เตรียมพร้อมเชิงรุก · ระบบรองรับโหลดล้านคนได้นิ่งสนิท",
+                                "feedback": "เที่ยงคืนตรง: ทราฟฟิกพุ่งชนเพดาน แต่ระบบของคุณนิ่งกริบเหมือนผิวน้ำ ยอดขายถล่มทลาย ผู้บริหารฉลองเปิดแชมเปญ!"
+                        },
+                        {
+                                "text": "พึ่งพา Auto-scaler ธรรมดา รอให้คนเข้ามาแล้วปล่อยให้ระบบค่อยๆ สเกลขึ้นเอง",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": -15,
+                                        "karma": -8
+                                },
+                                "cost": 0,
+                                "hint": "สเกลไม่ทันต่อ Flash Mob · ผู้ใช้เจอ Error 504 Gateway Timeout",
+                                "feedback": "Pod ใช้เวลาสตาร์ต 2 นาที ระหว่างนั้นผู้ใช้หลายหมื่นคนกดแย่งโค้ดไม่ติด ก่นด่าและทิ้งรีวิว 1 ดาวเต็ม Play Store"
+                        },
+                        {
+                                "text": "แอบเปิด Rate Limiter จำกัดคนเข้าแอปแค่ 10% เพื่อรักษาระบบไม่ให้พัง",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": 5,
+                                        "karma": -15
+                                },
+                                "cost": 0,
+                                "hint": "ระบบไม่ล่มจริง แต่ยอดขายหายไป 90% ฝ่ายการตลาดร้องไห้",
+                                "feedback": "เซิร์ฟเวอร์รอดปลอดภัย แต่ฝ่ายการตลาดเดินมากรี๊ดใส่หน้าห้องเพราะยอดขายหายไปเกือบทั้งหมด!"
+                        }
+                ]
+        },
+        {
+                "week": 11,
+                "sourceRef": "CNCF GitOps Principles & Open Policy Agent (OPA): Configuration Drift and Infrastructure as Code (IaC)",
+                "title": "มือที่มองไม่เห็น: 'ใครแอบไปกดแก้คอนฟิกใน AWS Console โดยไม่ผ่าน Git!'",
+                "intro": "เช้าวันพุธ ระบบ Deploy พังอย่างลึกลับ พอไปสืบดูพบว่าเมื่อคืนมีใครบางคนแอบล็อกอินเข้าไปใน AWS Web Console แล้วกดเปลี่ยน Security Group และ Environment Variable ตรงๆ โดยไม่บอกใคร!",
+                "pArt": "terminal",
+                "choices": [
+                        {
+                                "text": "นำ GitOps (ArgoCD / Terraform Cloud) มาใช้ และริบสิทธิ์ Write Access บน Console ของทุกคน",
+                                "stats": {
+                                        "skill": 10,
+                                        "energy": -8,
+                                        "sanity": 8,
+                                        "karma": 10
+                                },
+                                "cost": 0,
+                                "hint": "+ป้องกัน Drift ถาวร · ทุกการเปลี่ยนแปลงต้องมี Code Review บน Git",
+                                "feedback": "แรกๆ มีคนบ่นที่กดแก้มือไม่ได้ แต่หลังจากนั้นระบบไม่เคยมีปัญหา 'ผีหลอก' เรื่องคอนฟิกเพี้ยนอีกเลย"
+                        },
+                        {
+                                "text": "ส่งข้อความต่อว่าในช่อง Slack รวม และขอร้องให้คนที่แก้สารภาพออกมา",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -5,
+                                        "karma": -3
+                                },
+                                "cost": 0,
+                                "hint": "สร้างความอึดอัดแต่ไม่ได้แก้ปัญหาที่โครงสร้าง",
+                                "feedback": "ความเงียบกริบเข้าปกคลุม ไม่มีใครยอมรับ และอีกสามวันต่อมาก็มีคนแอบไปแก้มืออีกเหมือนเดิม"
+                        },
+                        {
+                                "text": "ช่างมัน ปล่อยให้หน้าเว็บ Console ต่างจาก Git ไปเรื่อยๆ ค่อยมาจดใส่กระดาษโน้ต",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": -10,
+                                        "karma": -10
+                                },
+                                "cost": 0,
+                                "hint": "หายนะระยะยาว · ไม่มีใครรู้ State ที่แท้จริงของระบบ",
+                                "feedback": "ระบบกลายเป็นกล่องดำปริศนา พอเซิร์ฟเวอร์ล่มแล้วต้องสร้างใหม่ ไม่มีใครสามารถประกอบระบบคืนชีพได้อีก"
+                        }
+                ]
+        },
+        {
+                "week": 12,
+                "sourceRef": "USENIX SREcon & Google SRE Principles: Signal-to-Noise Ratio and Actionable Alerting",
+                "title": "แจ้งเตือนหลอนประสาท: 'วันละ 2,500 ข้อความใน Slack จนทุกคน Mute ทิ้ง'",
+                "intro": "ช่อง `#devops-alerts` มีข้อความเด้งทุก 40 วินาที 'Disk 72%', 'Pod restarted once', 'Memory spike 10%' แจ้งเตือนมั่วไปหมดจนทุกคนในบริษัทกด Mute ช่องนั้นทิ้ง พอเกิดเหตุด่วนจริงๆ จึงไม่มีใครเห็น!",
+                "pArt": "server_alert",
+                "choices": [
+                        {
+                                "text": "สังคายนา Alert ใหม่ตาม RED/USE Method: เตือนเฉพาะ User-Impacting SLO Breaches ที่มี Playbook ชัดเจน",
+                                "stats": {
+                                        "skill": 10,
+                                        "energy": -5,
+                                        "sanity": 15,
+                                        "karma": 10
+                                },
+                                "cost": 0,
+                                "hint": "+ลดขยะ 95% · เสียงเตือนดังเมื่อมีเรื่องต้องแก้จริงๆ เท่านั้น",
+                                "feedback": "ช่องเงียบสงบลงอย่างมหัศจรรย์ ทุกครั้งที่มี Alert ดังขึ้น วิศวกรจะกระโดดมารับงานทันทีเพราะรู้ว่าเป็นเรื่องสำคัญจริง"
+                        },
+                        {
+                                "text": "สร้างช่องใหม่ `#alerts-urgent-super-real-final` เพื่อส่งเฉพาะอันที่คิดว่าด่วนจริงๆ",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -6,
+                                        "karma": -2
+                                },
+                                "cost": 0,
+                                "hint": "แก้ปัญหาแบบกำปั้นทุบดิน · อีกสองเดือนช่องใหม่ก็จะรกเหมือนเดิม",
+                                "feedback": "ผ่านไปหนึ่งเดือน ช่องใหม่ก็เต็มไปด้วยขยะแจ้งเตือนเหมือนเดิม ทุกคนกด Mute อีกรอบ!"
+                        },
+                        {
+                                "text": "ลบ Bot แจ้งเตือนทิ้งให้หมด ถ้ามีอะไรพังเดี๋ยวลูกค้าโทรมาบอกฝ่าย Support เอง",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": 5,
+                                        "karma": -18
+                                },
+                                "cost": -75,
+                                "hint": "หูหนวกตาบอดโดยสมัครใจ · รู้ตัวอีกทีตอนระบบพังไปแล้ว 4 ชั่วโมง",
+                                "feedback": "ความสงบสุขจอมปลอม! ระบบล่มไปตอนเที่ยง รู้ตัวอีกทีตอนที่ CEO โดนลูกค้าโทรมาต่อว่าโดยตรง"
+                        }
+                ]
+        },
+        {
+                "week": 13,
+                "sourceRef": "Netflix Chaos Engineering Paper (IEEE Software - Basiri et al., 2016): Proactive Resilience Testing",
+                "title": "ทดสอบความแข็งแกร่ง: 'Chaos Engineering สุ่มยิงเซิร์ฟเวอร์ดับบน Production!'",
+                "intro": "คุณเสนอนโยบายนำ Chaos Engineering มาใช้ สุ่มปิด Pod และตัด Network บน Production เพื่อทดสอบระบบ Failover และ Circuit Breaker ผู้บริหารและ Dev บางคนมองหน้าคุณเหมือนคุณเป็นบ้า!",
+                "pArt": "war_room",
+                "choices": [
+                        {
+                                "text": "เริ่มจัด GameDay แบบจำกัด Blast Radius ในช่วงกลางวันที่มีทีมพร้อมรับมือ",
+                                "stats": {
+                                        "skill": 10,
+                                        "energy": -8,
+                                        "sanity": 5,
+                                        "karma": 12
+                                },
+                                "cost": 0,
+                                "hint": "+ค้นพบข้อบกพร่องที่ซ่อนอยู่ 4 จุดโดยที่ลูกค้าไม่ได้รับผลกระทบ",
+                                "feedback": "ค้นพบจุดบกพร่องในระบบสลับ Database อัตโนมัติและแก้ได้ทันท่วงที ทุกคนยอมรับว่า Chaos Engineering มีประโยชน์มหาศาล"
+                        },
+                        {
+                                "text": "ปล่อย Chaos Monkey วิ่งสุ่มทำลายระบบอัตโนมัติเต็มสูบตอนเที่ยงคืนวันศุกร์",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": -20,
+                                        "karma": -15
+                                },
+                                "cost": 0,
+                                "hint": "บ้าบิ่นเกินขอบเขต · ทำระบบพังตอนไม่มีคนช่วย",
+                                "feedback": "Chaos Monkey สุ่มลบ Production Database ก้อนหลักทิ้ง! ทีมต้องมาร่วมกันกู้ Backup ถึงเช้าวันเสาร์"
+                        },
+                        {
+                                "text": "พับโครงการเก็บ ระบบอยู่เฉยๆ อย่าไปแตะต้องมันดีที่สุด (If it works, don't touch it)",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": 2,
+                                        "karma": -2
+                                },
+                                "cost": 0,
+                                "hint": "อยู่ไปวันๆ แต่ไม่รู้เลยว่ามีระเบิดเวลาซ่อนอยู่ตรงไหนบ้าง",
+                                "feedback": "ปลอดภัยในระยะสั้น แต่ระบบยังคงเปราะบาง ไม่รู้เลยว่าถ้าวันหนึ่ง Cloud Provider เกิดปัญหาขึ้นมาจะรอดหรือไม่"
+                        }
+                ]
+        },
+        {
+                "week": 14,
+                "sourceRef": "*Team Topologies* (Skelton & Pais, 2019) & Sweller's Cognitive Load Theory: Platform Engineering & Internal Developer Platform",
+                "title": "เสียงบ่นจากเพื่อนร่วมงาน: 'Dev บ่นอุบ Tooling ซับซ้อน ขี้เกียจเขียน YAML 600 บรรทัด!'",
+                "intro": "ตัวแทนทีม Dev เดินมาคุยด้วยสีหน้าอ่อนล้า: 'พี่ครับ ตอนนี้ผมเสียเวลาเขียน Helm Chart, Terraform, และแก้สิทธิ์ IAM มากกว่าเวลาเขียนโค้ดฟีเจอร์แล้วครับ ผมหมดไฟแล้ว...'",
+                "pArt": "terminal",
+                "choices": [
+                        {
+                                "text": "สร้าง Internal Developer Platform (IDP) ให้ Dev กรอกฟอร์มสั้นๆ แล้วได้ Service + CI/CD ทันที",
+                                "stats": {
+                                        "skill": 18,
+                                        "energy": -12,
+                                        "sanity": 10,
+                                        "karma": 15
+                                },
+                                "cost": 0,
+                                "hint": "+ลด Cognitive Load · Dev ทำงานเร็วขึ้น 2 เท่าด้วย Golden Path",
+                                "feedback": "Dev สรรเสริญคุณเป็นพระเจ้าประจำออฟฟิศ! สามารถสร้าง Microservice ใหม่พร้อมระบบความปลอดภัยได้ใน 3 นาที"
+                        },
+                        {
+                                "text": "เปิดคอร์สอบรม Kubernetes 40 ชั่วโมง บังคับให้ Dev ทุกคนต้องไปสอบ CKA ให้ผ่าน",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -15,
+                                        "karma": -10
+                                },
+                                "cost": 0,
+                                "hint": "ผลักภาระให้ Dev · Dev พากันยื่นใบลาออกไปหางานที่อื่น",
+                                "feedback": "Dev หลายคนเริ่มเปิด LinkedIn หางานใหม่ เพราะรู้สึกว่างานเขียนโค้ดถูกแทนที่ด้วยการเป็นผู้ดูแลระบบจำเป็น"
+                        },
+                        {
+                                "text": "บอก Dev ว่า: 'นี่คือ DevOps แท้จริง You build it, you run it! ไปหัดเขียน YAML ซะ'",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -5,
+                                        "karma": -15
+                                },
+                                "cost": 0,
+                                "hint": "ยึดติดทฤษฎีแบบหัวชนฝา · สร้างกำแพงระหว่างทีม",
+                                "feedback": "ความสัมพันธ์ระหว่างทีมแตกร้าว Dev แอบปล่อยให้ระบบพังแล้วบอกว่า 'ก็ Infra พี่ห่วยเองหนิครับ'"
+                        }
+                ]
+        },
+        {
+                "week": 15,
+                "sourceRef": "ITIL 4 Service Level Management & Google SRE Error Budget Policy: Managing Contractual Uptime and Liability",
+                "title": "ลูกค้า VIP ขู่ฟ้อง: 'ระบบล่มกิน Error Budget จนเกิน SLA สัญญาธุรกิจ!'",
+                "intro": "มี Incident ใหญ่จากโครงข่ายต่างประเทศ ทำให้ Uptime ทั้งเดือนตกไปอยู่ที่ 98.9% หลุดเกณฑ์ 99.9% ที่สัญญากับลูกค้ารายใหญ่ B2B ลูกค้าส่งจดหมายเตือนเตรียมปรับเงิน 3 ล้านบาท!",
+                "pArt": "war_room",
+                "choices": [
+                        {
+                                "text": "นำ Post-Mortem ที่โปร่งใส เข้าพบลูกค้าพร้อมกาง Roadmap Multi-Region และคืนเงินชดเชยตามสัญญา",
+                                "stats": {
+                                        "skill": 3,
+                                        "energy": -8,
+                                        "sanity": 5,
+                                        "karma": 15
+                                },
+                                "cost": 0,
+                                "hint": "+เปลี่ยนวิกฤตเป็นความไว้วางใจ · ซื่อสัตย์และแสดงความเป็นมืออาชีพ",
+                                "feedback": "ลูกค้ารู้สึกประทับใจในความโปร่งใสและแผนป้องกันที่ชัดเจน ยอมต่อสัญญาและไม่ฟ้องร้องเรียกค่าเสียหาย!"
+                        },
+                        {
+                                "text": "อ้างเหตุสุดวิสัย (Force Majeure) โทษ Cloud Provider 100% แล้วปฏิเสธความรับผิดชอบ",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -10,
+                                        "karma": -25
+                                },
+                                "cost": 0,
+                                "hint": "ทำลายความน่าเชื่อถือทางธุรกิจ · ลูกค้ายกเลิกสัญญาถาวร",
+                                "feedback": "ลูกค้าฉีกสัญญาทิ้งทันทีและนำเรื่องไปฟ้องศาล ภาพลักษณ์ของบริษัทเสียหายอย่างหนักในวงการธุรกิจ"
+                        },
+                        {
+                                "text": "แอบแก้สคริปต์ Dashboard Uptime ให้แสดงผล 99.91% เพื่อหลอกลูกค้า",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -12,
+                                        "sanity": -25,
+                                        "karma": -40
+                                },
+                                "cost": 0,
+                                "hint": "ทุจริตหลอกลวง · ผิดจรรยาบรรณวิศวกรขั้นร้ายแรง",
+                                "feedback": "ลูกค้ามีระบบ Monitoring ภายนอกจับได้คาหนังคาเขา! เรื่องถึงหูบอร์ดบริหาร คุณโดนสั่งสอบสวนทางวินัยทันที"
+                        }
+                ]
+        },
+        {
+                "week": 16,
+                "sourceRef": "Puppet State of DevOps / DevOps Institute Career Survey: Platform Leadership and Organizational Maturity",
+                "title": "วันชี้ชะตาแห่งปี: 'ประเมินผลงานและบทบาทต่อไปของคุณในฐานะ DevOps Engineer'",
+                "intro": "สิ้นสุด 1 ปีเต็มของการกรำศึกหนักทั้งไฟไหม้ตอนตีสอง บิลคลาวด์กระฉูด และการต่อสู้เพื่อปรับปรุง Pipeline วันนี้คุณเดินเข้าห้องประชุมใหญ่กับ CEO, CTO และบอร์ดบริหารเพื่อรับฟังผลการประเมินประจำปี...",
+                "pArt": "war_room",
+                "choices": [
+                        {
+                                "text": "นำเสนอผลงานด้วย DORA Metrics: Deployment Frequency พุ่ง, Lead Time สั้นลง, MTTR ลด และคุมงบ Cloud สำเร็จ",
+                                "stats": {
+                                        "skill": 14,
+                                        "energy": -12,
+                                        "sanity": 15,
+                                        "karma": 20
+                                },
+                                "cost": -450,
+                                "hint": "+พูดภาษาธุรกิจ · พิสูจน์คุณค่าของ DevOps ในเชิงผลลัพธ์องค์กร",
+                                "feedback": "ผู้บริหารทุกคนลุกขึ้นปรบมือให้! คุณพิสูจน์แล้วว่า DevOps ไม่ใช่แค่คนดูแลเซิร์ฟเวอร์ แต่เป็นแกนหลักที่ขับเคลื่อนธุรกิจ!"
+                        },
+                        {
+                                "text": "บ่นระบายความในใจเรื่องที่คนอื่นไม่ยอมเข้าใจ DevOps และขอให้เพิ่มงบเครื่องมือ",
+                                "stats": {
+                                        "skill": 4,
+                                        "energy": -8,
+                                        "sanity": -5,
+                                        "karma": -5
+                                },
+                                "cost": 0,
+                                "hint": "ได้ระบายแต่ผู้บริหารรู้สึกว่าคุณเป็นตัวสร้างปัญหา",
+                                "feedback": "ผู้บริหารรับฟังอย่างสุภาพ แต่รู้สึกว่าคุณมองปัญหาในมุมแคบและยังขาดวุฒิภาวะความเป็นผู้นำ"
+                        },
+                        {
+                                "text": "นั่งเงียบๆ ฟังผลการประเมิน แล้วแอบส่ง Resume ไปสัมภาษณ์บริษัทใหม่ทางโทรศัพท์",
+                                "stats": {
+                                        "skill": 7,
+                                        "energy": -5,
+                                        "sanity": 10,
+                                        "karma": 0
+                                },
+                                "cost": 0,
+                                "hint": "เตรียมตัวสำหรับบทบาทใหม่ในทุ่งหญ้าแห่งใหม่",
+                                "feedback": "ด้วยประสบการณ์โชกโชนที่คุณฟันฝ่ามาตลอดปี บริษัทเทคชั้นนำ 3 แห่งยื่นข้อเสนอเงินเดือนเพิ่มขึ้น 50% ให้คุณทันที!"
+                        }
+                ]
+        }
+],
       dev: [
         {
           week: 1,
@@ -1749,7 +2479,7 @@
               <label class="text-xs font-bold text-slate-300 block mb-2 font-mono">
                 1. เลือกตำแหน่งงานที่ต้องการฝึก:
               </label>
-              <div class="grid grid-cols-2 gap-2">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                 ${Object.values(ROLES).map(r => `
                   <button onclick="selectRole('${r.id}')" class="p-2.5 text-left rounded-md border transition ${gameState.selectedRole === r.id ? 'border-[#dfbd69] bg-[#1a2c5a] text-[#dfbd69] font-bold' : 'border-[#1a2c5a] bg-[#0f1a3a] hover:border-slate-500 text-slate-300'}">
                     <div class="font-bold text-xs flex items-center justify-between">
@@ -1952,31 +2682,37 @@
                 </p>
 
                 ${gameState.weeklyFinancialReport ? `
-                  <div class="bg-[#080f24] border border-[#16234d] p-2.5 rounded text-[11px] font-mono text-slate-300 space-y-1">
-                    <div class="font-bold text-[#e5a83b]">📊 บัญชีการเงินสัปดาห์นี้:</div>
-                    <div class="flex justify-between">
-                      <span>เบี้ยเลี้ยงรับ (+):</span>
-                      <span class="text-emerald-400">+฿${gameState.weeklyFinancialReport.stipend.toLocaleString()}</span>
+                  <div class="bg-[#080f24] border border-[#16234d] p-3 rounded text-[11px] font-mono text-slate-300 space-y-1.5 shadow">
+                    <div class="font-bold text-[#e5a83b] flex items-center justify-between border-b border-[#16234d] pb-1">
+                      <span>📊 บัญชีการเงินสัปดาห์ที่ ${gameState.week}:</span>
+                      <span class="text-[10px] text-slate-400 font-normal">${gameState.weeklyFinancialReport.stipendNote}</span>
                     </div>
                     <div class="flex justify-between">
-                      <span>ค่ากิน & เดินทาง (-):</span>
+                      <span>💼 เบี้ยเลี้ยงรับ (+):</span>
+                      <span class="text-emerald-400 font-bold">+฿${gameState.weeklyFinancialReport.stipend.toLocaleString()}</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>🍱 ค่ากิน & เดินทางประจำสัปดาห์ (-):</span>
                       <span class="text-red-400">-฿${gameState.weeklyFinancialReport.livingCost.toLocaleString()}</span>
                     </div>
                     ${gameState.weeklyFinancialReport.rentCost > 0 ? `
-                      <div class="flex justify-between text-amber-400 font-bold">
-                        <span>ค่าเช่าหอพักสิ้นเดือน (-):</span>
+                      <div class="flex justify-between text-amber-400 font-bold bg-amber-500/10 px-1 py-0.5 rounded">
+                        <span>🏠 ค่าเช่าหอพักสิ้นเดือน (-):</span>
                         <span>-฿${gameState.weeklyFinancialReport.rentCost.toLocaleString()}</span>
                       </div>
                     ` : ''}
                     ${gameState.weeklyFinancialReport.extraCost !== 0 ? `
-                      <div class="flex justify-between text-cyan-300">
-                        <span>กิจกรรมพิเศษ/ค่ากินเพิ่มเติม:</span>
+                      <div class="flex justify-between text-cyan-300 bg-cyan-500/10 px-1 py-0.5 rounded">
+                        <span>⚡ กิจกรรมพิเศษ/ค่าใช้จ่ายเฉพาะสัปดาห์:</span>
                         <span>${gameState.weeklyFinancialReport.extraCost < 0 ? '-' : '+'}฿${Math.abs(gameState.weeklyFinancialReport.extraCost).toLocaleString()}</span>
                       </div>
                     ` : ''}
-                    <div class="border-t border-[#16234d] pt-1 flex justify-between font-bold">
+                    <div class="border-t border-[#16234d] pt-1.5 flex justify-between font-bold text-xs">
                       <span>ยอดเงินเก็บคงเหลือสุทธิ:</span>
-                      <span class="${gameState.stats.money < 0 ? 'text-red-400' : 'text-[#fbc02d]'}">฿${gameState.stats.money.toLocaleString()}</span>
+                      <span class="${gameState.stats.money < 0 ? 'text-red-400' : 'text-[#fbc02d]'}">
+                        ฿${gameState.stats.money.toLocaleString()}
+                        <span class="text-[10px] font-normal text-slate-400">(${gameState.weeklyFinancialReport.netMoneyDelta >= 0 ? '+' : ''}฿${gameState.weeklyFinancialReport.netMoneyDelta.toLocaleString()})</span>
+                      </span>
                     </div>
                   </div>
                 ` : ''}
@@ -2350,11 +3086,42 @@
       const s = gameState.stats;
       const comp = gameState.company || COMPANIES[0];
 
-      // 1. Calculate Real Financial Cashflow for the week
-      const stipend = comp.dailyStipend * 5; // 5 working days
-      const livingCost = comp.weeklyLivingCost;
+      // 1. Calculate Real Dynamic Financial Cashflow for the week
+      let workingDays = 5;
+      let holidayNote = "";
+      let otBonus = 0;
+      let otNote = "";
+
+      // Simulated Thai Public Holidays / Long weekends during internship
+      if (gameState.week === 3) {
+        workingDays = 4;
+        holidayNote = " (สัปดาห์หยุดชดเชย - ทำงาน 4 วัน)";
+      } else if (gameState.week === 7) {
+        workingDays = 4;
+        holidayNote = " (วันหยุดนักขัตฤกษ์ - ทำงาน 4 วัน)";
+      } else if (gameState.week === 13) {
+        workingDays = 4;
+        holidayNote = " (วันหยุดพิเศษ - ทำงาน 4 วัน)";
+      }
+
+      // Emergency OT / Deployment allowances
+      if (gameState.week === 8) {
+        otBonus = 800;
+        otNote = " + OT กู้ระบบฉุกเฉิน ฿800";
+      } else if (gameState.week === 12) {
+        otBonus = 600;
+        otNote = " + OT สปรินต์งานด่วน ฿600";
+      }
+
+      const stipend = (comp.dailyStipend * workingDays) + otBonus;
+
+      // Weekly living cost with realistic fluctuation
+      const weekVariations = [0, 80, -120, 50, -80, 140, -50, 110, -150, 60, 90, -40, 120, -100, 70, 150];
+      const baseVariation = weekVariations[(gameState.week - 1) % weekVariations.length] || 0;
+      const livingCost = comp.weeklyLivingCost + baseVariation;
+
       const extraCost = choice.cost || 0;
-      
+
       // Monthly rent every 4 weeks (Week 4, 8, 12, 16)
       const isEndOfWeekMonth = (gameState.week % 4 === 0);
       const rentCost = isEndOfWeekMonth ? comp.monthlyRent : 0;
@@ -2389,6 +3156,7 @@
       // 4. Save Financial Breakdown Report
       gameState.weeklyFinancialReport = {
         stipend,
+        stipendNote: `${workingDays} วันทำการ${holidayNote}${otNote}`,
         livingCost,
         extraCost,
         rentCost,
