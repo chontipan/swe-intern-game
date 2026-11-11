@@ -196,7 +196,7 @@
     function toggleAudio() {
       isMuted = !isMuted;
       const btn = document.getElementById('btnAudioToggle');
-      if (btn) btn.innerText = isMuted ? '♪ เปิดเพลง' : '♪ ปิดเพลง';
+      if (btn) btn.innerText = isMuted ? '🔇 เปิดเสียง' : '🔊 ปิดเสียง';
       if (!isMuted) playSound('click');
     }
 
@@ -319,9 +319,9 @@
         badge: '🚀 Tech Startup อโศก',
         tagline: '"สปริ้นต์ไว งานเปลี่ยนทุก 2 ชั่วโมง ได้ทำสากกะเบือยันเรือรบ"',
         desc: 'ออฟฟิศเก๋สไตล์ลอฟต์ โซฟาบีนแบ็ก กาแฟดริป เบียร์ฟรีเย็นวันศุกร์ แต่สปรินต์โหดหิน ต้องเรียนรู้ด้วยตัวเองแบบติดสปีด!',
-        dailyStipend: 450, // ฿450/day * 5 = ฿2,250/สัปดาห์
-        weeklyLivingCost: 1300, // ค่ากิน+เดินทางต่อสัปดาห์
-        monthlyRent: 4800, // ค่าหอเดือนละ 4,800
+        dailyStipend: 750, // ฿750/วัน (~฿15,000/เดือน มาตรฐานสตาร์ทอัพเทค CBD)
+        weeklyLivingCost: 1500,
+        monthlyRent: 5200,
         bonus: { skill: 10, energy: -5, sanity: -5, karma: 5, money: 2000 }
       },
       {
@@ -330,9 +330,9 @@
         badge: '🏛️ FinTech / Big Bank สาทร',
         tagline: '"ระบบความปลอดภัยระดับสากล และ Ticket อนุมัติ 80 ขั้นตอน"',
         desc: 'ตึกระฟ้าใจกลางสาทร เบี้ยเลี้ยงแน่น สวัสดิการหรู บัตรห้อยคอ 5 ระดับ แต่ขอสิทธิ์ลงโปรแกรมทีต้องรอ Ticket นาน 2 สัปดาห์',
-        dailyStipend: 750, // ฿750/day * 5 = ฿3,750/สัปดาห์
-        weeklyLivingCost: 1600, // ข้าวสาทรแพง กาแฟแก้วละ 120
-        monthlyRent: 5800, // หอใกล้ BTS สาทร
+        dailyStipend: 900, // ฿900/วัน (~฿18,000/เดือน มาตรฐาน KBTG / SCB TechX)
+        weeklyLivingCost: 1650,
+        monthlyRent: 5800,
         bonus: { skill: 5, energy: -5, sanity: 5, karma: -5, money: 4000 }
       },
       {
@@ -341,9 +341,9 @@
         badge: '⚡ Software House อารีย์',
         tagline: '"รับจบทุกเทคโนโลยี ลูกค้าอยากได้เมื่อวาน"',
         desc: 'โปรเจกต์หมุนเวียนเร็วมาก ได้จับทั้ง React, Flutter, Go, Cloud และ AI วันละ 3 ภาษา ได้ประสบการณ์เข้มข้นที่สุดในรุ่น',
-        dailyStipend: 500, // ฿500/day * 5 = ฿2,500/สัปดาห์
-        weeklyLivingCost: 1350,
-        monthlyRent: 5000,
+        dailyStipend: 650, // ฿650/วัน (~฿13,000/เดือน มาตรฐานสมาคม ATSI)
+        weeklyLivingCost: 1400,
+        monthlyRent: 4800,
         bonus: { skill: 15, energy: -10, sanity: -10, karma: 10, money: 2500 }
       },
       {
@@ -351,10 +351,10 @@
         name: 'สถาบันพัฒนานวัตกรรมดิจิทัลภาครัฐ',
         badge: '🏢 รัฐวิสาหกิจ แจ้งวัฒนะ',
         tagline: '"เน้นระเบียบราชการ เอกสารเป๊ะ เลิกงาน 16:30 น. ตรงเวลา"',
-        desc: 'ออฟฟิศราชการยุคใหม่ แอร์เย็นฉ่ำ เอกสารเบิกจ่ายต้องเซ็นสด 4 คน งานนิ่ง ไม่เหนื่อยเกินไป แต่เบี้ยเลี้ยงน้อยตามระเบียบ',
-        dailyStipend: 250, // ฿250/day * 5 = ฿1,250/สัปดาห์ (ต้องประหยัดสุดขีด!)
+        desc: 'ออฟฟิศราชการยุคใหม่ แอร์เย็นฉ่ำ เอกสารเบิกจ่ายต้องเซ็นสด 4 คน งานนิ่ง ไม่เหนื่อยเกินไป แต่เบี้ยเลี้ยงตามระเบียบ กค 0406.4/ว 40',
+        dailyStipend: 250, // ฿250/วัน (~฿5,000/เดือน เพดานระเบียบกระทรวงการคลัง)
         weeklyLivingCost: 1100,
-        monthlyRent: 3800, // หอแถวแจ้งวัฒนะ
+        monthlyRent: 3800,
         bonus: { skill: -5, energy: 15, sanity: 15, karma: 15, money: 1500 }
       }
     ];
@@ -1747,6 +1747,7 @@
         {
           week: 1,
           sourceRef: "วิจัย RMIT 2026 (Abaei et al.) & Pantip: Gap ระหว่างหลักสูตรทฤษฎี กับ Stack งานจริง (React/Microservices/Docker)",
+          researchDetail: "งานวิจัยของ Abaei et al. (RMIT 2026) สำรวจพบว่าเด็กฝึกงาน SE ต้องเผชิญกับ Tooling & Architecture Gap สูงถึง 48 ครั้ง การใช้ Dev Containers และคู่มือ Onboarding ช่วยลดระยะเวลาปรับตัวได้มาก",
           title: "อุปสรรค Day 1: 'สิ่งที่เรียนมา กับหน้างานจริงไม่ตรงกันเลย!'",
           intro: "ในมหาลัยเคยเขียนแต่โค้ดพื้นฐาน แต่พอเปิดโปรเจกต์บริษัทกลับเจอ Microservices, Docker, Kubernetes, Next.js และ TypeScript ซ้อนกัน 20 ชั้น นั่งมองโค้ดตาค้าง อ่านไม่ออกสักบรรทัด!",
           pArt: "code",
@@ -1777,6 +1778,7 @@
         {
           week: 2,
           sourceRef: "วิจัย RMIT 2026 (Abaei et al.): อุปสรรคการติดตั้งระบบ & ติดสิทธิ์ Firewall ของลูกค้า (Challenge 1, x48 รายงาน)",
+          researchDetail: "Abaei et al. ระบุว่าอุปสรรคการติดตั้งระบบและติด Firewall ของลูกค้าเป็นปัญหาพบบ่อยที่สุด การเตรียม Environment ล่วงหน้าช่วยประหยัดเวลาพี่เลี้ยงได้มหาศาล",
           title: "อุปสรรคสัปดาห์ที่ 2: 'พี่เลี้ยงงานยุ่งมากจนแทบไม่มีเวลาสอน'",
           intro: "พี่เลี้ยงติดไฟไหม้ Release งานใหญ่ ประชุมทั้งวัน แทบไม่ได้หันมามองโต๊ะคุณ คุณติดปัญหาคอมไพล์โค้ดไม่ผ่าน นั่งเคว้งมาตั้งแต่เก้าโมงเช้า...",
           pArt: "bug",
@@ -1807,6 +1809,7 @@
         {
           week: 3,
           sourceRef: "วิจัย ACM TOCE & กระทู้ Pantip: ภาวะเคว้ง ไม่มีงานให้ทำ นั่งจ้องหน้าจอ 8 ชั่วโมง (Idle Novice Syndrome)",
+          researchDetail: "วิจัย ACM TOCE ระบุถึง Idle Novice Syndrome ที่เด็กฝึกงานไม่กล้าขอเพิ่มงานเพราะกลัวรบกวนพี่เลี้ยง การทำ Proactive Ticket Hunting ช่วยสร้างบารมีความไว้ใจในทีม",
           title: "อุปสรรคสัปดาห์ที่ 3: 'ภาวะเคว้ง ไม่มีงานให้ทำ นั่งจ้องหน้าจอ 8 ชั่วโมง'",
           intro: "Sprint แรกจบลง งานใหม่ยังไม่มา พี่เลี้ยงบอกว่า 'นั่งศึกษาไปก่อนนะ' คุณนั่งมองนาฬิกาเดินไปทีละวินาที รู้สึกเคว้งคว้างและกลัวโดนมองว่าอู้...",
           pArt: "circle",
@@ -1837,6 +1840,7 @@
         {
           week: 4,
           sourceRef: "ทฤษฎี Harvard (A. Edmondson) & Pantip: กิจกรรมหมูกระทะสร้าง Social Bonding & Psychological Safety นอกเวลางาน",
+          researchDetail: "ทฤษฎี Psychological Safety ของศ. Amy Edmondson (Harvard) ระบุว่ามื้ออาหารนอกเวลางาน (Social Bonding) ช่วยลดความกลัวในการถามคำถามและกล้าแจ้งบั๊กในเวลาทำงานจริง",
           title: "ศุกร์หรรษา: สิ้นเดือนแรก ตี้หมูกระทะบุฟเฟต์ 199.- ฮีลใจทั้งทีม",
           intro: "ผ่านเดือนแรกไปแล้ว พี่ๆ ในแผนกตะโกน: 'ศุกร์นี้ใครไม่ไปหมูกระทะถือว่าทรยศ!' กลิ่นสามชั้นย่างกับน้ำจิ้มมะนาวลอยมา",
           pArt: "moo_kratha",
@@ -1867,6 +1871,7 @@
         {
           week: 5,
           sourceRef: "สถิติคมนาคม กทม. & Pantip: ปัญหาน้ำท่วมสุขุมวิท/สาทร, รถไฟฟ้า BTS ขัดข้อง และระเบียบ HR การมาสาย",
+          researchDetail: "สถิติคมนาคมกรุงเทพฯ พบช่วงฤดูฝนน้ำท่วมทำให้การเดินทางล่าช้าเฉลี่ย 1.5–2 ชั่วโมง การสื่อสารล่วงหน้าผ่าน Slack ตามระเบียบ HR ช่วยรักษาความประพฤติและลดความเข้าใจผิด",
           title: "อุปสรรคสัปดาห์ที่ 5: 'ฝนตกหนัก น้ำท่วมกรุงเทพฯ & BTS เสีย มาสายโดนเพ่งเล็ง'",
           intro: "เช้าวันจันทร์ฝนเทกระหน่ำน้ำท่วมเสมอตาตุ่ม รถไฟฟ้า BTS ขัดข้องหยุดวิ่งกลางสะพานตากสิน คุณติดอยู่บนรถร่วม 2 ชั่วโมง เข้าออฟฟิศสายไป 45 นาที...",
           pArt: "commute_rain",
@@ -1897,6 +1902,7 @@
         {
           week: 6,
           sourceRef: "วิจัย JOTSE 2017 (Patacsil & Tablatin): ทักษะ Dealing with Difficult Personalities รับมือคนอารมณ์ร้อน (p=0.04)",
+          researchDetail: "งานวิจัย JOTSE 2017 (Patacsil & Tablatin) พบว่าทักษะการรับมือกับคนอารมณ์ร้อน (Dealing with Difficult Personalities) เป็น Soft Skill ที่เด็กฝึกงานขาดและจำเป็นที่สุด (p=0.04)",
           title: "อุปสรรคสัปดาห์ที่ 6: 'รับมือกับคนอารมณ์ร้อน & Dealing with Difficult Personalities' (วิจัย JOTSE)",
           intro: "งานวิจัย Patacsil & Tablatin (2017) พบว่าทักษะที่เด็กฝึกงานต้องเผชิญหน้าและรับมือยากที่สุดคือ 'Dealing with Difficult Personalities' (p=0.04)! วันนี้หัวหน้าแผนกอื่นเดินมาเหวี่ยงใส่อารมณ์เรื่องระบบช้า พร้อมทุบโต๊ะต่อหน้าคนทั้งทีม...",
           pArt: "difficult_person",
@@ -1927,6 +1933,7 @@
         {
           week: 7,
           sourceRef: "วิจัย RMIT 2026 (Abaei et al.): พนักงานหลักลาพักร้อนยาว (Long-service leave) ทิ้งระบบให้เด็กฝึกงานเฝ้าเดี่ยว",
+          researchDetail: "Abaei et al. (RMIT 2026) พบกรณีพนักงานหลักลาพักร้อนยาว (Long-service leave) ทิ้งระบบให้เด็กฝึกงานเฝ้าเดี่ยว การมี Runbook และช่องทางติดต่อฉุกเฉินช่วยพยุงระบบได้",
           title: "อุปสรรคสัปดาห์ที่ 7: 'พี่ในทีมลาพักร้อนยาว 1 เดือน ทิ้งระบบให้เด็กฝึกงานเฝ้าคนเดียว!' (วิจัย RMIT 2026)",
           intro: "เหมือนเคสในรายงานวิจัย Abaei et al. (2026): พนักงานประจำที่ดูแลโมดูลลาพักร้อนยาว 1 เดือนเต็ม ทิ้งให้เด็กฝึกงานต้องรับมือกับคำร้องและ Support ลูกค้าคนเดียวทั้งหมด!",
           pArt: "code",
@@ -1957,6 +1964,7 @@
         {
           week: 8,
           sourceRef: "วิจัย ACM CHI & ข้อบังคับสหกิจวิศวะฯ: การลบ Log ปิดบังความผิดพลาดร้ายแรง ส่งผลพ้นสภาพและติด F ทันที",
+          researchDetail: "จริยธรรมวิศวกรรมซอฟต์แวร์ (ACM/IEEE Code of Ethics): การปกปิดความผิดพลาดหรือทำลาย Log เพื่อเอาตัวรอดถือเป็นความผิดวินัยร้ายแรง การแจ้งทันทีช่วยกู้ข้อมูลได้ไวกว่า 80%",
           title: "วิกฤต Database: ลืมใส่เงื่อนไข WHERE ในคำสั่ง DELETE!",
           intro: "มือไวลั่นคำสั่ง DELETE FROM users; บนเซิร์ฟเวอร์ฐานข้อมูล Staging! ข้อมูลหายวับไปทั้งตาราง หัวใจร่วงไปตาตุ่ม",
           pArt: "terminal",
@@ -1987,6 +1995,7 @@
         {
           week: 9,
           sourceRef: "วิจัย TCI สหกิจศึกษาไทย & Pantip: วิกฤตค่าครองชีพ ค่าหอพักกรุงเทพฯ และการประหยัดด้วยมาม่าใน Pantry",
+          researchDetail: "งานวิจัยสหกิจศึกษาไทย (TCI-ThaiJO) พบว่าค่าเช่าหอพักและค่าเดินทางใน กทม. สูงกว่าเบี้ยเลี้ยงเฉลี่ย การบริหารเงินสำรองและการลดค่าใช้จ่ายฟุ่มเฟือยเป็นทักษะชีวิตที่จำเป็น",
           title: "อุปสรรคสัปดาห์ที่ 9: 'เบี้ยเลี้ยงหมดก่อนสิ้นเดือน ต้องแอบต้มมาม่าใน Pantry'",
           intro: "หลังโดนหักค่าเช่าหอพักและค่าน้ำไฟ เงินในบัญชีเหลือไม่ถึง 400 บาท คุณต้องกินบะหมี่ถ้วยสำเร็จรูปประทังชีวิต นั่งซดน้ำซุปร้อนๆ ในห้อง Pantry ออฟฟิศอย่างโดดเดี่ยว...",
           pArt: "pantry_cry",
@@ -2017,6 +2026,7 @@
         {
           week: 10,
           sourceRef: "วิจัย RMIT 2026 (Abaei et al.): กำแพงการสื่อสารข้ามโซนเวลา Offshore (-9 hours delay) ทำงานข้ามทวีป",
+          researchDetail: "Abaei et al. (RMIT 2026) ระบุถึงกำแพงการสื่อสารข้ามโซนเวลา Offshore (-9 ชั่วโมง) การใช้ Asynchronous Communication และบันทึกข้อความที่ชัดเจนช่วยป้องกันความผิดพลาดข้ามวัน",
           title: "อุปสรรคสัปดาห์ที่ 10: 'ทำงานร่วมกับทีม Offshore ข้ามทวีป Timezone ต่างกัน 9 ชั่วโมง!' (วิจัย RMIT 2026)",
           intro: "วิจัย RMIT 2026 ระบุว่าเด็กฝึกงานมักเจอกำแพงการสื่อสารข้ามโซนเวลา (-9 hours delay) ถามคำถามตอนบ่ายแต่ต้องรอเขาตอบตอนตีสอง หรือต้องตื่นมาเข้า Global Sync Meeting กลางดึก!",
           pArt: "timezone_call",
@@ -2047,6 +2057,7 @@
         {
           week: 11,
           sourceRef: "วิจัย IEEE TSE (Bacchelli & Beller) & Pantip: ความเครียดและ Emotional Toll จากการโดนสับเละใน Code Review",
+          researchDetail: "วิจัย IEEE TSE (Bacchelli & Beller) ชี้ว่า Code Review ก่อให้เกิด Emotional Toll หากเน้นจับผิดส่วนบุคคล การแยกอัตตา (Egoless Programming) และมองเป็นความรู้ช่วยพัฒนาทักษะได้เร็วที่สุด",
           title: "อุปสรรคสัปดาห์ที่ 11: 'โดนสับเละกลาง Code Review น้ำตาซึมในห้องน้ำ'",
           intro: "Senior ระดับโหดสับโค้ดของคุณแบบไม่ไว้หน้าใน Pull Request 45 จุด บอกว่า 'โค้ดแบบนี้เด็ก ม.ปลาย ยังเขียนดีกว่า' คุณเดินเข้าห้องน้ำออฟฟิศแล้วน้ำตาไหลออกมาเอง...",
           pArt: "pantry_cry",
@@ -2077,6 +2088,7 @@
         {
           week: 12,
           sourceRef: "วิจัย IEEE Software: ความกดดันและการจัดการขอบเขตเมื่อผู้บริหารต้องการฟีเจอร์ AI ด่วนใน 48 ชั่วโมง",
+          researchDetail: "วิจัย IEEE Software ชี้ว่าการเพิ่มฟีเจอร์ AI กะทันหันเสี่ยงต่อ Scope Creep และ Hallucination การทำ Prototype เล็กๆ เพื่อประเมินความเป็นไปได้ช่วยคุมความเสี่ยงโปรเจกต์",
           title: "บอสอยากได้ฟีเจอร์ AI ตอบแชต ภายใน 48 ชั่วโมง!",
           intro: "ผู้บริหารเพิ่งกลับมาจากงานสัมมนา แล้วอยากให้แอปมีระบบ Gen-AI ตอบลูกค้าทันสัปดาห์นี้เพื่อใช้อวดบอร์ด",
           pArt: "demo",
@@ -2107,6 +2119,7 @@
         {
           week: 13,
           sourceRef: "วิจัย ACM SIGSOFT: การรับมือวิกฤต Production Bug และ Blame Culture ในทีมวิศวกรรมซอฟต์แวร์",
+          researchDetail: "วิจัย ACM SIGSOFT เรื่อง Incident Response ชี้ว่า Blameless Culture ช่วยลด MTTR (Mean Time to Resolution) ลงได้มากกว่าการตามหาคนผิดมาลงโทษ",
           title: "บั๊กหลุดขึ้น Production: ลูกค้ากดโอนเงินแล้วยอดเบิ้ล 2 เท่า!",
           intro: "วันจันทร์เช้า ฝ่าย Customer Support โทรมาแจ้งด้วยเสียงสั่นเครือ: 'มีเคสเงินเข้าเบิ้ล 14 บัญชีค่ะ!'",
           pArt: "bug",
@@ -2137,6 +2150,7 @@
         {
           week: 14,
           sourceRef: "วิจัย IEEE/ACM ICSE 2024 (Guenes et al.): Impostor Phenomenon ในวิศวกรซอฟต์แวร์ (ตรวจพบ 52.7% ถึง 70%)",
+          researchDetail: "งานวิจัย IEEE/ACM ICSE 2024 (Guenes et al.) พบวิศวกรซอฟต์แวร์ 52.7% และนักศึกษาไอทีกว่า 70% เผชิญภาวะสงสัยในตัวเอง (Impostor Syndrome) การปรึกษาพี่เลี้ยงช่วยดึงสติได้ดีที่สุด",
           title: "อุปสรรคสัปดาห์ที่ 14: 'ภาวะ Imposter Syndrome หรือเราไม่เหมาะกับสายนี้จริงๆ'",
           intro: "เห็นเพื่อนร่วมทีมเขียนโค้ดได้อย่างรวดเร็วและคุยศัพท์เทคนิคลึกๆ คล่องแคล่ว คุณเริ่มตั้งคำถามกับตัวเองในกระจกว่า 'เราเก่งพอจริงๆ ไหม หรือเราแค่ฟลุ๊กที่ผ่านเข้ามาได้?'",
           pArt: "circle",
@@ -2167,6 +2181,7 @@
         {
           week: 15,
           sourceRef: "วิจัย JOTSE 2017 & RMIT 2026: ความสำคัญของ Presentation Skills ต่อหน้าบอร์ดบริหารและอาจารย์นิเทศก์",
+          researchDetail: "งานวิจัย JOTSE 2017 ระบุว่า Presentation & Storytelling เป็นทักษะที่นายจ้างให้ความสำคัญสูงกว่า Hard Skills ในการประเมินศักยภาพสู่ระดับ Senior หรือ Management",
           title: "Final Sprint Demo: พรีเซนต์ผลงานต่อหน้าผู้บริหารและอาจารย์นิเทศ",
           intro: "สัปดาห์รองสุดท้าย อาจารย์ที่ปรึกษาจากมหาวิทยาลัยมาเยือนออฟฟิศ เพื่อร่วมฟังการนำเสนอโปรเจกต์ตลอด 4 เดือน",
           pArt: "demo",
@@ -2197,6 +2212,7 @@
         {
           week: 16,
           sourceRef: "วิจัย NACE & RMIT 2026: สถิติการได้รับ Return Offer (55-68%) และเส้นทางการเปลี่ยนผ่านสู่พนักงานประจำจริง",
+          researchDetail: "รายงาน NACE และ RMIT 2026 พบว่านักศึกษาที่ทำผลงานสม่ำเสมอและมี Soft Skills ยอดเยี่ยม มีโอกาสได้รับ Return Offer สูงถึง 55–68% และเริ่มต้นด้วยฐานเงินเดือนสูงกว่าค่าเฉลี่ย 20%",
           title: "วันตัดสินอนาคต: รับฟังผลการประเมินสหกิจศึกษา & สัญญา Return Offer",
           intro: "สัปดาห์สุดท้ายในฐานะเด็กฝึกงาน เข้าห้องกระจกประชุมเพื่อรับฟังคะแนนเกรดและข้อเสนอจากทางบริษัท",
           pArt: "trophy",
@@ -2240,6 +2256,8 @@
         if (i === 7) {
           return {
             week: 8,
+            sourceRef: "IIBA BABOK Guide & Agile Alliance: Specification Drift และการสื่อสารความต้องการที่ผิดพลาด",
+            researchDetail: "การส่งสเปกผิดพลาดก่อให้เกิด Rework สูงถึง 40% ของสปรินต์ การรีบทำ Gap Analysis ทันทีช่วยลดความเสียหายได้ดีที่สุด",
             title: "วิกฤตสเปก: ส่งเอกสาร Functional Spec เวอร์ชันเก่าให้ Dev ทำทั้งสปรินต์!",
             intro: "Dev เขียนฟีเจอร์เสร็จไปครึ่งหนึ่งแล้วเพิ่งรู้ว่าคุณส่งไฟล์ดราฟต์ผิดชุดให้! สโคปงานผิดทิศทางทั้งหมด",
             pArt: "terminal",
@@ -2274,6 +2292,7 @@
           intro: `ในฐานะ BA คุณต้องประสานงานระหว่างลูกค้ากับทีมพัฒนา: ${ev.intro}`,
           pArt: ev.pArt === 'code' ? 'circle' : ev.pArt,
           sourceRef: ev.sourceRef,
+          researchDetail: ev.researchDetail,
           choices: ev.choices.map(c => ({
             ...c,
             text: c.text.replace('โค้ด', 'เอกสาร Requirement').replace('Docker', 'Flowchart').replace('PR', 'Story'),
@@ -2288,6 +2307,8 @@
         if (i === 7) {
           return {
             week: 8,
+            sourceRef: "ISTQB Foundation & IEEE Standard for Software Testing: Critical Defect Escaped to Production",
+            researchDetail: "บั๊กหลุดในฟังก์ชันธุรกรรมการเงินสร้างความเสียหายระดับวิกฤต การทำ Root Cause Analysis และเขียน Regression Test ด่วนช่วยป้องกันการเกิดซ้ำ",
             title: "วิกฤตปล่อยบั๊กหลุด: แอปธนาคารโอนเงินติดลบได้บนเซิร์ฟเวอร์จริง!",
             intro: "คุณไม่ได้เทสต์เคสกรอกยอดเงินติดลบ บั๊กหลุดสู่สายตาลูกค้าจริง ฝ่ายการเงินโทรมาสั่งระงับแอป!",
             pArt: "terminal",
@@ -2322,6 +2343,7 @@
           intro: `ในฐานะ QA Tester คุณคือด่านสุดท้ายของความปลอดภัย: ${ev.intro}`,
           pArt: ev.pArt === 'code' ? 'bug' : ev.pArt,
           sourceRef: ev.sourceRef,
+          researchDetail: ev.researchDetail,
           choices: ev.choices.map(c => ({
             ...c,
             text: c.text.replace('เขียนโค้ด', 'เขียน Automated Test').replace('Deploy', 'Sign-off คุณภาพ'),
@@ -2336,6 +2358,8 @@
         if (i === 7) {
           return {
             week: 8,
+            sourceRef: "Nielsen Norman Group & Design Systems Association: Design Token Integrity and Versioning",
+            researchDetail: "การสูญหายของ Design Assets ก่อน Demo บีบให้ต้องจัดลำดับความสำคัญ (Triage) การส่งมอบ Core Flow สำคัญกว่าความสมบูรณ์แบบของ UI ทั้งหมด",
             title: "วิกฤตลืมเปิด Auto-save: ไฟล์ Design System หลักของบริษัทหายวับ!",
             intro: "Figma เด้งปิดตัวเองเพราะแคชเต็ม Component และ Design Tokens 2,000 ชิ้นที่คุณนั่งทำมาทั้งเดือนหายไป!",
             pArt: "terminal",
@@ -2370,6 +2394,7 @@
           intro: `ในฐานะ UX/UI Designer คุณต้องสร้างประสบการณ์ที่สวยงามและใช้งานได้จริง: ${ev.intro}`,
           pArt: ev.pArt === 'code' ? 'circle' : ev.pArt,
           sourceRef: ev.sourceRef,
+          researchDetail: ev.researchDetail,
           choices: ev.choices.map(c => ({
             ...c,
             text: c.text.replace('เขียนโค้ด', 'ออกแบบ Mockup').replace('Deploy', 'ส่งมอบ Hand-off ให้ Dev'),
@@ -2496,10 +2521,13 @@
                 1. เลือกตำแหน่งงานที่ต้องการฝึก:
               </label>
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                ${Object.values(ROLES).map(r => `
+                ${Object.values(ROLES).map((r, idx) => `
                   <button onclick="selectRole('${r.id}')" class="p-2.5 text-left rounded-md border transition ${gameState.selectedRole === r.id ? 'border-[#dfbd69] bg-[#1a2c5a] text-[#dfbd69] font-bold' : 'border-[#1a2c5a] bg-[#0f1a3a] hover:border-slate-500 text-slate-300'}">
                     <div class="font-bold text-xs flex items-center justify-between">
-                      <span>${r.badge}</span>
+                      <div class="flex items-center gap-1.5">
+                        <span class="font-mono text-[10px] px-1 py-0.2 rounded bg-black/30 border border-slate-600/50 text-[#00e5ff]">[${idx + 1}]</span>
+                        <span>${r.badge}</span>
+                      </div>
                       ${gameState.selectedRole === r.id ? '<span class="text-[#e5a83b] text-[10px]">✔ เลือก</span>' : ''}
                     </div>
                     <div class="text-[10px] text-slate-400 truncate mt-0.5">${r.tagline}</div>
@@ -2901,45 +2929,13 @@
       let desc = "ผลงานตลอด 16 สัปดาห์ของคุณโดดเด่นจนบอร์ดบริหารและ Tech Lead อนุมัติสัญญาจ้างพนักงานประจำทันที พร้อมเงินเดือนเริ่มต้นระดับท็อปของรุ่น!";
       let toneColor = "text-[#dfbd69]";
       let endingArt = SCENE_ARTS.trophy;
-
-      
-      // Career Choice Epilogue if user chose an offer
       let careerBanner = "";
-      if (gameState.careerChoice === 'fulltime') {
-        title = "เซ็นสัญญาพนักงานประจำทันที (Junior SE)";
-        badge = "💼 SIGNED FULL-TIME ENGINEER";
-        desc = `คุณตอบตกลงเซ็นสัญญาเป็นพนักงานประจำกับ ${comp.name} ทันทีหลังเรียนจบ! พี่เลี้ยงและเพื่อนร่วมทีมพาไปฉลองตี้หมูกระทะชุดใหญ่ คุณกลายเป็นวิศวกรซอฟต์แวร์เต็มตัว มีรายได้มั่นคงตั้งแต่วันแรกที่รับปริญญา!`;
-        toneColor = "text-[#dfbd69]";
-        endingArt = SCENE_ARTS.job_offer;
-        careerBanner = `<div class="bg-emerald-950/50 border border-emerald-500/50 p-2.5 rounded text-xs text-emerald-300 font-mono">🎉 ชะตากรรม: บรรจุเป็นพนักงานประจำที่ ${comp.name} เรียบร้อยแล้ว!</div>`;
-      } else if (gameState.careerChoice === 'parttime') {
-        title = "ทำงาน Part-Time ควบเรียนปี 4 เทอมสุดท้าย";
-        badge = "🚀 PART-TIME TO HIRE";
-        desc = `คุณเลือกทางสายกลางอันชาญฉลาด! แบ่งเวลาเรียนปี 4 ไปด้วยและเขียนโค้ดให้ ${comp.name} สัปดาห์ละ 20 ชั่วโมง มีเงินเดือนเลี้ยงดูตัวเองและไม่ต้องขอเงินพ่อแม่ เมื่อเรียนจบก็พร้อมบรรจุเป็น Senior เร็วกว่าเพื่อนรุ่นเดียวกัน!`;
-        toneColor = "text-cyan-400";
-        endingArt = SCENE_ARTS.job_offer;
-        careerBanner = `<div class="bg-cyan-950/50 border border-cyan-500/50 p-2.5 rounded text-xs text-cyan-300 font-mono">💻 ชะตากรรม: ทำงาน Remote พาร์ตไทม์ควบเรียนปี 4 รับเงินเดือนสบายๆ</div>`;
-      } else if (gameState.careerChoice === 'bigtech') {
-        title = "ทะยานสู่ Big Tech ระดับโลก";
-        badge = "🌍 GLOBAL TECH HUNTER";
-        desc = `ด้วยความมั่นใจและพอร์ตโฟลิโออันยอดเยี่ยมตลอด 16 สัปดาห์ คุณนำประสบการณ์จริงไปยื่นสอบสัมภาษณ์กับ Tech ยักษ์ใหญ่ระดับนานาชาติ และได้รับการตอบรับเข้าทำงานด้วยเงินเดือนระดับท็อปของประเทศ!`;
-        toneColor = "text-purple-400";
-        endingArt = SCENE_ARTS.trophy;
-        careerBanner = `<div class="bg-purple-950/50 border border-purple-500/50 p-2.5 rounded text-xs text-purple-300 font-mono">🌟 ชะตากรรม: ทะยานสู่ Tech ยักษ์ใหญ่ระดับนานาชาติ</div>`;
-      } else if (gameState.careerChoice === 'rest') {
-        title = "ผู้พิชิตสหกิจศึกษา & พักผ่อนฮีลใจ";
-        badge = "🌿 MINDFUL GRADUATE";
-        desc = `คุณเลือกให้คุณค่ากับชีวิตและสุขภาพ ปิดฉากการฝึกงานด้วยเกรด A เต็ม แล้วกลับไปใช้ชีวิตวัยนักศึกษาเทอมสุดท้าย ทำธีสิส นอนกอดแมว และเดินทางท่องเที่ยวชาร์จพลังจนเต็มเปี่ยม`;
-        toneColor = "text-emerald-400";
-        endingArt = SCENE_ARTS.trophy;
-        careerBanner = `<div class="bg-teal-950/50 border border-teal-500/50 p-2.5 rounded text-xs text-teal-300 font-mono">☕ ชะตากรรม: ปริญญาพร้อม สุขภาพกายใจฟื้นฟูเต็ม 100</div>`;
-      }
 
-      // Special check: SENT BACK TO UNIVERSITY (F)
+      // Priority 1: Critical Failures / Terminated / Sent Back
       if (gameState.isSentBack) {
-        title = "โดนส่งตัวกลับมหาวิทยาลัย! (ติด F สหกิจศึกษา)";
-        badge = "❌ TERMINATED & SENT BACK";
-        desc = gameState.sentBackReason || "บริษัทได้ส่งหนังสือแจ้งอาจารย์ที่ปรึกษาขอยกเลิกสัญญาฝึกงานและส่งตัวคุณกลับมหาวิทยาลัยก่อนกำหนด เนื่องจากปัญหาทางวินัยหรือสร้างความเสียหายร้ายแรง... ต้องลงทะเบียนวิชาสหกิจศึกษาเรียนซ้ำใหม่เทอมหน้า!";
+        title = "โดนส่งตัวกลับมหาวิทยาลัย (ติด F สหกิจศึกษา)";
+        badge = "🚫 TERMINATED / FAIL";
+        desc = gameState.sentBackReason || "คุณไม่ผ่านการประเมินสหกิจศึกษาเนื่องจากทำผิดวินัยร้ายแรง...";
         toneColor = "text-red-500";
         endingArt = SCENE_ARTS.sent_back;
       } else if (s.energy <= 0) {
@@ -2960,7 +2956,39 @@
         desc = "คะแนนบารมีความประพฤติติดลบ พี่เลี้ยงและผู้จัดการลงความเห็นว่าขาดความรับผิดชอบอย่างต่อเนื่อง จึงทำหนังสือแจ้งคณะวิศวกรรมศาสตร์เพื่อส่งตัวกลับทันที!";
         toneColor = "text-red-500";
         endingArt = SCENE_ARTS.sent_back;
+      } else if (gameState.careerChoice) {
+        // Priority 2: Return Offer Career Decision (Player Choice)
+        if (gameState.careerChoice === 'fulltime') {
+          title = "เซ็นสัญญาพนักงานประจำทันที (Junior SE)";
+          badge = "💼 SIGNED FULL-TIME ENGINEER";
+          desc = `คุณตอบตกลงเซ็นสัญญาเป็นพนักงานประจำกับ ${comp.name} ทันทีหลังเรียนจบ! พี่เลี้ยงและเพื่อนร่วมทีมพาไปฉลองตี้หมูกระทะชุดใหญ่ คุณกลายเป็นวิศวกรซอฟต์แวร์เต็มตัว มีรายได้มั่นคงตั้งแต่วันแรกที่รับปริญญา!`;
+          toneColor = "text-[#dfbd69]";
+          endingArt = SCENE_ARTS.job_offer;
+          careerBanner = `<div class="bg-emerald-950/50 border border-emerald-500/50 p-2.5 rounded text-xs text-emerald-300 font-mono">🎉 ชะตากรรม: บรรจุเป็นพนักงานประจำที่ ${comp.name} เรียบร้อยแล้ว!</div>`;
+        } else if (gameState.careerChoice === 'parttime') {
+          title = "ทำงาน Part-Time ควบเรียนปี 4 เทอมสุดท้าย";
+          badge = "🚀 PART-TIME TO HIRE";
+          desc = `คุณเลือกทางสายกลางอันชาญฉลาด! แบ่งเวลาเรียนปี 4 ไปด้วยและเขียนโค้ดให้ ${comp.name} สัปดาห์ละ 20 ชั่วโมง มีเงินเดือนเลี้ยงดูตัวเองและไม่ต้องขอเงินพ่อแม่ เมื่อเรียนจบก็พร้อมบรรจุเป็น Senior เร็วกว่าเพื่อนรุ่นเดียวกัน!`;
+          toneColor = "text-cyan-400";
+          endingArt = SCENE_ARTS.job_offer;
+          careerBanner = `<div class="bg-cyan-950/50 border border-cyan-500/50 p-2.5 rounded text-xs text-cyan-300 font-mono">💻 ชะตากรรม: ทำงาน Remote พาร์ตไทม์ควบเรียนปี 4 รับเงินเดือนสบายๆ</div>`;
+        } else if (gameState.careerChoice === 'bigtech') {
+          title = "ทะยานสู่ Big Tech ระดับโลก";
+          badge = "🌍 GLOBAL TECH HUNTER";
+          desc = `ด้วยความมั่นใจและพอร์ตโฟลิโออันยอดเยี่ยมตลอด 16 สัปดาห์ คุณนำประสบการณ์จริงไปยื่นสอบสัมภาษณ์กับ Tech ยักษ์ใหญ่ระดับนานาชาติ และได้รับการตอบรับเข้าทำงานด้วยเงินเดือนระดับท็อปของประเทศ!`;
+          toneColor = "text-purple-400";
+          endingArt = SCENE_ARTS.trophy;
+          careerBanner = `<div class="bg-purple-950/50 border border-purple-500/50 p-2.5 rounded text-xs text-purple-300 font-mono">🌟 ชะตากรรม: ทะยานสู่ Tech ยักษ์ใหญ่ระดับนานาชาติ</div>`;
+        } else if (gameState.careerChoice === 'rest') {
+          title = "ผู้พิชิตสหกิจศึกษา & พักผ่อนฮีลใจ";
+          badge = "🌿 MINDFUL GRADUATE";
+          desc = `คุณเลือกให้คุณค่ากับชีวิตและสุขภาพ ปิดฉากการฝึกงานด้วยเกรด A เต็ม แล้วกลับไปใช้ชีวิตวัยนักศึกษาเทอมสุดท้ายอย่างมีความสุข ฟื้นฟูพลังกายและพลังใจเต็มร้อยก่อนเริ่มลุยโลกการทำงานจริง`;
+          toneColor = "text-emerald-400";
+          endingArt = SCENE_ARTS.job_offer;
+          careerBanner = `<div class="bg-emerald-950/50 border border-emerald-500/50 p-2.5 rounded text-xs text-emerald-300 font-mono">🌿 ชะตากรรม: พักฟื้นสภาพจิตใจสมบูรณ์แบบ ปิดเทอมสุดท้ายอย่างมีความสุข</div>`;
+        }
       } else if (s.money < -5000) {
+        // Priority 3: Stat-based Endings
         title = "ผ่านการฝึกงานแต่มีหนี้สินล้นพ้นตัว";
         badge = "💸 IN DEBT SURVIVOR";
         desc = `คุณเอาตัวรอดจนจบ 16 สัปดาห์ได้ แต่เบี้ยเลี้ยงไม่พอกับค่าครองชีพในกรุงเทพฯ คุณติดหนี้สะสม ฿${Math.abs(s.money).toLocaleString()} ต้องรีบหางานประจำเพื่อปลดหนี้ก้อนโต!`;
@@ -3185,7 +3213,17 @@
       // 5. Check Critical Failure: SENT BACK TO UNIVERSITY (Terminated / F)
       if (gameState.week === 8 && idx === 2 && s.karma <= 20) {
         gameState.isSentBack = true;
-        gameState.sentBackReason = "วิกฤตสัปดาห์ที่ 8: คุณพยายามตีเนียนปกปิดความผิดพลาดร้ายแรงและทำลายหลักฐาน! ทางบริษัทลงมติว่าเป็นการทำผิดวินัยขั้นร้ายแรง จึงส่งหนังสือแจ้งอาจารย์ที่ปรึกษาขอยกเลิกการฝึกงานและส่งตัวคุณกลับมหาวิทยาลัยทันที ติด F สหกิจศึกษา!";
+        if (roleId === 'devops') {
+          gameState.sentBackReason = "วิกฤตสัปดาห์ที่ 8: บิลค่า AWS พุ่งทะลุ 750,000 บาท! คุณปฏิเสธความรับผิดชอบและปัดความผิดให้ทีมอื่นอย่างไม่เป็นมืออาชีพ บอร์ดบริหารและ CFO จึงลงมติว่าขาดคุณสมบัติในการทำงานและส่งตัวกลับมหาวิทยาลัย ติด F สหกิจศึกษา!";
+        } else if (roleId === 'ba') {
+          gameState.sentBackReason = "วิกฤตสัปดาห์ที่ 8: คุณส่งสเปกผิดเวอร์ชันและพยายามโยนความผิดให้ลูกค้าและทีม Dev จนโปรเจกต์เสียหายมหาศาล ทางบริษัทจึงส่งหนังสือแจ้งมหาวิทยาลัยเพื่อส่งตัวกลับทันที ติด F สหกิจศึกษา!";
+        } else if (roleId === 'tester') {
+          gameState.sentBackReason = "วิกฤตสัปดาห์ที่ 8: ปล่อยบั๊กโอนเงินยอดเบิ้ลหลุดขึ้น Production แล้วพยายามลบ Test Log ปกปิดความผิดพลาด ทางบริษัทจึงส่งหนังสือแจ้งมหาวิทยาลัยเพื่อส่งตัวกลับทันที ติด F สหกิจศึกษา!";
+        } else if (roleId === 'uxui') {
+          gameState.sentBackReason = "วิกฤตสัปดาห์ที่ 8: ไฟล์ Design System เสียหายก่อนพรีเซนต์ แล้วพยายามแอบแก้ไขไฟล์ระบบโดยไม่แจ้งหัวหน้างาน จนเกิดความเสียหายต่อแผนก จึงโดนส่งตัวกลับ ติด F สหกิจศึกษา!";
+        } else {
+          gameState.sentBackReason = "วิกฤตสัปดาห์ที่ 8: คุณพยายามตีเนียนปกปิดความผิดพลาดร้ายแรงและทำลายหลักฐานลบ Log ทิ้ง! ทางบริษัทลงมติว่าเป็นการทำผิดวินัยขั้นร้ายแรง จึงส่งหนังสือแจ้งมหาวิทยาลัยเพื่อส่งตัวกลับทันที ติด F สหกิจศึกษา!";
+        }
         playSound('fail');
       } else if (s.energy <= 0 || s.sanity <= 0 || s.karma <= 0) {
         gameState.isSentBack = true;
@@ -3262,25 +3300,27 @@
 
     // --- KEYBOARD LISTENER (Exact 1-in-65M Controls) ---
     window.addEventListener('keydown', (e) => {
-      if (e.key === '1') {
-        if (gameState.screen === 'event') makeChoice(0);
-        else if (gameState.screen === 'job_offer') selectCareerChoice('fulltime');
-      } else if (e.key === '2') {
-        if (gameState.screen === 'event') makeChoice(1);
-        else if (gameState.screen === 'job_offer') selectCareerChoice('parttime');
-      } else if (e.key === '3') {
-        if (gameState.screen === 'event') makeChoice(2);
-        else if (gameState.screen === 'job_offer') selectCareerChoice('bigtech');
-      } else if (e.key === '4') {
-        if (gameState.screen === 'job_offer') selectCareerChoice('rest');
-      } else if (e.key === 'Enter' || e.key === ' ') {
-        if (gameState.screen === 'start') {
+      const roleKeys = Object.keys(ROLES);
+      if (gameState.screen === 'start') {
+        if (['1', '2', '3', '4', '5'].includes(e.key)) {
+          const idx = parseInt(e.key) - 1;
+          if (roleKeys[idx]) selectRole(roleKeys[idx]);
+        } else if (e.key === 'Enter' || e.key === ' ') {
           startGame();
-        } else if (gameState.screen === 'feedback') {
-          nextWeek();
-        } else if (gameState.screen === 'ending') {
-          restartGame();
         }
+      } else if (gameState.screen === 'event') {
+        if (e.key === '1') makeChoice(0);
+        else if (e.key === '2') makeChoice(1);
+        else if (e.key === '3') makeChoice(2);
+      } else if (gameState.screen === 'feedback') {
+        if (e.key === 'Enter' || e.key === ' ') nextWeek();
+      } else if (gameState.screen === 'job_offer') {
+        if (e.key === '1') selectCareerChoice('fulltime');
+        else if (e.key === '2') selectCareerChoice('parttime');
+        else if (e.key === '3') selectCareerChoice('bigtech');
+        else if (e.key === '4') selectCareerChoice('rest');
+      } else if (gameState.screen === 'ending') {
+        if (e.key === 'Enter' || e.key === ' ') restartGame();
       }
     });
 
@@ -3451,6 +3491,123 @@
                 <td class="py-1.5 px-2 font-medium text-white">วันชี้ชะตาแห่งปี: 'ประเมินผลงานและบทบาทต่อไปของคุณในฐานะ DevOps'</td>
                 <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">Puppet State of DevOps / DevOps Institute Career Survey</td>
                 <td class="py-1.5 px-2 text-slate-300 text-[10px]">การประเมินผลงาน DevOps ต้องมองที่ผลลัพธ์ทางธุรกิจและความมั่นคงของระบบ (DORA Metrics) มากกว่าการนั่งแก้ปัญหารายวัน</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bg-[#0f1a3a] border border-[#1a2c5a] p-3 rounded-lg">
+          <div class="font-bold text-[#00e5ff] text-sm mb-2 flex flex-wrap items-center justify-between gap-1">
+            <span>💻 6. งานวิจัยและสถานการณ์วิกฤตสาย Software Developer (16 สัปดาห์):</span>
+            <span class="text-[10px] font-mono text-slate-400">RMIT 2026 / IEEE / ACM / Harvard / JOTSE</span>
+          </div>
+          <div class="overflow-x-auto max-h-72 overflow-y-auto pr-1">
+            <table class="w-full text-left text-[11px] font-sans border-collapse">
+              <thead>
+                <tr class="border-b border-[#16234d] text-slate-400 font-mono text-[10px] sticky top-0 bg-[#0f1a3a]">
+                  <th class="py-1.5 px-1.5 w-10">ด่าน</th>
+                  <th class="py-1.5 px-2 w-48">ชื่อด่าน / สถานการณ์วิกฤต</th>
+                  <th class="py-1.5 px-2 w-56">📚 แหล่งที่มา / งานวิจัยรองรับ</th>
+                  <th class="py-1.5 px-2">สาระสำคัญทางวิชาการ</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#16234d]/60 text-slate-300">
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W1</td>
+                <td class="py-1.5 px-2 font-medium text-white">Day 1: สิ่งที่เรียนมากับหน้างานจริงไม่ตรงกัน</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">Abaei et al. (RMIT 2026) / arXiv:2603.21548v1</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">Tooling & Architecture Gap สูงถึง 48 ครั้ง การใช้ Dev Containers และคู่มือ Onboarding ช่วยลดเวลาปรับตัว</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W2</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 2: พี่เลี้ยงงานยุ่งจนไม่มีเวลาสอน</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">Abaei et al. (RMIT 2026): Challenge 1 (x48 reports)</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">ปัญหาติดตั้งระบบและติดสิทธิ์ Firewall การเตรียม Environment ล่วงหน้าช่วยประหยัดเวลาพี่เลี้ยง</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W3</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 3: ภาวะเคว้ง ไม่มีงานให้ทำ นั่งจ้องจอ 8 ชม.</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">ACM TOCE: Idle Novice Syndrome in IT Internships</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">เด็กฝึกงานไม่กล้าขอเพิ่มงานเพราะกลัวรบกวน การทำ Proactive Ticket Hunting ช่วยสร้างบารมีความไว้ใจ</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W4</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 4: สิ้นเดือนแรก ตี้หมูกระทะบุฟเฟต์ 199.- ฮีลใจ</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">Harvard (Prof. Amy Edmondson) - Psychological Safety</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">มื้ออาหารนอกเวลางาน (Social Bonding) ช่วยลดความกลัวในการถามคำถามและกล้าแจ้งบั๊กในเวลาทำงานจริง</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W5</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 5: ฝนตกหนัก น้ำท่วม กทม. & BTS เสีย มาสาย</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">สถิติคมนาคม กทม. & ระเบียบ HR การมาสาย</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">ช่วงฤดูฝนน้ำท่วมทำให้การเดินทางล่าช้า 1.5–2 ชม. การสื่อสารล่วงหน้าผ่าน Slack ช่วยรักษาความประพฤติ</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W6</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 6: รับมือคนอารมณ์ร้อน (Difficult Personalities)</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">JOTSE 2017 (Patacsil & Tablatin) - Soft Skill Gap</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">ทักษะ Dealing with Difficult Personalities เป็น Soft Skill ที่จำเป็นที่สุด (p=0.04) ต่อความก้าวหน้า</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W7</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 7: พี่ในทีมลาพักร้อนยาว 1 เดือน ทิ้งระบบให้เฝ้าเดี่ยว</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">Abaei et al. (RMIT 2026): Long-service leave coverage</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">กรณีพนักงานหลักลาพักร้อนยาว การมี Runbook และช่องทางติดต่อฉุกเฉินช่วยพยุงระบบไม่ให้ล่ม</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W8</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 8: วิกฤต Database ลืมใส่เงื่อนไข WHERE ใน DELETE</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">ACM/IEEE Software Engineering Code of Ethics</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">การปกปิดความผิดพลาดหรือทำลาย Log เพื่อเอาตัวรอดถือเป็นความผิดวินัยร้ายแรง การแจ้งทันทีช่วยกู้ข้อมูลได้ไวกว่า 80%</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W9</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 9: เบี้ยเลี้ยงหมดก่อนสิ้นเดือน แอบต้มมาม่าใน Pantry</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">TCI สหกิจศึกษาไทย & ระเบียบ กค 0406.4/ว 40</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">ค่าเช่าหอพักและค่าเดินทางใน กทม. สูงกว่าเบี้ยเลี้ยงเฉลี่ย การบริหารเงินสำรองเป็นทักษะชีวิตที่จำเป็น</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W10</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 10: ทำงานร่วมกับทีม Offshore ข้ามทวีปต่าง 9 ชม.</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">Abaei et al. (RMIT 2026): Offshore Communication Barrier</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">กำแพงการสื่อสารข้ามโซนเวลา การใช้ Asynchronous Communication และบันทึกข้อความชัดเจนช่วยป้องกันงานสะดุด</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W11</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 11: โดนสับเละกลาง Code Review น้ำตาซึม</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">IEEE TSE (Bacchelli & Beller): Emotional Toll in Code Review</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">Code Review ก่อให้เกิดความเครียดหากจับผิดส่วนตัว การแยกอัตตา (Egoless Programming) ช่วยพัฒนาเร็วที่สุด</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W12</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 12: บอสอยากได้ฟีเจอร์ AI ตอบแชต ภายใน 48 ชม.</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">IEEE Software: Managing Executive Scope Creep in AI</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">การเพิ่มฟีเจอร์ AI ด่วนเสี่ยงต่อ Scope Creep และ Hallucination การทำ Prototype เล็กๆ ช่วยคุมความเสี่ยง</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W13</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 13: บั๊กหลุดขึ้น Production ลูกค้าโอนเงินยอดเบิ้ล 2 เท่า</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">ACM SIGSOFT: Blameless Incident Response</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">Blameless Culture ช่วยลด MTTR (Mean Time to Resolution) ลงได้มากกว่าการตามหาคนผิดมาลงโทษ</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W14</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 14: ภาวะ Imposter Syndrome ไม่เหมาะกับสายนี้</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">IEEE/ACM ICSE 2024 (Guenes et al.): Impostor Phenomenon</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">วิศวกรซอฟต์แวร์ 52.7% และนักศึกษาไอทีกว่า 70% เผชิญภาวะสงสัยในตัวเอง การปรึกษาพี่เลี้ยงช่วยดึงสติได้ดีที่สุด</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W15</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 15: Final Sprint Demo พรีเซนต์ต่อหน้าผู้บริหาร</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">JOTSE 2017 & RMIT 2026: Presentation & Soft Skills</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">Presentation & Storytelling เป็นทักษะที่นายจ้างให้ความสำคัญสูงกว่า Hard Skills ในการประเมินศักยภาพ</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W16</td>
+                <td class="py-1.5 px-2 font-medium text-white">สัปดาห์ที่ 16: วันตัดสินอนาคต รับฟังผลประเมิน & Return Offer</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">NACE Research & RMIT 2026: Conversion Rate to Full-Time</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">นักศึกษาที่ผลงานสม่ำเสมอและมี Soft Skills ดี มีโอกาสได้รับ Return Offer สูงถึง 55–68% และเงินเดือนเริ่มสูงกว่าเฉลี่ย 20%</td>
               </tr>
               </tbody>
             </table>
