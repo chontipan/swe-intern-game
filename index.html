@@ -481,6 +481,58 @@
       `,
 
       // SENT BACK SCENE (โดนส่งตัวกลับมหาวิทยาลัย / ใบแจ้งพ้นสภาพสหกิจ)
+      
+      // 16. JOB OFFER SCENE (โดนชวนทำงานต่อ / เซ็นสัญญาบรรจุพนักงานประจำ)
+      job_offer: `
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#030a1a] pixel-art">
+          <rect x="0" y="0" width="160" height="90" fill="#030a1a"/>
+          <!-- Panoramic Glass Corner Window with City View -->
+          <rect x="6" y="6" width="148" height="46" fill="#0c1633" stroke="#1e3a8a" stroke-width="1.5"/>
+          <line x1="50" y1="6" x2="50" y2="52" stroke="#1e293b" stroke-width="1.5"/>
+          <line x1="105" y1="6" x2="105" y2="52" stroke="#1e293b" stroke-width="1.5"/>
+          <!-- Skyline Silhouettes & Sunshine -->
+          <rect x="12" y="24" width="14" height="28" fill="#172554"/>
+          <rect x="30" y="16" width="16" height="36" fill="#1e3a8a"/>
+          <rect x="62" y="20" width="22" height="32" fill="#172554"/>
+          <rect x="88" y="14" width="14" height="38" fill="#1e3a8a"/>
+          <rect x="114" y="22" width="20" height="30" fill="#172554"/>
+          <circle cx="138" cy="16" r="6" fill="#fde047" opacity="0.9"/>
+          <!-- Polished Wooden Conference Table -->
+          <rect x="0" y="52" width="160" height="38" fill="#1e293b"/>
+          <rect x="10" y="52" width="140" height="26" fill="#334155" stroke="#475569" stroke-width="1"/>
+          <!-- Tech Lead / HR on Left (ยื่นสัญญา) -->
+          <rect x="24" y="26" width="14" height="7" fill="#18181b"/>
+          <rect x="24" y="33" width="14" height="8" fill="#fcd34d"/>
+          <rect x="26" y="35" width="2" height="2" fill="#000"/>
+          <rect x="31" y="35" width="2" height="2" fill="#000"/>
+          <rect x="28" y="38" width="6" height="2" fill="#dc2626"/>
+          <rect x="20" y="41" width="22" height="18" fill="#0f172a"/>
+          <!-- Contract Folder & Shiny Employee Badge (ซองสัญญา & บัตรพนักงาน) -->
+          <rect x="62" y="55" width="36" height="20" fill="#78350f" stroke="#d97706" stroke-width="1.5"/>
+          <rect x="66" y="57" width="28" height="16" fill="#f8fafc"/>
+          <rect x="70" y="60" width="16" height="2" fill="#2563eb"/>
+          <rect x="70" y="64" width="20" height="1.5" fill="#64748b"/>
+          <rect x="70" y="67" width="14" height="1.5" fill="#64748b"/>
+          <circle cx="86" cy="67" r="3" fill="#dc2626"/>
+          <!-- Intern Employee Lanyard Badge (ป้ายห้อยคอพนักงานประจำ) -->
+          <rect x="102" y="57" width="14" height="18" fill="#1e3a8a" stroke="#38bdf8" stroke-width="1"/>
+          <circle cx="109" cy="62" r="3" fill="#fcd34d"/>
+          <rect x="105" y="67" width="8" height="2" fill="#fff"/>
+          <line x1="109" y1="52" x2="109" y2="57" stroke="#38bdf8" stroke-width="1.5"/>
+          <!-- Intern on Right (ตื่นเต้น ดีใจ) -->
+          <rect x="122" y="26" width="14" height="7" fill="#18181b"/>
+          <rect x="122" y="33" width="14" height="8" fill="#fcd34d"/>
+          <rect x="124" y="35" width="2" height="2" fill="#000"/>
+          <rect x="129" y="35" width="2" height="2" fill="#000"/>
+          <rect x="125" y="38" width="6" height="2" fill="#dc2626"/>
+          <circle cx="123" cy="37" r="1.5" fill="#f43f5e"/>
+          <circle cx="133" cy="37" r="1.5" fill="#f43f5e"/>
+          <rect x="118" y="41" width="22" height="18" fill="#0284c7"/>
+          <rect x="46" y="55" width="6" height="7" fill="#f8fafc"/>
+          <rect x="47" y="53" width="4" height="2" fill="#92400e"/>
+        </svg>
+      `,
+
       sent_back: `
         <svg viewBox="0 0 160 90" class="w-full h-full bg-[#080c18] pixel-art">
           <rect x="0" y="0" width="160" height="90" fill="#080c18"/>
@@ -1386,7 +1438,9 @@
       lastFeedback: "",
       weeklyFinancialReport: null,
       isSentBack: false,
-      sentBackReason: ""
+      sentBackReason: "",
+      careerChoice: null,
+      hasJobOffer: false
     };
 
     // --- RENDER FUNCTIONS ---
@@ -1399,6 +1453,8 @@
         renderStartScreen(container);
       } else if (gameState.screen === 'event' || gameState.screen === 'feedback') {
         renderEventScreen(container);
+      } else if (gameState.screen === 'job_offer') {
+        renderJobOfferScreen(container);
       } else if (gameState.screen === 'ending') {
         renderEndingScreen(container);
       }
@@ -1718,6 +1774,146 @@
       `;
     }
 
+
+    // 2.5 JOB OFFER SCREEN (โดนชวนให้ทำงานต่อ / Return Offer Negotiation)
+    function renderJobOfferScreen(container) {
+      const comp = gameState.company || COMPANIES[0];
+      const roleObj = ROLES[gameState.selectedRole] || ROLES.dev;
+
+      // Realistic salary offer based on company
+      let baseSalary = 35000;
+      let perkText = "เบียร์ฟรีทุกศุกร์ + โควต้าซื้อ Gadget ฿20,000";
+      if (comp.id === 'startup') {
+        baseSalary = 38000;
+        perkText = "หุ้น ESOP 0.1% + กาแฟดริปไม่อั้น + Flexible Hours";
+      } else if (comp.id === 'bigcorp') {
+        baseSalary = 45000;
+        perkText = "โบนัส 3-5 เดือน + ประกันกลุ่ม OPD/IPD + กองทุนสำรองเลี้ยงชีพ";
+      } else if (comp.id === 'softwarehouse') {
+        baseSalary = 36000;
+        perkText = "ค่าคอมมิชชันโปรเจกต์ + คอร์สเรียนฟรีปีละ ฿30,000";
+      } else if (comp.id === 'gov') {
+        baseSalary = 28000;
+        perkText = "สิทธิเบิกจ่ายรักษาพยาบาล + บรรจุข้าราชการ/พนักงานรัฐ";
+      }
+
+      const offerChoices = [
+        {
+          id: 'fulltime',
+          title: "ตกลงเซ็นสัญญาพนักงานประจำ (Full-Time Junior SE)",
+          desc: `รับเงินเดือน ฿${baseSalary.toLocaleString()}/เดือน (${perkText}) เริ่มงานทันทีหลังเรียนจบ!`,
+          hint: "การันตีอนาคตมั่นคง · เงินเดือนสตาร์ทสวย · พี่ๆ ในทีมฉลองเลี้ยงหมูกระทะ!"
+        },
+        {
+          id: 'parttime',
+          title: "ขอทำ Part-Time / Remote ควบเรียนปี 4 เทอมสุดท้าย",
+          desc: `20 ชม./สัปดาห์ รับ ฿${Math.round(baseSalary * 0.55).toLocaleString()}/เดือน ทำจากหอได้ เรียนจบแล้วปรับเป็น Full-Time ทันที`,
+          hint: "ยิงปืนนัดเดียวได้นกสองตัว · มีเงินใช้ไม่รบกวนทางบ้าน · ประสบการณ์นำเพื่อนร่วมรุ่น"
+        },
+        {
+          id: 'bigtech',
+          title: "ขอบคุณอย่างจริงใจ แต่ขอปฏิเสธเพื่อไปล่าฝัน Big Tech ระดับโลก",
+          desc: "เตรียมยื่น Resume สมัครบริษัท Tech ระดับท็อป (Shopee, Agoda, Line Man หรือ FAANG)",
+          hint: "เดิมพันสูง · มีโอกาสได้เงินเดือน ฿55,000 - ฿80,000+ หรือโกอินเตอร์"
+        },
+        {
+          id: 'rest',
+          title: "ขอขอบคุณและพักผ่อน กลับไปทำวิทยานิพนธ์และนอนกอดแมว",
+          desc: "ให้รางวัลชีวิตหลังจากสู้รบมา 16 สัปดาห์ พักฟื้นสภาพจิตใจให้เต็ม 100 ก่อนเริ่มหางานใหม่",
+          hint: "+ความสุขเต็ม 100 · ร่างกายฟื้นฟูสมบูรณ์ · ไม่ต้องเร่งรีบ"
+        }
+      ];
+
+      container.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+          
+          <!-- LEFT COLUMN: Gold-Bordered 16:9 Viewport (Meeting Room Offer) -->
+          <div class="lg:col-span-6 flex flex-col justify-between">
+            <div>
+              <div class="gold-box rounded-lg overflow-hidden bg-[#030a1a] relative aspect-[16/9] w-full flex items-center justify-center shadow-lg">
+                ${SCENE_ARTS.job_offer}
+
+                <div class="absolute top-3 left-3 bg-[#0d1736]/90 border border-[#dfbd69] px-2.5 py-1 rounded text-xs font-bold font-mono text-[#dfbd69]">
+                  ★ OFFICIAL RETURN OFFER
+                </div>
+              </div>
+
+              <!-- Offer Context Badge -->
+              <div class="mt-3 bg-[#0c1633] border border-[#16234d] rounded-lg p-3 font-mono text-xs">
+                <div class="flex items-center justify-between text-slate-300 mb-1">
+                  <span>ผู้ยื่นข้อเสนอ: <strong class="text-white">${comp.name}</strong></span>
+                  <span class="text-[#e5a83b] font-bold">16 WEEKS PASSED</span>
+                </div>
+                <div class="text-[11px] text-slate-400">
+                  Tech Lead และฝ่ายบุคคลลงความเห็นว่าศักยภาพของคุณตรงใจทีมมาก จึงนัดคุยเป็นการส่วนตัว
+                </div>
+              </div>
+            </div>
+
+            <!-- Intern Current Stats Recap -->
+            <div class="mt-3 flex items-center justify-between text-xs text-slate-400 font-mono pt-2 border-t border-[#16234d]">
+              <span>ทักษะ: <strong class="text-cyan-400">${gameState.stats.skill}</strong></span>
+              <span>บารมี: <strong class="text-teal-400">${gameState.stats.karma}</strong></span>
+              <span class="text-[#fbc02d] font-bold">เงินเก็บ: ฿${gameState.stats.money.toLocaleString()}</span>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Dialogue & 4 Career Choices -->
+          <div class="lg:col-span-6 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex items-center gap-2 text-xs font-mono text-[#dfbd69] mb-1">
+                <span>โอกาสทองก้าวสำคัญของชีวิต</span>
+                <span>·</span>
+                <span class="bg-[#16234d] text-slate-200 px-1.5 py-0.2 rounded font-bold">${roleObj.badge}</span>
+              </div>
+
+              <div class="border-l-4 border-emerald-500 bg-[#0c1633] p-3 rounded-r text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+                "น้องครับ 4 เดือนที่ผ่านมาน้องพิสูจน์ให้ทุกคนเห็นแล้วว่าเก่งและเข้ากับทีมได้ดีมาก พี่ๆ ในแผนกคุยกันแล้วว่า ไม่อยากให้น้องไปไหน... สนใจมาร่วมทีมประจำกับเราไหมครับ?"
+              </div>
+
+              <h2 class="text-lg sm:text-xl font-bold text-white mt-2 leading-snug">
+                คุณได้รับคำชวนให้ทำงานต่อ! จะตัดสินใจอย่างไร?
+              </h2>
+            </div>
+
+            <!-- 4 Career Choice Cards -->
+            <div class="space-y-2">
+              ${offerChoices.map((c, idx) => `
+                <button onclick="selectCareerChoice('${c.id}')" class="choice-card-65m w-full text-left p-3 flex items-start gap-3 group">
+                  <span class="w-5 h-5 text-xs font-mono font-bold text-[#dfbd69] shrink-0 mt-0.5">
+                    ${idx + 1}
+                  </span>
+                  <div class="flex-1">
+                    <div class="text-xs sm:text-sm font-semibold text-slate-100 group-hover:text-white transition">
+                      ${c.title}
+                    </div>
+                    <div class="text-[11px] text-slate-300 mt-0.5">
+                      ${c.desc}
+                    </div>
+                    <div class="text-[10px] text-[#38bdf8] mt-1 font-mono">
+                      ${c.hint}
+                    </div>
+                  </div>
+                </button>
+              `).join('')}
+            </div>
+
+            <div class="text-[11px] text-slate-400 font-mono text-center sm:text-left">
+              กดตัวเลข 1, 2, 3 หรือ 4 บนแป้นพิมพ์เพื่อเลือกเส้นทางชีวิต
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
+
+    function selectCareerChoice(choiceId) {
+      playSound('success');
+      gameState.careerChoice = choiceId;
+      gameState.screen = 'ending';
+      render();
+    }
+
     // 3. ENDING SCREEN (Normal Endings + SENT BACK F ENDING)
     function renderEndingScreen(container) {
       const s = gameState.stats;
@@ -1729,6 +1925,39 @@
       let desc = "ผลงานตลอด 16 สัปดาห์ของคุณโดดเด่นจนบอร์ดบริหารและ Tech Lead อนุมัติสัญญาจ้างพนักงานประจำทันที พร้อมเงินเดือนเริ่มต้นระดับท็อปของรุ่น!";
       let toneColor = "text-[#dfbd69]";
       let endingArt = SCENE_ARTS.trophy;
+
+      
+      // Career Choice Epilogue if user chose an offer
+      let careerBanner = "";
+      if (gameState.careerChoice === 'fulltime') {
+        title = "เซ็นสัญญาพนักงานประจำทันที (Junior SE)";
+        badge = "💼 SIGNED FULL-TIME ENGINEER";
+        desc = `คุณตอบตกลงเซ็นสัญญาเป็นพนักงานประจำกับ ${comp.name} ทันทีหลังเรียนจบ! พี่เลี้ยงและเพื่อนร่วมทีมพาไปฉลองตี้หมูกระทะชุดใหญ่ คุณกลายเป็นวิศวกรซอฟต์แวร์เต็มตัว มีรายได้มั่นคงตั้งแต่วันแรกที่รับปริญญา!`;
+        toneColor = "text-[#dfbd69]";
+        endingArt = SCENE_ARTS.job_offer;
+        careerBanner = `<div class="bg-emerald-950/50 border border-emerald-500/50 p-2.5 rounded text-xs text-emerald-300 font-mono">🎉 ชะตากรรม: บรรจุเป็นพนักงานประจำที่ ${comp.name} เรียบร้อยแล้ว!</div>`;
+      } else if (gameState.careerChoice === 'parttime') {
+        title = "ทำงาน Part-Time ควบเรียนปี 4 เทอมสุดท้าย";
+        badge = "🚀 PART-TIME TO HIRE";
+        desc = `คุณเลือกทางสายกลางอันชาญฉลาด! แบ่งเวลาเรียนปี 4 ไปด้วยและเขียนโค้ดให้ ${comp.name} สัปดาห์ละ 20 ชั่วโมง มีเงินเดือนเลี้ยงดูตัวเองและไม่ต้องขอเงินพ่อแม่ เมื่อเรียนจบก็พร้อมบรรจุเป็น Senior เร็วกว่าเพื่อนรุ่นเดียวกัน!`;
+        toneColor = "text-cyan-400";
+        endingArt = SCENE_ARTS.job_offer;
+        careerBanner = `<div class="bg-cyan-950/50 border border-cyan-500/50 p-2.5 rounded text-xs text-cyan-300 font-mono">💻 ชะตากรรม: ทำงาน Remote พาร์ตไทม์ควบเรียนปี 4 รับเงินเดือนสบายๆ</div>`;
+      } else if (gameState.careerChoice === 'bigtech') {
+        title = "ทะยานสู่ Big Tech ระดับโลก";
+        badge = "🌍 GLOBAL TECH HUNTER";
+        desc = `ด้วยความมั่นใจและพอร์ตโฟลิโออันยอดเยี่ยมตลอด 16 สัปดาห์ คุณนำประสบการณ์จริงไปยื่นสอบสัมภาษณ์กับ Tech ยักษ์ใหญ่ระดับนานาชาติ และได้รับการตอบรับเข้าทำงานด้วยเงินเดือนระดับท็อปของประเทศ!`;
+        toneColor = "text-purple-400";
+        endingArt = SCENE_ARTS.trophy;
+        careerBanner = `<div class="bg-purple-950/50 border border-purple-500/50 p-2.5 rounded text-xs text-purple-300 font-mono">🌟 ชะตากรรม: ทะยานสู่ Tech ยักษ์ใหญ่ระดับนานาชาติ</div>`;
+      } else if (gameState.careerChoice === 'rest') {
+        title = "ผู้พิชิตสหกิจศึกษา & พักผ่อนฮีลใจ";
+        badge = "🌿 MINDFUL GRADUATE";
+        desc = `คุณเลือกให้คุณค่ากับชีวิตและสุขภาพ ปิดฉากการฝึกงานด้วยเกรด A เต็ม แล้วกลับไปใช้ชีวิตวัยนักศึกษาเทอมสุดท้าย ทำธีสิส นอนกอดแมว และเดินทางท่องเที่ยวชาร์จพลังจนเต็มเปี่ยม`;
+        toneColor = "text-emerald-400";
+        endingArt = SCENE_ARTS.trophy;
+        careerBanner = `<div class="bg-teal-950/50 border border-teal-500/50 p-2.5 rounded text-xs text-teal-300 font-mono">☕ ชะตากรรม: ปริญญาพร้อม สุขภาพกายใจฟื้นฟูเต็ม 100</div>`;
+      }
 
       // Special check: SENT BACK TO UNIVERSITY (F)
       if (gameState.isSentBack) {
@@ -1836,6 +2065,7 @@
               <div class="border-l-4 border-[#e5a83b] bg-[#0c1633] p-3.5 rounded-r text-xs sm:text-sm text-slate-200 mt-3 leading-relaxed font-medium">
                 ${desc}
               </div>
+              ${careerBanner ? `<div class="mt-2.5">${careerBanner}</div>` : ""}
             </div>
 
             <div class="bg-[#0c1633] border border-[#16234d] p-3 rounded-lg text-xs text-slate-400 italic">
@@ -1974,11 +2204,20 @@
 
     function nextWeek() {
       playSound('click');
-      if (gameState.isSentBack || gameState.week >= TOTAL_WEEKS || gameState.stats.energy <= 0 || gameState.stats.sanity <= 0 || gameState.stats.karma <= 0) {
+      const s = gameState.stats;
+      const isFailed = gameState.isSentBack || s.energy <= 0 || s.sanity <= 0 || s.karma <= 0;
+
+      if (isFailed) {
         gameState.screen = 'ending';
-        if (gameState.isSentBack || gameState.stats.energy <= 0 || gameState.stats.sanity <= 0 || gameState.stats.karma <= 0) {
-          playSound('fail');
+        playSound('fail');
+      } else if (gameState.week >= TOTAL_WEEKS) {
+        // Check if student qualified to be INVITED to work! (โดนชวนให้ทำงานต่อ)
+        if (s.skill >= 45 || s.karma >= 45) {
+          gameState.hasJobOffer = true;
+          gameState.screen = 'job_offer';
+          playSound('success');
         } else {
+          gameState.screen = 'ending';
           playSound('success');
         }
       } else {
@@ -2017,10 +2256,15 @@
     window.addEventListener('keydown', (e) => {
       if (e.key === '1') {
         if (gameState.screen === 'event') makeChoice(0);
+        else if (gameState.screen === 'job_offer') selectCareerChoice('fulltime');
       } else if (e.key === '2') {
         if (gameState.screen === 'event') makeChoice(1);
+        else if (gameState.screen === 'job_offer') selectCareerChoice('parttime');
       } else if (e.key === '3') {
         if (gameState.screen === 'event') makeChoice(2);
+        else if (gameState.screen === 'job_offer') selectCareerChoice('bigtech');
+      } else if (e.key === '4') {
+        if (gameState.screen === 'job_offer') selectCareerChoice('rest');
       } else if (e.key === 'Enter' || e.key === ' ') {
         if (gameState.screen === 'start') {
           startGame();
