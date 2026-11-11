@@ -161,10 +161,7 @@
       </div>
       <div class="flex items-center gap-2">
         
-    <!-- Research References Modal Button in Footer -->
-    <button onclick="toggleResearchModal()" class="hover:text-emerald-400 transition px-2.5 py-1 bg-[#0d1736] border border-emerald-500/40 rounded text-emerald-300 flex items-center gap-1">
-      📚 งานวิจัยอ้างอิง (RMIT 2026 / IEEE)
-    </button>
+
 
         <button onclick="toggleAudio()" id="btnAudioToggle" class="hover:text-slate-200 transition px-2.5 py-1 bg-[#0d1736] border border-[#16234d] rounded text-slate-300">
           ♪ ปิดเพลง
@@ -1000,6 +997,7 @@
       dev: [
         {
           week: 1,
+          sourceRef: "วิจัย RMIT 2026 (Abaei et al.) & Pantip: Gap ระหว่างหลักสูตรทฤษฎี กับ Stack งานจริง (React/Microservices/Docker)",
           title: "อุปสรรค Day 1: 'สิ่งที่เรียนมา กับหน้างานจริงไม่ตรงกันเลย!'",
           intro: "ในมหาลัยเคยเขียนแต่โค้ดพื้นฐาน แต่พอเปิดโปรเจกต์บริษัทกลับเจอ Microservices, Docker, Kubernetes, Next.js และ TypeScript ซ้อนกัน 20 ชั้น นั่งมองโค้ดตาค้าง อ่านไม่ออกสักบรรทัด!",
           pArt: "code",
@@ -1029,6 +1027,7 @@
         },
         {
           week: 2,
+          sourceRef: "วิจัย RMIT 2026 (Abaei et al.): อุปสรรคการติดตั้งระบบ & ติดสิทธิ์ Firewall ของลูกค้า (Challenge 1, x48 รายงาน)",
           title: "อุปสรรคสัปดาห์ที่ 2: 'พี่เลี้ยงงานยุ่งมากจนแทบไม่มีเวลาสอน'",
           intro: "พี่เลี้ยงติดไฟไหม้ Release งานใหญ่ ประชุมทั้งวัน แทบไม่ได้หันมามองโต๊ะคุณ คุณติดปัญหาคอมไพล์โค้ดไม่ผ่าน นั่งเคว้งมาตั้งแต่เก้าโมงเช้า...",
           pArt: "bug",
@@ -1058,6 +1057,7 @@
         },
         {
           week: 3,
+          sourceRef: "วิจัย ACM TOCE & กระทู้ Pantip: ภาวะเคว้ง ไม่มีงานให้ทำ นั่งจ้องหน้าจอ 8 ชั่วโมง (Idle Novice Syndrome)",
           title: "อุปสรรคสัปดาห์ที่ 3: 'ภาวะเคว้ง ไม่มีงานให้ทำ นั่งจ้องหน้าจอ 8 ชั่วโมง'",
           intro: "Sprint แรกจบลง งานใหม่ยังไม่มา พี่เลี้ยงบอกว่า 'นั่งศึกษาไปก่อนนะ' คุณนั่งมองนาฬิกาเดินไปทีละวินาที รู้สึกเคว้งคว้างและกลัวโดนมองว่าอู้...",
           pArt: "circle",
@@ -1087,6 +1087,7 @@
         },
         {
           week: 4,
+          sourceRef: "ทฤษฎี Harvard (A. Edmondson) & Pantip: กิจกรรมหมูกระทะสร้าง Social Bonding & Psychological Safety นอกเวลางาน",
           title: "ศุกร์หรรษา: สิ้นเดือนแรก ตี้หมูกระทะบุฟเฟต์ 199.- ฮีลใจทั้งทีม",
           intro: "ผ่านเดือนแรกไปแล้ว พี่ๆ ในแผนกตะโกน: 'ศุกร์นี้ใครไม่ไปหมูกระทะถือว่าทรยศ!' กลิ่นสามชั้นย่างกับน้ำจิ้มมะนาวลอยมา",
           pArt: "moo_kratha",
@@ -1116,6 +1117,7 @@
         },
         {
           week: 5,
+          sourceRef: "สถิติคมนาคม กทม. & Pantip: ปัญหาน้ำท่วมสุขุมวิท/สาทร, รถไฟฟ้า BTS ขัดข้อง และระเบียบ HR การมาสาย",
           title: "อุปสรรคสัปดาห์ที่ 5: 'ฝนตกหนัก น้ำท่วมกรุงเทพฯ & BTS เสีย มาสายโดนเพ่งเล็ง'",
           intro: "เช้าวันจันทร์ฝนเทกระหน่ำน้ำท่วมเสมอตาตุ่ม รถไฟฟ้า BTS ขัดข้องหยุดวิ่งกลางสะพานตากสิน คุณติดอยู่บนรถร่วม 2 ชั่วโมง เข้าออฟฟิศสายไป 45 นาที...",
           pArt: "commute_rain",
@@ -1145,6 +1147,7 @@
         },
         {
           week: 6,
+          sourceRef: "วิจัย JOTSE 2017 (Patacsil & Tablatin): ทักษะ Dealing with Difficult Personalities รับมือคนอารมณ์ร้อน (p=0.04)",
           title: "อุปสรรคสัปดาห์ที่ 6: 'รับมือกับคนอารมณ์ร้อน & Dealing with Difficult Personalities' (วิจัย JOTSE)",
           intro: "งานวิจัย Patacsil & Tablatin (2017) พบว่าทักษะที่เด็กฝึกงานต้องเผชิญหน้าและรับมือยากที่สุดคือ 'Dealing with Difficult Personalities' (p=0.04)! วันนี้หัวหน้าแผนกอื่นเดินมาเหวี่ยงใส่อารมณ์เรื่องระบบช้า พร้อมทุบโต๊ะต่อหน้าคนทั้งทีม...",
           pArt: "difficult_person",
@@ -1174,6 +1177,7 @@
         },
         {
           week: 7,
+          sourceRef: "วิจัย RMIT 2026 (Abaei et al.): พนักงานหลักลาพักร้อนยาว (Long-service leave) ทิ้งระบบให้เด็กฝึกงานเฝ้าเดี่ยว",
           title: "อุปสรรคสัปดาห์ที่ 7: 'พี่ในทีมลาพักร้อนยาว 1 เดือน ทิ้งระบบให้เด็กฝึกงานเฝ้าคนเดียว!' (วิจัย RMIT 2026)",
           intro: "เหมือนเคสในรายงานวิจัย Abaei et al. (2026): พนักงานประจำที่ดูแลโมดูลลาพักร้อนยาว 1 เดือนเต็ม ทิ้งให้เด็กฝึกงานต้องรับมือกับคำร้องและ Support ลูกค้าคนเดียวทั้งหมด!",
           pArt: "code",
@@ -1203,6 +1207,7 @@
         },
         {
           week: 8,
+          sourceRef: "วิจัย ACM CHI & ข้อบังคับสหกิจวิศวะฯ: การลบ Log ปิดบังความผิดพลาดร้ายแรง ส่งผลพ้นสภาพและติด F ทันที",
           title: "วิกฤต Database: ลืมใส่เงื่อนไข WHERE ในคำสั่ง DELETE!",
           intro: "มือไวลั่นคำสั่ง DELETE FROM users; บนเซิร์ฟเวอร์ฐานข้อมูล Staging! ข้อมูลหายวับไปทั้งตาราง หัวใจร่วงไปตาตุ่ม",
           pArt: "terminal",
@@ -1232,6 +1237,7 @@
         },
         {
           week: 9,
+          sourceRef: "วิจัย TCI สหกิจศึกษาไทย & Pantip: วิกฤตค่าครองชีพ ค่าหอพักกรุงเทพฯ และการประหยัดด้วยมาม่าใน Pantry",
           title: "อุปสรรคสัปดาห์ที่ 9: 'เบี้ยเลี้ยงหมดก่อนสิ้นเดือน ต้องแอบต้มมาม่าใน Pantry'",
           intro: "หลังโดนหักค่าเช่าหอพักและค่าน้ำไฟ เงินในบัญชีเหลือไม่ถึง 400 บาท คุณต้องกินบะหมี่ถ้วยสำเร็จรูปประทังชีวิต นั่งซดน้ำซุปร้อนๆ ในห้อง Pantry ออฟฟิศอย่างโดดเดี่ยว...",
           pArt: "pantry_cry",
@@ -1261,6 +1267,7 @@
         },
         {
           week: 10,
+          sourceRef: "วิจัย RMIT 2026 (Abaei et al.): กำแพงการสื่อสารข้ามโซนเวลา Offshore (-9 hours delay) ทำงานข้ามทวีป",
           title: "อุปสรรคสัปดาห์ที่ 10: 'ทำงานร่วมกับทีม Offshore ข้ามทวีป Timezone ต่างกัน 9 ชั่วโมง!' (วิจัย RMIT 2026)",
           intro: "วิจัย RMIT 2026 ระบุว่าเด็กฝึกงานมักเจอกำแพงการสื่อสารข้ามโซนเวลา (-9 hours delay) ถามคำถามตอนบ่ายแต่ต้องรอเขาตอบตอนตีสอง หรือต้องตื่นมาเข้า Global Sync Meeting กลางดึก!",
           pArt: "timezone_call",
@@ -1290,6 +1297,7 @@
         },
         {
           week: 11,
+          sourceRef: "วิจัย IEEE TSE (Bacchelli & Beller) & Pantip: ความเครียดและ Emotional Toll จากการโดนสับเละใน Code Review",
           title: "อุปสรรคสัปดาห์ที่ 11: 'โดนสับเละกลาง Code Review น้ำตาซึมในห้องน้ำ'",
           intro: "Senior ระดับโหดสับโค้ดของคุณแบบไม่ไว้หน้าใน Pull Request 45 จุด บอกว่า 'โค้ดแบบนี้เด็ก ม.ปลาย ยังเขียนดีกว่า' คุณเดินเข้าห้องน้ำออฟฟิศแล้วน้ำตาไหลออกมาเอง...",
           pArt: "pantry_cry",
@@ -1319,6 +1327,7 @@
         },
         {
           week: 12,
+          sourceRef: "วิจัย IEEE Software: ความกดดันและการจัดการขอบเขตเมื่อผู้บริหารต้องการฟีเจอร์ AI ด่วนใน 48 ชั่วโมง",
           title: "บอสอยากได้ฟีเจอร์ AI ตอบแชต ภายใน 48 ชั่วโมง!",
           intro: "ผู้บริหารเพิ่งกลับมาจากงานสัมมนา แล้วอยากให้แอปมีระบบ Gen-AI ตอบลูกค้าทันสัปดาห์นี้เพื่อใช้อวดบอร์ด",
           pArt: "demo",
@@ -1348,6 +1357,7 @@
         },
         {
           week: 13,
+          sourceRef: "วิจัย ACM SIGSOFT: การรับมือวิกฤต Production Bug และ Blame Culture ในทีมวิศวกรรมซอฟต์แวร์",
           title: "บั๊กหลุดขึ้น Production: ลูกค้ากดโอนเงินแล้วยอดเบิ้ล 2 เท่า!",
           intro: "วันจันทร์เช้า ฝ่าย Customer Support โทรมาแจ้งด้วยเสียงสั่นเครือ: 'มีเคสเงินเข้าเบิ้ล 14 บัญชีค่ะ!'",
           pArt: "bug",
@@ -1377,6 +1387,7 @@
         },
         {
           week: 14,
+          sourceRef: "วิจัย IEEE/ACM ICSE 2024 (Guenes et al.): Impostor Phenomenon ในวิศวกรซอฟต์แวร์ (ตรวจพบ 52.7% ถึง 70%)",
           title: "อุปสรรคสัปดาห์ที่ 14: 'ภาวะ Imposter Syndrome หรือเราไม่เหมาะกับสายนี้จริงๆ'",
           intro: "เห็นเพื่อนร่วมทีมเขียนโค้ดได้อย่างรวดเร็วและคุยศัพท์เทคนิคลึกๆ คล่องแคล่ว คุณเริ่มตั้งคำถามกับตัวเองในกระจกว่า 'เราเก่งพอจริงๆ ไหม หรือเราแค่ฟลุ๊กที่ผ่านเข้ามาได้?'",
           pArt: "circle",
@@ -1406,6 +1417,7 @@
         },
         {
           week: 15,
+          sourceRef: "วิจัย JOTSE 2017 & RMIT 2026: ความสำคัญของ Presentation Skills ต่อหน้าบอร์ดบริหารและอาจารย์นิเทศก์",
           title: "Final Sprint Demo: พรีเซนต์ผลงานต่อหน้าผู้บริหารและอาจารย์นิเทศ",
           intro: "สัปดาห์รองสุดท้าย อาจารย์ที่ปรึกษาจากมหาวิทยาลัยมาเยือนออฟฟิศ เพื่อร่วมฟังการนำเสนอโปรเจกต์ตลอด 4 เดือน",
           pArt: "demo",
@@ -1435,6 +1447,7 @@
         },
         {
           week: 16,
+          sourceRef: "วิจัย NACE & RMIT 2026: สถิติการได้รับ Return Offer (55-68%) และเส้นทางการเปลี่ยนผ่านสู่พนักงานประจำจริง",
           title: "วันตัดสินอนาคต: รับฟังผลการประเมินสหกิจศึกษา & สัญญา Return Offer",
           intro: "สัปดาห์สุดท้ายในฐานะเด็กฝึกงาน เข้าห้องกระจกประชุมเพื่อรับฟังคะแนนเกรดและข้อเสนอจากทางบริษัท",
           pArt: "trophy",
@@ -1511,6 +1524,7 @@
           title: `สัปดาห์ที่ ${i + 1}: ${ev.title.replace('โค้ด', 'สเปกและ User Story').replace('Docker', 'Miro & Flowchart').replace('Database', 'Requirement')}`,
           intro: `ในฐานะ BA คุณต้องประสานงานระหว่างลูกค้ากับทีมพัฒนา: ${ev.intro}`,
           pArt: ev.pArt === 'code' ? 'circle' : ev.pArt,
+          sourceRef: ev.sourceRef,
           choices: ev.choices.map(c => ({
             ...c,
             text: c.text.replace('โค้ด', 'เอกสาร Requirement').replace('Docker', 'Flowchart').replace('PR', 'Story'),
@@ -1558,6 +1572,7 @@
           title: `สัปดาห์ที่ ${i + 1}: ${ev.title.replace('เขียนโค้ด', 'เขียน Test Case & Automation').replace('Jira Ticket', 'Bug Report').replace('Clone Repo', 'รัน Regression Test')}`,
           intro: `ในฐานะ QA Tester คุณคือด่านสุดท้ายของความปลอดภัย: ${ev.intro}`,
           pArt: ev.pArt === 'code' ? 'bug' : ev.pArt,
+          sourceRef: ev.sourceRef,
           choices: ev.choices.map(c => ({
             ...c,
             text: c.text.replace('เขียนโค้ด', 'เขียน Automated Test').replace('Deploy', 'Sign-off คุณภาพ'),
@@ -1605,6 +1620,7 @@
           title: `สัปดาห์ที่ ${i + 1}: ${ev.title.replace('เขียนโค้ด', 'ปั้น Figma & Prototype').replace('Jira Ticket', 'User Journey').replace('Docker', 'Design System')}`,
           intro: `ในฐานะ UX/UI Designer คุณต้องสร้างประสบการณ์ที่สวยงามและใช้งานได้จริง: ${ev.intro}`,
           pArt: ev.pArt === 'code' ? 'circle' : ev.pArt,
+          sourceRef: ev.sourceRef,
           choices: ev.choices.map(c => ({
             ...c,
             text: c.text.replace('เขียนโค้ด', 'ออกแบบ Mockup').replace('Deploy', 'ส่งมอบ Hand-off ให้ Dev'),
@@ -1886,10 +1902,18 @@
                 ${ev.intro}
               </div>
 
+
               <!-- Question Title -->
               <h2 class="text-lg sm:text-xl font-bold text-white mt-2.5 leading-snug">
                 ${ev.title}
               </h2>
+
+              <!-- In-Game Research & Empirical Citation Badge -->
+              <div class="mt-2 bg-[#080f24] border border-[#dfbd69]/40 px-2.5 py-1.5 rounded text-[11px] text-[#dfbd69] font-mono flex items-start gap-1.5 shadow-inner">
+                <span class="shrink-0 mt-0.5">📚 ที่มา:</span>
+                <span class="text-slate-300 leading-tight">${ev.sourceRef || 'วิจัยสหกิจศึกษาวิศวกรรมซอฟต์แวร์ & ประสบการณ์จริง Pantip'}</span>
+              </div>
+
             </div>
 
             <!-- Choice Cards vs Feedback State -->
