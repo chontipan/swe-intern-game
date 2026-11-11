@@ -1008,8 +1008,8 @@
       devops: [
         {
                 "week": 1,
-                "sourceRef": "Cito et al. (IEEE Software 2017) & ACM Research: Environment Drift และความสูญเปล่าในการ Onboard วิศวกรใหม่",
-                "title": "Day 1 Onboarding: 'เครื่องคนอื่นรันได้หมด แต่เครื่องเราพังพินาศ!'",
+                "sourceRef": "Cito et al. (IEEE Software 2017) & ACM Research",
+                "title": "Day 1: 'เครื่องคนอื่นรันได้หมด แต่เครื่องเราพังพินาศ'",
                 "intro": "คุณเริ่มงานวันแรก ได้รับสิทธิ์เข้า Git Repo ของบริษัท พอสั่งรัน build บนเครื่องตัวเอง Terminal กลับพ่น Error สีแดงเถือก 80 บรรทัด! ทักไปถามพี่ Dev รุ่นพี่ พี่ตอบกลับมาสั้นๆ ว่า: 'อ้าว เครื่องพี่รันผ่านฉลุยเลยนะน้อง...'",
                 "pArt": "terminal",
                 "choices": [
@@ -1049,12 +1049,13 @@
                                 "hint": "เสี่ยงสูง · อาจระเบิดตอนขึ้น Production",
                                 "feedback": "ผ่านไปได้แบบเฉียดฉิว แต่เริ่มมีสัญญาณอันตรายว่าโค้ดชุดนี้จะไปตีกับเซิร์ฟเวอร์ในอนาคต"
                         }
-                ]
+                ],
+                "researchDetail": "ปัญหา Environment Drift และความสูญเปล่าในการ Onboard วิศวกรใหม่ การใช้ Container/Dev Containers ลดเวลาสูญเปล่าลง >70%"
         },
         {
                 "week": 2,
-                "sourceRef": "DORA Research (*Accelerate* โดย Dr. Nicole Forsgren & Jez Humble, 2018): Trunk-Based Development vs Long-Lived Branches",
-                "title": "Sprint แรก: 'Feature Branch ดองมา 3 สัปดาห์ Merge Hell ชนกัน 350 ไฟล์!'",
+                "sourceRef": "DORA Research (Accelerate โดย Forsgren & Humble, 2018)",
+                "title": "Merge Hell: 'Feature Branch ดองมา 3 สัปดาห์ ชนกัน 350 ไฟล์'",
                 "intro": "มีฟีเจอร์ใหญ่ที่ทีม Dev แตก Branch ออกไปเกือบเดือน พอถึงเวลาจะรวมโค้ดเข้า branch 'main' ปรากฏว่าเกิด Conflict ชนกัน 350 ไฟล์! ฝ่าย Dev บอกให้คุณที่เป็น DevOps ช่วยแก้ Conflict ให้หน่อยเพราะจะรีบปล่อยงาน!",
                 "pArt": "terminal",
                 "choices": [
@@ -1094,12 +1095,13 @@
                                 "hint": "หายนะ · โค้ดฟีเจอร์อื่นหาย ระบบระส่ำระสาย",
                                 "feedback": "เกิดมวยถูกคู่ใน Slack! โค้ดของทีมอื่นที่เพิ่งขึ้นไปโดนลบทับ Tech Lead เรียกคุณเข้าห้องคุยด่วน!"
                         }
-                ]
+                ],
+                "researchDetail": "Trunk-Based Development ร่วมกับ Feature Flags ลด Lead Time ลง 106 เท่า และลด Conflict ร้ายแรง"
         },
         {
                 "week": 3,
-                "sourceRef": "ACM FSE / IEEE TSE (Luo et al., 2014 & Beller et al.): An Empirical Analysis of Flaky Tests in CI",
-                "title": "CI/CD ในฝัน: 'Pipeline อืดเป็นเต่า 55 นาที แถมมี Flaky Test ตกๆ ผ่านๆ'",
+                "sourceRef": "ACM FSE / IEEE TSE (Luo et al., 2014 & Beller et al.)",
+                "title": "CI/CD ในฝัน: 'Pipeline อืด 55 นาที แถมมี Flaky Test'",
                 "intro": "ทุกครั้งที่ Dev กด Push โค้ด Pipeline ต้องรันนาน 55 นาทีเพราะดาวน์โหลด Docker ทุกรอบ และมี End-to-End Test 4 ตัวที่สุ่มตก 30% ทำให้ Dev ชอบกดยกเลิกแล้วกด Rerun ซ้ำๆ จนคิว Runner ล้น!",
                 "pArt": "terminal",
                 "choices": [
@@ -1139,12 +1141,13 @@
                                 "hint": "ไวสุดขีด 2 นาทีเสร็จ · แต่ปล่อยบั๊กหลุดไปรอระเบิดบน Production",
                                 "feedback": "Pipeline เร็วสะใจ แต่บั๊กร้ายแรงเริ่มหลุดรอดไปหาลูกค้าฝ่ายทดสอบเริ่มส่งเสียงเตือน"
                         }
-                ]
+                ],
+                "researchDetail": "Flaky Test ทำลายความเชื่อมั่นใน CI/CD การกักกัน Test ที่ไม่เสถียรและการทำ Cache ช่วยกู้ความคล่องตัวคืนมา"
         },
         {
                 "week": 4,
-                "sourceRef": "State of DevOps Report & Honeycomb Observability (2022): Friday Deployment Failure Rate and On-Call Fatigue",
-                "title": "ศุกร์หรรษา 16:30 น.: 'PO ขอ Deploy ฟีเจอร์ใหญ่ขึ้น Production ด่วน!'",
+                "sourceRef": "State of DevOps Report & Honeycomb Observability (2022)",
+                "title": "ศุกร์หรรษา 16:30 น.: 'PO ขอ Deploy ฟีเจอร์ใหญ่ขึ้น Production ด่วน'",
                 "intro": "บ่ายวันศุกร์เวลา 16:30 น. Product Owner เดินมาด้วยสีหน้ากระตือรือร้น: 'ลูกค้าคนสำคัญขอฟีเจอร์นี้ก่อนเสาร์อาทิตย์ ขอปล่อยขึ้น Production ตอนนี้เลยได้ไหม แค่แก้โค้ดนิดเดียวเอง!'",
                 "pArt": "war_room",
                 "choices": [
@@ -1184,12 +1187,13 @@
                                 "hint": "หายนะวันหยุดสุดสัปดาห์ · เตรียมตัวรับโทรศัพท์ตอน 2 ทุ่ม",
                                 "feedback": "กินชาบูได้ 3 คำ โทรศัพท์ดังสนั่น! Production พังพินาศ ลูกค้าเข้าไม่ได้ ต้องนั่งแก้โค้ดหน้าร้านชาบู!"
                         }
-                ]
+                ],
+                "researchDetail": "การ Deploy วันศุกร์บ่ายมี Failure Rate สูงกว่าปกติ 3 เท่าจากปัญหา On-Call Fatigue และขาดทีมสนับสนุน"
         },
         {
                 "week": 5,
-                "sourceRef": "Google SRE Book (Beyer et al., 2016) - Incident Management & On-Call Fatigue: Human Factors in Production Outages",
-                "title": "เสาร์ 02:34 น.: 'PagerDuty กรีดร้อง Database Connection Pool เต็ม ระบบล่ม!'",
+                "sourceRef": "Google SRE Book (Beyer et al., 2016) - Incident & Fatigue",
+                "title": "เสาร์ 02:34 น.: 'PagerDuty กรีดร้อง DB Connection เต็ม 100%'",
                 "intro": "นาฬิกาบอกเวลา 02:34 น. โทรศัพท์ใต้หมอนสั่นกระหน่ำพร้อมเสียงไซเรน PagerDuty Database Connection เต็ม 100% ระบบรับทราฟฟิกไม่ได้ หน้าเว็บหมุนติ้ว ลูกค้าเริ่มโพสต์ด่าใน Twitter!",
                 "pArt": "server_alert",
                 "choices": [
@@ -1229,11 +1233,12 @@
                                 "hint": "ความรับผิดชอบเป็นศูนย์ · เช้าวันรุ่งขึ้นผู้บริหารรอเชือด",
                                 "feedback": "เช้าวันอาทิตย์: ผู้บริหารและทีมผู้ถือหุ้นส่งข้อความด่วน ระบบล่มยาว 5 ชั่วโมงเต็ม ขาดทุนย่อยยับ!"
                         }
-                ]
+                ],
+                "researchDetail": "การอดนอนลดความสามารถในการ Debug ลง 60% กฎ Toil Cap 50% ช่วยป้องกันข้อผิดพลาดร้ายแรง"
         },
         {
                 "week": 6,
-                "sourceRef": "John Allspaw (Etsy, ACM Queue 2012) & Dr. Richard Cook (*How Complex Systems Fail*): Blameless Post-Mortems",
+                "sourceRef": "John Allspaw (Etsy, ACM Queue 2012) & Dr. Richard Cook",
                 "title": "เช้าวันจันทร์: 'War Room ล่าแม่มด vs Blameless Post-Mortem'",
                 "intro": "เช้าวันจันทร์ ผู้บริหารระดับสูงเรียกประชุมด่วน มีผู้จัดการบางคนเริ่มชี้นิ้ว: 'ใครเป็นคนเขียนโค้ดบรรทัดนี้ขึ้นไปเมื่อวันศุกร์ ใครเป็นคน Approve PR?!'",
                 "pArt": "war_room",
@@ -1274,12 +1279,13 @@
                                 "hint": "ระบบเสถียรขึ้นนิดหน่อย แต่ความเร็ว (Velocity) กลายเป็นเต่าคลาน",
                                 "feedback": "ยินดีด้วย! องค์กรของคุณย้อนเวลากลับไปสู่ยุค 1995 การแก้ตัวสะกด 1 คำต้องใช้เวลาขออนุมัติ 2 สัปดาห์เต็ม"
                         }
-                ]
+                ],
+                "researchDetail": "Complex Systems พังจากหลายปัจจัยประกอบกัน การลงโทษรายบุคคล (Blame culture) ทำให้คนปกปิดและ MTTR พุ่ง"
         },
         {
                 "week": 7,
-                "sourceRef": "CNCF Annual Survey & ThoughtWorks Tech Radar: Resume-Driven Development and Kubernetes Operational Complexity",
-                "title": "กระแสเทคโนโลยี: 'CTO สั่งย้ายทุกอย่างไป Kubernetes & Microservices!'",
+                "sourceRef": "CNCF Annual Survey & ThoughtWorks Tech Radar",
+                "title": "กระแสเทคโนโลยี: 'CTO สั่งย้ายทุกอย่างไป Kubernetes & Microservices'",
                 "intro": "CTO เพิ่งกลับมาจากงานสัมมนาเทคโนโลยีใหญ่ แล้วเดินมาประกาศในออฟฟิศ: 'เพื่อความทันสมัยระดับโลก เราจะแปลงระบบ Monolith เดิมไปเป็น 45 Microservices รันบน Kubernetes ภายใน 30 วัน!' ทั้งที่ระบบเดิมมีผู้ใช้งานหลักพันคน",
                 "pArt": "terminal",
                 "choices": [
@@ -1319,11 +1325,12 @@
                                 "hint": "วิธีแก้สไตล์คนขี้เกียจแต่ได้ผล · ทุกคนสบายใจ",
                                 "feedback": "ตลกร้ายแต่เวิร์ก! ทุกคนคิดว่าบริษัทก้าวสู่ยุค Cloud-Native แล้ว ทั้งที่ข้างในยังเป็นโค้ดเดิมเป๊ะ"
                         }
-                ]
+                ],
+                "researchDetail": "กับดัก Resume-Driven Development ในทีมขนาดเล็ก การเลือกใช้ Modular Monolith มักให้ ROI คุ้มค่ากว่า"
         },
         {
                 "week": 8,
-                "sourceRef": "FinOps Foundation & Flexera State of the Cloud Report: 28-32% Cloud Waste จาก Over-provisioning และ Orphaned Disks",
+                "sourceRef": "FinOps Foundation & Flexera State of the Cloud Report",
                 "title": "บิลคลาวด์สิ้นเดือน: 'ค่า AWS ทะลุ 750,000 บาท! CFO เรียกเข้าห้องเย็น'",
                 "intro": "CFO เดินถือเอกสารใบเสร็จเข้ามาในห้องด้วยหน้าซีดเผือด: 'ทำไมค่า AWS เดือนนี้พุ่งขึ้น 300% จากสองแสนเป็นเจ็ดแสนห้า?!' พอไปเปิดดูพบว่ามี Dev เปิด GPU Instance ขนาดใหญ่ทิ้งไว้ทดสอบข้ามสัปดาห์ แถมมีดิสก์ร้างอีกเกือบร้อยก้อน!",
                 "pArt": "cloud_finops",
@@ -1364,12 +1371,13 @@
                                 "hint": "ลดงบสำเร็จ แต่ระบบกระตุกจนผู้ใช้ก่นด่า",
                                 "feedback": "ประหยัดเงินได้จริง แต่ระบบช้าจนหน้าเว็บ Checkout พัง ลูกค้าทิ้งตะกร้าสินค้า ขาดทุนหนักกว่าเดิม!"
                         }
-                ]
+                ],
+                "researchDetail": "องค์กรมี Cloud Waste เฉลี่ย 28–32% จาก Unattached Storage และ Idle Instances การทำ FinOps ประหยัดได้ทันที 20–30%"
         },
         {
                 "week": 9,
-                "sourceRef": "NIST National Vulnerability Database & Ponemon Institute (Cost of a Data Breach Report): Shift-Left DevSecOps",
-                "title": "วิกฤตความปลอดภัย: 'ช่องโหว่ Zero-Day ระดับโลก (แบบ Log4Shell) กระทบทั้งระบบ!'",
+                "sourceRef": "NIST Vulnerability Database & Ponemon Institute",
+                "title": "วิกฤตความปลอดภัย: 'ช่องโหว่ Zero-Day ระดับโลก (แบบ Log4Shell)'",
                 "intro": "ข่าวเด่นประเด็นร้อนระดับโลก! พบช่องโหว่ Remote Code Execution (RCE) ความรุนแรง 10.0 ใน Library ที่บริษัทใช้ เซิร์ฟเวอร์บริษัทกำลังโดนบอทจากต่างประเทศสแกนและยิงเจาะระบบไม่หยุด!",
                 "pArt": "server_alert",
                 "choices": [
@@ -1409,12 +1417,13 @@
                                 "hint": "เปิดประตูบ้านทิ้งไว้ให้โจรปล้น · หายนะด้านความปลอดภัย",
                                 "feedback": "คืนนั้นเซิร์ฟเวอร์โดนฝังมัลแวร์ขุดบิตคอยน์ ข้อมูลลูกค้ารั่วไหล กลายเป็นข่าวใหญ่หน้าหนึ่งในหนังสือพิมพ์!"
                         }
-                ]
+                ],
+                "researchDetail": "Dwell Time ที่ช้ากว่า 30 วันสร้างความเสียหายระดับหลายล้านดอลลาร์ การมี SBOM ช่วย Hotfix ได้ในหลักชั่วโมง"
         },
         {
                 "week": 10,
-                "sourceRef": "ACM Symposium on Cloud Computing (SoCC): Container Cold Start and Predictive vs Reactive Auto-scaling",
-                "title": "มหกรรมช้อปปิ้ง 11.11 เที่ยงคืน: 'Traffic พุ่ง 80 เท่า Auto-scaling ทำงานทันไหม?!'",
+                "sourceRef": "ACM Symposium on Cloud Computing (SoCC)",
+                "title": "มหกรรม 11.11 เที่ยงคืน: 'Traffic พุ่ง 80 เท่า Auto-scaling พังหรือพุ่ง?'",
                 "intro": "คืนวันแคมเปญ 11.11 นาฬิกาบอกเวลา 23:55 น. ผู้ใช้กว่า 300,000 คนกำลังจ้องหน้าจอรอแย่งโค้ดส่วนลด 90% ตอนเที่ยงคืนตรง ทราฟฟิกจะพุ่งสูงกว่าปกติ 80 เท่าในเสี้ยววินาที!",
                 "pArt": "terminal",
                 "choices": [
@@ -1454,12 +1463,13 @@
                                 "hint": "ระบบไม่ล่มจริง แต่ยอดขายหายไป 90% ฝ่ายการตลาดร้องไห้",
                                 "feedback": "เซิร์ฟเวอร์รอดปลอดภัย แต่ฝ่ายการตลาดเดินมากรี๊ดใส่หน้าห้องเพราะยอดขายหายไปเกือบทั้งหมด!"
                         }
-                ]
+                ],
+                "researchDetail": "Reactive Auto-scaling (HPA) ตอบสนองไม่ทัน Flash Spikes จาก Container Cold Start ต้องใช้ Pre-warming"
         },
         {
                 "week": 11,
-                "sourceRef": "CNCF GitOps Principles & Open Policy Agent (OPA): Configuration Drift and Infrastructure as Code (IaC)",
-                "title": "มือที่มองไม่เห็น: 'ใครแอบไปกดแก้คอนฟิกใน AWS Console โดยไม่ผ่าน Git!'",
+                "sourceRef": "CNCF GitOps Principles & Open Policy Agent (OPA)",
+                "title": "มือที่มองไม่เห็น: 'ใครแอบไปแก้คอนฟิกใน AWS Console โดยไม่ผ่าน Git'",
                 "intro": "เช้าวันพุธ ระบบ Deploy พังอย่างลึกลับ พอไปสืบดูพบว่าเมื่อคืนมีใครบางคนแอบล็อกอินเข้าไปใน AWS Web Console แล้วกดเปลี่ยน Security Group และ Environment Variable ตรงๆ โดยไม่บอกใคร!",
                 "pArt": "terminal",
                 "choices": [
@@ -1499,11 +1509,12 @@
                                 "hint": "หายนะระยะยาว · ไม่มีใครรู้ State ที่แท้จริงของระบบ",
                                 "feedback": "ระบบกลายเป็นกล่องดำปริศนา พอเซิร์ฟเวอร์ล่มแล้วต้องสร้างใหม่ ไม่มีใครสามารถประกอบระบบคืนชีพได้อีก"
                         }
-                ]
+                ],
+                "researchDetail": "Configuration Drift คือต้นตอของ 40% ของปัญหา Audit failure ต้องยึด Git เป็น Single Source of Truth"
         },
         {
                 "week": 12,
-                "sourceRef": "USENIX SREcon & Google SRE Principles: Signal-to-Noise Ratio and Actionable Alerting",
+                "sourceRef": "USENIX SREcon & Google SRE Principles",
                 "title": "แจ้งเตือนหลอนประสาท: 'วันละ 2,500 ข้อความใน Slack จนทุกคน Mute ทิ้ง'",
                 "intro": "ช่อง `#devops-alerts` มีข้อความเด้งทุก 40 วินาที 'Disk 72%', 'Pod restarted once', 'Memory spike 10%' แจ้งเตือนมั่วไปหมดจนทุกคนในบริษัทกด Mute ช่องนั้นทิ้ง พอเกิดเหตุด่วนจริงๆ จึงไม่มีใครเห็น!",
                 "pArt": "server_alert",
@@ -1544,12 +1555,13 @@
                                 "hint": "หูหนวกตาบอดโดยสมัครใจ · รู้ตัวอีกทีตอนระบบพังไปแล้ว 4 ชั่วโมง",
                                 "feedback": "ความสงบสุขจอมปลอม! ระบบล่มไปตอนเที่ยง รู้ตัวอีกทีตอนที่ CEO โดนลูกค้าโทรมาต่อว่าโดยตรง"
                         }
-                ]
+                ],
+                "researchDetail": "Alert Fatigue ทำลายระบบเตือนภัย ต้องแจ้งเฉพาะ User-Impacting Symptoms ที่ Actionable เท่านั้น"
         },
         {
                 "week": 13,
-                "sourceRef": "Netflix Chaos Engineering Paper (IEEE Software - Basiri et al., 2016): Proactive Resilience Testing",
-                "title": "ทดสอบความแข็งแกร่ง: 'Chaos Engineering สุ่มยิงเซิร์ฟเวอร์ดับบน Production!'",
+                "sourceRef": "Netflix Chaos Engineering (IEEE Software - Basiri et al., 2016)",
+                "title": "ทดสอบความแข็งแกร่ง: 'Chaos Engineering สุ่มยิงเซิร์ฟเวอร์ดับบน Prod'",
                 "intro": "คุณเสนอนโยบายนำ Chaos Engineering มาใช้ สุ่มปิด Pod และตัด Network บน Production เพื่อทดสอบระบบ Failover และ Circuit Breaker ผู้บริหารและ Dev บางคนมองหน้าคุณเหมือนคุณเป็นบ้า!",
                 "pArt": "war_room",
                 "choices": [
@@ -1589,12 +1601,13 @@
                                 "hint": "อยู่ไปวันๆ แต่ไม่รู้เลยว่ามีระเบิดเวลาซ่อนอยู่ตรงไหนบ้าง",
                                 "feedback": "ปลอดภัยในระยะสั้น แต่ระบบยังคงเปราะบาง ไม่รู้เลยว่าถ้าวันหนึ่ง Cloud Provider เกิดปัญหาขึ้นมาจะรอดหรือไม่"
                         }
-                ]
+                ],
+                "researchDetail": "การจำลองความล้มเหลวแบบควบคุม (Controlled Blast Radius) เป็นวิธีเดียวที่พิสูจน์ได้ว่าระบบ HA ทำงานจริง"
         },
         {
                 "week": 14,
-                "sourceRef": "*Team Topologies* (Skelton & Pais, 2019) & Sweller's Cognitive Load Theory: Platform Engineering & Internal Developer Platform",
-                "title": "เสียงบ่นจากเพื่อนร่วมงาน: 'Dev บ่นอุบ Tooling ซับซ้อน ขี้เกียจเขียน YAML 600 บรรทัด!'",
+                "sourceRef": "Team Topologies (Skelton & Pais, 2019) & Cognitive Load Theory",
+                "title": "เสียงบ่นจาก Dev: 'Tooling ซับซ้อน ขี้เกียจเขียน YAML 600 บรรทัด'",
                 "intro": "ตัวแทนทีม Dev เดินมาคุยด้วยสีหน้าอ่อนล้า: 'พี่ครับ ตอนนี้ผมเสียเวลาเขียน Helm Chart, Terraform, และแก้สิทธิ์ IAM มากกว่าเวลาเขียนโค้ดฟีเจอร์แล้วครับ ผมหมดไฟแล้ว...'",
                 "pArt": "terminal",
                 "choices": [
@@ -1634,12 +1647,13 @@
                                 "hint": "ยึดติดทฤษฎีแบบหัวชนฝา · สร้างกำแพงระหว่างทีม",
                                 "feedback": "ความสัมพันธ์ระหว่างทีมแตกร้าว Dev แอบปล่อยให้ระบบพังแล้วบอกว่า 'ก็ Infra พี่ห่วยเองหนิครับ'"
                         }
-                ]
+                ],
+                "researchDetail": "การผลัก Infra ให้ Dev ดูแลหมดทำให้เกิด Cognitive Overload ต้องมี Platform Engineering สร้าง \"Golden Path\""
         },
         {
                 "week": 15,
-                "sourceRef": "ITIL 4 Service Level Management & Google SRE Error Budget Policy: Managing Contractual Uptime and Liability",
-                "title": "ลูกค้า VIP ขู่ฟ้อง: 'ระบบล่มกิน Error Budget จนเกิน SLA สัญญาธุรกิจ!'",
+                "sourceRef": "ITIL 4 Service Level Management & Google SRE Error Budget",
+                "title": "ลูกค้า VIP ขู่ฟ้อง: 'ระบบล่มกิน Error Budget จนเกิน SLA สัญญาธุรกิจ'",
                 "intro": "มี Incident ใหญ่จากโครงข่ายต่างประเทศ ทำให้ Uptime ทั้งเดือนตกไปอยู่ที่ 98.9% หลุดเกณฑ์ 99.9% ที่สัญญากับลูกค้ารายใหญ่ B2B ลูกค้าส่งจดหมายเตือนเตรียมปรับเงิน 3 ล้านบาท!",
                 "pArt": "war_room",
                 "choices": [
@@ -1679,12 +1693,13 @@
                                 "hint": "ทุจริตหลอกลวง · ผิดจรรยาบรรณวิศวกรขั้นร้ายแรง",
                                 "feedback": "ลูกค้ามีระบบ Monitoring ภายนอกจับได้คาหนังคาเขา! เรื่องถึงหูบอร์ดบริหาร คุณโดนสั่งสอบสวนทางวินัยทันที"
                         }
-                ]
+                ],
+                "researchDetail": "เมื่อ Error Budget หมด ต้องหยุดปล่อยฟีเจอร์เพื่อทุ่มเททรัพยากรยกระดับ Reliability เพื่อรักษาสัญญาพาณิชย์"
         },
         {
                 "week": 16,
-                "sourceRef": "Puppet State of DevOps / DevOps Institute Career Survey: Platform Leadership and Organizational Maturity",
-                "title": "วันชี้ชะตาแห่งปี: 'ประเมินผลงานและบทบาทต่อไปของคุณในฐานะ DevOps Engineer'",
+                "sourceRef": "Puppet State of DevOps / DevOps Institute Career Survey",
+                "title": "วันชี้ชะตาแห่งปี: 'ประเมินผลงานและบทบาทต่อไปของคุณในฐานะ DevOps'",
                 "intro": "สิ้นสุด 1 ปีเต็มของการกรำศึกหนักทั้งไฟไหม้ตอนตีสอง บิลคลาวด์กระฉูด และการต่อสู้เพื่อปรับปรุง Pipeline วันนี้คุณเดินเข้าห้องประชุมใหญ่กับ CEO, CTO และบอร์ดบริหารเพื่อรับฟังผลการประเมินประจำปี...",
                 "pArt": "war_room",
                 "choices": [
@@ -1724,7 +1739,8 @@
                                 "hint": "เตรียมตัวสำหรับบทบาทใหม่ในทุ่งหญ้าแห่งใหม่",
                                 "feedback": "ด้วยประสบการณ์โชกโชนที่คุณฟันฝ่ามาตลอดปี บริษัทเทคชั้นนำ 3 แห่งยื่นข้อเสนอเงินเดือนเพิ่มขึ้น 50% ให้คุณทันที!"
                         }
-                ]
+                ],
+                "researchDetail": "การประเมินผลงาน DevOps ต้องมองที่ผลลัพธ์ทางธุรกิจและความมั่นคงของระบบ (DORA Metrics) มากกว่าการนั่งแก้ปัญหารายวัน"
         }
 ],
       dev: [
@@ -2636,7 +2652,10 @@
                 <!-- Prominent In-Box Research & Pantip Citation -->
                 <div class="pt-2 border-t border-[#1a2c5a] text-[11px] font-mono flex items-start gap-1.5 text-[#dfbd69]">
                   <span class="font-bold shrink-0 bg-[#e5a83b]/20 px-1.5 py-0.5 rounded border border-[#dfbd69]/40">📚 ที่มา</span>
-                  <span class="text-slate-300 leading-relaxed mt-0.5">${ev.sourceRef || 'งานวิจัยสหกิจศึกษาวิศวกรรมซอฟต์แวร์ & กระทู้ Pantip'}</span>
+                  <div class="text-slate-300 leading-relaxed mt-0.5">
+                    <span class="font-semibold text-white">${ev.sourceRef || 'งานวิจัยสหกิจศึกษาวิศวกรรมซอฟต์แวร์ & กระทู้ Pantip'}</span>
+                    ${ev.researchDetail ? `<div class="text-[10px] text-slate-300 mt-1 leading-normal pl-1.5 border-l-2 border-[#38bdf8]/60">${ev.researchDetail}</div>` : ''}
+                  </div>
                 </div>
               </div>
 
@@ -3319,6 +3338,123 @@
           <p class="text-slate-300">
             วารสารวิชาการ มทร. และ มทส. ระบุปัญหาหลัก 3 ประการ: 1) ความต่างของ Tooling ในมหาลัยกับบริษัท 2) การปรับตัวด้าน Soft Skills และ 3) ภาระค่าครองชีพ ค่าหอพัก และการเดินทางในกรุงเทพฯ
           </p>
+        </div>
+
+        <div class="bg-[#0f1a3a] border border-[#1a2c5a] p-3 rounded-lg">
+          <div class="font-bold text-[#e5a83b] text-sm mb-2 flex flex-wrap items-center justify-between gap-1">
+            <span>⚙️ 5. งานวิจัยและหลักการวิศวกรรม DevOps & SRE (16 ด่านวิกฤต):</span>
+            <span class="text-[10px] font-mono text-slate-400">DORA / Google SRE / IEEE / ACM / CNCF</span>
+          </div>
+          <div class="overflow-x-auto max-h-72 overflow-y-auto pr-1">
+            <table class="w-full text-left text-[11px] font-sans border-collapse">
+              <thead>
+                <tr class="border-b border-[#16234d] text-slate-400 font-mono text-[10px] sticky top-0 bg-[#0f1a3a]">
+                  <th class="py-1.5 px-1.5 w-10">ด่าน</th>
+                  <th class="py-1.5 px-2 w-48">ชื่อด่าน / สถานการณ์วิกฤต</th>
+                  <th class="py-1.5 px-2 w-56">📚 แหล่งที่มา / งานวิจัยรองรับ</th>
+                  <th class="py-1.5 px-2">สาระสำคัญทางวิชาการ</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#16234d]/60 text-slate-300">
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W1</td>
+                <td class="py-1.5 px-2 font-medium text-white">Day 1: 'เครื่องคนอื่นรันได้หมด แต่เครื่องเราพังพินาศ'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">Cito et al. (IEEE Software 2017) & ACM Research</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">ปัญหา Environment Drift และความสูญเปล่าในการ Onboard วิศวกรใหม่ การใช้ Container/Dev Containers ลดเวลาสูญเปล่าลง >70%</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W2</td>
+                <td class="py-1.5 px-2 font-medium text-white">Merge Hell: 'Feature Branch ดองมา 3 สัปดาห์ ชนกัน 350 ไฟล์'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">DORA Research (Accelerate โดย Forsgren & Humble, 2018)</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">Trunk-Based Development ร่วมกับ Feature Flags ลด Lead Time ลง 106 เท่า และลด Conflict ร้ายแรง</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W3</td>
+                <td class="py-1.5 px-2 font-medium text-white">CI/CD ในฝัน: 'Pipeline อืด 55 นาที แถมมี Flaky Test'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">ACM FSE / IEEE TSE (Luo et al., 2014 & Beller et al.)</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">Flaky Test ทำลายความเชื่อมั่นใน CI/CD การกักกัน Test ที่ไม่เสถียรและการทำ Cache ช่วยกู้ความคล่องตัวคืนมา</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W4</td>
+                <td class="py-1.5 px-2 font-medium text-white">ศุกร์หรรษา 16:30 น.: 'PO ขอ Deploy ฟีเจอร์ใหญ่ขึ้น Production ด่วน'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">State of DevOps Report & Honeycomb Observability (2022)</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">การ Deploy วันศุกร์บ่ายมี Failure Rate สูงกว่าปกติ 3 เท่าจากปัญหา On-Call Fatigue และขาดทีมสนับสนุน</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W5</td>
+                <td class="py-1.5 px-2 font-medium text-white">เสาร์ 02:34 น.: 'PagerDuty กรีดร้อง DB Connection เต็ม 100%'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">Google SRE Book (Beyer et al., 2016) - Incident & Fatigue</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">การอดนอนลดความสามารถในการ Debug ลง 60% กฎ Toil Cap 50% ช่วยป้องกันข้อผิดพลาดร้ายแรง</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W6</td>
+                <td class="py-1.5 px-2 font-medium text-white">เช้าวันจันทร์: 'War Room ล่าแม่มด vs Blameless Post-Mortem'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">John Allspaw (Etsy, ACM Queue 2012) & Dr. Richard Cook</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">Complex Systems พังจากหลายปัจจัยประกอบกัน การลงโทษรายบุคคล (Blame culture) ทำให้คนปกปิดและ MTTR พุ่ง</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W7</td>
+                <td class="py-1.5 px-2 font-medium text-white">กระแสเทคโนโลยี: 'CTO สั่งย้ายทุกอย่างไป Kubernetes & Microservices'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">CNCF Annual Survey & ThoughtWorks Tech Radar</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">กับดัก Resume-Driven Development ในทีมขนาดเล็ก การเลือกใช้ Modular Monolith มักให้ ROI คุ้มค่ากว่า</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W8</td>
+                <td class="py-1.5 px-2 font-medium text-white">บิลคลาวด์สิ้นเดือน: 'ค่า AWS ทะลุ 750,000 บาท! CFO เรียกเข้าห้องเย็น'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">FinOps Foundation & Flexera State of the Cloud Report</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">องค์กรมี Cloud Waste เฉลี่ย 28–32% จาก Unattached Storage และ Idle Instances การทำ FinOps ประหยัดได้ทันที 20–30%</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W9</td>
+                <td class="py-1.5 px-2 font-medium text-white">วิกฤตความปลอดภัย: 'ช่องโหว่ Zero-Day ระดับโลก (แบบ Log4Shell)'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">NIST Vulnerability Database & Ponemon Institute</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">Dwell Time ที่ช้ากว่า 30 วันสร้างความเสียหายระดับหลายล้านดอลลาร์ การมี SBOM ช่วย Hotfix ได้ในหลักชั่วโมง</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W10</td>
+                <td class="py-1.5 px-2 font-medium text-white">มหกรรม 11.11 เที่ยงคืน: 'Traffic พุ่ง 80 เท่า Auto-scaling พังหรือพุ่ง?'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">ACM Symposium on Cloud Computing (SoCC)</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">Reactive Auto-scaling (HPA) ตอบสนองไม่ทัน Flash Spikes จาก Container Cold Start ต้องใช้ Pre-warming</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W11</td>
+                <td class="py-1.5 px-2 font-medium text-white">มือที่มองไม่เห็น: 'ใครแอบไปแก้คอนฟิกใน AWS Console โดยไม่ผ่าน Git'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">CNCF GitOps Principles & Open Policy Agent (OPA)</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">Configuration Drift คือต้นตอของ 40% ของปัญหา Audit failure ต้องยึด Git เป็น Single Source of Truth</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W12</td>
+                <td class="py-1.5 px-2 font-medium text-white">แจ้งเตือนหลอนประสาท: 'วันละ 2,500 ข้อความใน Slack จนทุกคน Mute ทิ้ง'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">USENIX SREcon & Google SRE Principles</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">Alert Fatigue ทำลายระบบเตือนภัย ต้องแจ้งเฉพาะ User-Impacting Symptoms ที่ Actionable เท่านั้น</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W13</td>
+                <td class="py-1.5 px-2 font-medium text-white">ทดสอบความแข็งแกร่ง: 'Chaos Engineering สุ่มยิงเซิร์ฟเวอร์ดับบน Prod'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">Netflix Chaos Engineering (IEEE Software - Basiri et al., 2016)</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">การจำลองความล้มเหลวแบบควบคุม (Controlled Blast Radius) เป็นวิธีเดียวที่พิสูจน์ได้ว่าระบบ HA ทำงานจริง</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W14</td>
+                <td class="py-1.5 px-2 font-medium text-white">เสียงบ่นจาก Dev: 'Tooling ซับซ้อน ขี้เกียจเขียน YAML 600 บรรทัด'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">Team Topologies (Skelton & Pais, 2019) & Cognitive Load Theory</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">การผลัก Infra ให้ Dev ดูแลหมดทำให้เกิด Cognitive Overload ต้องมี Platform Engineering สร้าง "Golden Path"</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W15</td>
+                <td class="py-1.5 px-2 font-medium text-white">ลูกค้า VIP ขู่ฟ้อง: 'ระบบล่มกิน Error Budget จนเกิน SLA สัญญาธุรกิจ'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">ITIL 4 Service Level Management & Google SRE Error Budget</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">เมื่อ Error Budget หมด ต้องหยุดปล่อยฟีเจอร์เพื่อทุ่มเททรัพยากรยกระดับ Reliability เพื่อรักษาสัญญาพาณิชย์</td>
+              </tr>
+              <tr class="hover:bg-[#13224a] transition">
+                <td class="py-1.5 px-1.5 font-mono font-bold text-[#e5a83b]">W16</td>
+                <td class="py-1.5 px-2 font-medium text-white">วันชี้ชะตาแห่งปี: 'ประเมินผลงานและบทบาทต่อไปของคุณในฐานะ DevOps'</td>
+                <td class="py-1.5 px-2 font-mono text-[#00e5ff] text-[10px]">Puppet State of DevOps / DevOps Institute Career Survey</td>
+                <td class="py-1.5 px-2 text-slate-300 text-[10px]">การประเมินผลงาน DevOps ต้องมองที่ผลลัพธ์ทางธุรกิจและความมั่นคงของระบบ (DORA Metrics) มากกว่าการนั่งแก้ปัญหารายวัน</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
