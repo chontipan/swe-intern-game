@@ -234,6 +234,15 @@
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
           osc.start(now);
           osc.stop(now + 0.35);
+        } else if (type === 'fail') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(280, now);
+          osc.frequency.setValueAtTime(200, now + 0.12);
+          osc.frequency.setValueAtTime(140, now + 0.24);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+          osc.start(now);
+          osc.stop(now + 0.4);
         } else if (type === 'warning') {
           osc.type = 'sawtooth';
           osc.frequency.setValueAtTime(220, now);
@@ -522,34 +531,70 @@
         </svg>
       `,
 
-      // 4. COFFEE SCENE
-      coffee: `
-        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#1b0808] pixel-art">
-          <rect x="0" y="0" width="160" height="90" fill="#140606"/>
-          <rect x="62" y="8" width="36" height="8" fill="#3f1212" stroke="#7f1d1d"/>
-          <rect x="68" y="11" width="24" height="2" fill="#f87171"/>
-          <rect x="10" y="52" width="140" height="6" fill="#475569"/>
-          <rect x="16" y="58" width="8" height="32" fill="#334155"/>
-          <rect x="136" y="58" width="8" height="32" fill="#334155"/>
-          <rect x="22" y="20" width="32" height="32" fill="#334155" stroke="#475569"/>
-          <rect x="28" y="24" width="20" height="10" fill="#000"/>
-          <rect x="31" y="27" width="4" height="4" fill="#ef4444"/>
-          <rect x="41" y="27" width="4" height="4" fill="#ef4444"/>
-          <rect x="26" y="38" width="24" height="6" fill="#991b1b"/>
-          <rect x="29" y="40" width="18" height="2" fill="#fecaca"/>
-          <ellipse cx="80" cy="50" rx="14" ry="5" fill="#f8fafc"/>
-          <rect x="74" y="47" width="12" height="3" fill="#84cc16"/>
-          <rect x="76" y="46" width="3" height="3" fill="#dc2626"/>
-          <rect x="82" y="47" width="3" height="3" fill="#dc2626"/>
+      // 4. MOO KRATHA SCENE (หมูกระทะเยียวยาจิตใจ)
+      moo_kratha: `
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#180a04] pixel-art">
+          <!-- Night Street BBQ Buffet Restaurant Backdrop -->
+          <rect x="0" y="0" width="160" height="90" fill="#150703"/>
+          <rect x="10" y="8" width="46" height="12" fill="#7f1d1d" stroke="#f59e0b"/>
+          <!-- Neon Sign "หมูกระทะ 199.-" -->
+          <rect x="14" y="11" width="38" height="3" fill="#fef08a"/>
+          <rect x="18" y="15" width="30" height="2" fill="#fca5a5"/>
+          <!-- String Lights above -->
+          <line x1="0" y1="22" x2="160" y2="22" stroke="#451a03" stroke-width="1.5"/>
+          <circle cx="20" cy="23" r="2" fill="#fef08a"/>
+          <circle cx="45" cy="24" r="2" fill="#fca5a5"/>
+          <circle cx="75" cy="23" r="2" fill="#fef08a"/>
+          <circle cx="105" cy="24" r="2" fill="#fca5a5"/>
+          <circle cx="135" cy="23" r="2" fill="#fef08a"/>
+
+          <!-- BBQ Table -->
+          <rect x="20" y="52" width="120" height="6" fill="#78350f" stroke="#451a03"/>
+          <rect x="28" y="58" width="8" height="32" fill="#451a03"/>
+          <rect x="124" y="58" width="8" height="32" fill="#451a03"/>
+
+          <!-- Charcoal Stove & Golden Dome Pan (เตาถ่าน & กระทะทองเหลือง) -->
+          <ellipse cx="80" cy="52" rx="24" ry="8" fill="#ca8a04"/>
+          <!-- Soup Broth Ring (น้ำซุป & ผักกาดขาว) -->
+          <ellipse cx="80" cy="51" rx="20" ry="6" fill="#fef08a"/>
+          <rect x="66" y="49" width="6" height="2" fill="#22c55e"/> <!-- Veggie -->
+          <rect x="88" y="49" width="6" height="2" fill="#22c55e"/>
+          <!-- Central Grill Dome (โดมย่างหมู & เบคอน) -->
+          <ellipse cx="80" cy="48" rx="12" ry="5" fill="#eab308"/>
+          <!-- Sizzling Pork Slices on Top (หมูสามชั้นย่างเกรียมๆ) -->
+          <rect x="74" y="45" width="5" height="3" fill="#dc2626"/>
+          <rect x="81" y="45" width="5" height="3" fill="#dc2626"/>
+          <rect x="77" y="47" width="6" height="2" fill="#fca5a5"/>
+          <!-- Sizzling Smoke & Aroma -->
+          <circle cx="76" cy="41" r="2" fill="#e2e8f0" opacity="0.8"/>
+          <circle cx="84" cy="38" r="2.5" fill="#f1f5f9" opacity="0.7"/>
+          <circle cx="80" cy="34" r="3" fill="#f8fafc" opacity="0.6"/>
+
+          <!-- Sauce Bowls & Soda Bottles on Table -->
+          <circle cx="56" cy="53" r="3" fill="#dc2626"/> <!-- Sukiyaki Chili Sauce -->
+          <circle cx="104" cy="53" r="3" fill="#16a34a"/> <!-- Seafood Sauce -->
+          <rect x="42" y="44" width="4" height="10" fill="#0284c7"/> <!-- Ice Water Pitcher -->
+          <rect x="48" y="48" width="3" height="6" fill="#f97316"/> <!-- Soda Can -->
+
+          <!-- Intern Character: Happily Eating & Raising Chopsticks -->
           <rect x="110" y="26" width="14" height="7" fill="#18181b"/>
           <rect x="110" y="33" width="14" height="8" fill="#fcd34d"/>
-          <rect x="111" y="35" width="4" height="3" fill="#000"/>
-          <rect x="118" y="35" width="4" height="3" fill="#000"/>
-          <rect x="114" y="39" width="6" height="1.5" fill="#78350f"/>
-          <rect x="108" y="41" width="18" height="18" fill="#d97706"/>
+          <!-- Happy Squinting Eyes & Chewing Smile -->
+          <rect x="112" y="35" width="3" height="1.5" fill="#000"/>
+          <rect x="118" y="35" width="3" height="1.5" fill="#000"/>
+          <rect x="114" y="38" width="6" height="2" fill="#dc2626"/> <!-- Happy Smile -->
+          <!-- Shirt + ID Badge -->
+          <rect x="108" y="41" width="18" height="18" fill="#f97316"/>
           <rect x="115" y="41" width="4" height="6" fill="#ef4444"/>
-          <rect x="98" y="46" width="8" height="8" fill="#f8fafc"/>
-          <rect x="96" y="48" width="3" height="4" fill="#94a3b8"/>
+          <!-- Holding Chopsticks with Grilled Pork Belly -->
+          <line x1="102" y1="44" x2="92" y2="46" stroke="#ca8a04" stroke-width="2"/>
+          <line x1="102" y1="46" x2="92" y2="48" stroke="#ca8a04" stroke-width="2"/>
+          <rect x="90" y="45" width="4" height="3" fill="#dc2626"/> <!-- Pork belly on chopsticks -->
+
+          <!-- Colleague Senior clinking glass on left -->
+          <circle cx="36" cy="36" r="6" fill="#fcd34d"/>
+          <rect x="30" y="42" width="14" height="16" fill="#1e3a8a"/>
+          <line x1="44" y1="46" x2="52" y2="44" stroke="#ca8a04" stroke-width="2"/>
         </svg>
       `,
 
@@ -823,6 +868,69 @@
           <rect x="133" y="43" width="4" height="6" fill="#ef4444"/>
           <rect x="116" y="48" width="12" height="4" fill="#fcd34d"/>
         </svg>
+      `,
+
+      // 15. SENT BACK SCENE (โดนส่งตัวกลับมหาวิทยาลัย / ใบแจ้งพ้นสภาพ)
+      sent_back: `
+        <svg viewBox="0 0 160 90" class="w-full h-full bg-[#0a0f1d] pixel-art">
+          <!-- Raining Night Sky outside Company Tower -->
+          <rect x="0" y="0" width="160" height="90" fill="#080c18"/>
+          <!-- Heavy Rain lines -->
+          <line x1="10" y1="4" x2="6" y2="16" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+          <line x1="34" y1="8" x2="30" y2="22" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+          <line x1="65" y1="2" x2="61" y2="18" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+          <line x1="95" y1="10" x2="91" y2="24" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+          <line x1="125" y1="6" x2="121" y2="20" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+          <line x1="145" y1="12" x2="141" y2="26" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+
+          <!-- High-Tech Company Glass Entrance -->
+          <rect x="8" y="10" width="60" height="52" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+          <rect x="12" y="14" width="24" height="44" fill="#0284c7" opacity="0.3"/>
+          <rect x="40" y="14" width="24" height="44" fill="#0284c7" opacity="0.3"/>
+          <!-- Company Sign with Red Cross -->
+          <rect x="16" y="4" width="44" height="8" fill="#7f1d1d" stroke="#ef4444"/>
+          <rect x="22" y="7" width="32" height="2" fill="#fecaca"/>
+
+          <!-- Wet Pavement & Puddles -->
+          <rect x="0" y="62" width="160" height="28" fill="#1e293b"/>
+          <ellipse cx="90" cy="74" rx="20" ry="4" fill="#0284c7" opacity="0.4"/>
+          <ellipse cx="135" cy="78" rx="14" ry="3" fill="#0284c7" opacity="0.4"/>
+
+          <!-- INTERN WALKING AWAY SADLY WITH SUITCASE & CARDBOARD BOX -->
+          <!-- Dragging Big Suitcase (กระเป๋าเดินทางล้อลากกลับ มหาวิทยาลัย) -->
+          <rect x="68" y="52" width="14" height="20" fill="#451a03" stroke="#78350f"/>
+          <rect x="73" y="44" width="4" height="8" fill="#94a3b8"/> <!-- Handle -->
+          <circle cx="71" cy="73" r="2" fill="#000"/> <!-- Wheel -->
+          <circle cx="79" cy="73" r="2" fill="#000"/>
+
+          <!-- Intern Head & Crying Eyes (น้ำตาซึม) -->
+          <rect x="92" y="32" width="14" height="7" fill="#18181b"/>
+          <rect x="92" y="39" width="14" height="8" fill="#fcd34d"/>
+          <rect x="94" y="41" width="3" height="2" fill="#000"/>
+          <rect x="100" y="41" width="3" height="2" fill="#000"/>
+          <rect x="96" y="44" width="6" height="2" fill="#991b1b"/> <!-- Sad frown -->
+          <circle cx="104" cy="43" r="1.5" fill="#38bdf8"/> <!-- Tear drop -->
+
+          <!-- Casual Clothes (เสื้อยืดเหงาๆ ไร้ป้ายห้อยคอ) -->
+          <rect x="90" y="47" width="18" height="18" fill="#475569"/>
+
+          <!-- Cardboard Box with personal belongings (กล่องเก็บของกลับบ้าน) -->
+          <rect x="104" y="49" width="16" height="12" fill="#92400e" stroke="#ca8a04"/>
+          <rect x="108" y="45" width="4" height="6" fill="#f8fafc"/> <!-- Termination Letter ใบส่งตัวกลับ -->
+          <rect x="114" y="47" width="3" height="4" fill="#22c55e"/> <!-- Small plant -->
+
+          <!-- Legs Walking Away -->
+          <rect x="93" y="65" width="5" height="12" fill="#0f172a"/>
+          <rect x="101" y="65" width="5" height="10" fill="#0f172a"/>
+          <rect x="91" y="76" width="7" height="3" fill="#000"/>
+          <rect x="100" y="74" width="7" height="3" fill="#000"/>
+
+          <!-- Road Sign: "สู่ มหาวิทยาลัย (คณะวิศวกรรมศาสตร์)" -->
+          <rect x="134" y="38" width="22" height="14" fill="#065f46" stroke="#34d399"/>
+          <rect x="138" y="41" width="14" height="2" fill="#fff"/>
+          <rect x="138" y="45" width="10" height="2" fill="#fff"/>
+          <rect x="143" y="52" width="4" height="14" fill="#475569"/>
+        </svg>
       `
     };
 
@@ -832,7 +940,7 @@
         { title: "Day 1 Onboarding: Clone Repo ยักษ์ 5.2GB", intro: "พี่เลี้ยงส่งลิงก์ Git ขนาด 5.2GB มาให้พร้อมบอก 'ลอง Clone มารันดูนะน้อง'", pArt: "code" },
         { title: "Jira Ticket แรก: แก้สีปุ่มในตำนาน", intro: "ได้รับ Ticket เปลี่ยนสีปุ่ม Checkout แต่แก้แล้วระบบจ่ายเงินแอบพังเงียบๆ", pArt: "bug" },
         { title: "Daily Standup ตอนเช้า: 'เมื่อวานทำอะไร?'", intro: "เมื่อวานนั่งงงโครงสร้างระบบทั้งวัน ถึงคิวพูดจะพูดยังไงให้ดูดี?", pArt: "circle" },
-        { title: "เครื่องชงกาแฟพัง & ส้มตำปูปลาร้าเผ็ดนรก", intro: "เครื่องกาแฟดับสนิท แก๊งพี่ๆ ชวนกินส้มตำเผ็ดนรก พอ 13:30 น. ท้องเริ่มประท้วง", pArt: "coffee" },
+        { title: "ศุกร์หรรษา: พี่ๆ ชวนตี้หมูกระทะบุฟเฟต์ 199.-", intro: "เลิกงาน 18:00 น. แก๊งพี่ๆ ในแผนกตะโกน 'วันนี้ใครไม่ไปหมูกระทะถือว่าทรยศ!' กลิ่นหมูสามชั้นลอยมา", pArt: "moo_kratha" },
         { title: "วันศุกร์ 17:55 น. 'Friday Deploy ด่วน!'", intro: "จะรูดบัตรกลับบ้านแล้ว แต่ PO บอก 'น้องครับ ขึ้นโปรดักชันด่วนก่อนหยุดยาว'", pArt: "alarm" },
         { title: "มหากาพย์ Git Conflict 108 ไฟล์", intro: "กด Merge branch ตัวเองเข้า dev แล้วหน้าจอขึ้น Conflict สีแดงโร่ทั้งตาราง", pArt: "conflict" },
         { title: "พี่เลี้ยงลาพักร้อน ทิ้งคำว่า 'ฝากด้วยนะ'", intro: "พี่เลี้ยงตัวหลักลาไปงานแต่ง 1 สัปดาห์ ทิ้งงานต่อ API ให้คุณรับผิดชอบคนเดียว", pArt: "beach" },
@@ -850,14 +958,14 @@
         { title: "Day 1 Onboarding: แฟ้ม Requirement เก่า 300 หน้า", intro: "เปิดแฟ้ม Requirement เก่าตั้งแต่ปี 2018 ที่คนเขียนลาออกไปหมดแล้ว", pArt: "docs" },
         { title: "ลูกค้าขอ 'เหมือน Facebook ผสม Shopee แต่งบ 5 หมื่น'", intro: "ลูกค้านัดคุยบรีฟรอบแรกด้วยสโคปขนาดจักรวาลแต่นัดส่งงานเดือนหน้า", pArt: "circle" },
         { title: "Daily Standup: Dev หันมาจ้องหน้าถามหาสเปก", intro: "Dev ถามว่า 'แล้วปุ่มนี้กดยังไง BA ยังไม่ได้เขียน Acceptance Criteria นะ'", pArt: "docs" },
-        { title: "ทำ Flowchart ใน Miro จนเส้นพันกันเหมือนสายไฟ", intro: "Business Process มีข้อยกเว้น 89 เงื่อนไข จน Flowchart ดูเหมือนแผนที่รถไฟฟ้า", pArt: "docs" },
+        { title: "ฉลองเคลียร์สเปก: ยกทีมบุกร้านหมูกระทะห้องแอร์", intro: "สปรินต์นี้คุยกับลูกค้าจนคอแห้ง พี่ๆ BA และ Dev เลยชวนไปย่างหมูกระทะเยียวยาตับไต", pArt: "moo_kratha" },
         { title: "ลูกค้าโทรมาขอเพิ่มฟีเจอร์ตอน 17:55 น. วันศุกร์", intro: "'น้อง BA คะ พี่ขอเพิ่มระบบคะแนนสะสมนิดเดียว น่าจะเพิ่มง่ายเนอะ'", pArt: "alarm" },
         { title: "ศึกปะทะคารม: Dev ปฏิเสธทำฟีเจอร์บอกไร้สาระ", intro: "คุณต้องเป็นคนกลางไกล่เกลี่ยระหว่าง Dev ที่ไม่อยากทำ กับลูกค้าที่ยืนกราน", pArt: "conflict" },
         { title: "พี่เลี้ยงลาพักร้อน ต้องเข้าประชุมกับ Stakeholders เดี่ยว", intro: "นั่งหัวโต๊ะคุยกับผู้บริหารระดับสูง 8 ท่านโดยไม่มีพี่เลี้ยงคอยช่วย", pArt: "beach" },
         { title: "ส่งเอกสาร Spec ผิดเวอร์ชันให้ทีมพัฒนา", intro: "Dev เขียนฟีเจอร์เสร็จไปครึ่งหนึ่งแล้วเพิ่งรู้ว่าคุณส่งไฟล์ดราฟต์เก่าให้!", pArt: "terminal" },
         { title: "ลูกค้าไม่ยอม Sign-off เอกสาร UAT", intro: "ระบบเทสต์ผ่านหมด แต่ลูกค้าบอก 'พี่ยังไม่ถูกใจฟีลลิ่ง ขอกลับไปคิดก่อน'", pArt: "test" },
         { title: "Scope Creep มหาภัย: งอกออกมาอีก 30 ฟังก์ชัน", intro: "จากสัญญาทำ 5 หน้าจอ ตอนนี้งอกบานปลายกลายเป็น 35 หน้าจอ!", pArt: "alarm" },
-        { title: "พักเบรกสืบความลับในแผนกที่ตู้กาแฟ", intro: "ได้ยินข่าวลือวงในว่าโปรเจกต์นี้ลูกค้าอาจจะขอยกเลิกกลางคัน!", pArt: "coffee" },
+        { title: "ทำ Flowchart ใน Miro จนเส้นพันกันเหมือนสายไฟ", intro: "Business Process มีข้อยกเว้น 89 เงื่อนไข จน Flowchart ดูเหมือนแผนที่รถไฟฟ้า", pArt: "docs" },
         { title: "ตรวจทาน Wireframe กับ UX/UI Designer", intro: "UX ออกแบบสวยหรูแต่ผิด Business Logic ไปคนละทิศคนละทาง", pArt: "design" },
         { title: "วิกฤต Pivot: ลูกค้าขอรื้อ Requirement ทั้งระบบ!", intro: "เหลือเวลาอีก 3 สัปดาห์ แต่ลูกค้าเปลี่ยนโมเดลธุรกิจกะทันหัน", pArt: "conflict" },
         { title: "จัด Workshop ทำ User Story Mapping ร่วมกับทั้งทีม", intro: "นำทีมระดมสมองติด Post-it เต็มฝาผนังออฟฟิศเพื่อจัดลำดับ MVP", pArt: "docs" },
@@ -868,7 +976,7 @@
         { title: "Day 1 Onboarding: ตะลุย Test Matrix 500 เคส", intro: "พี่ QA ส่งไฟล์ Excel ยาว 5,000 แถวมาให้พร้อมบอก 'รันมือให้ครบก่อนบ่ายนะ'", pArt: "test" },
         { title: "เจอบั๊กตัวเป้ง: กดซื้อของยอดติดลบได้เงินคืน!", intro: "ทดสอบกรอกตัวเลขติดลบในช่องจำนวนสินค้า แล้วระบบโอนเงินเข้าบัญชีจริง!", pArt: "bug" },
         { title: "Daily Standup: Dev สวนกลับ 'บนเครื่องผมรันผ่าน'", intro: "แจ้งเปิดบั๊กไป แต่โปรแกรมเมอร์บอกว่าเป็นบั๊กของคน ไม่ใช่ของโค้ด", pArt: "circle" },
-        { title: "กาแฟหกใส่เครื่องเทสต์ในห้อง QA Lab", intro: "มือปัดโดนแก้วกาแฟเย็น หกใส่สมาร์ตโฟนเครื่องเทสต์ของออฟฟิศเปียกชุ่ม", pArt: "coffee" },
+        { title: "เทสต์เสร็จหิวโซ: ตี้หมูกระทะกระชับมิตร QA vs Dev", intro: "หลังจากเถียงเรื่องบั๊กมาทั้งวัน พี่ Lead QA ชวนไปปรับความเข้าใจที่เตาหมูกระทะ", pArt: "moo_kratha" },
         { title: "Friday Deploy: ระบบจะขึ้นตอน 17:55 น. เทสต์ด่วน!", intro: "ทีม Dev โยนไฟล์ build มาให้ตอนห้าโมงเย็นครึ่ง บอกให้เทสต์ปล่อยของให้ทัน", pArt: "alarm" },
         { title: "สงครามปรัชญา: 'นี่คือบั๊กหรือฟีเจอร์กันแน่?'", intro: "เถียงกับ Dev และ PO 3 ชั่วโมงเรื่องพฤติกรรมการกดปุ่ม Back ในแอป", pArt: "conflict" },
         { title: "พี่เลี้ยงลาพักร้อน ทิ้งให้ดูแล Regression Test เดี่ยว", intro: "ทั้งทีม QA เหลือคุณคนเดียว ต้องรับมือกับ Release สำคัญประจำเดือน", pArt: "beach" },
@@ -886,7 +994,7 @@
         { title: "Day 1 Onboarding: สำรวจ Design System ใน Figma", intro: "เปิดไฟล์ Figma ขนาด 4GB ที่มี Component 10,000 ชิ้นและไม่เคยจัด Auto Layout", pArt: "design" },
         { title: "โจทย์จาก PO: 'ขอโลโก้ใหญ่ขึ้นและป๊อปกว่านี้อีกนิด'", intro: "ลูกค้าบอกว่าดีไซน์เรียบไป อยากได้อะไรที่มันว้าว สะดุดตา และมีสีสันกว่านี้", pArt: "design" },
         { title: "Daily Standup: Dev บอกว่า 'Layout นี้ทำไม่ได้จริง'", intro: "Dev แจ้งว่าแอนิเมชัน 3D ที่คุณออกแบบกินทรัพยากรเครื่องและเขียนโค้ดยากเกินไป", pArt: "circle" },
-        { title: "ชานมไข่มุกหกใส่คีย์บอร์ด MacBook Pro เครื่องบริษัท", intro: "ดูดชานมระหว่างแก้งาน ไข่มุกติดหลอดสะบัดหกกระจายเต็มหน้าจอ", pArt: "coffee" },
+        { title: "คืนวันศุกร์: พา Design Team ไปปิ้งหมูกระทะฮีลใจ", intro: "หลังโดนลูกค้าสั่งแก้งาน 8 รอบ พี่ๆ เลยพาไปนั่งสูดควันหมูกระทะให้ลืมความช้ำใจ", pArt: "moo_kratha" },
         { title: "วันศุกร์ 17:55 น. ลูกค้าขอ Mockup ด่วนไปพรีเซนต์เช้าจันทร์", intro: "กำลังจะปิดคอมกลับบ้าน บอสโทรมาบอก 'ช่วยทำดราฟต์สวยๆ 3 หน้าจอให้หน่อยนะ'", pArt: "alarm" },
         { title: "Dev ทำหน้าจอออกมาไม่ตรงกับ Figma แม้แต่มิลลิเมตรเดียว", intro: "Padding ไม่เท่ากัน ฟอนต์คนละตัว สีเพี้ยนจากน้ำเงินกลายเป็นม่วง!", pArt: "conflict" },
         { title: "Lead Designer ลาพักร้อน คุณต้องคุมงานออกแบบทั้งแอป", intro: "พี่เลี้ยงไม่อยู่ คุณต้องเป็นคนตัดสินใจเลือกโทนสีและ Flow ทั้งหมดคนเดียว", pArt: "beach" },
@@ -903,26 +1011,72 @@
     };
 
     function getChoicesForWeek(roleId, weekNum) {
+      // Specialized choices for Week 4: Moo Kratha Buffet!
+      if (weekNum === 4) {
+        return [
+          {
+            text: "ไปตี้หมูกระทะเต็มที่! กินสามชั้นกรอบๆ ชวนพี่ๆ เม้าท์มอยฮีลใจ",
+            stats: { skill: 4, energy: 25, sanity: 30, karma: 18, money: -299 },
+            hint: "+25 สุขภาพ · +30 ความสุข · +18 บารมี · -299 บาท",
+            feedback: "หมูสามชั้นเกรียมๆ กับน้ำจิ้มรสเด็ดเยียวยาทุกอย่าง! ความสุขและพลังกายพุ่งทะยาน แถมสนิทกับพี่ๆ ในทีมมากขึ้นโข"
+          },
+          {
+            text: "อาสาเป็นมือย่างระดับเทพ คอยคีบหมูตักน้ำซุปบริการพี่ๆ ทั้งโต๊ะ",
+            stats: { skill: 8, energy: 10, sanity: 20, karma: 30, money: -299 },
+            hint: "+30 บารมี · +20 ความสุข · +10 สุขภาพ · -299 บาท",
+            feedback: "พี่เลี้ยงและผู้จัดการประทับใจใน Service Mind ของคุณมาก ได้รับคำชมเรื่องความใส่ใจและเข้าสังคมเก่ง!"
+          },
+          {
+            text: "ขอตัวกลับหอ ประหยัดเงิน 299 บาท แต่นอนเหงาไถฟีดดูรูปเพื่อน",
+            stats: { skill: 2, energy: 5, sanity: -15, karma: -10, money: 0 },
+            hint: "-15 ความสุข · -10 บารมี · ประหยัดเงิน",
+            feedback: "คุณประหยัดเงินได้ 299 บาท แต่การนอนดูไอจีสตอรี่พี่ๆ นั่งกินหมูกระทะเฮฮากัน ทำให้รู้สึกโดดเดี่ยวและพลาดบทสนทนาสำคัญไป..."
+          }
+        ];
+      }
+
+      // High-risk critical week 8 (SQL Delete / Spec failure / Prod issue): can trigger sent back if bad choice
+      if (weekNum === 8) {
+        return [
+          {
+            text: "กล้าหาญ ยอมรับผิดทันที รีบแจ้งพี่เลี้ยงและช่วย Rollback ข้อมูล",
+            stats: { skill: 18, energy: -20, sanity: -10, karma: 15, money: -50 },
+            hint: "+18 ทักษะ · -20 สุขภาพ · +15 บารมี · แสดงความเป็นมืออาชีพ",
+            feedback: "พี่เลี้ยงตกใจแต่ชื่นชมที่คุณรีบแจ้งทันที ทุกคนช่วยกันกู้ฐานข้อมูลสำเร็จ คุณได้เรียนรู้บทเรียนชีวิตครั้งใหญ่!"
+          },
+          {
+            text: "พยายามใช้คำสั่งกู้ Database เงียบๆ คนเดียว หวังว่าจะไม่มีใครรู้",
+            stats: { skill: 5, energy: -15, sanity: -25, karma: -10, money: -50 },
+            hint: "-25 ความสุข · -10 บารมี · หัวใจเต้นแรง เสี่ยงโดนจับได้",
+            feedback: "กู้ข้อมูลกลับมาได้บางส่วน แต่ระบบแอบมีช่องโหว่ คุณนั่งตัวเกร็งไปทั้งสัปดาห์ด้วยความหวาดระแวง..."
+          },
+          {
+            text: "ตีเนียน ลบ Git log ทิ้งแล้วแกล้งบอกว่าเซิร์ฟเวอร์น่าจะล่มเอง",
+            stats: { skill: -15, energy: -10, sanity: -35, karma: -45, money: -50 },
+            hint: "-45 บารมี ⚠️ เสี่ยงโดนจับได้และส่งตัวกลับมหาวิทยาลัยทันที!",
+            feedback: "Tech Lead ตรวจสอบ Audit Log เจอร่องรอย IP ของคุณ! ความน่าเชื่อถือของคุณพังทลายลงในพริบตา..."
+          }
+        ];
+      }
+
+      // Default weekly choices
       return [
         {
           text: "ตั้งสติ วิเคราะห์ปัญหาอย่างมืออาชีพตาม Best Practice",
           stats: { skill: 14, energy: -15, sanity: -5, karma: 12, money: -50 },
           hint: "+14 ทักษะ · -15 สุขภาพ · +12 บารมี",
-          desc: "เน้นคุณภาพและความถูกต้องตามระเบียบวิศวกรรม",
           feedback: "คุณจัดการสถานการณ์ได้อย่างยอดเยี่ยม! พี่เลี้ยงและเพื่อนร่วมทีมพยักหน้ายอมรับในฝีมือ"
         },
         {
           text: "ใช้วิชาเอาตัวรอด ใช้ AI และทางลัดแก้ปัญหาเฉพาะหน้าไปก่อน",
           stats: { skill: 8, energy: -5, sanity: 8, karma: 5, money: -50 },
           hint: "+8 ทักษะ · -5 สุขภาพ · +8 ความสุข",
-          desc: "ส่งงานทันเวลา ใช้เครื่องมือทุ่นแรงเพื่อความคล่องตัว",
           feedback: "รอดตัวไปได้อย่างหวุดหวิด งานเสร็จทันเวลาแม้จะมีความเสี่ยงซ่อนอยู่บ้าง"
         },
         {
           text: "โยนให้พี่เลี้ยง หรือตีเนียนเงียบๆ แอบไปเข้าห้องน้ำชาร์จพลัง",
-          stats: { skill: -4, energy: 15, sanity: 5, karma: -12, money: -50 },
-          hint: "-4 ทักษะ · +15 สุขภาพ · -12 บารมี",
-          desc: "รักษาสุขภาพตนเองเป็นหลัก แต่ความเชื่อมั่นอาจลดลง",
+          stats: { skill: -4, energy: 15, sanity: 5, karma: -14, money: -50 },
+          hint: "-4 ทักษะ · +15 สุขภาพ · -14 บารมี",
           feedback: "คุณรอดพ้นความเครียดชั่วคราว แต่พี่ในทีมเริ่มหันมามองด้วยสายตาเอือมระอา..."
         }
       ];
@@ -943,7 +1097,8 @@
         money: 3000
       },
       lastToast: null,
-      historyLog: []
+      isSentBack: false,
+      sentBackReason: ""
     };
 
     // --- RENDER FUNCTIONS ---
@@ -1001,7 +1156,7 @@
       document.getElementById('barKarma').style.width = `${Math.min(100, Math.max(0, s.karma))}%`;
     }
 
-    // 1. START SCREEN (Exact 1-in-65M Layout & "เกิด" Button)
+    // 1. START SCREEN
     function renderStartScreen(container) {
       container.innerHTML = `
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
@@ -1022,7 +1177,7 @@
               </div>
             </div>
 
-            <!-- Role Selector (Left Column for Balanced Eye Span) -->
+            <!-- Role Selector -->
             <div class="mt-4 pt-3 border-t border-[#16234d]">
               <label class="text-xs font-bold text-slate-300 block mb-2 font-mono">
                 1. เลือกตำแหน่งงานที่ต้องการฝึก:
@@ -1041,7 +1196,7 @@
             </div>
           </div>
 
-          <!-- RIGHT COLUMN: Title, Narrative & Exact 'เกิด' Button -->
+          <!-- RIGHT COLUMN: Title, Narrative & 'เกิด' Button -->
           <div class="lg:col-span-6 flex flex-col justify-between space-y-4">
             <div>
               <div class="flex items-center gap-2 mb-1">
@@ -1051,31 +1206,31 @@
                 ชีวิตเด็กฝึกงานเอสอี
               </h1>
               <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                คุณคือนักศึกษาวิศวกรรมซอฟต์แวร์ 1 ในคนที่กำลังจะก้าวเข้าสู่โลกการทำงานจริง 16 สัปดาห์เต็ม บริษัทจะสุ่มตามชะตากรรม และการตัดสินใจของคุณจะกำหนดอนาคตการได้งาน!
+                คุณคือนักศึกษาวิศวกรรมซอฟต์แวร์ 1 ในคนที่กำลังจะก้าวเข้าสู่โลกการทำงานจริง 16 สัปดาห์เต็ม บริษัทจะสุ่มตามชะตากรรม มีทั้งตี้หมูกระทะและเสี่ยงโดนส่งตัวกลับมหาวิทยาลัย!
               </p>
             </div>
 
-            <!-- 6 Stat Explanations Grid (Exact 1-in-65M look) -->
+            <!-- 6 Stat Explanations Grid -->
             <div class="grid grid-cols-2 gap-2 text-[11px] bg-[#0c1633] border border-[#16234d] p-3 rounded-lg">
               <div class="p-1">
                 <div class="font-bold text-red-400 flex items-center gap-1">❤️ สุขภาพ</div>
-                <div class="text-slate-400 text-[10px]">ต่ำแล้วป่วย ถึง 0 คือ Burnout</div>
+                <div class="text-slate-400 text-[10px]">ต่ำแล้วป่วย ถึง 0 คือโดนส่งตัวกลับ</div>
               </div>
               <div class="p-1">
                 <div class="font-bold text-[#ffd600] flex items-center gap-1">😊 ความสุข</div>
-                <div class="text-slate-400 text-[10px]">ต่ำเสี่ยงซึมเศร้า ลาออกก่อนจบ</div>
+                <div class="text-slate-400 text-[10px]">ถึง 0 คือสติหลุด ลาออกก่อนจบ</div>
               </div>
               <div class="p-1">
                 <div class="font-bold text-[#00e5ff] flex items-center gap-1">📘 ทักษะ</div>
                 <div class="text-slate-400 text-[10px]">คุณภาพงาน & Return Offer</div>
               </div>
               <div class="p-1">
-                <div class="font-bold text-[#26a69a] flex items-center gap-1">👔 เส้นสาย / บารมี</div>
-                <div class="text-slate-400 text-[10px]">คอนเนกชันกับพี่เลี้ยงและบอส</div>
+                <div class="font-bold text-[#26a69a] flex items-center gap-1">👔 บารมี / เส้นสาย</div>
+                <div class="text-slate-400 text-[10px]">ถึง 0 เสี่ยงโดนส่งตัวกลับมอ</div>
               </div>
               <div class="p-1">
                 <div class="font-bold text-[#fbc02d] flex items-center gap-1">💰 เงิน</div>
-                <div class="text-slate-400 text-[10px]">เบี้ยเลี้ยงและค่าครองชีพ</div>
+                <div class="text-slate-400 text-[10px]">เบี้ยเลี้ยง & ค่าตี้หมูกระทะ</div>
               </div>
               <div class="p-1">
                 <div class="font-bold text-purple-400 flex items-center gap-1">🔮 บุญ / บาป</div>
@@ -1083,7 +1238,7 @@
               </div>
             </div>
 
-            <!-- Big Golden Action Button (Exact 'เกิด' Button) -->
+            <!-- Big Golden Action Button -->
             <div class="pt-1">
               <div class="text-[11px] text-slate-400 font-mono mb-1.5 text-center sm:text-left">
                 กดตัวเลข 1-9 เพื่อเลือก · Enter เพื่อไปต่อ
@@ -1099,7 +1254,7 @@
       `;
     }
 
-    // 2. EVENT & FEEDBACK SCREEN (Exact 1-in-65M Choice Cards & Colors)
+    // 2. EVENT & FEEDBACK SCREEN
     function renderEventScreen(container) {
       const roleId = gameState.selectedRole;
       const roleObj = ROLES[roleId] || ROLES.dev;
@@ -1132,7 +1287,7 @@
                 </div>
               </div>
 
-              <!-- 16-Week Milestone Track (Matching 1-in-65M scrubber) -->
+              <!-- 16-Week Milestone Track -->
               <div class="mt-3 bg-[#0c1633] border border-[#16234d] rounded-lg p-3 font-mono">
                 <div class="flex items-center justify-between text-xs text-slate-400 mb-1.5">
                   <span>ความคืบหน้าสหกิจศึกษา</span>
@@ -1143,8 +1298,8 @@
                 </div>
                 <div class="flex justify-between text-[10px] text-slate-500 mt-1.5">
                   <span>W1 เริ่มต้น</span>
-                  <span>W4 มิดเทอม</span>
-                  <span>W8 สรุปงาน</span>
+                  <span>W4 ตี้หมูกระทะ</span>
+                  <span>W8 วิกฤต Database</span>
                   <span>W12 พรีเซนต์</span>
                   <span>W16 บรรจุ</span>
                 </div>
@@ -1158,7 +1313,7 @@
             </div>
           </div>
 
-          <!-- RIGHT COLUMN: Story Narrative & Exact 1-in-65M Choice Cards -->
+          <!-- RIGHT COLUMN: Story Narrative & 1-in-65M Choice Cards -->
           <div class="lg:col-span-6 flex flex-col justify-between space-y-3">
             
             <div>
@@ -1170,12 +1325,12 @@
                 <span class="bg-[#16234d] text-slate-200 px-1.5 py-0.2 rounded font-bold">${roleObj.badge}</span>
               </div>
 
-              <!-- Context Box (Left Gold Accent Border from 1 in 65M) -->
+              <!-- Context Box -->
               <div class="border-l-4 border-[#e5a83b] bg-[#0c1633] p-3 rounded-r text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
                 ${ev.intro}
               </div>
 
-              <!-- Question Title (Big Bold White Text) -->
+              <!-- Question Title -->
               <h2 class="text-lg sm:text-xl font-bold text-white mt-2.5 leading-snug">
                 ${ev.title}
               </h2>
@@ -1183,7 +1338,7 @@
 
             <!-- Choice Cards vs Feedback State -->
             ${gameState.screen === 'event' ? `
-              <!-- 3 Interactive Choice Cards (Exact 1-in-65M Styling) -->
+              <!-- 3 Interactive Choice Cards -->
               <div class="space-y-2">
                 ${choices.map((c, idx) => `
                   <button onclick="makeChoice(${idx})" class="choice-card-65m w-full text-left p-3.5 flex items-start gap-3 group">
@@ -1216,7 +1371,7 @@
                 </p>
                 <div class="pt-1">
                   <button onclick="nextWeek()" class="w-full py-3.5 btn-gold-65m text-sm font-bold flex items-center justify-center gap-2 shadow-lg">
-                    <span>${gameState.week >= TOTAL_WEEKS ? 'ดูผลการประเมินจบการฝึกงาน (กด Enter)' : 'ไปต่อสัปดาห์ถัดไป (กด Enter)'}</span>
+                    <span>${gameState.isSentBack ? 'ดูผลการถูกส่งตัวกลับมหาวิทยาลัย (กด Enter)' : (gameState.week >= TOTAL_WEEKS ? 'ดูผลการประเมินจบการฝึกงาน (กด Enter)' : 'ไปต่อสัปดาห์ถัดไป (กด Enter)')}</span>
                     <span class="font-mono text-xs opacity-80 bg-black/10 px-1.5 py-0.5 rounded">↵</span>
                   </button>
                 </div>
@@ -1228,7 +1383,7 @@
       `;
     }
 
-    // 3. ENDING SCREEN (Exact 1-in-65M Epilogue Look)
+    // 3. ENDING SCREEN (Normal Endings + SENT BACK F ENDING)
     function renderEndingScreen(container) {
       const s = gameState.stats;
       const roleObj = ROLES[gameState.selectedRole] || ROLES.dev;
@@ -1238,16 +1393,37 @@
       let badge = "🏆 S-TIER RETURN OFFER";
       let desc = "ผลงานตลอด 16 สัปดาห์ของคุณโดดเด่นจนบอร์ดบริหารและ Tech Lead อนุมัติสัญญาจ้างพนักงานประจำทันที พร้อมเงินเดือนเริ่มต้นระดับท็อปของรุ่น!";
       let toneColor = "text-[#dfbd69]";
+      let endingArt = SCENE_ARTS.trophy;
 
-      if (s.energy <= 0 || s.sanity <= 0) {
-        title = "Burnout ล้มป่วยก่อนจบโครงการ";
-        badge = "💀 BURNOUT RETREAT";
-        desc = "คุณโหมงานหนักและแบกรับความกดดันจนร่างกายประท้วง ต้องพักรักษาตัว แม้จะเก่งแต่สุขภาพต้องมาก่อน ขอให้พักผ่อนเต็มที่เพื่อกลับมาใหม่!";
+      // Special check: SENT BACK TO UNIVERSITY (F)
+      if (gameState.isSentBack) {
+        title = "โดนส่งตัวกลับมหาวิทยาลัย! (ติด F สหกิจศึกษา)";
+        badge = "❌ TERMINATED & SENT BACK";
+        desc = gameState.sentBackReason || "บริษัทได้ส่งหนังสือแจ้งอาจารย์ที่ปรึกษาขอยกเลิกสัญญาฝึกงานและส่งตัวคุณกลับมหาวิทยาลัยก่อนกำหนด เนื่องจากปัญหาทางวินัยหรือสร้างความเสียหายร้ายแรง... ต้องลงทะเบียนวิชาสหกิจศึกษาเรียนซ้ำใหม่เทอมหน้า!";
+        toneColor = "text-red-500";
+        endingArt = SCENE_ARTS.sent_back;
+      } else if (s.energy <= 0) {
+        title = "ป่วยหนักจนต้องถอนตัว (ส่งตัวกลับรักษาตัว)";
+        badge = "🏥 MEDICAL WITHDRAWAL";
+        desc = "ร่างกายประท้วงจากการอดหลับอดนอนสะสม แพทย์สั่งให้พักรักษาตัวอย่างเด็ดขาด บริษัทจึงทำเรื่องส่งตัวกลับมหาวิทยาลัยเพื่อรักษาตัว สุขภาพกายต้องมาก่อนงานเสมอ!";
         toneColor = "text-red-400";
+        endingArt = SCENE_ARTS.sent_back;
+      } else if (s.sanity <= 0) {
+        title = "Burnout สติหลุด ขอยุติการฝึกงาน";
+        badge = "💀 BURNOUT RESIGNATION";
+        desc = "ความกดดันสะสมจนสภาพจิตใจแบกรับไม่ไหว คุณตัดสินใจขอถอนตัวจากการฝึกงานและกลับไปพักผ่อนที่มหาวิทยาลัย เพื่อฟื้นฟูจิตใจให้พร้อมกลับมาสู้อีกครั้ง";
+        toneColor = "text-amber-400";
+        endingArt = SCENE_ARTS.sent_back;
+      } else if (s.karma <= 0) {
+        title = "โดนส่งตัวกลับเนื่องจากทำผิดวินัยร้ายแรง";
+        badge = "🚫 DISCIPLINARY DISMISSAL";
+        desc = "คะแนนความประพฤติและบารมีติดลบ พี่เลี้ยงและผู้จัดการลงความเห็นว่าขาดความรับผิดชอบ จึงทำหนังสือส่งตัวกลับคณะวิศวกรรมศาสตร์ทันที!";
+        toneColor = "text-red-500";
+        endingArt = SCENE_ARTS.sent_back;
       } else if (s.skill >= 75 && s.karma >= 60) {
         title = "ว่าที่ Tech Lead ดาวรุ่งคนใหม่";
         badge = "🌟 GOLDEN OFFER + SIGN-ON BONUS";
-        desc = "คุณผสมผสานทั้ง Hard Skills ระดับเซียน และ Soft Skills มนุษยสัมพันธ์ยอดเยี่ยม ทุกคนในองค์กรแย่งตัวคุณเข้าทีม!";
+        desc = "คุณผสมผสานทั้ง Hard Skills ระดับเซียน และ Soft Skills มนุษยสัมพันธ์ยอดเยี่ยม ทุกคนในองค์กรแย่งตัวคุณเข้าทีม พร้อมฉลองเหมาเตาหมูกระทะทั้งแผนก!";
         toneColor = "text-[#ffd600]";
       } else if (s.karma >= 75) {
         title = "เจ้าพ่อคอนเนกชัน ตัวเชื่อมทุกแผนก";
@@ -1269,10 +1445,10 @@
       container.innerHTML = `
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
           
-          <!-- LEFT COLUMN: Trophy Viewport -->
+          <!-- LEFT COLUMN: Ending Viewport (Trophy or Sent Back) -->
           <div class="lg:col-span-6 flex flex-col justify-between">
             <div class="gold-box rounded-lg overflow-hidden bg-[#051124] relative aspect-[16/9] w-full flex items-center justify-center shadow-lg">
-              ${SCENE_ARTS.trophy}
+              ${endingArt}
               
               <div class="absolute top-3 left-3 bg-[#0d1736]/90 border border-[#dfbd69] px-3 py-1 rounded text-xs font-bold font-mono text-[#dfbd69]">
                 ${badge}
@@ -1308,7 +1484,7 @@
           <div class="lg:col-span-6 flex flex-col justify-between space-y-4">
             <div>
               <div class="text-xs font-mono text-[#dfbd69] tracking-wider mb-1 font-bold">
-                ผลสรุปสหกิจศึกษา 16 สัปดาห์ (4 เดือนเต็ม)
+                ${gameState.isSentBack || s.energy <= 0 || s.sanity <= 0 || s.karma <= 0 ? 'สิ้นสุดการฝึกงานก่อนกำหนด' : 'ผลสรุปสหกิจศึกษา 16 สัปดาห์ (4 เดือนเต็ม)'}
               </div>
               <h2 class="text-xl sm:text-2xl font-extrabold ${toneColor} leading-tight">
                 ${title}
@@ -1323,7 +1499,7 @@
             </div>
 
             <div class="bg-[#0c1633] border border-[#16234d] p-3 rounded-lg text-xs text-slate-400 italic">
-              "ชีวิตการฝึกงานอาจเต็มไปด้วยความไม่แน่นอนและบั๊กที่คาดไม่ถึง แต่ประสบการณ์ที่คุณสะสมมาคือจุดเริ่มต้นของวิศวกรซอฟต์แวร์ตัวจริง"
+              ${gameState.isSentBack ? '"การล้มเหลวในครั้งนี้คือบทเรียนสำคัญ อย่าเพิ่งท้อถอย กลับไปตั้งหลักที่มหาวิทยาลัยแล้วพัฒนาตนเองเพื่อกลับมาใหม่!"' : '"ชีวิตการฝึกงานอาจเต็มไปด้วยความไม่แน่นอนและบั๊กที่คาดไม่ถึง แต่ประสบการณ์ที่คุณสะสมมาคือจุดเริ่มต้นของวิศวกรซอฟต์แวร์ตัวจริง"'}
             </div>
 
             <div>
@@ -1363,6 +1539,8 @@
 
       gameState.week = 1;
       gameState.screen = 'event';
+      gameState.isSentBack = false;
+      gameState.sentBackReason = "";
       gameState.lastToast = `สุ่มได้: ${randomComp.name.split(' ')[0]}`;
       playSound('success');
       render();
@@ -1380,9 +1558,25 @@
       s.karma += choice.stats.karma || 0;
       s.money += (choice.stats.money || 0) + (gameState.company ? gameState.company.dailyStipend * 5 : 3000);
 
-      s.energy = Math.max(0, Math.min(100, s.energy));
-      s.sanity = Math.max(0, Math.min(100, s.sanity));
-      s.skill = Math.max(0, s.skill);
+      s.energy = Math.min(100, s.energy);
+      s.sanity = Math.min(100, s.sanity);
+
+      // Check critical failure: SENT BACK TO UNIVERSITY!
+      if (gameState.week === 8 && idx === 2 && s.karma <= 10) {
+        gameState.isSentBack = true;
+        gameState.sentBackReason = "เหตุการณ์ลบฐานข้อมูล DEV: คุณพยายามตีเนียนทำลายหลักฐาน แต่ Tech Lead ตรวจสอบเจอร่องรอย! ทางบริษัทลงมติว่าเป็นการทำผิดวินัยขั้นร้ายแรง จึงส่งหนังสือแจ้งอาจารย์ที่ปรึกษาขอยุติการฝึกงานและส่งตัวคุณกลับมหาวิทยาลัยทันที";
+        playSound('fail');
+      } else if (s.energy <= 0 || s.sanity <= 0 || s.karma <= 0) {
+        gameState.isSentBack = true;
+        if (s.karma <= 0) {
+          gameState.sentBackReason = "คะแนนบารมีความประพฤติติดลบ! พี่เลี้ยงและทีมงานลงความเห็นว่าขาดความรับผิดชอบอย่างต่อเนื่อง จึงทำเรื่องส่งตัวคุณกลับมหาวิทยาลัย";
+        } else if (s.energy <= 0) {
+          gameState.sentBackReason = "พลังกายลดลงเหลือ 0 ล้มป่วยหนักจนไม่สามารถฝึกงานต่อได้ บริษัทจึงส่งตัวกลับมหาวิทยาลัยเพื่อรักษาตัว";
+        } else {
+          gameState.sentBackReason = "ค่าความสุขลดลงเหลือ 0 เกิดภาวะ Burnout รุนแรงจนไม่สามารถปฏิบัติงานต่อได้ ขอยุติการฝึกงานและกลับมหาวิทยาลัย";
+        }
+        playSound('fail');
+      }
 
       const skillDelta = choice.stats.skill > 0 ? `+${choice.stats.skill} 📘` : `${choice.stats.skill} 📘`;
       const energyDelta = choice.stats.energy > 0 ? `+${choice.stats.energy} ❤️` : `${choice.stats.energy} ❤️`;
@@ -1395,9 +1589,13 @@
 
     function nextWeek() {
       playSound('click');
-      if (gameState.week >= TOTAL_WEEKS || gameState.stats.energy <= 0 || gameState.stats.sanity <= 0) {
+      if (gameState.isSentBack || gameState.week >= TOTAL_WEEKS || gameState.stats.energy <= 0 || gameState.stats.sanity <= 0 || gameState.stats.karma <= 0) {
         gameState.screen = 'ending';
-        playSound('success');
+        if (gameState.isSentBack || gameState.stats.energy <= 0 || gameState.stats.sanity <= 0 || gameState.stats.karma <= 0) {
+          playSound('fail');
+        } else {
+          playSound('success');
+        }
       } else {
         gameState.week += 1;
         gameState.screen = 'event';
@@ -1421,7 +1619,8 @@
           money: 3000
         },
         lastToast: null,
-        historyLog: []
+        isSentBack: false,
+        sentBackReason: ""
       };
       render();
     }
