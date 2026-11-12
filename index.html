@@ -1000,7 +1000,172 @@
           <rect x="65" y="34" width="6" height="14" fill="#fcd34d"/>
           <rect x="89" y="34" width="6" height="14" fill="#fcd34d"/>
         </svg>
+      `,
+      server_alert: `
+        <svg viewBox="0 0 160 90" class="w-full h-full pixel-art bg-[#140608]">
+          <!-- Server Rack with Alarm -->
+          <rect x="25" y="8" width="110" height="74" fill="#1c0b0e" stroke="#7f1d1d" stroke-width="2"/>
+          <!-- Racks -->
+          <rect x="30" y="14" width="100" height="10" fill="#2d1115" stroke="#991b1b" stroke-width="1"/>
+          <circle cx="36" cy="19" r="2" fill="#ef4444">
+            <animate attributeName="fill" values="#ef4444;#7f1d1d;#ef4444" dur="0.6s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="42" cy="19" r="1.5" fill="#f59e0b"/>
+          <line x1="50" y1="19" x2="120" y2="19" stroke="#7f1d1d" stroke-width="1" stroke-dasharray="2 2"/>
+
+          <rect x="30" y="27" width="100" height="10" fill="#2d1115" stroke="#ef4444" stroke-width="1"/>
+          <circle cx="36" cy="32" r="2" fill="#ef4444"/>
+          <text x="44" y="34" fill="#f87171" font-family="monospace" font-size="4.5" font-weight="bold">CRITICAL: DB CONN POOL EXHAUSTED (100%)</text>
+
+          <rect x="30" y="40" width="100" height="10" fill="#2d1115" stroke="#991b1b" stroke-width="1"/>
+          <circle cx="36" cy="45" r="2" fill="#ef4444"/>
+          <text x="44" y="47" fill="#fca5a5" font-family="monospace" font-size="4.5">PagerDuty: 4 alerts acknowledged by On-Call</text>
+
+          <rect x="30" y="53" width="100" height="10" fill="#2d1115" stroke="#991b1b" stroke-width="1"/>
+          <circle cx="36" cy="58" r="2" fill="#f59e0b"/>
+          <text x="44" y="60" fill="#fcd34d" font-family="monospace" font-size="4.5">HTTP 500 Spike: 14,200 req/sec (Error Budget -30%)</text>
+
+          <!-- Siren Light on top -->
+          <polygon points="80,2 86,8 74,8" fill="#ef4444">
+            <animate attributeName="opacity" values="1;0.2;1" dur="0.4s" repeatCount="indefinite"/>
+          </polygon>
+        </svg>
+      `,
+
+      cloud_finops: `
+        <svg viewBox="0 0 160 90" class="w-full h-full pixel-art bg-[#06101c]">
+          <!-- Cloud and Billing -->
+          <path d="M40,42 Q40,28 56,26 Q64,16 80,16 Q96,16 104,26 Q120,28 120,42 Q126,52 116,62 Q108,68 96,68 L60,68 Q44,68 38,58 Q34,48 40,42 Z" fill="#0d233a" stroke="#0284c7" stroke-width="2"/>
+          <!-- Baht Coin in Center -->
+          <circle cx="80" cy="42" r="14" fill="#eab308" stroke="#ca8a04" stroke-width="1.5"/>
+          <text x="76" y="47" fill="#713f12" font-family="monospace" font-size="12" font-weight="bold">฿</text>
+          <!-- Floating bills / coins -->
+          <text x="24" y="24" fill="#38bdf8" font-family="monospace" font-size="4.5">AWS: ฿750,000</text>
+          <text x="108" y="24" fill="#f87171" font-family="monospace" font-size="4.5">Waste: +32%</text>
+          <text x="44" y="76" fill="#34d399" font-family="monospace" font-size="4">Spot Instances: -60% cost</text>
+          <text x="44" y="82" fill="#fbbf24" font-family="monospace" font-size="4">Auto-Shutdown Dev Env: Active</text>
+        </svg>
+      `,
+
+      war_room: `
+        <svg viewBox="0 0 160 90" class="w-full h-full pixel-art bg-[#0b0e1b]">
+          <!-- Meeting Room with Big Dashboard -->
+          <rect x="20" y="8" width="120" height="48" fill="#131b34" stroke="#253561" stroke-width="1.5"/>
+          <!-- Chart on wall -->
+          <polyline points="26,46 45,45 60,43 75,18 90,46 110,47 130,47" fill="none" stroke="#ef4444" stroke-width="2"/>
+          <text x="26" y="16" fill="#dfbd69" font-family="monospace" font-size="4.5" font-weight="bold">INCIDENT #4092 POST-MORTEM (BLAMELESS)</text>
+          <text x="26" y="24" fill="#94a3b8" font-family="monospace" font-size="4">MTTR: 18m · Root Cause: Latent configuration drift</text>
+          <!-- Whiteboard stickies -->
+          <rect x="26" y="28" width="18" height="12" fill="#fef08a"/>
+          <text x="28" y="34" fill="#854d0e" font-size="3" font-weight="bold">Circuit Breaker</text>
+          <rect x="48" y="28" width="20" height="12" fill="#bae6fd"/>
+          <text x="50" y="34" fill="#0369a1" font-size="3" font-weight="bold">Chaos GameDay</text>
+          <!-- Table with laptops -->
+          <rect x="15" y="60" width="130" height="16" fill="#1e293b"/>
+          <!-- People heads -->
+          <circle cx="45" cy="56" r="4" fill="#fcd34d"/>
+          <circle cx="80" cy="56" r="4" fill="#6ee7b7"/>
+          <circle cx="115" cy="56" r="4" fill="#f472b6"/>
+          <!-- Coffee cups -->
+          <rect x="62" y="62" width="4" height="5" fill="#f8fafc"/>
+          <rect x="98" y="62" width="4" height="5" fill="#f8fafc"/>
+        </svg>
+      `,
+
+      design_ui: `
+        <svg viewBox="0 0 160 90" class="w-full h-full pixel-art bg-[#0d1322]">
+          <rect x="0" y="0" width="160" height="90" fill="#0d1322"/>
+          <!-- Top App Bar (Figma Style) -->
+          <rect x="0" y="0" width="160" height="9" fill="#151d33" stroke="#232f52" stroke-width="0.5"/>
+          <rect x="6" y="2.5" width="4" height="4" fill="#a855f7" rx="1"/>
+          <circle cx="16" cy="4.5" r="1.5" fill="#38bdf8"/>
+          <rect x="22" y="2.5" width="5" height="4" fill="#64748b"/>
+          <text x="32" y="6" fill="#94a3b8" font-family="monospace" font-size="3.5">Figma · App_Design_v2.fig</text>
+          <rect x="138" y="2" width="16" height="5" fill="#6366f1" rx="1"/>
+          <text x="141" y="5.5" fill="#fff" font-family="monospace" font-size="3" font-weight="bold">Share</text>
+
+          <!-- Left Sidebar: Layer Tree -->
+          <rect x="0" y="9" width="34" height="81" fill="#10172a" stroke="#1e293b" stroke-width="0.5"/>
+          <text x="4" y="16" fill="#64748b" font-family="monospace" font-size="3" font-weight="bold">LAYERS</text>
+          <rect x="4" y="19" width="26" height="5" fill="#1e293b" rx="1"/>
+          <rect x="6" y="20.5" width="2" height="2" fill="#38bdf8"/>
+          <text x="10" y="23" fill="#38bdf8" font-family="monospace" font-size="2.8">Frame 1 (Mobile)</text>
+          <rect x="8" y="26" width="2" height="2" fill="#a855f7"/>
+          <text x="12" y="28" fill="#cbd5e1" font-family="monospace" font-size="2.8">Header / Hero</text>
+          <rect x="8" y="31" width="2" height="2" fill="#facc15"/>
+          <text x="12" y="33" fill="#cbd5e1" font-family="monospace" font-size="2.8">Primary Button</text>
+          <rect x="8" y="36" width="2" height="2" fill="#10b981"/>
+          <text x="12" y="38" fill="#cbd5e1" font-family="monospace" font-size="2.8">Tab Bar (Active)</text>
+
+          <!-- Center Canvas: Subtle canvas grid dots -->
+          <circle cx="50" cy="20" r="0.5" fill="#334155"/>
+          <circle cx="70" cy="20" r="0.5" fill="#334155"/>
+          <circle cx="90" cy="20" r="0.5" fill="#334155"/>
+          <circle cx="110" cy="20" r="0.5" fill="#334155"/>
+          <circle cx="50" cy="40" r="0.5" fill="#334155"/>
+          <circle cx="70" cy="40" r="0.5" fill="#334155"/>
+          <circle cx="90" cy="40" r="0.5" fill="#334155"/>
+          <circle cx="110" cy="40" r="0.5" fill="#334155"/>
+          <circle cx="50" cy="60" r="0.5" fill="#334155"/>
+          <circle cx="70" cy="60" r="0.5" fill="#334155"/>
+          <circle cx="90" cy="60" r="0.5" fill="#334155"/>
+          <circle cx="110" cy="60" r="0.5" fill="#334155"/>
+
+          <!-- Mobile Device Frame -->
+          <rect x="58" y="14" width="44" height="72" fill="#090d16" stroke="#3b82f6" stroke-width="1" rx="4"/>
+          <!-- Screen Notch -->
+          <rect x="74" y="15.5" width="12" height="2.5" fill="#1e293b" rx="1"/>
+          <!-- Header Bar -->
+          <rect x="62" y="21" width="16" height="3" fill="#38bdf8" rx="0.5"/>
+          <circle cx="96" cy="22.5" r="2" fill="#ec4899"/>
+          <!-- Main Hero Card -->
+          <rect x="62" y="27" width="36" height="18" fill="#1e293b" stroke="#334155" stroke-width="0.5" rx="2"/>
+          <rect x="65" y="30" width="20" height="3" fill="#f8fafc" rx="0.5"/>
+          <rect x="65" y="35" width="30" height="2" fill="#64748b" rx="0.5"/>
+          <rect x="65" y="39" width="16" height="3" fill="#6366f1" rx="1"/>
+          <text x="68" y="41.5" fill="#fff" font-family="monospace" font-size="2" font-weight="bold">Explore</text>
+          <!-- 2 Feature Mini Cards -->
+          <rect x="62" y="48" width="16" height="14" fill="#131c31" stroke="#1e293b" stroke-width="0.5" rx="1.5"/>
+          <circle cx="70" cy="53" r="2.5" fill="#38bdf8"/>
+          <rect x="65" y="58" width="10" height="2" fill="#94a3b8" rx="0.5"/>
+          <rect x="82" y="48" width="16" height="14" fill="#131c31" stroke="#1e293b" stroke-width="0.5" rx="1.5"/>
+          <circle cx="90" cy="53" r="2.5" fill="#10b981"/>
+          <rect x="85" y="58" width="10" height="2" fill="#94a3b8" rx="0.5"/>
+          <!-- Primary Action Button -->
+          <rect x="62" y="65" width="36" height="6" fill="#3b82f6" rx="1.5"/>
+          <text x="73" y="69" fill="#ffffff" font-family="monospace" font-size="2.5" font-weight="bold">Get Started</text>
+          <!-- Bottom Tab Bar -->
+          <rect x="58" y="77" width="44" height="9" fill="#111827" rx="0"/>
+          <circle cx="66" cy="81" r="1.5" fill="#38bdf8"/>
+          <circle cx="76" cy="81" r="1.5" fill="#64748b"/>
+          <circle cx="86" cy="81" r="1.5" fill="#64748b"/>
+          <circle cx="96" cy="81" r="1.5" fill="#64748b"/>
+
+          <!-- Right Sidebar: Inspector & Design Tokens -->
+          <rect x="126" y="9" width="34" height="81" fill="#10172a" stroke="#1e293b" stroke-width="0.5"/>
+          <text x="130" y="16" fill="#64748b" font-family="monospace" font-size="3" font-weight="bold">TOKENS</text>
+          <rect x="130" y="20" width="5" height="5" fill="#3b82f6" rx="1"/>
+          <text x="137" y="24" fill="#cbd5e1" font-family="monospace" font-size="2.8">#3B82F6</text>
+          <rect x="130" y="27" width="5" height="5" fill="#6366f1" rx="1"/>
+          <text x="137" y="31" fill="#cbd5e1" font-family="monospace" font-size="2.8">#6366F1</text>
+          <rect x="130" y="34" width="5" height="5" fill="#ec4899" rx="1"/>
+          <text x="137" y="38" fill="#cbd5e1" font-family="monospace" font-size="2.8">#EC4899</text>
+          <rect x="130" y="41" width="5" height="5" fill="#10b981" rx="1"/>
+          <text x="137" y="45" fill="#cbd5e1" font-family="monospace" font-size="2.8">#10B981</text>
+          <text x="130" y="54" fill="#64748b" font-family="monospace" font-size="3" font-weight="bold">TYPO</text>
+          <text x="130" y="60" fill="#94a3b8" font-family="monospace" font-size="2.5">Inter 16 Semi</text>
+          <text x="130" y="65" fill="#94a3b8" font-family="monospace" font-size="2.5">Line-height: 24</text>
+          <text x="130" y="73" fill="#64748b" font-family="monospace" font-size="3" font-weight="bold">RADIUS</text>
+          <text x="130" y="79" fill="#94a3b8" font-family="monospace" font-size="2.5">Corner: 8px</text>
+
+          <!-- Vector Cursor -->
+          <line x1="94" y1="36" x2="108" y2="30" stroke="#f43f5e" stroke-width="0.8" stroke-dasharray="1 1"/>
+          <circle cx="94" cy="36" r="1.2" fill="#fff" stroke="#f43f5e" stroke-width="0.8"/>
+          <circle cx="108" cy="30" r="1" fill="#f43f5e"/>
+          <polygon points="104,26 104,36 107,33 111,37 113,35 109,31 113,31" fill="#f43f5e"/>
+        </svg>
       `
+
     };
 
     // --- 16 REALISTIC WEEKS & DILEMMAS FOR ALL 4 ROLES ---
@@ -1781,30 +1946,45 @@
           researchDetail: "Abaei et al. ระบุว่าอุปสรรคการติดตั้งระบบและติด Firewall ของลูกค้าเป็นปัญหาพบบ่อยที่สุด การเตรียม Environment ล่วงหน้าช่วยประหยัดเวลาพี่เลี้ยงได้มหาศาล",
           title: "อุปสรรคสัปดาห์ที่ 2: 'พี่เลี้ยงงานยุ่งมากจนแทบไม่มีเวลาสอน'",
           intro: "พี่เลี้ยงติดไฟไหม้ Release งานใหญ่ ประชุมทั้งวัน แทบไม่ได้หันมามองโต๊ะคุณ คุณติดปัญหาคอมไพล์โค้ดไม่ผ่าน นั่งเคว้งมาตั้งแต่เก้าโมงเช้า...",
-          pArt: "bug",
+          pArt: "circle",
           choices: [
-            {
-              text: "แกะ Inspect Element อย่างรอบคอบ รีแฟกเตอร์คลาส CSS และเทสต์ทุกหน้าจอ",
-              stats: { skill: 14, energy: -15, sanity: -5, karma: 10 },
-              cost: 0,
-              hint: "+14 ทักษะ · -15 พลัง · คุณภาพงานระดับมาตรฐาน",
-              feedback: "หน้าจอออกมาสวยงามและ Responsive ครบทุกอุปกรณ์ Tech Lead กด Approve PR ทันที"
-            },
-            {
-              text: "ใส่ !important คลุมทับมันซะเลย แล้วรีบส่งงานก่อน 17:00 น.",
-              stats: { skill: 2, energy: -5, sanity: 8, karma: -8 },
-              cost: 0,
-              hint: "ทางลัดมักง่าย · -8 บารมี (โดนรีวิวโค้ดยับ)",
-              feedback: "Senior ทักใน PR ทันที: 'น้องครับ ใครสอนให้ใส่ !important รัวๆ แบบนี้?' โดนสั่งแก้งานรอบสอง"
-            },
-            {
-              text: "ปรึกษา UX/UI และ QA ก่อนแก้ เพื่อให้แน่ใจว่าไม่กระทบ Component อื่น",
-              stats: { skill: 8, energy: -10, sanity: 5, karma: 15 },
-              cost: 0,
-              hint: "+15 บารมี · สนิทกับข้ามสายงาน · งานราบรื่น",
-              feedback: "เพื่อนร่วมทีมทั้ง QA และ UX ขอบคุณที่คุณเดินมาปรึกษาก่อน ความสัมพันธ์ในแผนกดีขึ้นมาก"
-            }
-          ]
+          {
+                    text: "ค้นหาทางแก้จาก Document & Stack Overflow ลิสต์สิ่งที่ลองแล้ว 3 ข้อ เตรียมคำถามสั้นๆ ดักถามช่วงพี่พัก 5 นาที",
+                    stats: {
+                              skill: 14,
+                              energy: -15,
+                              sanity: 5,
+                              karma: 12
+                    },
+                    cost: 0,
+                    hint: "+14 ทักษะ · ช่วยเหลือตัวเองก่อนถาม · พี่เลี้ยงชื่นชมความเป็นมืออาชีพ",
+                    feedback: "พี่เลี้ยงประทับใจที่คุณทำการบ้านมาก่อน ใช้เวลาเพียง 3 นาทีชี้แนะจุดแก้ คุณปลดล็อกงานได้ทันที!"
+          },
+          {
+                    text: "เดินไปสะกิดพี่เลี้ยงรัวๆ กลางโต๊ะประชุม: 'พี่ครับ ดูหน้าจอให้ผมแป๊บเดียว 1 นาที'",
+                    stats: {
+                              skill: 2,
+                              energy: -5,
+                              sanity: -10,
+                              karma: -12
+                    },
+                    cost: 0,
+                    hint: "ขัดจังหวะผู้ใหญ่ · เสี่ยงโดนดุต่อหน้าคนทั้งแผนก",
+                    feedback: "พี่เลี้ยงทำหน้าเครียดและบอกให้รอก่อน บรรยากาศอึดอัดจนคุณไม่กล้าสบตาใครไปทั้งบ่าย"
+          },
+          {
+                    text: "ปิดหน้าต่างโค้ดลง นั่งไถโทรศัพท์รอพี่เลี้ยงว่างทั้งวัน คิดว่า 'ไม่ใช่ความผิดเรา พี่ไม่สอนเอง'",
+                    stats: {
+                              skill: -2,
+                              energy: 5,
+                              sanity: -15,
+                              karma: -18
+                    },
+                    cost: 0,
+                    hint: "เสียเวลาเปล่า · เสี่ยงโดนประเมินว่าไม่กระตือรือร้น",
+                    feedback: "สิ้นวันพี่เลี้ยงถามความคืบหน้าแต่ไม่มีอะไรส่ง Tech Lead เริ่มมองว่าคุณขาดความรับผิดชอบ"
+          }
+]
         },
         {
           week: 3,
@@ -1814,28 +1994,43 @@
           intro: "Sprint แรกจบลง งานใหม่ยังไม่มา พี่เลี้ยงบอกว่า 'นั่งศึกษาไปก่อนนะ' คุณนั่งมองนาฬิกาเดินไปทีละวินาที รู้สึกเคว้งคว้างและกลัวโดนมองว่าอู้...",
           pArt: "circle",
           choices: [
-            {
-              text: "ยอมรับตรงๆ ว่าติดอะไรอยู่ พร้อมชี้แจงแนวทางที่พยายามลองทำแล้ว",
-              stats: { skill: 10, energy: -5, sanity: 10, karma: 12 },
-              cost: 0,
-              hint: "+12 บารมี · เป็นมืออาชีพ · พี่เลี้ยงพร้อมช่วยเคลียร์",
-              feedback: "Senior บอกทันที: 'ดีแล้วที่บอก เดี๋ยวหลังประชุมพี่เปิด Meet ช่วยดูให้ 15 นาที'"
-            },
-            {
-              text: "พูดยาวเหยียดใช้ศัพท์เทคนิคซับซ้อนกลบเกลื่อนให้ดูยุ่งตลอดเวลา",
-              stats: { skill: 2, energy: -8, sanity: -10, karma: -6 },
-              cost: 0,
-              hint: "เนียนไม่เนียน · เสี่ยงโดนไล่ต้อน",
-              feedback: "Tech Lead ดักคอ: 'สรุปส่งงานได้กี่โมง?' บรรยากาศเงียบกริบไป 5 วินาที"
-            },
-            {
-              text: "ชิงถามว่ามีใครว่างช่วยดูไหม หลังประชุมขอเลี้ยงกาแฟพี่เลี้ยง 1 แก้ว",
-              stats: { skill: 8, energy: -5, sanity: 5, karma: 15 },
-              cost: -75, // ซื้อกาแฟอเมซอน
-              hint: "+15 บารมี · -75 บาท (วิชาผูกมิตรด้วยกาแฟ)",
-              feedback: "พี่เลี้ยงใจดีช่วยดูโค้ดจนแก้ Blocker ได้ทันเวลา แถมได้เคล็ดลับ Debug ขั้นเทพติดตัว"
-            }
-          ]
+          {
+                    text: "เดินไปหา Tech Lead / พี่เลี้ยง อาสาช่วยเขียน Unit Test เพิ่ม, ปรับปรุง Document หรือช่วยแกะ Ticket เล็กๆ",
+                    stats: {
+                              skill: 14,
+                              energy: -12,
+                              sanity: 10,
+                              karma: 15
+                    },
+                    cost: 0,
+                    hint: "+14 ทักษะ · เชิงรุก (Proactive) · ได้ใจหัวหน้าทีม",
+                    feedback: "Tech Lead ประทับใจในความกระตือรือร้น มอบหมายงานวิจัยเครื่องมือใหม่ให้ทำจนคุณได้โชว์ผลงานเด่น!"
+          },
+          {
+                    text: "นั่งเปิดคอร์สออนไลน์ศึกษา Tech Stack ของบริษัทอย่างตั้งใจที่โต๊ะทำงาน",
+                    stats: {
+                              skill: 10,
+                              energy: -8,
+                              sanity: 6,
+                              karma: 4
+                    },
+                    cost: 0,
+                    hint: "+10 ทักษะ · พัฒนาตนเอง · ไม่อยู่เฉย",
+                    feedback: "คุณได้ความรู้เชิงลึกเพิ่มขึ้น แม้จะยังไม่ได้ผลงานจริงแต่ก็เตรียมพร้อมรับมือสปรินต์ถัดไปได้ดี"
+          },
+          {
+                    text: "เปิด VS Code ค้างไว้ แล้วแอบสลับหน้าต่างอ่านกระทู้ Pantip / ไถโซเชียลฆ่าเวลาไปวันๆ",
+                    stats: {
+                              skill: 0,
+                              energy: 2,
+                              sanity: -12,
+                              karma: -15
+                    },
+                    cost: 0,
+                    hint: "หลอกตัวเอง · เสี่ยงโดนผู้จัดการเดินมาเห็นจากด้านหลัง",
+                    feedback: "ผู้จัดการเดินผ่านมาเห็นหน้าจอพอดี แม้ไม่พูดตรงๆ แต่สายตาที่มองทำเอาคุณขนลุกซู่ไปทั้งวัน"
+          }
+]
         },
         {
           week: 4,
@@ -1876,28 +2071,43 @@
           intro: "เช้าวันจันทร์ฝนเทกระหน่ำน้ำท่วมเสมอตาตุ่ม รถไฟฟ้า BTS ขัดข้องหยุดวิ่งกลางสะพานตากสิน คุณติดอยู่บนรถร่วม 2 ชั่วโมง เข้าออฟฟิศสายไป 45 นาที...",
           pArt: "commute_rain",
           choices: [
-            {
-              text: "เตือน PO สุภาพถึงความเสี่ยง Friday Deploy พร้อมเสนอให้ Deploy วันจันทร์เช้า",
-              stats: { skill: 15, energy: -5, sanity: 10, karma: 12 },
-              cost: 0,
-              hint: "+15 ทักษะ · มีสติกล้าหาญตามหลักวิศวกรรม · +12 บารมี",
-              feedback: "Tech Lead เดินมาได้ยินพอดีและพูดสนับสนุนคุณ: 'น้องพูดถูก ศุกร์ห้ามขึ้นระบบเด็ดขาด'"
-            },
-            {
-              text: "ยอมอยู่โอทีช่วย Deploy เฝ้าระบบยัน 21:00 น. เพื่อความปลอดภัย",
-              stats: { skill: 10, energy: -25, sanity: -10, karma: 22 },
-              cost: -80, // ค่าข้าวโอที
-              hint: "+22 บารมี · -25 สุขภาพ · ทุ่มเทเพื่อทีม",
-              feedback: "ระบบขึ้นได้ปลอดภัย PO เลี้ยงพิซซ่ารอบดึกและขอบคุณที่คุณยอมสละเวลาช่วยกู้สถานการณ์"
-            },
-            {
-              text: "กด Deploy ขึ้นไปเลยตามคำสั่งแล้วรีบสแกนนิ้วกลับบ้าน",
-              stats: { skill: -5, energy: 5, sanity: -15, karma: -18 },
-              cost: 0,
-              hint: "หายนะซ่อนเร้น · -18 บารมี",
-              feedback: "คืนวันเสาร์เซิร์ฟเวอร์แจ้งเตือน Crash! คุณโดนโทรตามวันหยุด ต้องเปิดคอมแก้งานทั้งน้ำตา"
-            }
-          ]
+          {
+                    text: "ถ่ายรูปสถานการณ์ส่งเข้ากลุ่มไลน์ทีมทันที ขอต่อสาย Standup ออนไลน์จากบนรถ และขอ WFH ครึ่งเช้า",
+                    stats: {
+                              skill: 8,
+                              energy: -10,
+                              sanity: 10,
+                              karma: 15
+                    },
+                    cost: 0,
+                    hint: "+15 ความไว้วางใจ · สื่อสารทันการณ์ · โปร่งใสไม่เงียบหาย",
+                    feedback: "พี่เลี้ยงและผู้จัดการเข้าใจสถานการณ์อนุญาตทันที แถมยังชมเรื่องความรับผิดชอบในการเข้าประชุมตรงเวลา"
+          },
+          {
+                    text: "สละแถว BTS วิ่งไปโบกวินมอเตอร์ไซค์ลุยน้ำท่วมเสี่ยงน้ำเข้าท่อ ยอมจ่ายค่าโดยสารโหด ฿250 เพื่อไปให้ทัน",
+                    stats: {
+                              skill: 4,
+                              energy: -20,
+                              sanity: -15,
+                              karma: 8
+                    },
+                    cost: -250,
+                    hint: "ทุ่มเทสุดตัว · กระเป๋าเงินฉีก · ขากางเกงเปียกปอน",
+                    feedback: "คุณไปถึงออฟฟิศก่อนสิบโมงในสภาพเปียกโชก เงินเก็บหายไป 250 บาท พี่ๆ แซวด้วยความเอ็นดูปนสงสาร"
+          },
+          {
+                    text: "เงียบไว้ไม่ส่งข้อความแจ้งใคร พอถึงสายตอน 11:00 น. ค่อยแอบย่องเข้าประตูด้านหลังหวังให้ไม่มีใครเห็น",
+                    stats: {
+                              skill: -5,
+                              energy: 0,
+                              sanity: -20,
+                              karma: -25
+                    },
+                    cost: 0,
+                    hint: "⚠️ เสียเครดิต · HR เพ่งเล็งการขาดการติดต่อ",
+                    feedback: "พี่เลี้ยงนั่งรออัปเดตงานมาตลอดสองชั่วโมง พอเห็นคุณเดินมาจึงเรียกไปเตือนสติเรื่องมารยาทการทำงานอย่างจริงจัง"
+          }
+]
         },
         {
           week: 6,
@@ -2000,28 +2210,43 @@
           intro: "หลังโดนหักค่าเช่าหอพักและค่าน้ำไฟ เงินในบัญชีเหลือไม่ถึง 400 บาท คุณต้องกินบะหมี่ถ้วยสำเร็จรูปประทังชีวิต นั่งซดน้ำซุปร้อนๆ ในห้อง Pantry ออฟฟิศอย่างโดดเดี่ยว...",
           pArt: "pantry_cry",
           choices: [
-            {
-              text: "ไล่เช็ก Environment Variables, OS Architecture และ Network Port อย่างละเอียด",
-              stats: { skill: 15, energy: -12, sanity: 2, karma: 8 },
-              cost: 0,
-              hint: "+15 ทักษะ · เข้าใจ DevOps · แก้ปัญหาตรงจุด",
-              feedback: "พบสาเหตุว่าลืมตั้งค่า Config ใน Dockerfile พอแก้แล้วระบบรันได้นิ่งสนิท"
-            },
-            {
-              text: "ไปขอความช่วยเหลือจากพี่ทีม DevOps พร้อมจดวิธีแก้ปัญหาอย่างตั้งใจ",
-              stats: { skill: 12, energy: -8, sanity: 8, karma: 14 },
-              cost: 0,
-              hint: "+14 บารมี · ได้คอนเนกชันทีม DevOps · งานเดินหน้า",
-              feedback: "พี่ DevOps ชมว่าเด็กฝึกงานคนนี้ตั้งใจเรียนรู้ แถมสอนเคล็ดลับ CI/CD ให้ฟรีๆ"
-            },
-            {
-              text: "พูดประโยคคลาสสิก: 'บนเครื่องผมรันผ่านนะพี่ ไม่รู้ทำไมขึ้น Server แล้วพัง'",
-              stats: { skill: 0, energy: -5, sanity: -8, karma: -12 },
-              cost: 0,
-              hint: "ประโยคต้องห้ามของโปรแกรมเมอร์ · -12 บารมี",
-              feedback: "พี่ DevOps ถอนหายใจ: 'งั้นน้องต้องย้ายไปนอนใน Server แล้วล่ะครับ'"
-            }
-          ]
+          {
+                    text: "ประหยัดขั้นสุด กินบะหมี่กึ่งสำเร็จรูปและกาแฟฟรีใน Pantry วางแผนค่าใช้จ่ายใหม่รัดกุมจนถึงสิ้นเดือน",
+                    stats: {
+                              skill: 6,
+                              energy: -10,
+                              sanity: -5,
+                              karma: 8
+                    },
+                    cost: -40,
+                    hint: "อดทนเพื่อเป้าหมาย · รักษาวินัยการเงิน · เอาตัวรอดได้จริง",
+                    feedback: "คุณควบคุมค่าใช้จ่ายได้อย่างรัดกุม แม้จะเบื่อรสชาติต้มยำกุ้งไปบ้างแต่ก็ประคองตัวผ่านสัปดาห์ยากลำบากมาได้"
+          },
+          {
+                    text: "ทำตัวเป็นน้องเล็กที่น่ารัก อาสาช่วยงานพี่ๆ อย่างขยันขันแข็ง จนพี่ๆ ในแผนกเอ็นดูชวนไปกินข้าวเที่ยงและเลี้ยงอาหาร",
+                    stats: {
+                              skill: 8,
+                              energy: -5,
+                              sanity: 18,
+                              karma: 20
+                    },
+                    cost: 0,
+                    hint: "+18 ความสุข · พลังแห่งความอ่อนน้อมถ่อมตน · ได้อิ่มท้องฟรี",
+                    feedback: "พี่ๆ ในทีมเห็นความตั้งใจเลยชวนไปเลี้ยงข้าวเที่ยงและขนมตลอดทั้งสัปดาห์ ประหยัดเงินแถมได้ความอบอุ่นใจล้นหลาม"
+          },
+          {
+                    text: "หน้าใหญ่ใจป้ำ ไม่อยากให้ใครรู้ว่าเงินหมด รูดบัตรกดเงินสดหรือยืมเงินเพื่อนร่วมงาน 2,000 บาทมาใช้จ่ายฟุ่มเฟือย",
+                    stats: {
+                              skill: -2,
+                              energy: 0,
+                              sanity: -30,
+                              karma: -25
+                    },
+                    cost: 2000,
+                    hint: "⚠️ กับดักหนี้สิน · เสียภาพลักษณ์ในที่ทำงาน",
+                    feedback: "ดอกเบี้ยเงินกู้และบรรยากาศอึดอัดเวลาเจอหน้าเพื่อนที่ยืมเงิน ทำให้ความเครียดพุ่งสูงจนไม่มีสมาธิทำงาน"
+          }
+]
         },
         {
           week: 10,
@@ -2060,30 +2285,45 @@
           researchDetail: "วิจัย IEEE TSE (Bacchelli & Beller) ชี้ว่า Code Review ก่อให้เกิด Emotional Toll หากเน้นจับผิดส่วนบุคคล การแยกอัตตา (Egoless Programming) และมองเป็นความรู้ช่วยพัฒนาทักษะได้เร็วที่สุด",
           title: "อุปสรรคสัปดาห์ที่ 11: 'โดนสับเละกลาง Code Review น้ำตาซึมในห้องน้ำ'",
           intro: "Senior ระดับโหดสับโค้ดของคุณแบบไม่ไว้หน้าใน Pull Request 45 จุด บอกว่า 'โค้ดแบบนี้เด็ก ม.ปลาย ยังเขียนดีกว่า' คุณเดินเข้าห้องน้ำออฟฟิศแล้วน้ำตาไหลออกมาเอง...",
-          pArt: "pantry_cry",
+          pArt: "conflict",
           choices: [
-            {
-              text: "เขียน Unit Test คลุมฟังก์ชันเดิมให้ครบก่อน แล้วค่อยแยกเป็นโมดูลย่อย",
-              stats: { skill: 20, energy: -18, sanity: 0, karma: 12 },
-              cost: 0,
-              hint: "+20 ทักษะ · มาตรฐานระดับ Senior · โค้ดเสถียร",
-              feedback: "คุณทำได้ยอดเยี่ยม! โค้ดสะอาดขึ้น 70% แถมเทสต์ผ่านฉลุยทั้งระบบ เป็นผลงานชิ้นโบว์แดง"
-            },
-            {
-              text: "ลบของเก่าแล้วเขียนใหม่หมดตามใจตัวเองโดยไม่รันเทสต์เดิม",
-              stats: { skill: 5, energy: -15, sanity: -15, karma: -15 },
-              cost: 0,
-              hint: "เสี่ยง Edge Case หลุด · เกิดบั๊กซ่อนเร้น",
-              feedback: "ของใหม่ดูสวย แต่ฟังก์ชันพิเศษสำหรับลูกค้ารายใหญ่พังยับเยิน ต้องย้อนโค้ดกลับมาแก้ใหม่"
-            },
-            {
-              text: "ขอคำแนะนำและโครงสร้างสถาปัตยกรรมจาก Senior ก่อนเริ่มลงมือ",
-              stats: { skill: 14, energy: -10, sanity: 8, karma: 15 },
-              cost: 0,
-              hint: "+14 ทักษะ · +15 บารมี · ได้เรียนรู้จากผู้มีประสบการณ์",
-              feedback: "Senior พอใจมากและสละเวลาวาด Diagram อธิบายตรรกะระบบให้ฟังอย่างละเอียด"
-            }
-          ]
+          {
+                    text: "ล้างหน้าเรียกสติ แยกแยะ 'ข้อเท็จจริงทางเทคนิค' ออกจาก 'อารมณ์' ปรับแก้ตามคำแนะนำและขอคำอธิบายจุดที่ยังไม่เข้าใจอย่างสุภาพ",
+                    stats: {
+                              skill: 20,
+                              energy: -15,
+                              sanity: 8,
+                              karma: 16
+                    },
+                    cost: 0,
+                    hint: "+20 ทักษะ · เติบโตแบบมืออาชีพ · เปลี่ยนคำติเป็นพลัง",
+                    feedback: "Senior เห็นความใจสู้และความละเอียดในการแก้ จึงปรับท่าทีมาชื่นชมว่าคุณเป็นเด็กที่มี Growth Mindset สูงมาก"
+          },
+          {
+                    text: "พิมพ์คอมเมนต์โต้เถียงกลับใต้ PR ทุกจุด: 'เครื่องผมรันผ่าน ไม่มีบั๊ก ทำไมต้องเขียนตามทฤษฎีจ๋าขนาดนั้น?'",
+                    stats: {
+                              skill: 0,
+                              energy: -20,
+                              sanity: -20,
+                              karma: -25
+                    },
+                    cost: 0,
+                    hint: "⚠️ อีโก้สูง · ปะทะกับผู้ใหญ่ · เสี่ยงโดนแบน PR",
+                    feedback: "Senior แท็ก Tech Lead เข้ามาดูข้อพิพาท ผลคือคุณโดนเทศนายาวเรื่อง Clean Code และมารยาทการรีวิวโค้ด"
+          },
+          {
+                    text: "แกล้งทำเป็นเห็นด้วยแต่แอบกด Resolve Conversation ทิ้งโดยไม่ยอมแก้โค้ดจริง",
+                    stats: {
+                              skill: -5,
+                              energy: -5,
+                              sanity: -30,
+                              karma: -35
+                    },
+                    cost: 0,
+                    hint: "⚠️ ขาดจรรยาบรรณวิศวกร · เสี่ยงทำระบบพัง",
+                    feedback: "ก่อน Merge โค้ด Senior ตรวจพบว่าคุณลักไก่ ความน่าเชื่อถือของคุณในทีมพังทลายลงทันที"
+          }
+]
         },
         {
           week: 12,
@@ -2155,28 +2395,43 @@
           intro: "เห็นเพื่อนร่วมทีมเขียนโค้ดได้อย่างรวดเร็วและคุยศัพท์เทคนิคลึกๆ คล่องแคล่ว คุณเริ่มตั้งคำถามกับตัวเองในกระจกว่า 'เราเก่งพอจริงๆ ไหม หรือเราแค่ฟลุ๊กที่ผ่านเข้ามาได้?'",
           pArt: "circle",
           choices: [
-            {
-              text: "เปิดใจยอมรับทุกข้อคิดเห็น นั่งปรับโค้ดและจดสรุปเป็นความรู้ส่วนตัว",
-              stats: { skill: 22, energy: -12, sanity: 8, karma: 18 },
-              cost: 0,
-              hint: "+22 ทักษะ · ได้รับความเอ็นดูจาก Senior · ยกระดับฝีมือ",
-              feedback: "Senior เห็นความตั้งใจของคุณ เลยมานั่งประกบสอนเคล็ดลับลึกๆ ให้เป็นการส่วนตัว!"
-            },
-            {
-              text: "เถียงกลับทุกจุดว่าแบบเดิมก็ทำงานได้ ทำไมต้องเขียนให้เรื่องมาก",
-              stats: { skill: -5, energy: -10, sanity: -15, karma: -22 },
-              cost: 0,
-              hint: "ทัศนคติลบ · -22 บารมี",
-              feedback: "บรรยากาศในทีมตึงเครียด Senior มองว่าคุณไม่พร้อมเรียนรู้และปิดรับคำติชม"
-            },
-            {
-              text: "แก้เฉพาะจุดสีแดง จุดสีเหลืองที่เป็นคำแนะนำขอข้ามไปก่อน",
-              stats: { skill: 8, energy: -5, sanity: 5, karma: 5 },
-              cost: 0,
-              hint: "ผ่านเกณฑ์พอดี · ประหยัดแรง",
-              feedback: "โค้ดผ่านเข้า Develop ได้แบบเฉียดฉิว แม้จะยังไม่เพอร์เฟกต์ที่สุด"
-            }
-          ]
+          {
+                    text: "ขอนัดคุย 1-on-1 กับพี่เลี้ยงหรือ Manager เปิดใจเล่าความกังวลอย่างตรงไปตรงมาเพื่อขอฟีดแบ็กจริงตามเนื้องาน",
+                    stats: {
+                              skill: 14,
+                              energy: -10,
+                              sanity: 22,
+                              karma: 16
+                    },
+                    cost: 0,
+                    hint: "+22 ความสุข · เคลียร์ปมในใจ · ผู้บริหารเข้าใจและให้กำลังใจ",
+                    feedback: "พี่เลี้ยงแชร์ว่าตอนเริ่มงานใหม่ๆ พี่ก็เป็นเหมือนกัน พร้อมชี้ให้เห็นว่าคุณเติบโตขึ้นมากแค่ไหนนับตั้งแต่วันแรก"
+          },
+          {
+                    text: "หยุดเปรียบเทียบตัวเองกับคนอื่น ทบทวนบันทึกสิ่งที่เราทำสำเร็จนับตั้งแต่วันแรก และพักผ่อนเติมพลังให้เต็มที่",
+                    stats: {
+                              skill: 8,
+                              energy: 15,
+                              sanity: 20,
+                              karma: 8
+                    },
+                    cost: 0,
+                    hint: "+20 ความสุข · ฟื้นฟูพลังใจ · ก้าวต่อไปด้วยความมั่นใจ",
+                    feedback: "เมื่อมองย้อนกลับไปดูโปรเจกต์ที่ทำเสร็จ คุณพบว่าตัวเองมาไกลมาก ความมั่นใจและความสุขในการทำงานจึงกลับคืนมา"
+          },
+          {
+                    text: "หมกมุ่นไถกระทู้ Pantip 'เด็กฝึกงานไม่เก่งควรลาออกไหม' ขังตัวเองอยู่กับความเครียด ไม่กล้าถามใครเพราะกลัวดูโง่",
+                    stats: {
+                              skill: -5,
+                              energy: -15,
+                              sanity: -30,
+                              karma: -15
+                    },
+                    cost: 0,
+                    hint: "⚠️ บ่อนทำลายสุขภาพจิต · จมดิ่งสู่ความท้อแท้",
+                    feedback: "ความกังวลกัดกินพลังงานจนงานชะงัก พี่ๆ เริ่มสังเกตเห็นว่าคุณดูหมดไฟและถอยห่างจากทีมไปเรื่อยๆ"
+          }
+]
         },
         {
           week: 15,
@@ -2362,7 +2617,7 @@
             researchDetail: "การสูญหายของ Design Assets ก่อน Demo บีบให้ต้องจัดลำดับความสำคัญ (Triage) การส่งมอบ Core Flow สำคัญกว่าความสมบูรณ์แบบของ UI ทั้งหมด",
             title: "วิกฤตลืมเปิด Auto-save: ไฟล์ Design System หลักของบริษัทหายวับ!",
             intro: "Figma เด้งปิดตัวเองเพราะแคชเต็ม Component และ Design Tokens 2,000 ชิ้นที่คุณนั่งทำมาทั้งเดือนหายไป!",
-            pArt: "terminal",
+            pArt: "design_ui",
             choices: [
               {
                 text: "ตั้งสติ เช็ก Version History บน Cloud ย้อนดึงเวอร์ชันล่าสุดแล้วปั่นซ่อมส่วนที่ขาด",
